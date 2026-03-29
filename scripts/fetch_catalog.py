@@ -5,17 +5,14 @@ from urllib.request import Request, urlopen
 
 CATALOG_DIR = "docs/data/catalog"
 LATEST_INDEX = "docs/data/satellites.json"
-
 CELESTRAK_ACTIVE_JSON = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=json"
 
 os.makedirs(CATALOG_DIR, exist_ok=True)
-
 
 def fetch_json(url: str):
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urlopen(req, timeout=180) as resp:
         return json.loads(resp.read().decode("utf-8"))
-
 
 def cleanup_old_files(folder: str, days: int = 30):
     cutoff = datetime.now(timezone.utc) - timedelta(days=days)
@@ -31,7 +28,6 @@ def cleanup_old_files(folder: str, days: int = 30):
         except Exception as e:
             print(f"Skip cleanup for {path}: {e}")
 
-
 def build_satellite_index(rows):
     out = []
     for r in rows:
@@ -46,9 +42,11 @@ def build_satellite_index(rows):
     out.sort(key=lambda x: x["norad_id"])
     return out
 
-
 def main():
     rows = fetch_json(CELESTRAK_ACTIVE_JSON)
+    if not isinstance(rows, list) or len(rows) == 0:
+        raise SystemExit("CelesTrak catalog fetch returned no rows.")
+
     now = datetime.now(timezone.utc)
     stamp = now.strftime("%Y-%m-%dT%H%MZ")
     snap_path = os.path.join(CATALOG_DIR, f"active_{stamp}.json")
@@ -65,7 +63,6 @@ def main():
     print(f"Snapshot rows: {len(rows)}")
     print(f"Wrote snapshot: {snap_path}")
     print(f"Wrote satellite index: {LATEST_INDEX}")
-
 
 if __name__ == "__main__":
     main()
