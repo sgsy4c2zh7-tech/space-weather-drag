@@ -1,15 +1,13 @@
-name: Update Satellite Catalog and NOAA Data
+name: FULL REBUILD SAT HISTORY
 
 on:
   workflow_dispatch:
-  schedule:
-    - cron: "10 0,4,8,12,16,20 * * *"
 
 permissions:
   contents: write
 
 jobs:
-  update:
+  rebuild:
     runs-on: ubuntu-latest
     timeout-minutes: 30
 
@@ -35,6 +33,10 @@ jobs:
           mkdir -p docs/data/noaa
           mkdir -p scripts
 
+      - name: Clean old sat_history json
+        run: |
+          find docs/data/sat_history -maxdepth 1 -name "*.json" ! -name ".gitkeep" -delete || true
+
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
@@ -44,17 +46,23 @@ jobs:
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
-      - name: Show generated counts
+      - name: Debug generated files
         run: |
-          echo "sat_history count:"
+          echo "===== catalog files ====="
+          find docs/data/catalog -maxdepth 1 -name "*.json" | sort | tail -5
+
+          echo "===== sat_history count ====="
           find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
-          echo "catalog count:"
-          find docs/data/catalog -maxdepth 1 -name "*.json" | wc -l
+
+          echo "===== sat_history sample ====="
+          find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
+
+          test $(find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l) -gt 100 || (echo "sat_history generation failed or too few files" && exit 1)
 
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
-          git commit -m "Update satellite catalog, histories, and NOAA data" || echo "No changes to commit"
+          git commit -m "Full rebuild satellite histories and NOAA data" || echo "No changes to commit"
           git push
