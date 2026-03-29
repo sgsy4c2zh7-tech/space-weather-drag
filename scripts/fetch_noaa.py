@@ -8,15 +8,20 @@ os.makedirs(OUT_DIR, exist_ok=True)
 
 SWPC_KP_OBS = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 SWPC_KP_FCST = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json"
+SWPC_DST = "https://services.swpc.noaa.gov/products/kyoto-dst.json"
+SWPC_EST_KP_1M = "https://services.swpc.noaa.gov/products/noaa-estimated-planetary-k-index-1-minute.json"
+
 
 def fetch_json(url: str):
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urlopen(req, timeout=60) as resp:
         return json.loads(resp.read().decode("utf-8"))
 
+
 def write_json(path: str, payload):
     with open(path, "w", encoding="utf-8") as f:
         json.dump(payload, f, ensure_ascii=False, indent=2)
+
 
 def normalize_kp(raw):
     out = []
@@ -26,7 +31,11 @@ def normalize_kp(raw):
                 t = str(row[0]).replace(" ", "T")
                 if not t.endswith("Z") and "+" not in t:
                     t += "Z"
-                out.append({"time_tag": t, "kp_index": float(row[1])})
+                try:
+                    v = float(row[1])
+                except Exception:
+                    continue
+                out.append({"time_tag": t, "kp_index": v})
     elif isinstance(raw, list) and raw and isinstance(raw[0], dict):
         for item in raw:
             t = item.get("time_tag") or item.get("timeTag")
@@ -35,33 +44,86 @@ def normalize_kp(raw):
                 t = str(t).replace(" ", "T")
                 if not t.endswith("Z") and "+" not in t:
                     t += "Z"
-                out.append({"time_tag": t, "kp_index": float(v)})
+                try:
+                    v = float(v)
+                except Exception:
+                    continue
+                out.append({"time_tag": t, "kp_index": v})
     return out
+
+
+def normalize_dst(raw):
+    out = []
+    if isinstance(raw, list) and raw and isinstance(raw[0], list):
+        for row in raw[1:]:
+            if len(row) >= 2:
+                t = str(row[0]).replace(" ", "T")
+                if not t.endswith("Z") and "+" not in t:
+                    t += "Z"
+                try:
+                    v = float(row[1])
+                except Exception:
+                    continue
+                out.append({"time_tag": t, "dst": v})
+    elif isinstance(raw, list) and raw and isinstance(raw[0], dict):
+        for item in raw:
+            t = item.get("time_tag") or item.get("timeTag")
+            v = item.get("dst")
+            if t is None or v is None:
+                continue
+            t = str(t).replace(" ", "T")
+            if not t.endswith("Z") and "+" not in t:
+                t += "Z"
+            try:
+                v = float(v)
+            except Exception:
+                continue
+            out.append({"time_tag": t, "dst": v})
+    return out
+
 
 def main():
     kp_obs = normalize_kp(fetch_json(SWPC_KP_OBS))
     kp_fcst = normalize_kp(fetch_json(SWPC_KP_FCST))
+    dst = normalize_dst(fetch_json(SWPC_DST))
+    est_kp = normalize_kp(fetch_json(SWPC_EST_KP_1M))
 
     write_json(os.path.join(OUT_DIR, "kp_observed.json"), {
         "source": "NOAA/SWPC",
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "data": kp_obs
+        "data": kp_obs,
     })
 
     write_json(os.path.join(OUT_DIR, "kp_forecast.json"), {
         "source": "NOAA/SWPC",
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "data": kp_fcst
+        "data": kp_fcst,
     })
 
+    write_json(os.path.join(OUT_DIR, "dst.json"), {
+        "source": "NOAA/SWPC",
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "data": dst,
+    })
+
+    write_json(os.path.join(OUT_DIR, "kp_estimated_1m.json"), {
+        "source": "NOAA/SWPC",
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "data": est_kp,
+    })
+
+    # AE は NOAA/NCEI 実装前のプレースホルダ
     write_json(os.path.join(OUT_DIR, "ae_observed.json"), {
         "source": "NOAA/NCEI",
         "updated_at": datetime.now(timezone.utc).isoformat(),
-        "data": []
+        "data": [],
     })
 
     print(f"kp_observed: {len(kp_obs)}")
     print(f"kp_forecast: {len(kp_fcst)}")
+    print(f"dst: {len(dst)}")
+    print(f"kp_estimated_1m: {len(est_kp)}")
+
 
 if __name__ == "__main__":
     main()
