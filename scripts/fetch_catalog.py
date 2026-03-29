@@ -1,66 +1,73 @@
-name: SPACE WEATHER DRAG FULL STACK
+import json
+import os
+from datetime import datetime, timezone, timedelta
+from urllib.request import Request, urlopen
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "10 */3 * * *"
+CATALOG_DIR = "docs/data/catalog"
+LATEST_INDEX = "docs/data/satellites.json"
+CELESTRAK_ACTIVE_JSON = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=json"
 
-permissions:
-  contents: write
+os.makedirs(CATALOG_DIR, exist_ok=True)
 
-jobs:
-  rebuild:
-    runs-on: ubuntu-latest
-    timeout-minutes: 45
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+def fetch_json(url: str):
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urlopen(req, timeout=180) as resp:
+        return json.loads(resp.read().decode("utf-8"))
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests numpy scipy sgp4 pymsis
+def cleanup_old_files(folder: str, days: int = 30):
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    for name in os.listdir(folder):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(folder, name)
+        try:
+            mtime = datetime.fromtimestamp(os.path.getmtime(path), tz=timezone.utc)
+            if mtime < cutoff:
+                os.remove(path)
+                print(f"Deleted old snapshot: {path}")
+        except Exception as e:
+            print(f"Skip cleanup for {path}: {e}")
 
-      - name: Prepare folders
-        run: |
-          mkdir -p docs/data
-          mkdir -p docs/data/catalog
-          mkdir -p docs/data/sat_history
-          mkdir -p docs/data/noaa
-          mkdir -p docs/data/analysis
-          mkdir -p scripts
 
-      - name: Fetch full CelesTrak catalog snapshot
-        run: python scripts/fetch_catalog.py
+def build_satellite_index(rows):
+    out = []
+    for r in rows:
+        norad = r.get("NORAD_CAT_ID")
+        name = r.get("OBJECT_NAME")
+        if norad is None:
+            continue
+        out.append({
+            "norad_id": int(norad),
+            "name": name or f"NORAD-{norad}",
+        })
+    out.sort(key=lambda x: x["norad_id"])
+    return out
 
-      - name: Fetch NOAA data
-        run: python scripts/fetch_noaa.py
 
-      - name: Rebuild satellite histories from all snapshots
-        run: python scripts/build_sat_history.py
+def main():
+    rows = fetch_json(CELESTRAK_ACTIVE_JSON)
+    if not isinstance(rows, list) or len(rows) == 0:
+        raise SystemExit("CelesTrak catalog fetch returned no rows.")
 
-      - name: Build advanced analysis for selected satellites
-        run: python scripts/build_drag_analysis.py
+    now = datetime.now(timezone.utc)
+    stamp = now.strftime("%Y-%m-%dT%H%MZ")
+    snap_path = os.path.join(CATALOG_DIR, f"active_{stamp}.json")
 
-      - name: Show generated counts
-        run: |
-          echo "sat_history json count:"
-          find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
-          echo "analysis json count:"
-          find docs/data/analysis -maxdepth 1 -name "*.json" | wc -l
-          echo "sample sat_history files:"
-          find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
+    with open(snap_path, "w", encoding="utf-8") as f:
+        json.dump(rows, f, ensure_ascii=False, indent=2)
 
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data
-          git commit -m "Update catalog, histories, NOAA, and drag analysis" || echo "No changes to commit"
-          git push
+    sat_index = build_satellite_index(rows)
+    with open(LATEST_INDEX, "w", encoding="utf-8") as f:
+        json.dump(sat_index, f, ensure_ascii=False, indent=2)
+
+    cleanup_old_files(CATALOG_DIR, days=30)
+
+    print(f"Snapshot rows: {len(rows)}")
+    print(f"Wrote snapshot: {snap_path}")
+    print(f"Wrote satellite index: {LATEST_INDEX}")
+
+
+if __name__ == "__main__":
+    main()
