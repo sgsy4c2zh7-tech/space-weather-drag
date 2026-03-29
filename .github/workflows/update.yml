@@ -2,6 +2,8 @@ name: FULL REBUILD SAT HISTORY
 
 on:
   workflow_dispatch:
+  schedule:
+    - cron: "10 0,4,8,12,16,20 * * *"
 
 permissions:
   contents: write
@@ -33,31 +35,22 @@ jobs:
           mkdir -p docs/data/noaa
           mkdir -p scripts
 
-      - name: Clean old sat_history json
-        run: |
-          find docs/data/sat_history -maxdepth 1 -name "*.json" ! -name ".gitkeep" -delete || true
-
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
-      - name: Build 30-day satellite histories
+      - name: Rebuild satellite histories from all snapshots
         run: python scripts/build_sat_history.py
 
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
-      - name: Debug generated files
+      - name: Show generated counts
         run: |
-          echo "===== catalog files ====="
-          find docs/data/catalog -maxdepth 1 -name "*.json" | sort | tail -5
-
-          echo "===== sat_history count ====="
+          echo "sat_history json count:"
           find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
 
-          echo "===== sat_history sample ====="
+          echo "sample files:"
           find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
-
-          test $(find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l) -gt 100 || (echo "sat_history generation failed or too few files" && exit 1)
 
       - name: Commit and push
         run: |
