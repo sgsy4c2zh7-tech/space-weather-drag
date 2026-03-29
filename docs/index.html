@@ -2,7 +2,8 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Space Weather Drag</title>
+  <title>Satellite Viewer</title>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 </head>
 <body>
 
@@ -11,17 +12,55 @@
 <input id="norad" value="25544">
 <button onclick="loadData()">表示</button>
 
-<pre id="out">ここにデータが出る</pre>
+<canvas id="chart" width="800" height="400"></canvas>
 
 <script>
+let chart;
+
 async function loadData() {
   const id = document.getElementById("norad").value;
 
   const res = await fetch(`data/${id}.json`);
   const data = await res.json();
 
-  document.getElementById("out").textContent =
-    JSON.stringify(data, null, 2);
+  const labels = data.history.map(h => h.epoch);
+  const apogee = data.history.map(h => h.apogee_km);
+  const perigee = data.history.map(h => h.perigee_km);
+
+  // 前のグラフ削除
+  if (chart) {
+    chart.destroy();
+  }
+
+  chart = new Chart(document.getElementById("chart"), {
+    type: 'line',
+    data: {
+      labels: labels,
+      datasets: [
+        {
+          label: 'Apogee (km)',
+          data: apogee,
+          borderWidth: 2
+        },
+        {
+          label: 'Perigee (km)',
+          data: perigee,
+          borderWidth: 2
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      scales: {
+        y: {
+          title: {
+            display: true,
+            text: 'Altitude (km)'
+          }
+        }
+      }
+    }
+  });
 }
 </script>
 
