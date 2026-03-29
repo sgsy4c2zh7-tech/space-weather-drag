@@ -1,5 +1,34 @@
 {
   "norad_id": 40730,
   "name": "NAVSTAR 74 (USA 262)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-27T22:49:04.798272",
+      "apogee_km": 20487.576410968595,
+      "perigee_km": 19877.42438622256,
+      "latitude_deg": -29.559352273082347,
+      "longitude_deg": 48.2719980799593,
+      "semi_major_axis_km": 26560.637398595576,
+      "eccentricity": 0.01148602,
+      "inclination_deg": 54.0472,
+      "raan_deg": 270.4335,
+      "arg_perigee_deg": 29.465,
+      "mean_anomaly_deg": 331.1739,
+      "mean_motion_rev_day": 2.00560324
+    },
+    {
+      "epoch": "2026-03-28T22:45:00.027072",
+      "apogee_km": 20487.603535025286,
+      "perigee_km": 19877.404678368257,
+      "latitude_deg": 17.61402912243049,
+      "longitude_deg": 144.00003007985651,
+      "semi_major_axis_km": 26560.64110669677,
+      "eccentricity": 0.0114869,
+      "inclination_deg": 54.0465,
+      "raan_deg": 270.3923,
+      "arg_perigee_deg": 29.4809,
+      "mean_anomaly_deg": 331.1549,
+      "mean_motion_rev_day": 2.00560282
+    }
+  ]
 }

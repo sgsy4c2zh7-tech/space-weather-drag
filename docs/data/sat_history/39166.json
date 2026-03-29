@@ -1,5 +1,34 @@
 {
   "norad_id": 39166,
   "name": "NAVSTAR 68 (USA 242)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-27T21:57:27.416160",
+      "apogee_km": 20559.182833756597,
+      "perigee_km": 19805.181062566877,
+      "latitude_deg": -28.012737346756907,
+      "longitude_deg": -111.56953759980388,
+      "semi_major_axis_km": 26560.318948161734,
+      "eccentricity": 0.01419414,
+      "inclination_deg": 54.5687,
+      "raan_deg": 272.2822,
+      "arg_perigee_deg": 50.2899,
+      "mean_anomaly_deg": 310.9532,
+      "mean_motion_rev_day": 2.00563931
+    },
+    {
+      "epoch": "2026-03-28T21:53:21.271200",
+      "apogee_km": 20559.16998321505,
+      "perigee_km": 19805.191617686534,
+      "latitude_deg": 15.741166887349712,
+      "longitude_deg": -15.843031999887899,
+      "semi_major_axis_km": 26560.31780045079,
+      "eccentricity": 0.0141937,
+      "inclination_deg": 54.568,
+      "raan_deg": 272.2416,
+      "arg_perigee_deg": 50.3073,
+      "mean_anomaly_deg": 310.933,
+      "mean_motion_rev_day": 2.00563944
+    }
+  ]
 }

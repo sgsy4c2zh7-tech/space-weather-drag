@@ -1,5 +1,34 @@
 {
   "norad_id": 37748,
   "name": "SES-3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T16:00:28.272960",
+      "apogee_km": 35801.43145983215,
+      "perigee_km": 35771.40692265949,
+      "latitude_deg": -1.1185683270636806,
+      "longitude_deg": 178.8314143999014,
+      "semi_major_axis_km": 42164.55619124582,
+      "eccentricity": 0.00035604,
+      "inclination_deg": 1.1189,
+      "raan_deg": 83.9325,
+      "arg_perigee_deg": 283.8255,
+      "mean_anomaly_deg": 315.4314,
+      "mean_motion_rev_day": 1.00272412
+    },
+    {
+      "epoch": "2026-03-29T03:59:09.337920",
+      "apogee_km": 35801.53353826806,
+      "perigee_km": 35771.98437918018,
+      "latitude_deg": 0.11971159290346933,
+      "longitude_deg": -133.2562911999412,
+      "semi_major_axis_km": 42164.89595872412,
+      "eccentricity": 0.0003504,
+      "inclination_deg": 1.1204,
+      "raan_deg": 83.926,
+      "arg_perigee_deg": 285.1753,
+      "mean_anomaly_deg": 134.248,
+      "mean_motion_rev_day": 1.002712
+    }
+  ]
 }

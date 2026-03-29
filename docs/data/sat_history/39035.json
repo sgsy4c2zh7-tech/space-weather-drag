@@ -1,5 +1,34 @@
 {
   "norad_id": 39035,
   "name": "MEXSAT 3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T16:22:38.584128",
+      "apogee_km": 35790.59617338071,
+      "perigee_km": 35782.440685727524,
+      "latitude_deg": -0.008615841227513353,
+      "longitude_deg": -50.990462080109864,
+      "semi_major_axis_km": 42164.65542955412,
+      "eccentricity": 9.671e-05,
+      "inclination_deg": 0.0102,
+      "raan_deg": 188.0498,
+      "arg_perigee_deg": 165.357,
+      "mean_anomaly_deg": 323.5585,
+      "mean_motion_rev_day": 1.00272058
+    },
+    {
+      "epoch": "2026-03-29T03:18:38.644992",
+      "apogee_km": 35790.6341016252,
+      "perigee_km": 35782.310807718844,
+      "latitude_deg": -0.00994802466432176,
+      "longitude_deg": -7.2570611198898405,
+      "semi_major_axis_km": 42164.60945467203,
+      "eccentricity": 9.87e-05,
+      "inclination_deg": 0.011,
+      "raan_deg": 178.2374,
+      "arg_perigee_deg": 176.4666,
+      "mean_anomaly_deg": 126.7112,
+      "mean_motion_rev_day": 1.00272222
+    }
+  ]
 }

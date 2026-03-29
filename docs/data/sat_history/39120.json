@@ -1,5 +1,34 @@
 {
   "norad_id": 39120,
   "name": "SBIRS GEO-2 (USA 241)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:40:50.204064",
+      "apogee_km": 35796.25858849887,
+      "perigee_km": 35777.35688707181,
+      "latitude_deg": 3.4242081643611266,
+      "longitude_deg": -29.277551040053368,
+      "semi_major_axis_km": 42164.94473778534,
+      "eccentricity": 0.00022414,
+      "inclination_deg": 4.3153,
+      "raan_deg": 52.4083,
+      "arg_perigee_deg": 316.4197,
+      "mean_anomaly_deg": 62.8057,
+      "mean_motion_rev_day": 1.00271026
+    },
+    {
+      "epoch": "2026-03-29T04:14:22.877952",
+      "apogee_km": 35796.20021049402,
+      "perigee_km": 35777.116424133405,
+      "latitude_deg": 1.436966450083661,
+      "longitude_deg": 4.958753280108795,
+      "semi_major_axis_km": 42164.795317313714,
+      "eccentricity": 0.0002263,
+      "inclination_deg": 4.3161,
+      "raan_deg": 52.408,
+      "arg_perigee_deg": 315.367,
+      "mean_anomaly_deg": 192.5987,
+      "mean_motion_rev_day": 1.00271559
+    }
+  ]
 }

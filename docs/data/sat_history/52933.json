@@ -1,5 +1,34 @@
 {
   "norad_id": 52933,
   "name": "SES-22",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T17:32:49.416864",
+      "apogee_km": 35791.8737405975,
+      "perigee_km": 35780.42192083747,
+      "latitude_deg": -0.018906487629469417,
+      "longitude_deg": -96.5117590399459,
+      "semi_major_axis_km": 42164.284830717486,
+      "eccentricity": 0.0001358,
+      "inclination_deg": 0.0204,
+      "raan_deg": 96.9773,
+      "arg_perigee_deg": 269.9019,
+      "mean_anomaly_deg": 303.4439,
+      "mean_motion_rev_day": 1.0027338
+    },
+    {
+      "epoch": "2026-03-29T03:34:38.760672",
+      "apogee_km": 35791.889918150664,
+      "perigee_km": 35780.28632339743,
+      "latitude_deg": -0.022696029411929768,
+      "longitude_deg": -56.39026591996662,
+      "semi_major_axis_km": 42164.22512077405,
+      "eccentricity": 0.0001376,
+      "inclination_deg": 0.0227,
+      "raan_deg": 94.0629,
+      "arg_perigee_deg": 274.1218,
+      "mean_anomaly_deg": 93.0083,
+      "mean_motion_rev_day": 1.00273593
+    }
+  ]
 }

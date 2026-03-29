@@ -1,5 +1,34 @@
 {
   "norad_id": 39072,
   "name": "GLOBALSTAR M097",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:58:00.846048",
+      "apogee_km": 1414.0024165265213,
+      "perigee_km": 1413.2569002926448,
+      "latitude_deg": -2.0411924594463056,
+      "longitude_deg": -36.93239327985793,
+      "semi_major_axis_km": 7791.766658409583,
+      "eccentricity": 4.784e-05,
+      "inclination_deg": 52.003,
+      "raan_deg": 128.0673,
+      "arg_perigee_deg": 127.7956,
+      "mean_anomaly_deg": 232.2954,
+      "mean_motion_rev_day": 12.62260101
+    },
+    {
+      "epoch": "2026-03-29T00:40:05.465856",
+      "apogee_km": 1413.9981801644417,
+      "perigee_km": 1413.26107904128,
+      "latitude_deg": -30.21562832992411,
+      "longitude_deg": -14.12726015993394,
+      "semi_major_axis_km": 7791.76662960286,
+      "eccentricity": 4.73e-05,
+      "inclination_deg": 52.003,
+      "raan_deg": 127.3441,
+      "arg_perigee_deg": 128.0086,
+      "mean_anomaly_deg": 232.0823,
+      "mean_motion_rev_day": 12.62260108
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 58024,
   "name": "MACSAT (FINCH 1)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T17:13:48.020160",
+      "apogee_km": 507.8681607970602,
+      "perigee_km": 504.54715293458776,
+      "latitude_deg": -76.02796567943413,
+      "longitude_deg": 51.320022399770096,
+      "semi_major_axis_km": 6884.344656865824,
+      "eccentricity": 0.0002412,
+      "inclination_deg": 97.5799,
+      "raan_deg": 169.3172,
+      "arg_perigee_deg": 26.4108,
+      "mean_anomaly_deg": 333.7249,
+      "mean_motion_rev_day": 15.19878442
+    },
+    {
+      "epoch": "2026-03-29T04:17:25.904256",
+      "apogee_km": 507.83329697305453,
+      "perigee_km": 504.5357069736092,
+      "latitude_deg": -1.4190354077362133,
+      "longitude_deg": 95.56211583991535,
+      "semi_major_axis_km": 6884.321501973332,
+      "eccentricity": 0.0002395,
+      "inclination_deg": 97.5799,
+      "raan_deg": 169.78,
+      "arg_perigee_deg": 25.1305,
+      "mean_anomaly_deg": 335.0045,
+      "mean_motion_rev_day": 15.1988611
+    }
+  ]
 }

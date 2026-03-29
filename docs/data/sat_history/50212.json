@@ -1,5 +1,34 @@
 {
   "norad_id": 50212,
   "name": "TURKSAT 5B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T14:59:04.159680",
+      "apogee_km": 35808.832415612495,
+      "perigee_km": 35764.30648560065,
+      "latitude_deg": -0.06408441643336188,
+      "longitude_deg": -18.86204480007291,
+      "semi_major_axis_km": 42164.70645060657,
+      "eccentricity": 0.000528,
+      "inclination_deg": 0.078,
+      "raan_deg": 334.4024,
+      "arg_perigee_deg": 1.0493,
+      "mean_anomaly_deg": 117.3355,
+      "mean_motion_rev_day": 1.00271876
+    },
+    {
+      "epoch": "2026-03-28T20:40:38.555040",
+      "apogee_km": 35808.93956999663,
+      "perigee_km": 35764.405098377865,
+      "latitude_deg": 0.024048410823703455,
+      "longitude_deg": 3.9095055998768657,
+      "semi_major_axis_km": 42164.80933418725,
+      "eccentricity": 0.0005281,
+      "inclination_deg": 0.0787,
+      "raan_deg": 333.9601,
+      "arg_perigee_deg": 2.2442,
+      "mean_anomaly_deg": 202.2097,
+      "mean_motion_rev_day": 1.00271509
+    }
+  ]
 }

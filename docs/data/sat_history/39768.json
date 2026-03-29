@@ -1,5 +1,34 @@
 {
   "norad_id": 39768,
   "name": "SOCRATES",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:59:05.499456",
+      "apogee_km": 587.6026733247563,
+      "perigee_km": 580.4880191851189,
+      "latitude_deg": 82.25987204358027,
+      "longitude_deg": 36.73944383999333,
+      "semi_major_axis_km": 6962.182346254937,
+      "eccentricity": 0.00051095,
+      "inclination_deg": 97.8967,
+      "raan_deg": 200.7326,
+      "arg_perigee_deg": 239.8551,
+      "mean_anomaly_deg": 120.2163,
+      "mean_motion_rev_day": 14.94461294
+    },
+    {
+      "epoch": "2026-03-29T04:01:10.055136",
+      "apogee_km": 587.6056255224394,
+      "perigee_km": 580.4638297642232,
+      "latitude_deg": 32.26935677074479,
+      "longitude_deg": 68.87783904001117,
+      "semi_major_axis_km": 6962.171727643331,
+      "eccentricity": 0.0005129,
+      "inclination_deg": 97.8967,
+      "raan_deg": 201.0694,
+      "arg_perigee_deg": 238.5487,
+      "mean_anomaly_deg": 121.5231,
+      "mean_motion_rev_day": 14.94464713
+    }
+  ]
 }

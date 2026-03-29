@@ -1,5 +1,34 @@
 {
   "norad_id": 37605,
   "name": "GSAT-8",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:53:32.205984",
+      "apogee_km": 35813.95405959243,
+      "perigee_km": 35758.469992708924,
+      "latitude_deg": 1.5046485791174198,
+      "longitude_deg": -171.9308822399471,
+      "semi_major_axis_km": 42164.34902615068,
+      "eccentricity": 0.00065795,
+      "inclination_deg": 1.9242,
+      "raan_deg": 82.7914,
+      "arg_perigee_deg": 219.7093,
+      "mean_anomaly_deg": 267.2709,
+      "mean_motion_rev_day": 1.00273151
+    },
+    {
+      "epoch": "2026-03-29T03:01:37.358112",
+      "apogee_km": 35813.87483750516,
+      "perigee_km": 35758.63948115643,
+      "latitude_deg": -1.7792330953251891,
+      "longitude_deg": -151.3918243199587,
+      "semi_major_axis_km": 42164.3941593308,
+      "eccentricity": 0.000655,
+      "inclination_deg": 1.9248,
+      "raan_deg": 82.7894,
+      "arg_perigee_deg": 220.1258,
+      "mean_anomaly_deg": 344.0892,
+      "mean_motion_rev_day": 1.0027299
+    }
+  ]
 }

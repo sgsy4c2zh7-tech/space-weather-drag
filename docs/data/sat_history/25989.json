@@ -1,5 +1,34 @@
 {
   "norad_id": 25989,
   "name": "XMM-NEWTON",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T13:41:28.915584",
+      "apogee_km": 92031.53269584353,
+      "perigee_km": 29087.213317414822,
+      "latitude_deg": 64.75747919243331,
+      "longitude_deg": 73.6654617600143,
+      "semi_major_axis_km": 66937.51000662918,
+      "eccentricity": 0.47017225,
+      "inclination_deg": 64.8899,
+      "raan_deg": 284.0244,
+      "arg_perigee_deg": 66.3715,
+      "mean_anomaly_deg": 0.0623,
+      "mean_motion_rev_day": 0.50130084
+    },
+    {
+      "epoch": "2026-03-30T13:33:06.994656",
+      "apogee_km": 92023.81321848629,
+      "perigee_km": 29093.642043297437,
+      "latitude_deg": 59.047795319829426,
+      "longitude_deg": -94.89222816005349,
+      "semi_major_axis_km": 66936.86463089187,
+      "eccentricity": 0.4700711,
+      "inclination_deg": 64.8793,
+      "raan_deg": 283.9987,
+      "arg_perigee_deg": 66.3287,
+      "mean_anomaly_deg": 0.0213,
+      "mean_motion_rev_day": 0.50130809
+    }
+  ]
 }

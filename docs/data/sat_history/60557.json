@@ -1,5 +1,34 @@
 {
   "norad_id": 60557,
   "name": "TROOP-F2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:14:56.419872",
+      "apogee_km": 340.44670886641325,
+      "perigee_km": 336.42012490149136,
+      "latitude_deg": -82.3627673903909,
+      "longitude_deg": -51.303977919975296,
+      "semi_major_axis_km": 6716.570416883952,
+      "eccentricity": 0.00029975,
+      "inclination_deg": 97.3548,
+      "raan_deg": 179.785,
+      "arg_perigee_deg": 207.8081,
+      "mean_anomaly_deg": 152.3025,
+      "mean_motion_rev_day": 15.77180517
+    },
+    {
+      "epoch": "2026-03-29T04:54:26.301312",
+      "apogee_km": 339.7517313016624,
+      "perigee_km": 335.8135160343436,
+      "latitude_deg": -40.653863193340705,
+      "longitude_deg": -8.67077632015571,
+      "semi_major_axis_km": 6715.919623668003,
+      "eccentricity": 0.0002932,
+      "inclination_deg": 97.3545,
+      "raan_deg": 180.2568,
+      "arg_perigee_deg": 207.9855,
+      "mean_anomaly_deg": 152.1254,
+      "mean_motion_rev_day": 15.77409773
+    }
+  ]
 }

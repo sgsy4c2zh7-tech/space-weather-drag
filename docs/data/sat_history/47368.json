@@ -1,5 +1,34 @@
 {
   "norad_id": 47368,
   "name": "STARLINK-2084",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:12:36.542304",
+      "apogee_km": 476.2520442982459,
+      "perigee_km": 474.1483439131425,
+      "latitude_deg": -39.86780972541486,
+      "longitude_deg": 77.6406025600154,
+      "semi_major_axis_km": 6853.337194105694,
+      "eccentricity": 0.00015348,
+      "inclination_deg": 53.161,
+      "raan_deg": 333.5478,
+      "arg_perigee_deg": 98.7109,
+      "mean_anomaly_deg": 261.4065,
+      "mean_motion_rev_day": 15.30204982
+    },
+    {
+      "epoch": "2026-03-28T23:20:42.811008",
+      "apogee_km": 476.23583466024047,
+      "perigee_km": 474.13734697673226,
+      "latitude_deg": -10.747003222244992,
+      "longitude_deg": 90.18090111995116,
+      "semi_major_axis_km": 6853.323590818486,
+      "eccentricity": 0.0001531,
+      "inclination_deg": 53.1605,
+      "raan_deg": 332.9413,
+      "arg_perigee_deg": 99.514,
+      "mean_anomaly_deg": 260.6034,
+      "mean_motion_rev_day": 15.30209538
+    }
+  ]
 }

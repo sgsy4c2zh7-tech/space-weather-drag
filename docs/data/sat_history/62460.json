@@ -1,5 +1,34 @@
 {
   "norad_id": 62460,
   "name": "SDX02",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:13:57.762912",
+      "apogee_km": 391.67603285362475,
+      "perigee_km": 384.08320900161925,
+      "latitude_deg": -13.174499596270888,
+      "longitude_deg": 150.93084767996334,
+      "semi_major_axis_km": 6766.016620927621,
+      "eccentricity": 0.0005611,
+      "inclination_deg": 54.9959,
+      "raan_deg": 3.7533,
+      "arg_perigee_deg": 53.3824,
+      "mean_anomaly_deg": 306.7728,
+      "mean_motion_rev_day": 15.59923036
+    },
+    {
+      "epoch": "2026-03-29T03:23:02.057856",
+      "apogee_km": 391.496782578959,
+      "perigee_km": 384.00288632112097,
+      "latitude_deg": -36.151588085834334,
+      "longitude_deg": 175.5356198400259,
+      "semi_major_axis_km": 6765.88683445004,
+      "eccentricity": 0.0005538,
+      "inclination_deg": 54.996,
+      "raan_deg": 2.5615,
+      "arg_perigee_deg": 54.4859,
+      "mean_anomaly_deg": 305.6695,
+      "mean_motion_rev_day": 15.59967921
+    }
+  ]
 }

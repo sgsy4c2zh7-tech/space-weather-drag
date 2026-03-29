@@ -1,5 +1,34 @@
 {
   "norad_id": 54048,
   "name": "EUTELSAT HOTBIRD 13F",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:16:07.763808",
+      "apogee_km": 35794.96586610461,
+      "perigee_km": 35778.27115280819,
+      "latitude_deg": -0.01617540244232747,
+      "longitude_deg": 17.875293120043352,
+      "semi_major_axis_km": 42164.7555094564,
+      "eccentricity": 0.00019797,
+      "inclination_deg": 0.0557,
+      "raan_deg": 287.3241,
+      "arg_perigee_deg": 69.5197,
+      "mean_anomaly_deg": 116.3451,
+      "mean_motion_rev_day": 1.00271701
+    },
+    {
+      "epoch": "2026-03-29T02:49:33.737376",
+      "apogee_km": 35795.068416403265,
+      "perigee_km": 35778.32054533906,
+      "latitude_deg": -0.04306462338026196,
+      "longitude_deg": 52.10415264009498,
+      "semi_major_axis_km": 42164.831480871166,
+      "eccentricity": 0.0001986,
+      "inclination_deg": 0.0562,
+      "raan_deg": 286.6419,
+      "arg_perigee_deg": 69.6734,
+      "mean_anomaly_deg": 245.5828,
+      "mean_motion_rev_day": 1.0027143
+    }
+  ]
 }

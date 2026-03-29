@@ -1,5 +1,34 @@
 {
   "norad_id": 66311,
   "name": "CMS-03 (GSAT-7R)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T11:42:53.499744",
+      "apogee_km": 35801.21707191313,
+      "perigee_km": 35771.9016451229,
+      "latitude_deg": -0.02645858992804123,
+      "longitude_deg": 137.95944416010752,
+      "semi_major_axis_km": 42164.69635851802,
+      "eccentricity": 0.00034763,
+      "inclination_deg": 0.0266,
+      "raan_deg": 254.6808,
+      "arg_perigee_deg": 100.8882,
+      "mean_anomaly_deg": 80.0602,
+      "mean_motion_rev_day": 1.00271912
+    },
+    {
+      "epoch": "2026-03-29T03:06:59.343264",
+      "apogee_km": 35801.13574395333,
+      "perigee_km": 35771.94092275252,
+      "latitude_deg": 0.018243306142944525,
+      "longitude_deg": -160.43406303972006,
+      "semi_major_axis_km": 42164.67533335293,
+      "eccentricity": 0.0003462,
+      "inclination_deg": 0.0247,
+      "raan_deg": 252.685,
+      "arg_perigee_deg": 104.054,
+      "mean_anomaly_deg": 310.548,
+      "mean_motion_rev_day": 1.00271987
+    }
+  ]
 }

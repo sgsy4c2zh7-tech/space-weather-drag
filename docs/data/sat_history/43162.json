@@ -1,5 +1,34 @@
 {
   "norad_id": 43162,
   "name": "SBIRS GEO-3 (USA 282)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T15:44:22.315776",
+      "apogee_km": 35796.084522107056,
+      "perigee_km": 35776.794228415376,
+      "latitude_deg": -1.9665946382248163,
+      "longitude_deg": -0.8418713598512113,
+      "semi_major_axis_km": 42164.57637526122,
+      "eccentricity": 0.00022875,
+      "inclination_deg": 2.1351,
+      "raan_deg": 8.1663,
+      "arg_perigee_deg": 350.3426,
+      "mean_anomaly_deg": 264.2393,
+      "mean_motion_rev_day": 1.0027234
+    },
+    {
+      "epoch": "2026-03-29T03:43:03.381600",
+      "apogee_km": 35796.29517644424,
+      "perigee_km": 35776.83195066411,
+      "latitude_deg": 1.0819626718478699,
+      "longitude_deg": 47.07042399980128,
+      "semi_major_axis_km": 42164.70056355418,
+      "eccentricity": 0.0002308,
+      "inclination_deg": 2.1353,
+      "raan_deg": 8.1926,
+      "arg_perigee_deg": 352.3852,
+      "mean_anomaly_deg": 82.3318,
+      "mean_motion_rev_day": 1.00271897
+    }
+  ]
 }

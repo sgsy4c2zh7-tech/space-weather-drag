@@ -1,5 +1,34 @@
 {
   "norad_id": 32395,
   "name": "COSMOS 2436 [GLONASS-M]",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-26T07:22:42.054816",
+      "apogee_km": 19174.261205600887,
+      "perigee_km": 19085.809067899492,
+      "latitude_deg": 52.47853127549389,
+      "longitude_deg": 137.0133942400571,
+      "semi_major_axis_km": 25508.17213675019,
+      "eccentricity": 0.0017338,
+      "inclination_deg": 64.326,
+      "raan_deg": 194.7801,
+      "arg_perigee_deg": 4.3123,
+      "mean_anomaly_deg": 4.1011,
+      "mean_motion_rev_day": 2.13100149
+    },
+    {
+      "epoch": "2026-03-29T02:38:27.302208",
+      "apogee_km": 19174.2010251874,
+      "perigee_km": 19085.87132311994,
+      "latitude_deg": 62.43963790223742,
+      "longitude_deg": 46.06366911996156,
+      "semi_major_axis_km": 25508.17317415367,
+      "eccentricity": 0.0017314,
+      "inclination_deg": 64.3259,
+      "raan_deg": 194.6857,
+      "arg_perigee_deg": 4.0415,
+      "mean_anomaly_deg": 354.4199,
+      "mean_motion_rev_day": 2.13100136
+    }
+  ]
 }

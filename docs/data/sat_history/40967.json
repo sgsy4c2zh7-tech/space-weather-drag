@@ -1,5 +1,34 @@
 {
   "norad_id": 40967,
   "name": "FOX-1A (AO-85)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T15:33:56.064384",
+      "apogee_km": 685.9908822403386,
+      "perigee_km": 506.83561006738364,
+      "latitude_deg": 10.014224419045169,
+      "longitude_deg": 138.9622937599197,
+      "semi_major_axis_km": 6974.550246153861,
+      "eccentricity": 0.0128435,
+      "inclination_deg": 64.7757,
+      "raan_deg": 169.1763,
+      "arg_perigee_deg": 88.2998,
+      "mean_anomaly_deg": 273.282,
+      "mean_motion_rev_day": 14.90487887
+    },
+    {
+      "epoch": "2026-03-29T04:26:52.981152",
+      "apogee_km": 685.9659207073155,
+      "perigee_km": 506.8264309922479,
+      "latitude_deg": -54.213839629480425,
+      "longitude_deg": -169.50779871991836,
+      "semi_major_axis_km": 6974.533175849781,
+      "eccentricity": 0.0128424,
+      "inclination_deg": 64.7757,
+      "raan_deg": 167.5097,
+      "arg_perigee_deg": 88.0848,
+      "mean_anomaly_deg": 273.4966,
+      "mean_motion_rev_day": 14.90493359
+    }
+  ]
 }

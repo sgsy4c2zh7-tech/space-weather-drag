@@ -1,5 +1,34 @@
 {
   "norad_id": 42063,
   "name": "SENTINEL-2B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:15:59.348736",
+      "apogee_km": 789.8516921180317,
+      "perigee_km": 788.1734323765359,
+      "latitude_deg": 70.64580225734777,
+      "longitude_deg": -84.63405695999973,
+      "semi_major_axis_km": 7167.149562247283,
+      "eccentricity": 0.00011708,
+      "inclination_deg": 98.5679,
+      "raan_deg": 163.8453,
+      "arg_perigee_deg": 93.1376,
+      "mean_anomaly_deg": 266.9941,
+      "mean_motion_rev_day": 14.30813605
+    },
+    {
+      "epoch": "2026-03-29T04:58:47.214624",
+      "apogee_km": 789.8405169682665,
+      "perigee_km": 788.1834721207288,
+      "latitude_deg": 29.370297051210176,
+      "longitude_deg": -57.78087263996713,
+      "semi_major_axis_km": 7167.148994544497,
+      "eccentricity": 0.0001156,
+      "inclination_deg": 98.5679,
+      "raan_deg": 164.1211,
+      "arg_perigee_deg": 93.8026,
+      "mean_anomaly_deg": 266.3289,
+      "mean_motion_rev_day": 14.30813775
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 43055,
   "name": "GSAT0215 (GALILEO 19)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T01:36:52.558272",
+      "apogee_km": 23223.77543639002,
+      "perigee_km": 23220.4607998219,
+      "latitude_deg": 43.46500527609246,
+      "longitude_deg": -68.04160192003474,
+      "semi_major_axis_km": 29600.25511810596,
+      "eccentricity": 5.599e-05,
+      "inclination_deg": 55.1004,
+      "raan_deg": 223.7366,
+      "arg_perigee_deg": 288.8027,
+      "mean_anomaly_deg": 71.1377,
+      "mean_motion_rev_day": 1.70474561
+    },
+    {
+      "epoch": "2026-03-28T15:41:32.729856",
+      "apogee_km": 23223.783917892266,
+      "perigee_km": 23220.450929244173,
+      "latitude_deg": -42.091378380076954,
+      "longitude_deg": -11.730300159892067,
+      "semi_major_axis_km": 29600.254423568218,
+      "eccentricity": 5.63e-05,
+      "inclination_deg": 55.1001,
+      "raan_deg": 223.7205,
+      "arg_perigee_deg": 287.9107,
+      "mean_anomaly_deg": 72.0267,
+      "mean_motion_rev_day": 1.70474567
+    }
+  ]
 }

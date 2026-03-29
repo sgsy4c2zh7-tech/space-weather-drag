@@ -1,5 +1,34 @@
 {
   "norad_id": 43613,
   "name": "ICESAT-2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:38:16.822464",
+      "apogee_km": 483.9890212428054,
+      "perigee_km": 477.99332012624564,
+      "latitude_deg": 84.69915498015085,
+      "longitude_deg": 71.85202496009879,
+      "semi_major_axis_km": 6859.128170684525,
+      "eccentricity": 0.00043706,
+      "inclination_deg": 91.9995,
+      "raan_deg": 269.3491,
+      "arg_perigee_deg": 87.2581,
+      "mean_anomaly_deg": 272.9168,
+      "mean_motion_rev_day": 15.28267525
+    },
+    {
+      "epoch": "2026-03-29T03:21:09.016416",
+      "apogee_km": 483.9837325201597,
+      "perigee_km": 477.9820026360285,
+      "latitude_deg": -84.6890235418983,
+      "longitude_deg": 90.7100182401482,
+      "semi_major_axis_km": 6859.119867578093,
+      "eccentricity": 0.0004375,
+      "inclination_deg": 91.9995,
+      "raan_deg": 269.402,
+      "arg_perigee_deg": 86.8888,
+      "mean_anomaly_deg": 273.2862,
+      "mean_motion_rev_day": 15.282703
+    }
+  ]
 }

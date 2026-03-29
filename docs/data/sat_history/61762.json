@@ -1,5 +1,34 @@
 {
   "norad_id": 61762,
   "name": "ARCTICSAT 1 (RS74S)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:14:26.262528",
+      "apogee_km": 362.74860188482126,
+      "perigee_km": 354.8648955711833,
+      "latitude_deg": 73.9368352456646,
+      "longitude_deg": 77.16251391987316,
+      "semi_major_axis_km": 6736.943748728002,
+      "eccentricity": 0.00058511,
+      "inclination_deg": 97.305,
+      "raan_deg": 326.951,
+      "arg_perigee_deg": 163.2213,
+      "mean_anomaly_deg": 196.9244,
+      "mean_motion_rev_day": 15.70031552
+    },
+    {
+      "epoch": "2026-03-29T03:53:19.227840",
+      "apogee_km": 362.48296015219694,
+      "perigee_km": 354.55257016265386,
+      "latitude_deg": 66.69972826684226,
+      "longitude_deg": 107.75469759991392,
+      "semi_major_axis_km": 6736.654765157426,
+      "eccentricity": 0.0005886,
+      "inclination_deg": 97.3046,
+      "raan_deg": 327.2838,
+      "arg_perigee_deg": 162.4189,
+      "mean_anomaly_deg": 197.7279,
+      "mean_motion_rev_day": 15.70132578
+    }
+  ]
 }

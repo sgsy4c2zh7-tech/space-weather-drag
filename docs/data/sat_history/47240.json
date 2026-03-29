@@ -1,5 +1,34 @@
 {
   "norad_id": 47240,
   "name": "SXM-7",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T10:57:27.855360",
+      "apogee_km": 35806.8739598271,
+      "perigee_km": 35766.80879737175,
+      "latitude_deg": 0.007109575122088884,
+      "longitude_deg": 27.83095040009357,
+      "semi_major_axis_km": 42164.97837859942,
+      "eccentricity": 0.0004751,
+      "inclination_deg": 0.0228,
+      "raan_deg": 121.2265,
+      "arg_perigee_deg": 7.8675,
+      "mean_anomaly_deg": 135.972,
+      "mean_motion_rev_day": 1.00270906
+    },
+    {
+      "epoch": "2026-03-29T02:21:36.418752",
+      "apogee_km": 35806.13975470532,
+      "perigee_km": 35767.019330697,
+      "latitude_deg": 0.011002382936440035,
+      "longitude_deg": 89.44046527985483,
+      "semi_major_axis_km": 42164.716542701164,
+      "eccentricity": 0.0004639,
+      "inclination_deg": 0.0219,
+      "raan_deg": 123.3646,
+      "arg_perigee_deg": 4.8384,
+      "mean_anomaly_deg": 8.5327,
+      "mean_motion_rev_day": 1.0027184
+    }
+  ]
 }

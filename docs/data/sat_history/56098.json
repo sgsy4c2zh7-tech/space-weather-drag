@@ -1,5 +1,34 @@
 {
   "norad_id": 56098,
   "name": "STARLINK-6088",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:00:01.999872",
+      "apogee_km": 486.75002845171457,
+      "perigee_km": 485.1858362197336,
+      "latitude_deg": 42.51169045485632,
+      "longitude_deg": -130.19777791993693,
+      "semi_major_axis_km": 6864.104932335724,
+      "eccentricity": 0.00011394,
+      "inclination_deg": 43.0007,
+      "raan_deg": 52.9149,
+      "arg_perigee_deg": 293.7005,
+      "mean_anomaly_deg": 133.3807,
+      "mean_motion_rev_day": 15.2660574
+    },
+    {
+      "epoch": "2026-03-29T04:00:01.999584",
+      "apogee_km": 486.2651172616188,
+      "perigee_km": 485.16141013921515,
+      "latitude_deg": 19.473779524004314,
+      "longitude_deg": -98.19777824007906,
+      "semi_major_axis_km": 6863.850263700417,
+      "eccentricity": 8.04e-05,
+      "inclination_deg": 43.0002,
+      "raan_deg": 51.0367,
+      "arg_perigee_deg": 281.9825,
+      "mean_anomaly_deg": 179.2314,
+      "mean_motion_rev_day": 15.26690703
+    }
+  ]
 }

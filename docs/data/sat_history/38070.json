@@ -1,5 +1,34 @@
 {
   "norad_id": 38070,
   "name": "WGS F4 (USA 233)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T11:47:00.605472",
+      "apogee_km": 35791.39432811952,
+      "perigee_km": 35784.90915291123,
+      "latitude_deg": 0.012920342021760737,
+      "longitude_deg": -165.86599392001517,
+      "semi_major_axis_km": 42166.288740515374,
+      "eccentricity": 7.69e-05,
+      "inclination_deg": 0.0131,
+      "raan_deg": 174.115,
+      "arg_perigee_deg": 153.4502,
+      "mean_anomaly_deg": 123.4562,
+      "mean_motion_rev_day": 1.00266232
+    },
+    {
+      "epoch": "2026-03-29T01:28:26.518656",
+      "apogee_km": 35788.91427099676,
+      "perigee_km": 35785.144705112725,
+      "latitude_deg": -0.011628045438168885,
+      "longitude_deg": -111.10386815993115,
+      "semi_major_axis_km": 42165.16648805475,
+      "eccentricity": 4.47e-05,
+      "inclination_deg": 0.013,
+      "raan_deg": 173.4836,
+      "arg_perigee_deg": 106.3162,
+      "mean_anomaly_deg": 17.1461,
+      "mean_motion_rev_day": 1.00270235
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 48958,
   "name": "SHERPA-FX2 & TAGSAT-2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:54:30.990816",
+      "apogee_km": 412.134275077794,
+      "perigee_km": 403.9300679961716,
+      "latitude_deg": -67.52939416399008,
+      "longitude_deg": -128.56556575978175,
+      "semi_major_axis_km": 6786.1691715369825,
+      "eccentricity": 0.00060448,
+      "inclination_deg": 97.6902,
+      "raan_deg": 275.8735,
+      "arg_perigee_deg": 268.1026,
+      "mean_anomaly_deg": 91.9534,
+      "mean_motion_rev_day": 15.52979558
+    },
+    {
+      "epoch": "2026-03-28T23:32:52.335456",
+      "apogee_km": 412.09598717060453,
+      "perigee_km": 403.9078319623213,
+      "latitude_deg": 69.9647692390913,
+      "longitude_deg": -110.00851616007276,
+      "semi_major_axis_km": 6786.138909566463,
+      "eccentricity": 0.0006033,
+      "inclination_deg": 97.6903,
+      "raan_deg": 276.0806,
+      "arg_perigee_deg": 267.3405,
+      "mean_anomaly_deg": 92.7156,
+      "mean_motion_rev_day": 15.52989946
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 59290,
   "name": "AEROCUBE 16A",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:46:23.268864",
+      "apogee_km": 443.9538356880739,
+      "perigee_km": 440.2557641793137,
+      "latitude_deg": 25.274037213791722,
+      "longitude_deg": -175.90747904009186,
+      "semi_major_axis_km": 6820.241799933694,
+      "eccentricity": 0.00027111,
+      "inclination_deg": 49.9918,
+      "raan_deg": 12.8625,
+      "arg_perigee_deg": 15.1382,
+      "mean_anomaly_deg": 344.9661,
+      "mean_motion_rev_day": 15.4135652
+    },
+    {
+      "epoch": "2026-03-28T23:26:26.905920",
+      "apogee_km": 443.902917891327,
+      "perigee_km": 440.2650120286171,
+      "latitude_deg": -26.548522746997477,
+      "longitude_deg": -157.23677119985223,
+      "semi_major_axis_km": 6820.220964959972,
+      "eccentricity": 0.0002667,
+      "inclination_deg": 49.9922,
+      "raan_deg": 11.877,
+      "arg_perigee_deg": 16.675,
+      "mean_anomaly_deg": 343.43,
+      "mean_motion_rev_day": 15.41363583
+    }
+  ]
 }

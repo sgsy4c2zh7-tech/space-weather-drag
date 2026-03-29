@@ -1,5 +1,34 @@
 {
   "norad_id": 46112,
   "name": "BSAT-4B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:50:38.837472",
+      "apogee_km": 35795.9793618368,
+      "perigee_km": 35777.937760748035,
+      "latitude_deg": 0.03498276523057188,
+      "longitude_deg": -41.42351392004639,
+      "semi_major_axis_km": 42165.095561292415,
+      "eccentricity": 0.00021394,
+      "inclination_deg": 0.0576,
+      "raan_deg": 120.6752,
+      "arg_perigee_deg": 322.3867,
+      "mean_anomaly_deg": 180.7443,
+      "mean_motion_rev_day": 1.00270488
+    },
+    {
+      "epoch": "2026-03-28T23:51:50.783328",
+      "apogee_km": 35796.0307760331,
+      "perigee_km": 35777.9082132617,
+      "latitude_deg": -0.036967601454531464,
+      "longitude_deg": -33.343574079917744,
+      "semi_major_axis_km": 42165.1064946474,
+      "eccentricity": 0.0002149,
+      "inclination_deg": 0.0578,
+      "raan_deg": 120.4619,
+      "arg_perigee_deg": 322.6358,
+      "mean_anomaly_deg": 211.0908,
+      "mean_motion_rev_day": 1.00270449
+    }
+  ]
 }

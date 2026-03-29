@@ -1,5 +1,34 @@
 {
   "norad_id": 44868,
   "name": "JCSAT-18 (KACIFIC 1)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T17:44:51.657792",
+      "apogee_km": 35787.422157155495,
+      "perigee_km": 35785.61582329288,
+      "latitude_deg": -0.017240329466941814,
+      "longitude_deg": 177.79073088010773,
+      "semi_major_axis_km": 42164.65599022419,
+      "eccentricity": 2.142e-05,
+      "inclination_deg": 0.0414,
+      "raan_deg": 338.4232,
+      "arg_perigee_deg": 339.5668,
+      "mean_anomaly_deg": 284.3526,
+      "mean_motion_rev_day": 1.00272056
+    },
+    {
+      "epoch": "2026-03-28T20:09:38.534112",
+      "apogee_km": 35787.35627127919,
+      "perigee_km": 35785.76244575684,
+      "latitude_deg": -0.03713804399303481,
+      "longitude_deg": -172.5571843199432,
+      "semi_major_axis_km": 42164.69635851802,
+      "eccentricity": 1.89e-05,
+      "inclination_deg": 0.0416,
+      "raan_deg": 338.8417,
+      "arg_perigee_deg": 341.25,
+      "mean_anomaly_deg": 318.5452,
+      "mean_motion_rev_day": 1.00271912
+    }
+  ]
 }

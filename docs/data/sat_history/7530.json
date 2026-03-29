@@ -1,5 +1,34 @@
 {
   "norad_id": 7530,
   "name": "OSCAR 7 (AO-7)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:45:30.466656",
+      "apogee_km": 1458.355770729193,
+      "perigee_km": 1439.7852512768877,
+      "latitude_deg": -14.777370967683751,
+      "longitude_deg": 64.03385184006765,
+      "semi_major_axis_km": 7827.20751100304,
+      "eccentricity": 0.00118628,
+      "inclination_deg": 101.9957,
+      "raan_deg": 100.3457,
+      "arg_perigee_deg": 284.552,
+      "mean_anomaly_deg": 146.2732,
+      "mean_motion_rev_day": 12.53696722
+    },
+    {
+      "epoch": "2026-03-29T00:38:26.462688",
+      "apogee_km": 1458.3566141498868,
+      "perigee_km": 1439.784216394929,
+      "latitude_deg": 74.96940888725815,
+      "longitude_deg": 71.56273632007651,
+      "semi_major_axis_km": 7827.207415272408,
+      "eccentricity": 0.0011864,
+      "inclination_deg": 101.9957,
+      "raan_deg": 100.425,
+      "arg_perigee_deg": 284.4165,
+      "mean_anomaly_deg": 140.2194,
+      "mean_motion_rev_day": 12.53696745
+    }
+  ]
 }

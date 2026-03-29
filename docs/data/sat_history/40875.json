@@ -1,5 +1,34 @@
 {
   "norad_id": 40875,
   "name": "EUTELSAT 8 WEST B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:35:33.928800",
+      "apogee_km": 35802.6706754083,
+      "perigee_km": 35770.40879465126,
+      "latitude_deg": -0.023095345914854952,
+      "longitude_deg": 153.87103200005367,
+      "semi_major_axis_km": 42164.67673502978,
+      "eccentricity": 0.00038257,
+      "inclination_deg": 0.068,
+      "raan_deg": 356.1914,
+      "arg_perigee_deg": 13.6315,
+      "mean_anomaly_deg": 132.3761,
+      "mean_motion_rev_day": 1.00271982
+    },
+    {
+      "epoch": "2026-03-29T04:26:14.241120",
+      "apogee_km": 35802.64609048842,
+      "perigee_km": 35770.42384816946,
+      "latitude_deg": 0.06648645741474239,
+      "longitude_deg": -178.75084319990128,
+      "semi_major_axis_km": 42164.67196932895,
+      "eccentricity": 0.0003821,
+      "inclination_deg": 0.0678,
+      "raan_deg": 356.9179,
+      "arg_perigee_deg": 13.25,
+      "mean_anomaly_deg": 234.9806,
+      "mean_motion_rev_day": 1.00271999
+    }
+  ]
 }

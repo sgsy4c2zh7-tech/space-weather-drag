@@ -1,5 +1,34 @@
 {
   "norad_id": 43017,
   "name": "RADFXSAT (FOX-1B)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:45:50.286240",
+      "apogee_km": 638.1698551521658,
+      "perigee_km": 426.56795300735394,
+      "latitude_deg": 56.60678975149983,
+      "longitude_deg": 4.755873600021005,
+      "semi_major_axis_km": 6910.50590407976,
+      "eccentricity": 0.01531016,
+      "inclination_deg": 97.4831,
+      "raan_deg": 316.7593,
+      "arg_perigee_deg": 245.4722,
+      "mean_anomaly_deg": 113.0482,
+      "mean_motion_rev_day": 15.11255862
+    },
+    {
+      "epoch": "2026-03-29T01:31:52.586976",
+      "apogee_km": 638.1691784354989,
+      "perigee_km": 426.54633332822596,
+      "latitude_deg": -58.88980821843911,
+      "longitude_deg": 23.825096640037373,
+      "semi_major_axis_km": 6910.494755881862,
+      "eccentricity": 0.0153117,
+      "inclination_deg": 97.483,
+      "raan_deg": 316.9538,
+      "arg_perigee_deg": 244.7829,
+      "mean_anomaly_deg": 113.7462,
+      "mean_motion_rev_day": 15.11259519
+    }
+  ]
 }

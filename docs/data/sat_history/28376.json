@@ -1,5 +1,34 @@
 {
   "norad_id": 28376,
   "name": "AURA",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:54:20.534400",
+      "apogee_km": 690.2506918648887,
+      "perigee_km": 688.4062247295815,
+      "latitude_deg": -62.24476970474588,
+      "longitude_deg": -18.777184000005946,
+      "semi_major_axis_km": 7067.465458297234,
+      "eccentricity": 0.00013049,
+      "inclination_deg": 98.3341,
+      "raan_deg": 43.7026,
+      "arg_perigee_deg": 94.4575,
+      "mean_anomaly_deg": 265.6775,
+      "mean_motion_rev_day": 14.61191779
+    },
+    {
+      "epoch": "2026-03-29T03:28:46.432704",
+      "apogee_km": 690.2527345963863,
+      "perigee_km": 688.3939925207706,
+      "latitude_deg": 74.92353722090627,
+      "longitude_deg": 7.518258559983224,
+      "semi_major_axis_km": 7067.460363558578,
+      "eccentricity": 0.0001315,
+      "inclination_deg": 98.3341,
+      "raan_deg": 43.9784,
+      "arg_perigee_deg": 94.6351,
+      "mean_anomaly_deg": 265.4999,
+      "mean_motion_rev_day": 14.61193359
+    }
+  ]
 }

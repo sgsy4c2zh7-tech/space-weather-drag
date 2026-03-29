@@ -1,5 +1,34 @@
 {
   "norad_id": 61224,
   "name": "KINEIS-3B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:41:59.852832",
+      "apogee_km": 655.0501815424605,
+      "perigee_km": 652.4807243861469,
+      "latitude_deg": 41.65440594091122,
+      "longitude_deg": 21.199836479965597,
+      "semi_major_axis_km": 7031.902452964303,
+      "eccentricity": 0.0001827,
+      "inclination_deg": 98.0334,
+      "raan_deg": 178.7226,
+      "arg_perigee_deg": 23.3318,
+      "mean_anomaly_deg": 336.7972,
+      "mean_motion_rev_day": 14.72290486
+    },
+    {
+      "epoch": "2026-03-29T05:29:11.460768",
+      "apogee_km": 655.0168630511434,
+      "perigee_km": 652.4896017016281,
+      "latitude_deg": 22.751025129666324,
+      "longitude_deg": 60.34606751985848,
+      "semi_major_axis_km": 7031.890232376386,
+      "eccentricity": 0.0001797,
+      "inclination_deg": 98.0334,
+      "raan_deg": 179.1256,
+      "arg_perigee_deg": 21.81,
+      "mean_anomaly_deg": 338.3184,
+      "mean_motion_rev_day": 14.72294324
+    }
+  ]
 }

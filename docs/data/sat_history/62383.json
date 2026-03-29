@@ -1,5 +1,34 @@
 {
   "norad_id": 62383,
   "name": "LIZZIESAT-2 (LS-2)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:31:59.422656",
+      "apogee_km": 481.1896382412888,
+      "perigee_km": 478.7754430005998,
+      "latitude_deg": -14.580421570432303,
+      "longitude_deg": 132.4326918402221,
+      "semi_major_axis_km": 6858.1195406209445,
+      "eccentricity": 0.00017601,
+      "inclination_deg": 44.9962,
+      "raan_deg": 11.6798,
+      "arg_perigee_deg": 107.9428,
+      "mean_anomaly_deg": 252.1648,
+      "mean_motion_rev_day": 15.28604683
+    },
+    {
+      "epoch": "2026-03-29T03:56:36.881664",
+      "apogee_km": 481.1857630505565,
+      "perigee_km": 478.70313756554606,
+      "latitude_deg": -14.171908572179229,
+      "longitude_deg": 170.0743129600305,
+      "semi_major_axis_km": 6858.081450308051,
+      "eccentricity": 0.000181,
+      "inclination_deg": 44.9963,
+      "raan_deg": 9.5358,
+      "arg_perigee_deg": 111.5787,
+      "mean_anomaly_deg": 248.5289,
+      "mean_motion_rev_day": 15.28617418
+    }
+  ]
 }

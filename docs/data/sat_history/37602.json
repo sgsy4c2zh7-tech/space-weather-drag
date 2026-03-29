@@ -1,5 +1,34 @@
 {
   "norad_id": 37602,
   "name": "TELSTAR 14R",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T12:46:24.381696",
+      "apogee_km": 35796.34511917076,
+      "perigee_km": 35776.8565773373,
+      "latitude_deg": 0.02124871042903314,
+      "longitude_deg": 151.29375743982382,
+      "semi_major_axis_km": 42164.73784825403,
+      "eccentricity": 0.0002311,
+      "inclination_deg": 0.0242,
+      "raan_deg": 255.8983,
+      "arg_perigee_deg": 103.5286,
+      "mean_anomaly_deg": 315.1181,
+      "mean_motion_rev_day": 1.00271764
+    },
+    {
+      "epoch": "2026-03-28T23:02:36.046752",
+      "apogee_km": 35796.925922486866,
+      "perigee_km": 35776.68674968555,
+      "latitude_deg": 0.022553170509419945,
+      "longitude_deg": -167.62661472009495,
+      "semi_major_axis_km": 42164.94333608621,
+      "eccentricity": 0.00024,
+      "inclination_deg": 0.0226,
+      "raan_deg": 254.5281,
+      "arg_perigee_deg": 105.565,
+      "mean_anomaly_deg": 108.9215,
+      "mean_motion_rev_day": 1.00271031
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 62293,
   "name": "GJZ 04",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:27:38.278944",
+      "apogee_km": 986.4224756298336,
+      "perigee_km": 975.5846693087578,
+      "latitude_deg": -53.21115776946253,
+      "longitude_deg": 139.14253216004,
+      "semi_major_axis_km": 7359.140572469296,
+      "eccentricity": 0.00073635,
+      "inclination_deg": 59.9127,
+      "raan_deg": 153.9543,
+      "arg_perigee_deg": 293.1835,
+      "mean_anomaly_deg": 66.8397,
+      "mean_motion_rev_day": 13.75188126
+    },
+    {
+      "epoch": "2026-03-29T03:41:43.680192",
+      "apogee_km": 986.4321712654228,
+      "perigee_km": 975.5744956174631,
+      "latitude_deg": 40.61888316297296,
+      "longitude_deg": 160.08186687994748,
+      "semi_major_axis_km": 7359.140333441443,
+      "eccentricity": 0.0007377,
+      "inclination_deg": 59.9126,
+      "raan_deg": 153.2941,
+      "arg_perigee_deg": 293.5154,
+      "mean_anomaly_deg": 66.5079,
+      "mean_motion_rev_day": 13.75188193
+    }
+  ]
 }

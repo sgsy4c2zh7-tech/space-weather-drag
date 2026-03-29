@@ -1,5 +1,34 @@
 {
   "norad_id": 62640,
   "name": "NUSAT-45 (UZMASAT-1)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T17:46:19.983648",
+      "apogee_km": 479.80086168224625,
+      "perigee_km": 478.40925297913145,
+      "latitude_deg": -57.87102282733528,
+      "longitude_deg": 155.08887072000653,
+      "semi_major_axis_km": 6857.242057330689,
+      "eccentricity": 0.00010147,
+      "inclination_deg": 97.3626,
+      "raan_deg": 169.702,
+      "arg_perigee_deg": 214.5149,
+      "mean_anomaly_deg": 145.6025,
+      "mean_motion_rev_day": 15.28898103
+    },
+    {
+      "epoch": "2026-03-29T04:46:03.194112",
+      "apogee_km": 479.7380834832229,
+      "perigee_km": 478.3789873281057,
+      "latitude_deg": 24.967812373372656,
+      "longitude_deg": -160.9297843198292,
+      "semi_major_axis_km": 6857.1955354056645,
+      "eccentricity": 9.91e-05,
+      "inclination_deg": 97.3626,
+      "raan_deg": 170.1556,
+      "arg_perigee_deg": 215.6457,
+      "mean_anomaly_deg": 144.4717,
+      "mean_motion_rev_day": 15.28913662
+    }
+  ]
 }

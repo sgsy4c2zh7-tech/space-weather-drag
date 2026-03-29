@@ -1,5 +1,34 @@
 {
   "norad_id": 66772,
   "name": "IHI-SAT2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:02:28.534560",
+      "apogee_km": 506.61606992771704,
+      "perigee_km": 502.65063061811,
+      "latitude_deg": 64.99308059298224,
+      "longitude_deg": -150.63496160018258,
+      "semi_major_axis_km": 6882.770350272913,
+      "eccentricity": 0.00028807,
+      "inclination_deg": 97.4281,
+      "raan_deg": 162.9559,
+      "arg_perigee_deg": 120.4383,
+      "mean_anomaly_deg": 239.7137,
+      "mean_motion_rev_day": 15.20399938
+    },
+    {
+      "epoch": "2026-03-29T03:31:06.519072",
+      "apogee_km": 506.59661776109806,
+      "perigee_km": 502.6238960444143,
+      "latitude_deg": 66.86810089855643,
+      "longitude_deg": -112.72608991991729,
+      "semi_major_axis_km": 6882.747256902756,
+      "eccentricity": 0.0002886,
+      "inclination_deg": 97.4281,
+      "raan_deg": 163.345,
+      "arg_perigee_deg": 119.7363,
+      "mean_anomaly_deg": 240.4159,
+      "mean_motion_rev_day": 15.2040759
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 67287,
   "name": "LUCA (RS90S)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:59:43.600416",
+      "apogee_km": 502.1824663133093,
+      "perigee_km": 490.76483795781587,
+      "latitude_deg": -77.9793542924057,
+      "longitude_deg": -87.31822176021524,
+      "semi_major_axis_km": 6874.610652135562,
+      "eccentricity": 0.00083042,
+      "inclination_deg": 97.3981,
+      "raan_deg": 163.9715,
+      "arg_perigee_deg": 278.6877,
+      "mean_anomaly_deg": 81.3419,
+      "mean_motion_rev_day": 15.23107659
+    },
+    {
+      "epoch": "2026-03-29T03:18:08.522496",
+      "apogee_km": 502.1389840196762,
+      "perigee_km": 490.76154209931246,
+      "latitude_deg": 67.4745733707439,
+      "longitude_deg": -62.09053056011908,
+      "semi_major_axis_km": 6874.587263059494,
+      "eccentricity": 0.0008275,
+      "inclination_deg": 97.3981,
+      "raan_deg": 164.2303,
+      "arg_perigee_deg": 277.6638,
+      "mean_anomaly_deg": 82.3659,
+      "mean_motion_rev_day": 15.23115432
+    }
+  ]
 }

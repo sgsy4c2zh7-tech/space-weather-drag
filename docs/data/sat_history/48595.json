@@ -1,5 +1,34 @@
 {
   "norad_id": 48595,
   "name": "STARLINK-2252",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T05:03:21.550176",
+      "apogee_km": 548.2065465567548,
+      "perigee_km": 546.2311580534424,
+      "latitude_deg": 33.01417429036842,
+      "longitude_deg": 139.72394463978708,
+      "semi_major_axis_km": 6925.355852305098,
+      "eccentricity": 0.00014262,
+      "inclination_deg": 53.0562,
+      "raan_deg": 58.4747,
+      "arg_perigee_deg": 92.0681,
+      "mean_anomaly_deg": 268.0471,
+      "mean_motion_rev_day": 15.0639762
+    },
+    {
+      "epoch": "2026-03-29T03:20:54.026880",
+      "apogee_km": 548.3070384733846,
+      "perigee_km": 546.1020097321107,
+      "latitude_deg": -52.98258790628764,
+      "longitude_deg": -131.10663679987192,
+      "semi_major_axis_km": 6925.341524102748,
+      "eccentricity": 0.0001592,
+      "inclination_deg": 53.0565,
+      "raan_deg": 54.3056,
+      "arg_perigee_deg": 98.0532,
+      "mean_anomaly_deg": 262.0637,
+      "mean_motion_rev_day": 15.06402295
+    }
+  ]
 }

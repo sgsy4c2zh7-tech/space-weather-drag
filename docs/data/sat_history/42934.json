@@ -1,5 +1,34 @@
 {
   "norad_id": 42934,
   "name": "AMAZONAS 5",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T11:04:19.697376",
+      "apogee_km": 35807.7752987255,
+      "perigee_km": 35765.78747299685,
+      "latitude_deg": -0.012734410981376294,
+      "longitude_deg": -42.311447360087186,
+      "semi_major_axis_km": 42164.91838586118,
+      "eccentricity": 0.0004979,
+      "inclination_deg": 0.0462,
+      "raan_deg": 320.3954,
+      "arg_perigee_deg": 21.8938,
+      "mean_anomaly_deg": 308.6635,
+      "mean_motion_rev_day": 1.0027112
+    },
+    {
+      "epoch": "2026-03-28T23:07:38.424288",
+      "apogee_km": 35808.48640954417,
+      "perigee_km": 35765.140840301756,
+      "latitude_deg": 0.04628396158746119,
+      "longitude_deg": 5.909360319841653,
+      "semi_major_axis_km": 42164.95062492297,
+      "eccentricity": 0.000514,
+      "inclination_deg": 0.0465,
+      "raan_deg": 319.096,
+      "arg_perigee_deg": 24.7222,
+      "mean_anomaly_deg": 128.4585,
+      "mean_motion_rev_day": 1.00271005
+    }
+  ]
 }

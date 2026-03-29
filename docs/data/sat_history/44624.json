@@ -1,5 +1,34 @@
 {
   "norad_id": 44624,
   "name": "EUTELSAT 5 WEST B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:36:26.345088",
+      "apogee_km": 35800.523666176894,
+      "perigee_km": 35772.895572078174,
+      "latitude_deg": 0.05932073200034742,
+      "longitude_deg": 168.8292723200284,
+      "semi_major_axis_km": 42164.84661912754,
+      "eccentricity": 0.00032762,
+      "inclination_deg": 0.0663,
+      "raan_deg": 355.5502,
+      "arg_perigee_deg": 15.7102,
+      "mean_anomaly_deg": 134.1387,
+      "mean_motion_rev_day": 1.00271376
+    },
+    {
+      "epoch": "2026-03-29T04:27:06.658272",
+      "apogee_km": 35800.49110419937,
+      "perigee_km": 35772.89000808112,
+      "latitude_deg": -0.037820432558073054,
+      "longitude_deg": -163.79260191996582,
+      "semi_major_axis_km": 42164.82755614025,
+      "eccentricity": 0.0003273,
+      "inclination_deg": 0.0658,
+      "raan_deg": 356.5785,
+      "arg_perigee_deg": 15.305,
+      "mean_anomaly_deg": 236.4646,
+      "mean_motion_rev_day": 1.00271444
+    }
+  ]
 }

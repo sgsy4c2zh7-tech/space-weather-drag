@@ -1,5 +1,34 @@
 {
   "norad_id": 58299,
   "name": "AETHER-2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:40:36.876576",
+      "apogee_km": 471.3506995815851,
+      "perigee_km": 458.9911380156009,
+      "latitude_deg": -84.53206217212481,
+      "longitude_deg": 96.60764063987881,
+      "semi_major_axis_km": 6843.307918798592,
+      "eccentricity": 0.00090304,
+      "inclination_deg": 97.3916,
+      "raan_deg": 171.0916,
+      "arg_perigee_deg": 82.0934,
+      "mean_anomaly_deg": 278.1333,
+      "mean_motion_rev_day": 15.33570124
+    },
+    {
+      "epoch": "2026-03-29T03:56:27.036384",
+      "apogee_km": 471.3197784549029,
+      "perigee_km": 458.9785961447269,
+      "latitude_deg": 50.85780512521939,
+      "longitude_deg": 121.66337375994772,
+      "semi_major_axis_km": 6843.286187299815,
+      "eccentricity": 0.0009017,
+      "inclination_deg": 97.3916,
+      "raan_deg": 171.3527,
+      "arg_perigee_deg": 81.2882,
+      "mean_anomaly_deg": 278.9382,
+      "mean_motion_rev_day": 15.33577429
+    }
+  ]
 }

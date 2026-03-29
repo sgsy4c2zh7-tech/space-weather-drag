@@ -1,5 +1,34 @@
 {
   "norad_id": 19548,
   "name": "TDRS 3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T02:34:15.649248",
+      "apogee_km": 35966.60800035069,
+      "perigee_km": 35607.83729134645,
+      "latitude_deg": -6.365382399520885,
+      "longitude_deg": 105.08405471988954,
+      "semi_major_axis_km": 42165.35964584857,
+      "eccentricity": 0.00425433,
+      "inclination_deg": 12.6635,
+      "raan_deg": 341.5377,
+      "arg_perigee_deg": 354.8893,
+      "mean_anomaly_deg": 198.7533,
+      "mean_motion_rev_day": 1.00269546
+    },
+    {
+      "epoch": "2026-03-29T02:31:50.436768",
+      "apogee_km": 35966.82244048112,
+      "perigee_km": 35607.750128873464,
+      "latitude_deg": 3.27393750679643,
+      "longitude_deg": -159.0772924798075,
+      "semi_major_axis_km": 42165.423284677294,
+      "eccentricity": 0.0042579,
+      "inclination_deg": 12.6626,
+      "raan_deg": 341.5316,
+      "arg_perigee_deg": 354.9457,
+      "mean_anomaly_deg": 199.0723,
+      "mean_motion_rev_day": 1.00269319
+    }
+  ]
 }

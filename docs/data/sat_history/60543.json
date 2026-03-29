@@ -1,5 +1,34 @@
 {
   "norad_id": 60543,
   "name": "ARCTIC WEATHER SATELLITE",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:10:40.444320",
+      "apogee_km": 600.4980542083276,
+      "perigee_km": 596.5401971882184,
+      "latitude_deg": -84.83483817047698,
+      "longitude_deg": -52.98839519987814,
+      "semi_major_axis_km": 6976.656125698272,
+      "eccentricity": 0.00028365,
+      "inclination_deg": 97.6849,
+      "raan_deg": 160.5043,
+      "arg_perigee_deg": 48.8626,
+      "mean_anomaly_deg": 311.2837,
+      "mean_motion_rev_day": 14.8981309
+    },
+    {
+      "epoch": "2026-03-28T23:00:49.342752",
+      "apogee_km": 600.4865840310222,
+      "perigee_km": 596.5475651405104,
+      "latitude_deg": 84.11258213922363,
+      "longitude_deg": -33.645174720091745,
+      "semi_major_axis_km": 6976.654074585766,
+      "eccentricity": 0.0002823,
+      "inclination_deg": 97.6849,
+      "raan_deg": 160.7002,
+      "arg_perigee_deg": 48.4212,
+      "mean_anomaly_deg": 311.7247,
+      "mean_motion_rev_day": 14.89813747
+    }
+  ]
 }

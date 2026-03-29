@@ -1,5 +1,34 @@
 {
   "norad_id": 64588,
   "name": "BIFROST-DNK",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:38:20.417856",
+      "apogee_km": 586.9281597917316,
+      "perigee_km": 582.7044323223436,
+      "latitude_deg": 54.90715124893217,
+      "longitude_deg": 1.3560198401100934,
+      "semi_major_axis_km": 6962.953296057038,
+      "eccentricity": 0.0003033,
+      "inclination_deg": 97.7631,
+      "raan_deg": 203.3689,
+      "arg_perigee_deg": 243.114,
+      "mean_anomaly_deg": 116.977,
+      "mean_motion_rev_day": 14.94213097
+    },
+    {
+      "epoch": "2026-03-29T04:40:29.829216",
+      "apogee_km": 586.9069890635901,
+      "perigee_km": 582.6971960882192,
+      "latitude_deg": -18.847873955775015,
+      "longitude_deg": 33.499810239998624,
+      "semi_major_axis_km": 6962.939092575904,
+      "eccentricity": 0.0003023,
+      "inclination_deg": 97.7632,
+      "raan_deg": 203.6999,
+      "arg_perigee_deg": 241.6485,
+      "mean_anomaly_deg": 118.443,
+      "mean_motion_rev_day": 14.94217669
+    }
+  ]
 }

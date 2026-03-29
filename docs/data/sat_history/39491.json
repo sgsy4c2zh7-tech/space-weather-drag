@@ -1,5 +1,34 @@
 {
   "norad_id": 39491,
   "name": "COSMOS 2494 (SKRL-756 2)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:42:36.479520",
+      "apogee_km": 565.5671948784857,
+      "perigee_km": 541.3762962529863,
+      "latitude_deg": 29.266844426874254,
+      "longitude_deg": 19.940532800275832,
+      "semi_major_axis_km": 6931.608745565735,
+      "eccentricity": 0.00174497,
+      "inclination_deg": 82.4143,
+      "raan_deg": 329.3962,
+      "arg_perigee_deg": 114.3212,
+      "mean_anomaly_deg": 245.9839,
+      "mean_motion_rev_day": 15.04359734
+    },
+    {
+      "epoch": "2026-03-29T03:29:57.191712",
+      "apogee_km": 565.5494774090885,
+      "perigee_km": 541.3706804783169,
+      "latitude_deg": -33.16620888456841,
+      "longitude_deg": 39.096879679942504,
+      "semi_major_axis_km": 6931.597078943702,
+      "eccentricity": 0.0017441,
+      "inclination_deg": 82.4143,
+      "raan_deg": 329.2003,
+      "arg_perigee_deg": 113.7373,
+      "mean_anomaly_deg": 246.5685,
+      "mean_motion_rev_day": 15.04363532
+    }
+  ]
 }

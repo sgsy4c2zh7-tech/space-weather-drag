@@ -1,5 +1,34 @@
 {
   "norad_id": 39425,
   "name": "APRIZESAT 8",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:50:30.829344",
+      "apogee_km": 637.7843677624405,
+      "perigee_km": 573.8802106897065,
+      "latitude_deg": -68.26330935517505,
+      "longitude_deg": 1.8675881600938737,
+      "semi_major_axis_km": 6983.969289226073,
+      "eccentricity": 0.00457506,
+      "inclination_deg": 97.8144,
+      "raan_deg": 36.4635,
+      "arg_perigee_deg": 188.5662,
+      "mean_anomaly_deg": 171.4779,
+      "mean_motion_rev_day": 14.87473648
+    },
+    {
+      "epoch": "2026-03-29T02:17:59.258400",
+      "apogee_km": 637.8018659060353,
+      "perigee_km": 573.8580611812231,
+      "latitude_deg": 73.5375459815615,
+      "longitude_deg": 27.69917599996552,
+      "semi_major_axis_km": 6983.966963543629,
+      "eccentricity": 0.0045779,
+      "inclination_deg": 97.8145,
+      "raan_deg": 36.7285,
+      "arg_perigee_deg": 187.669,
+      "mean_anomaly_deg": 172.3832,
+      "mean_motion_rev_day": 14.87474391
+    }
+  ]
 }

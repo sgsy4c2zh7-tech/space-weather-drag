@@ -1,5 +1,34 @@
 {
   "norad_id": 44343,
   "name": "FORMOSAT 7-3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:52:05.820384",
+      "apogee_km": 539.5732962780694,
+      "perigee_km": 538.1019174396988,
+      "latitude_deg": -19.47643101791238,
+      "longitude_deg": 137.77313376008533,
+      "semi_major_axis_km": 6916.974606858884,
+      "eccentricity": 0.00010636,
+      "inclination_deg": 24.0002,
+      "raan_deg": 11.0695,
+      "arg_perigee_deg": 53.7666,
+      "mean_anomaly_deg": 306.2936,
+      "mean_motion_rev_day": 15.09136385
+    },
+    {
+      "epoch": "2026-03-29T03:12:56.142432",
+      "apogee_km": 539.5911216098339,
+      "perigee_km": 538.0652390910491,
+      "latitude_deg": 21.442354698152702,
+      "longitude_deg": 163.16238047997467,
+      "semi_major_axis_km": 6916.965180350441,
+      "eccentricity": 0.0001103,
+      "inclination_deg": 24.0002,
+      "raan_deg": 9.2512,
+      "arg_perigee_deg": 56.4149,
+      "mean_anomaly_deg": 303.646,
+      "mean_motion_rev_day": 15.0913947
+    }
+  ]
 }

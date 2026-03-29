@@ -1,5 +1,34 @@
 {
   "norad_id": 57761,
   "name": "WILDFIRE 7",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T23:00:05.683104",
+      "apogee_km": 949.0394474419772,
+      "perigee_km": 942.7672857528305,
+      "latitude_deg": -49.38676376939998,
+      "longitude_deg": 48.10631456016563,
+      "semi_major_axis_km": 7324.040366597404,
+      "eccentricity": 0.00042819,
+      "inclination_deg": 80.9951,
+      "raan_deg": 84.9379,
+      "arg_perigee_deg": 246.7379,
+      "mean_anomaly_deg": 113.3326,
+      "mean_motion_rev_day": 13.85085772
+    },
+    {
+      "epoch": "2026-03-29T02:28:08.190048",
+      "apogee_km": 949.0408902694917,
+      "perigee_km": 942.76565256494,
+      "latitude_deg": -14.043849370988317,
+      "longitude_deg": 61.97576672001742,
+      "semi_major_axis_km": 7324.040271417215,
+      "eccentricity": 0.0004284,
+      "inclination_deg": 80.9951,
+      "raan_deg": 84.7992,
+      "arg_perigee_deg": 246.2491,
+      "mean_anomaly_deg": 113.8216,
+      "mean_motion_rev_day": 13.85085799
+    }
+  ]
 }

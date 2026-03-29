@@ -1,5 +1,34 @@
 {
   "norad_id": 64514,
   "name": "KUIPER-00054",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:47:52.958400",
+      "apogee_km": 630.0606766820265,
+      "perigee_km": 628.9763120708267,
+      "latitude_deg": -29.233183946614346,
+      "longitude_deg": -9.40782400011085,
+      "semi_major_axis_km": 7007.655494376426,
+      "eccentricity": 7.737e-05,
+      "inclination_deg": 51.898,
+      "raan_deg": 133.447,
+      "arg_perigee_deg": 59.8722,
+      "mean_anomaly_deg": 300.2317,
+      "mean_motion_rev_day": 14.79938428
+    },
+    {
+      "epoch": "2026-03-29T03:54:05.603904",
+      "apogee_km": 630.0346190229893,
+      "perigee_km": 628.9708593105843,
+      "latitude_deg": -51.6806207757258,
+      "longitude_deg": 23.006226559868082,
+      "semi_major_axis_km": 7007.639739166787,
+      "eccentricity": 7.59e-05,
+      "inclination_deg": 51.8982,
+      "raan_deg": 131.9537,
+      "arg_perigee_deg": 58.2005,
+      "mean_anomaly_deg": 301.9031,
+      "mean_motion_rev_day": 14.79943419
+    }
+  ]
 }

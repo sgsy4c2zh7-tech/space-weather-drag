@@ -1,5 +1,34 @@
 {
   "norad_id": 38014,
   "name": "NIGCOMSAT 1R",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:07:17.665824",
+      "apogee_km": 35796.99880191866,
+      "perigee_km": 35775.07596109073,
+      "latitude_deg": 0.0016952200109716408,
+      "longitude_deg": -138.11370464018546,
+      "semi_major_axis_km": 42164.174381504694,
+      "eccentricity": 0.00025997,
+      "inclination_deg": 0.0141,
+      "raan_deg": 175.8186,
+      "arg_perigee_deg": 156.1226,
+      "mean_anomaly_deg": 198.6166,
+      "mean_motion_rev_day": 1.00273774
+    },
+    {
+      "epoch": "2026-03-29T02:58:00.204672",
+      "apogee_km": 35796.87312828012,
+      "perigee_km": 35775.10800563006,
+      "latitude_deg": -0.014794016742086542,
+      "longitude_deg": -110.73310592002235,
+      "semi_major_axis_km": 42164.127566955096,
+      "eccentricity": 0.0002581,
+      "inclination_deg": 0.0148,
+      "raan_deg": 174.5109,
+      "arg_perigee_deg": 157.9809,
+      "mean_anomaly_deg": 301.0267,
+      "mean_motion_rev_day": 1.00273941
+    }
+  ]
 }

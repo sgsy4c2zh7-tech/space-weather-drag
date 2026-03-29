@@ -1,5 +1,34 @@
 {
   "norad_id": 40147,
   "name": "MEASAT-3B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:03:53.713152",
+      "apogee_km": 35799.57036380005,
+      "perigee_km": 35773.11215369269,
+      "latitude_deg": 0.015343016489759546,
+      "longitude_deg": 82.9596812799573,
+      "semi_major_axis_km": 42164.47825874637,
+      "eccentricity": 0.00031375,
+      "inclination_deg": 0.0466,
+      "raan_deg": 42.9665,
+      "arg_perigee_deg": 347.8846,
+      "mean_anomaly_deg": 217.9632,
+      "mean_motion_rev_day": 1.0027269
+    },
+    {
+      "epoch": "2026-03-29T03:11:58.862688",
+      "apogee_km": 35799.592662279814,
+      "perigee_km": 35773.13022305719,
+      "latitude_deg": -0.0025278677192057336,
+      "longitude_deg": 103.49873632006347,
+      "semi_major_axis_km": 42164.498442668504,
+      "eccentricity": 0.0003138,
+      "inclination_deg": 0.0469,
+      "raan_deg": 42.7857,
+      "arg_perigee_deg": 348.1932,
+      "mean_anomaly_deg": 295.0684,
+      "mean_motion_rev_day": 1.00272618
+    }
+  ]
 }

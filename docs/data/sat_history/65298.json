@@ -1,5 +1,34 @@
 {
   "norad_id": 65298,
   "name": "FOURIER",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:34:21.407520",
+      "apogee_km": 642.7698234641466,
+      "perigee_km": 629.8862152737711,
+      "latitude_deg": -22.09436135041075,
+      "longitude_deg": 68.0904528000392,
+      "semi_major_axis_km": 7014.465019368959,
+      "eccentricity": 0.00091836,
+      "inclination_deg": 97.9629,
+      "raan_deg": 172.0313,
+      "arg_perigee_deg": 341.8263,
+      "mean_anomaly_deg": 18.2618,
+      "mean_motion_rev_day": 14.77783902
+    },
+    {
+      "epoch": "2026-03-29T05:19:22.020960",
+      "apogee_km": 642.7295950156822,
+      "perigee_km": 629.8328856390162,
+      "latitude_deg": -39.242317754259645,
+      "longitude_deg": 107.09113440010697,
+      "semi_major_axis_km": 7014.418240327349,
+      "eccentricity": 0.0009193,
+      "inclination_deg": 97.9629,
+      "raan_deg": 172.4328,
+      "arg_perigee_deg": 340.0136,
+      "mean_anomaly_deg": 20.0713,
+      "mean_motion_rev_day": 14.77798685
+    }
+  ]
 }

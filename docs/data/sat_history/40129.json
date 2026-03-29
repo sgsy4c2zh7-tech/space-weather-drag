@@ -1,5 +1,34 @@
 {
   "norad_id": 40129,
   "name": "GSAT0202 (GALILEO 6)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-26T03:07:10.740288",
+      "apogee_km": 26249.739094839693,
+      "perigee_km": 16948.75079295194,
+      "latitude_deg": 44.974673795915706,
+      "longitude_deg": 173.37860031984746,
+      "semi_major_axis_km": 27977.381943895816,
+      "eccentricity": 0.16622335,
+      "inclination_deg": 48.9839,
+      "raan_deg": 275.9195,
+      "arg_perigee_deg": 176.8927,
+      "mean_anomaly_deg": 184.2876,
+      "mean_motion_rev_day": 1.85520606
+    },
+    {
+      "epoch": "2026-03-28T19:47:50.804448",
+      "apogee_km": 26250.914556788906,
+      "perigee_km": 16947.559245172353,
+      "latitude_deg": 43.968547940068696,
+      "longitude_deg": 72.0897827197332,
+      "semi_major_axis_km": 27977.373900980627,
+      "eccentricity": 0.1662657,
+      "inclination_deg": 48.9812,
+      "raan_deg": 275.8093,
+      "arg_perigee_deg": 176.9957,
+      "mean_anomaly_deg": 184.1399,
+      "mean_motion_rev_day": 1.85520686
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 58921,
   "name": "NEXSAT-1",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:51:50.958432",
+      "apogee_km": 474.86682810925413,
+      "perigee_km": 461.9969218008682,
+      "latitude_deg": 84.74082462914919,
+      "longitude_deg": 163.55662048002705,
+      "semi_major_axis_km": 6846.568874955061,
+      "eccentricity": 0.00093988,
+      "inclination_deg": 97.3102,
+      "raan_deg": 162.9615,
+      "arg_perigee_deg": 51.1989,
+      "mean_anomaly_deg": 309.0091,
+      "mean_motion_rev_day": 15.32474617
+    },
+    {
+      "epoch": "2026-03-29T05:07:57.218016",
+      "apogee_km": 474.8271544884956,
+      "perigee_km": 461.9857775636174,
+      "latitude_deg": -37.38032371418497,
+      "longitude_deg": -171.3697577600833,
+      "semi_major_axis_km": 6846.543466026056,
+      "eccentricity": 0.0009378,
+      "inclination_deg": 97.3101,
+      "raan_deg": 163.2194,
+      "arg_perigee_deg": 50.3583,
+      "mean_anomaly_deg": 309.8485,
+      "mean_motion_rev_day": 15.32483148
+    }
+  ]
 }

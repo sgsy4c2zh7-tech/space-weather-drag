@@ -1,5 +1,34 @@
 {
   "norad_id": 40699,
   "name": "COSMOS 2506",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:48:38.479968",
+      "apogee_km": 717.347071357829,
+      "perigee_km": 705.5640267494518,
+      "latitude_deg": 48.10081552562615,
+      "longitude_deg": 141.14275552006438,
+      "semi_major_axis_km": 7089.59254905364,
+      "eccentricity": 0.00083101,
+      "inclination_deg": 98.0575,
+      "raan_deg": 131.7761,
+      "arg_perigee_deg": 51.1322,
+      "mean_anomaly_deg": 309.0615,
+      "mean_motion_rev_day": 14.54356404
+    },
+    {
+      "epoch": "2026-03-29T05:24:55.593216",
+      "apogee_km": 717.3305445185679,
+      "perigee_km": 705.5760038439757,
+      "latitude_deg": 52.119081007430566,
+      "longitude_deg": 167.56177023984492,
+      "semi_major_axis_km": 7089.5902741812715,
+      "eccentricity": 0.000829,
+      "inclination_deg": 98.0575,
+      "raan_deg": 132.0413,
+      "arg_perigee_deg": 50.3176,
+      "mean_anomaly_deg": 309.8751,
+      "mean_motion_rev_day": 14.54357104
+    }
+  ]
 }

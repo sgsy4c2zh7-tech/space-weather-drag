@@ -1,5 +1,34 @@
 {
   "norad_id": 42984,
   "name": "KOREASAT 5A",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:42:38.640096",
+      "apogee_km": 35793.98925308226,
+      "perigee_km": 35778.53515748554,
+      "latitude_deg": 0.012430533732756311,
+      "longitude_deg": 5.24293343978934,
+      "semi_major_axis_km": 42164.3992052839,
+      "eccentricity": 0.00018326,
+      "inclination_deg": 0.0145,
+      "raan_deg": 261.0944,
+      "arg_perigee_deg": 124.3131,
+      "mean_anomaly_deg": 239.713,
+      "mean_motion_rev_day": 1.00272972
+    },
+    {
+      "epoch": "2026-03-28T23:52:50.687040",
+      "apogee_km": 35794.01312197681,
+      "perigee_km": 35778.53035108876,
+      "latitude_deg": 0.0086383617967635,
+      "longitude_deg": 13.922985600074753,
+      "semi_major_axis_km": 42164.40873653279,
+      "eccentricity": 0.0001836,
+      "inclination_deg": 0.014,
+      "raan_deg": 260.5739,
+      "arg_perigee_deg": 125.0916,
+      "mean_anomaly_deg": 272.0946,
+      "mean_motion_rev_day": 1.00272938
+    }
+  ]
 }

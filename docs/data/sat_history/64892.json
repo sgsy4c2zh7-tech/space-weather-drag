@@ -1,5 +1,34 @@
 {
   "norad_id": 64892,
   "name": "GEOSCAN 4 (RS92S4)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:23:29.700960",
+      "apogee_km": 478.71209502548027,
+      "perigee_km": 466.754312137341,
+      "latitude_deg": 79.93559349590588,
+      "longitude_deg": 38.766334399813786,
+      "semi_major_axis_km": 6850.87020358141,
+      "eccentricity": 0.00087272,
+      "inclination_deg": 97.4482,
+      "raan_deg": 56.8491,
+      "arg_perigee_deg": 103.434,
+      "mean_anomaly_deg": 256.7874,
+      "mean_motion_rev_day": 15.31031594
+    },
+    {
+      "epoch": "2026-03-29T04:39:57.164832",
+      "apogee_km": 478.6797268742448,
+      "perigee_km": 466.7017396653964,
+      "latitude_deg": -65.32077753574782,
+      "longitude_deg": 63.86351648019627,
+      "semi_major_axis_km": 6850.827733269821,
+      "eccentricity": 0.0008742,
+      "inclination_deg": 97.4483,
+      "raan_deg": 57.1113,
+      "arg_perigee_deg": 103.1157,
+      "mean_anomaly_deg": 257.106,
+      "mean_motion_rev_day": 15.31045831
+    }
+  ]
 }

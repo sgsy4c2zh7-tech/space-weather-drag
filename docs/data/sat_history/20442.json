@@ -1,5 +1,34 @@
 {
   "norad_id": 20442,
   "name": "LUSAT (LO-19)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T14:21:49.430592",
+      "apogee_km": 787.1514908940599,
+      "perigee_km": 768.9947545706646,
+      "latitude_deg": 1.866266201271392,
+      "longitude_deg": -118.3450771200005,
+      "semi_major_axis_km": 7156.210122732362,
+      "eccentricity": 0.0012686,
+      "inclination_deg": 98.892,
+      "raan_deg": 107.1602,
+      "arg_perigee_deg": 83.4954,
+      "mean_anomaly_deg": 276.7673,
+      "mean_motion_rev_day": 14.34095708
+    },
+    {
+      "epoch": "2026-03-29T00:24:38.171808",
+      "apogee_km": 787.1428329666269,
+      "perigee_km": 769.0018422957328,
+      "latitude_deg": 35.94991763425428,
+      "longitude_deg": -78.15758688002825,
+      "semi_major_axis_km": 7156.20933763118,
+      "eccentricity": 0.0012675,
+      "inclination_deg": 98.8919,
+      "raan_deg": 107.5906,
+      "arg_perigee_deg": 82.3784,
+      "mean_anomaly_deg": 277.8839,
+      "mean_motion_rev_day": 14.34095944
+    }
+  ]
 }

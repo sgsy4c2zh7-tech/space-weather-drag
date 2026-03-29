@@ -1,5 +1,34 @@
 {
   "norad_id": 23839,
   "name": "INMARSAT 3-F1",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T16:25:55.831872",
+      "apogee_km": 35883.807475535934,
+      "perigee_km": 35841.555674348165,
+      "latitude_deg": -7.6458995246741805,
+      "longitude_deg": -130.37129792012274,
+      "semi_major_axis_km": 42240.81857494205,
+      "eccentricity": 0.00050013,
+      "inclination_deg": 10.4354,
+      "raan_deg": 47.3616,
+      "arg_perigee_deg": 296.7094,
+      "mean_anomaly_deg": 74.9858,
+      "mean_motion_rev_day": 1.00000984
+    },
+    {
+      "epoch": "2026-03-29T04:24:29.407680",
+      "apogee_km": 35883.73017896491,
+      "perigee_km": 35841.649867084576,
+      "latitude_deg": 8.03413887188487,
+      "longitude_deg": -82.46732480009086,
+      "semi_major_axis_km": 42240.82702302474,
+      "eccentricity": 0.0004981,
+      "inclination_deg": 10.4365,
+      "raan_deg": 47.357,
+      "arg_perigee_deg": 297.2524,
+      "mean_anomaly_deg": 254.0918,
+      "mean_motion_rev_day": 1.00000954
+    }
+  ]
 }

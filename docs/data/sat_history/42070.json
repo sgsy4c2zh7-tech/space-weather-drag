@@ -1,5 +1,34 @@
 {
   "norad_id": 42070,
   "name": "ECHOSTAR 23",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:06:29.219040",
+      "apogee_km": 35795.356437895316,
+      "perigee_km": 35778.22820030732,
+      "latitude_deg": 0.02285439639155114,
+      "longitude_deg": -88.56753440015018,
+      "semi_major_axis_km": 42164.92931910132,
+      "eccentricity": 0.00020311,
+      "inclination_deg": 0.023,
+      "raan_deg": 172.6133,
+      "arg_perigee_deg": 200.2306,
+      "mean_anomaly_deg": 20.1793,
+      "mean_motion_rev_day": 1.00271081
+    },
+    {
+      "epoch": "2026-03-28T22:49:09.747264",
+      "apogee_km": 35795.41897916678,
+      "perigee_km": 35778.392734861125,
+      "latitude_deg": 0.011875179935313198,
+      "longitude_deg": -81.7225030399859,
+      "semi_major_axis_km": 42165.042857013956,
+      "eccentricity": 0.0002019,
+      "inclination_deg": 0.023,
+      "raan_deg": 172.5476,
+      "arg_perigee_deg": 199.3275,
+      "mean_anomaly_deg": 46.8868,
+      "mean_motion_rev_day": 1.00270676
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 54880,
   "name": "EROS C3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:54:52.233984",
+      "apogee_km": 532.6148671374949,
+      "perigee_km": 527.4064001476336,
+      "latitude_deg": 39.68863127371062,
+      "longitude_deg": 115.65803776006214,
+      "semi_major_axis_km": 6908.147633642564,
+      "eccentricity": 0.00037698,
+      "inclination_deg": 139.3375,
+      "raan_deg": 266.3817,
+      "arg_perigee_deg": 200.8939,
+      "mean_anomaly_deg": 159.1715,
+      "mean_motion_rev_day": 15.12029786
+    },
+    {
+      "epoch": "2026-03-29T04:15:19.195200",
+      "apogee_km": 532.6587605344548,
+      "perigee_km": 527.3422579073585,
+      "latitude_deg": -84.999982788533,
+      "longitude_deg": 141.02132799988613,
+      "semi_major_axis_km": 6908.137509220906,
+      "eccentricity": 0.0003848,
+      "inclination_deg": 139.3376,
+      "raan_deg": 267.8935,
+      "arg_perigee_deg": 202.1163,
+      "mean_anomaly_deg": 157.9479,
+      "mean_motion_rev_day": 15.1203311
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 35496,
   "name": "TERRESTAR-1",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:06:14.243328",
+      "apogee_km": 35798.727932835354,
+      "perigee_km": 35773.01884913955,
+      "latitude_deg": -3.5901828662246804,
+      "longitude_deg": -25.98417407972738,
+      "semi_major_axis_km": 42164.01039098746,
+      "eccentricity": 0.00030487,
+      "inclination_deg": 5.1166,
+      "raan_deg": 48.8113,
+      "arg_perigee_deg": 323.7603,
+      "mean_anomaly_deg": 19.2914,
+      "mean_motion_rev_day": 1.00274359
+    },
+    {
+      "epoch": "2026-03-29T00:31:31.975104",
+      "apogee_km": 35798.60578670147,
+      "perigee_km": 35773.61082208502,
+      "latitude_deg": 5.105254900879753,
+      "longitude_deg": -12.297805439913645,
+      "semi_major_axis_km": 42164.24530439325,
+      "eccentricity": 0.0002964,
+      "inclination_deg": 5.1169,
+      "raan_deg": 48.8111,
+      "arg_perigee_deg": 324.0177,
+      "mean_anomaly_deg": 70.4976,
+      "mean_motion_rev_day": 1.00273521
+    }
+  ]
 }

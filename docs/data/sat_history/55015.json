@@ -1,5 +1,34 @@
 {
   "norad_id": 55015,
   "name": "BIRKELAND",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:20:11.540832",
+      "apogee_km": 455.5559734898234,
+      "perigee_km": 445.049599465553,
+      "latitude_deg": 72.6255093482938,
+      "longitude_deg": 130.84615648002364,
+      "semi_major_axis_km": 6828.439786477688,
+      "eccentricity": 0.00076931,
+      "inclination_deg": 97.3415,
+      "raan_deg": 155.7576,
+      "arg_perigee_deg": 47.5597,
+      "mean_anomaly_deg": 312.6298,
+      "mean_motion_rev_day": 15.38581605
+    },
+    {
+      "epoch": "2026-03-29T03:01:09.122592",
+      "apogee_km": 455.5221772206596,
+      "perigee_km": 445.04874285145706,
+      "latitude_deg": -73.48646072246372,
+      "longitude_deg": 149.57680288003758,
+      "semi_major_axis_km": 6828.4224600360585,
+      "eccentricity": 0.0007669,
+      "inclination_deg": 97.3415,
+      "raan_deg": 155.9529,
+      "arg_perigee_deg": 47.0463,
+      "mean_anomaly_deg": 313.1425,
+      "mean_motion_rev_day": 15.38587461
+    }
+  ]
 }

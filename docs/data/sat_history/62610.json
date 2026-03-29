@@ -1,5 +1,34 @@
 {
   "norad_id": 62610,
   "name": "EDISON-1",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:40:03.736128",
+      "apogee_km": 480.3312790577529,
+      "perigee_km": 473.72879347844173,
+      "latitude_deg": -37.11831508257183,
+      "longitude_deg": 155.6708179200068,
+      "semi_major_axis_km": 6855.167036268097,
+      "eccentricity": 0.00048157,
+      "inclination_deg": 97.4023,
+      "raan_deg": 170.5196,
+      "arg_perigee_deg": 220.8064,
+      "mean_anomaly_deg": 139.2816,
+      "mean_motion_rev_day": 15.29592339
+    },
+    {
+      "epoch": "2026-03-29T04:05:16.769472",
+      "apogee_km": 480.29134635988885,
+      "perigee_km": 473.65834014036045,
+      "latitude_deg": -37.347087101667235,
+      "longitude_deg": -166.64803392020985,
+      "semi_major_axis_km": 6855.111843250124,
+      "eccentricity": 0.0004838,
+      "inclination_deg": 97.4023,
+      "raan_deg": 170.9103,
+      "arg_perigee_deg": 219.2487,
+      "mean_anomaly_deg": 140.8403,
+      "mean_motion_rev_day": 15.29610812
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 38042,
   "name": "GLOBALSTAR M082",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T15:14:39.909696",
+      "apogee_km": 1414.4085527980615,
+      "perigee_km": 1412.7800809528353,
+      "latitude_deg": -14.90515787987854,
+      "longitude_deg": -154.82232256000862,
+      "semi_major_axis_km": 7791.731316875448,
+      "eccentricity": 0.0001045,
+      "inclination_deg": 52.0068,
+      "raan_deg": 219.6941,
+      "arg_perigee_deg": 109.5644,
+      "mean_anomaly_deg": 263.5838,
+      "mean_motion_rev_day": 12.62268689
+    },
+    {
+      "epoch": "2026-03-29T01:34:57.533088",
+      "apogee_km": 1414.402237100484,
+      "perigee_km": 1412.7862320424338,
+      "latitude_deg": -40.72687426827705,
+      "longitude_deg": -113.46940767997876,
+      "semi_major_axis_km": 7791.731234571459,
+      "eccentricity": 0.0001037,
+      "inclination_deg": 52.0069,
+      "raan_deg": 218.3829,
+      "arg_perigee_deg": 109.9261,
+      "mean_anomaly_deg": 61.6168,
+      "mean_motion_rev_day": 12.62268709
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 64592,
   "name": "HUBBLE 7",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:02:02.676480",
+      "apogee_km": 588.5840656759929,
+      "perigee_km": 585.5404129124063,
+      "latitude_deg": 28.266515071610808,
+      "longitude_deg": -0.6636928000953048,
+      "semi_major_axis_km": 6965.199239294199,
+      "eccentricity": 0.00021849,
+      "inclination_deg": 97.7642,
+      "raan_deg": 203.4343,
+      "arg_perigee_deg": 225.4179,
+      "mean_anomaly_deg": 134.6863,
+      "mean_motion_rev_day": 14.93490437
+    },
+    {
+      "epoch": "2026-03-29T00:51:28.742112",
+      "apogee_km": 588.5940386687998,
+      "perigee_km": 585.5251730442587,
+      "latitude_deg": -34.142649412062404,
+      "longitude_deg": 18.631935679819435,
+      "semi_major_axis_km": 6965.196605856529,
+      "eccentricity": 0.0002203,
+      "inclination_deg": 97.7641,
+      "raan_deg": 203.6328,
+      "arg_perigee_deg": 224.3784,
+      "mean_anomaly_deg": 135.7259,
+      "mean_motion_rev_day": 14.93491284
+    }
+  ]
 }

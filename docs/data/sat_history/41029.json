@@ -1,5 +1,34 @@
 {
   "norad_id": 41029,
   "name": "BADR-7 (ARABSAT-6B)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:02:33.121248",
+      "apogee_km": 35800.10853409029,
+      "perigee_km": 35774.09005338287,
+      "latitude_deg": 0.008907847169239539,
+      "longitude_deg": 163.07013471983373,
+      "semi_major_axis_km": 42165.236293736576,
+      "eccentricity": 0.00030853,
+      "inclination_deg": 0.0294,
+      "raan_deg": 221.2279,
+      "arg_perigee_deg": 33.5738,
+      "mean_anomaly_deg": 258.065,
+      "mean_motion_rev_day": 1.00269986
+    },
+    {
+      "epoch": "2026-03-29T02:53:15.660096",
+      "apogee_km": 35799.94603032192,
+      "perigee_km": 35774.15780078117,
+      "latitude_deg": -0.028042347014214753,
+      "longitude_deg": -169.549266560236,
+      "semi_major_axis_km": 42165.188915551546,
+      "eccentricity": 0.0003058,
+      "inclination_deg": 0.0284,
+      "raan_deg": 219.9672,
+      "arg_perigee_deg": 34.5306,
+      "mean_anomaly_deg": 1.3258,
+      "mean_motion_rev_day": 1.00270155
+    }
+  ]
 }

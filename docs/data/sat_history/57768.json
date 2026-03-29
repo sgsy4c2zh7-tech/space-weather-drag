@@ -1,5 +1,34 @@
 {
   "norad_id": 57768,
   "name": "WILDFIRE 8",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T17:25:21.436320",
+      "apogee_km": 948.3442467260484,
+      "perigee_km": 941.1385343897391,
+      "latitude_deg": 11.945617550434184,
+      "longitude_deg": 26.490484800189734,
+      "semi_major_axis_km": 7322.878390557894,
+      "eccentricity": 0.000492,
+      "inclination_deg": 80.9912,
+      "raan_deg": 84.2474,
+      "arg_perigee_deg": 222.3134,
+      "mean_anomaly_deg": 137.7644,
+      "mean_motion_rev_day": 13.85415458
+    },
+    {
+      "epoch": "2026-03-29T05:33:19.838304",
+      "apogee_km": 948.3509007761604,
+      "perigee_km": 941.13200719622,
+      "latitude_deg": 75.13405868391722,
+      "longitude_deg": 75.0220425601583,
+      "semi_major_axis_km": 7322.87845398619,
+      "eccentricity": 0.0004929,
+      "inclination_deg": 80.9913,
+      "raan_deg": 83.7616,
+      "arg_perigee_deg": 220.7382,
+      "mean_anomaly_deg": 139.3407,
+      "mean_motion_rev_day": 13.8541544
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 64377,
   "name": "STARLINK-11742 [DTC]",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:54:19.641312",
+      "apogee_km": 360.3148419002018,
+      "perigee_km": 353.0536270380462,
+      "latitude_deg": -23.49938155931712,
+      "longitude_deg": -26.678176320157945,
+      "semi_major_axis_km": 6734.821234469124,
+      "eccentricity": 0.00053908,
+      "inclination_deg": 42.9996,
+      "raan_deg": 329.6304,
+      "arg_perigee_deg": 299.5498,
+      "mean_anomaly_deg": 60.4832,
+      "mean_motion_rev_day": 15.70773816
+    },
+    {
+      "epoch": "2026-03-29T04:00:01.999584",
+      "apogee_km": 357.7955377229937,
+      "perigee_km": 355.4397205537207,
+      "latitude_deg": -15.083271334186538,
+      "longitude_deg": 9.702221759827808,
+      "semi_major_axis_km": 6734.754629138357,
+      "eccentricity": 0.0001749,
+      "inclination_deg": 43.0001,
+      "raan_deg": 327.3474,
+      "arg_perigee_deg": 273.8696,
+      "mean_anomaly_deg": 71.819,
+      "mean_motion_rev_day": 15.70797118
+    }
+  ]
 }

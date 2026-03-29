@@ -1,5 +1,34 @@
 {
   "norad_id": 47935,
   "name": "GRUS-1E",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:24:15.663168",
+      "apogee_km": 577.5603539302283,
+      "perigee_km": 558.3403912485264,
+      "latitude_deg": 77.66705086264894,
+      "longitude_deg": 143.11740352003835,
+      "semi_major_axis_km": 6946.087372589377,
+      "eccentricity": 0.00138351,
+      "inclination_deg": 97.5502,
+      "raan_deg": 334.8305,
+      "arg_perigee_deg": 241.2624,
+      "mean_anomaly_deg": 118.721,
+      "mean_motion_rev_day": 14.99658589
+    },
+    {
+      "epoch": "2026-03-29T04:48:35.337600",
+      "apogee_km": 577.5709476096672,
+      "perigee_km": 558.3261230255166,
+      "latitude_deg": -64.444557303151,
+      "longitude_deg": 168.73926399997436,
+      "semi_major_axis_km": 6946.085535317592,
+      "eccentricity": 0.0013853,
+      "inclination_deg": 97.5501,
+      "raan_deg": 335.0892,
+      "arg_perigee_deg": 240.3457,
+      "mean_anomaly_deg": 119.6388,
+      "mean_motion_rev_day": 14.99659184
+    }
+  ]
 }

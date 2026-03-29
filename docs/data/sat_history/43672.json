@@ -1,5 +1,34 @@
 {
   "norad_id": 43672,
   "name": "GOSAT 2 (IBUKI 1)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:48:18.750816",
+      "apogee_km": 616.9783258360785,
+      "perigee_km": 614.9133928126921,
+      "latitude_deg": 72.56634618802549,
+      "longitude_deg": 70.42083424003795,
+      "semi_major_axis_km": 6994.082859324385,
+      "eccentricity": 0.00014762,
+      "inclination_deg": 97.8697,
+      "raan_deg": 200.3869,
+      "arg_perigee_deg": 95.8208,
+      "mean_anomaly_deg": 264.3175,
+      "mean_motion_rev_day": 14.84248444
+    },
+    {
+      "epoch": "2026-03-29T01:39:32.832000",
+      "apogee_km": 616.9726246643804,
+      "perigee_km": 614.9149660943804,
+      "latitude_deg": -76.41346002165679,
+      "longitude_deg": 89.83648000005633,
+      "semi_major_axis_km": 6994.08079537938,
+      "eccentricity": 0.0001471,
+      "inclination_deg": 97.8698,
+      "raan_deg": 200.5865,
+      "arg_perigee_deg": 95.8718,
+      "mean_anomaly_deg": 264.2664,
+      "mean_motion_rev_day": 14.84249101
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 54027,
   "name": "GALAXY 34 (G-34)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T12:23:38.721696",
+      "apogee_km": 35793.81337024793,
+      "perigee_km": 35781.298592571045,
+      "latitude_deg": 0.018966121940585712,
+      "longitude_deg": -7.723642560187727,
+      "semi_major_axis_km": 42165.69298140949,
+      "eccentricity": 0.0001484,
+      "inclination_deg": 0.0198,
+      "raan_deg": 170.9941,
+      "arg_perigee_deg": 190.3331,
+      "mean_anomaly_deg": 241.5926,
+      "mean_motion_rev_day": 1.00268357
+    },
+    {
+      "epoch": "2026-03-28T23:56:38.676768",
+      "apogee_km": 35794.0751523901,
+      "perigee_km": 35780.97849720611,
+      "latitude_deg": -0.002709273630229478,
+      "longitude_deg": 38.476307519944385,
+      "semi_major_axis_km": 42165.6638247981,
+      "eccentricity": 0.0001553,
+      "inclination_deg": 0.0198,
+      "raan_deg": 168.1748,
+      "arg_perigee_deg": 192.7151,
+      "mean_anomaly_deg": 55.7511,
+      "mean_motion_rev_day": 1.00268461
+    }
+  ]
 }

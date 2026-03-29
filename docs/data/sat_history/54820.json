@@ -1,5 +1,34 @@
 {
   "norad_id": 54820,
   "name": "STARLINK-5382",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:00:01.999584",
+      "apogee_km": 491.85139977447307,
+      "perigee_km": 489.816261096832,
+      "latitude_deg": -20.179751226312227,
+      "longitude_deg": 110.00222175987437,
+      "semi_major_axis_km": 6868.970830435652,
+      "eccentricity": 0.00014814,
+      "inclination_deg": 43.0079,
+      "raan_deg": 26.9719,
+      "arg_perigee_deg": 274.2567,
+      "mean_anomaly_deg": 309.7353,
+      "mean_motion_rev_day": 15.24983883
+    },
+    {
+      "epoch": "2026-03-29T04:00:01.999584",
+      "apogee_km": 489.96639734005385,
+      "perigee_km": 488.34022299460594,
+      "latitude_deg": 41.9265696867079,
+      "longitude_deg": 134.00222175987437,
+      "semi_major_axis_km": 6867.290310167329,
+      "eccentricity": 0.0001184,
+      "inclination_deg": 43.0008,
+      "raan_deg": 25.5625,
+      "arg_perigee_deg": 310.3588,
+      "mean_anomaly_deg": 207.6775,
+      "mean_motion_rev_day": 15.25543694
+    }
+  ]
 }

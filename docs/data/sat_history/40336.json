@@ -1,5 +1,34 @@
 {
   "norad_id": 40336,
   "name": "CBERS 4",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:48:53.413344",
+      "apogee_km": 773.3435518488322,
+      "perigee_km": 772.9945681131039,
+      "latitude_deg": -75.25120519879128,
+      "longitude_deg": 104.85934815998189,
+      "semi_major_axis_km": 7151.306059980968,
+      "eccentricity": 2.44e-05,
+      "inclination_deg": 98.3444,
+      "raan_deg": 147.3431,
+      "arg_perigee_deg": 64.554,
+      "mean_anomaly_deg": 295.5671,
+      "mean_motion_rev_day": 14.35571124
+    },
+    {
+      "epoch": "2026-03-29T03:49:59.337120",
+      "apogee_km": 773.3166979088392,
+      "perigee_km": 773.0192036228873,
+      "latitude_deg": 65.68619507038143,
+      "longitude_deg": 124.93259680015035,
+      "semi_major_axis_km": 7151.304950765863,
+      "eccentricity": 2.08e-05,
+      "inclination_deg": 98.3444,
+      "raan_deg": 147.5455,
+      "arg_perigee_deg": 69.5518,
+      "mean_anomaly_deg": 290.5691,
+      "mean_motion_rev_day": 14.35571458
+    }
+  ]
 }

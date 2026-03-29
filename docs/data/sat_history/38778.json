@@ -1,5 +1,34 @@
 {
   "norad_id": 38778,
   "name": "ASTRA 2F",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:03:10.560960",
+      "apogee_km": 35794.41632676314,
+      "perigee_km": 35778.48148645731,
+      "latitude_deg": 0.05634945142862768,
+      "longitude_deg": -61.988265599822626,
+      "semi_major_axis_km": 42164.58590661023,
+      "eccentricity": 0.00018896,
+      "inclination_deg": 0.0569,
+      "raan_deg": 252.2727,
+      "arg_perigee_deg": 31.3617,
+      "mean_anomaly_deg": 231.5707,
+      "mean_motion_rev_day": 1.00272306
+    },
+    {
+      "epoch": "2026-03-29T02:53:53.098944",
+      "apogee_km": 35794.212656546704,
+      "perigee_km": 35778.58647929462,
+      "latitude_deg": -0.0159155210115609,
+      "longitude_deg": -34.607667840085924,
+      "semi_major_axis_km": 42164.536567920666,
+      "eccentricity": 0.0001853,
+      "inclination_deg": 0.056,
+      "raan_deg": 251.9381,
+      "arg_perigee_deg": 31.6721,
+      "mean_anomaly_deg": 334.5544,
+      "mean_motion_rev_day": 1.00272482
+    }
+  ]
 }

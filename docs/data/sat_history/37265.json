@@ -1,5 +1,34 @@
 {
   "norad_id": 37265,
   "name": "KOREASAT 6",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T18:39:38.769984",
+      "apogee_km": 35796.00117451314,
+      "perigee_km": 35777.10464708272,
+      "latitude_deg": 0.003993762285353442,
+      "longitude_deg": 141.1430777600035,
+      "semi_major_axis_km": 42164.68991079793,
+      "eccentricity": 0.00022408,
+      "inclination_deg": 0.004,
+      "raan_deg": 97.6799,
+      "arg_perigee_deg": 261.0864,
+      "mean_anomaly_deg": 267.2127,
+      "mean_motion_rev_day": 1.00271935
+    },
+    {
+      "epoch": "2026-03-29T03:31:26.995872",
+      "apogee_km": 35796.02840674647,
+      "perigee_km": 35777.10488774958,
+      "latitude_deg": 0.003988896754872385,
+      "longitude_deg": 176.5966620799154,
+      "semi_major_axis_km": 42164.703647248025,
+      "eccentricity": 0.0002244,
+      "inclination_deg": 0.0042,
+      "raan_deg": 100.9184,
+      "arg_perigee_deg": 257.9349,
+      "mean_anomaly_deg": 40.4409,
+      "mean_motion_rev_day": 1.00271886
+    }
+  ]
 }

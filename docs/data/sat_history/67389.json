@@ -1,5 +1,34 @@
 {
   "norad_id": 67389,
   "name": "HYDRA-2",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T12:30:32.201856",
+      "apogee_km": 513.6427765156232,
+      "perigee_km": 511.7017733590592,
+      "latitude_deg": -27.91053772508845,
+      "longitude_deg": -111.0642201602459,
+      "semi_major_axis_km": 6890.809274937341,
+      "eccentricity": 0.00014084,
+      "inclination_deg": 97.4597,
+      "raan_deg": 87.7106,
+      "arg_perigee_deg": 247.3105,
+      "mean_anomaly_deg": 112.798,
+      "mean_motion_rev_day": 15.17740131
+    },
+    {
+      "epoch": "2026-03-28T23:35:06.226944",
+      "apogee_km": 513.6444079777402,
+      "perigee_km": 511.66675050749745,
+      "latitude_deg": 58.946986470095844,
+      "longitude_deg": -66.75974784023128,
+      "semi_major_axis_km": 6890.792579242619,
+      "eccentricity": 0.0001435,
+      "inclination_deg": 97.4596,
+      "raan_deg": 88.1653,
+      "arg_perigee_deg": 243.7081,
+      "mean_anomaly_deg": 116.4006,
+      "mean_motion_rev_day": 15.17745647
+    }
+  ]
 }

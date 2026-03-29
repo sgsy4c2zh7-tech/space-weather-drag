@@ -1,5 +1,34 @@
 {
   "norad_id": 34713,
   "name": "WGS F2 (USA 204)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T15:03:33.730272",
+      "apogee_km": 35787.47619243174,
+      "perigee_km": 35786.55699208343,
+      "latitude_deg": -0.00908553589790991,
+      "longitude_deg": -128.46252191998065,
+      "semi_major_axis_km": 42165.15359225759,
+      "eccentricity": 1.09e-05,
+      "inclination_deg": 0.0199,
+      "raan_deg": 171.5916,
+      "arg_perigee_deg": 128.3085,
+      "mean_anomaly_deg": 169.5463,
+      "mean_motion_rev_day": 1.00270281
+    },
+    {
+      "epoch": "2026-03-29T03:02:14.796960",
+      "apogee_km": 35787.7436434025,
+      "perigee_km": 35787.035262558085,
+      "latitude_deg": -0.01636184202362562,
+      "longitude_deg": -80.55022559990175,
+      "semi_major_axis_km": 42165.526452980295,
+      "eccentricity": 8.4e-06,
+      "inclination_deg": 0.0199,
+      "raan_deg": 177.8938,
+      "arg_perigee_deg": 70.1093,
+      "mean_anomaly_deg": 41.6041,
+      "mean_motion_rev_day": 1.00268951
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 60500,
   "name": "NUSAT-49 (KLARA DAN VON NEUMANN)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:39:23.912064",
+      "apogee_km": 479.392573862493,
+      "perigee_km": 475.8654193725524,
+      "latitude_deg": -69.26961092565884,
+      "longitude_deg": -51.37343103997409,
+      "semi_major_axis_km": 6855.765996617522,
+      "eccentricity": 0.00025724,
+      "inclination_deg": 97.3803,
+      "raan_deg": 169.6611,
+      "arg_perigee_deg": 182.1863,
+      "mean_anomaly_deg": 177.9367,
+      "mean_motion_rev_day": 15.29391892
+    },
+    {
+      "epoch": "2026-03-29T05:04:41.430432",
+      "apogee_km": 479.36616137783494,
+      "perigee_km": 475.8052989917778,
+      "latitude_deg": -69.37602100175076,
+      "longitude_deg": -13.687299520010129,
+      "semi_major_axis_km": 6855.722730184806,
+      "eccentricity": 0.0002597,
+      "inclination_deg": 97.3803,
+      "raan_deg": 170.0506,
+      "arg_perigee_deg": 180.8773,
+      "mean_anomaly_deg": 179.2463,
+      "mean_motion_rev_day": 15.2940637
+    }
+  ]
 }

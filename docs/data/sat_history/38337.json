@@ -1,5 +1,34 @@
 {
   "norad_id": 38337,
   "name": "GCOM-W1 (SHIZUKU)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T19:48:54.535680",
+      "apogee_km": 703.3392317173339,
+      "perigee_km": 701.6044825473355,
+      "latitude_deg": -0.3947304050033047,
+      "longitude_deg": -107.03940479992889,
+      "semi_major_axis_km": 7080.608857132334,
+      "eccentricity": 0.0001225,
+      "inclination_deg": 98.2078,
+      "raan_deg": 29.6026,
+      "arg_perigee_deg": 73.0027,
+      "mean_anomaly_deg": 341.1456,
+      "mean_motion_rev_day": 14.57125156
+    },
+    {
+      "epoch": "2026-03-28T19:48:54.537408",
+      "apogee_km": 703.3394127478223,
+      "perigee_km": 701.6055131025423,
+      "latitude_deg": -0.39475760689614064,
+      "longitude_deg": -107.0394028800074,
+      "semi_major_axis_km": 7080.609462925182,
+      "eccentricity": 0.00012244,
+      "inclination_deg": 98.2078,
+      "raan_deg": 29.6026,
+      "arg_perigee_deg": 72.9968,
+      "mean_anomaly_deg": 341.1515,
+      "mean_motion_rev_day": 14.57124969
+    }
+  ]
 }

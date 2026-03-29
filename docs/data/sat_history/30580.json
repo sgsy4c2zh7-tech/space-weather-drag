@@ -1,5 +1,34 @@
 {
   "norad_id": 30580,
   "name": "THEMIS A",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-27T18:52:52.630464",
+      "apogee_km": 78331.3725399364,
+      "perigee_km": 1017.6903694261755,
+      "latitude_deg": 6.8458555627098,
+      "longitude_deg": 97.52514496003278,
+      "semi_major_axis_km": 46052.66845468129,
+      "eccentricity": 0.83940502,
+      "inclination_deg": 7.1458,
+      "raan_deg": 117.365,
+      "arg_perigee_deg": 182.7798,
+      "mean_anomaly_deg": 163.4374,
+      "mean_motion_rev_day": 0.87845711
+    },
+    {
+      "epoch": "2026-03-28T22:05:20.438880",
+      "apogee_km": 78329.0968277154,
+      "perigee_km": 1019.9562957431517,
+      "latitude_deg": 3.859590873083171,
+      "longitude_deg": -153.64395679999143,
+      "semi_major_axis_km": 46052.66356172928,
+      "eccentricity": 0.8393558,
+      "inclination_deg": 7.1639,
+      "raan_deg": 117.2338,
+      "arg_perigee_deg": 183.0367,
+      "mean_anomaly_deg": 161.9354,
+      "mean_motion_rev_day": 0.87845725
+    }
+  ]
 }

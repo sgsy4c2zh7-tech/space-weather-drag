@@ -1,5 +1,34 @@
 {
   "norad_id": 38953,
   "name": "BEIDOU-2 G6",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:01:46.415712",
+      "apogee_km": 35830.81274392502,
+      "perigee_km": 35742.14898547912,
+      "latitude_deg": 3.0628435743340807,
+      "longitude_deg": -36.58176031988114,
+      "semi_major_axis_km": 42164.61786470207,
+      "eccentricity": 0.0010514,
+      "inclination_deg": 4.2187,
+      "raan_deg": 74.3634,
+      "arg_perigee_deg": 307.9252,
+      "mean_anomaly_deg": 218.5235,
+      "mean_motion_rev_day": 1.00272192
+    },
+    {
+      "epoch": "2026-03-29T01:27:11.638368",
+      "apogee_km": 35830.886654778784,
+      "perigee_km": 35742.096380046816,
+      "latitude_deg": 0.1966795739296771,
+      "longitude_deg": -22.88706848002039,
+      "semi_major_axis_km": 42164.628517412806,
+      "eccentricity": 0.0010529,
+      "inclination_deg": 4.2191,
+      "raan_deg": 74.3618,
+      "arg_perigee_deg": 308.0057,
+      "mean_anomaly_deg": 269.9402,
+      "mean_motion_rev_day": 1.00272154
+    }
+  ]
 }

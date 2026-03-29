@@ -1,5 +1,34 @@
 {
   "norad_id": 40053,
   "name": "SPOT 7",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:51:03.183264",
+      "apogee_km": 691.4426262366005,
+      "perigee_km": 689.2096987235736,
+      "latitude_deg": 84.01226806012794,
+      "longitude_deg": 72.7035369600635,
+      "semi_major_axis_km": 7068.463162480087,
+      "eccentricity": 0.00015795,
+      "inclination_deg": 98.0708,
+      "raan_deg": 152.4471,
+      "arg_perigee_deg": 92.8444,
+      "mean_anomaly_deg": 267.2938,
+      "mean_motion_rev_day": 14.60882422
+    },
+    {
+      "epoch": "2026-03-29T04:25:34.182624",
+      "apogee_km": 691.4299631619251,
+      "perigee_km": 689.2203618899202,
+      "latitude_deg": -14.905764628952136,
+      "longitude_deg": 99.0046473601833,
+      "semi_major_axis_km": 7068.462162525922,
+      "eccentricity": 0.0001563,
+      "inclination_deg": 98.0708,
+      "raan_deg": 152.7144,
+      "arg_perigee_deg": 93.5727,
+      "mean_anomaly_deg": 266.5653,
+      "mean_motion_rev_day": 14.60882732
+    }
+  ]
 }

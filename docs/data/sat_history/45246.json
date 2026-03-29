@@ -1,5 +1,34 @@
 {
   "norad_id": 45246,
   "name": "GEO-KOMPSAT-2B",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T22:14:28.074912",
+      "apogee_km": 35793.086689378506,
+      "perigee_km": 35780.72558533235,
+      "latitude_deg": -0.032748114799877034,
+      "longitude_deg": -126.43547231983393,
+      "semi_major_axis_km": 42165.04313735543,
+      "eccentricity": 0.00014658,
+      "inclination_deg": 0.0411,
+      "raan_deg": 337.0948,
+      "arg_perigee_deg": 347.8891,
+      "mean_anomaly_deg": 323.2216,
+      "mean_motion_rev_day": 1.00270675
+    },
+    {
+      "epoch": "2026-03-28T23:57:05.280192",
+      "apogee_km": 35793.090886505415,
+      "perigee_km": 35780.73652664839,
+      "latitude_deg": -0.03641323897020918,
+      "longitude_deg": -119.59413312003016,
+      "semi_major_axis_km": 42165.050706576905,
+      "eccentricity": 0.0001465,
+      "inclination_deg": 0.0413,
+      "raan_deg": 338.0363,
+      "arg_perigee_deg": 347.0347,
+      "mean_anomaly_deg": 348.8595,
+      "mean_motion_rev_day": 1.00270648
+    }
+  ]
 }

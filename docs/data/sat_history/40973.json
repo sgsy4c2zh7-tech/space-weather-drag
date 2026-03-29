@@ -1,5 +1,34 @@
 {
   "norad_id": 40973,
   "name": "PROPCUBE 3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:09:17.770752",
+      "apogee_km": 672.0323544255962,
+      "perigee_km": 500.9203017823411,
+      "latitude_deg": 30.448865075183164,
+      "longitude_deg": 161.9197452799417,
+      "semi_major_axis_km": 6964.613328103968,
+      "eccentricity": 0.01228439,
+      "inclination_deg": 64.7681,
+      "raan_deg": 143.3291,
+      "arg_perigee_deg": 91.868,
+      "mean_anomaly_deg": 269.6508,
+      "mean_motion_rev_day": 14.93678905
+    },
+    {
+      "epoch": "2026-03-29T05:11:21.425280",
+      "apogee_km": 672.0137874524034,
+      "perigee_km": 500.9130559721152,
+      "latitude_deg": -27.442115832396375,
+      "longitude_deg": -165.94286079984158,
+      "semi_major_axis_km": 6964.600421712259,
+      "eccentricity": 0.0122836,
+      "inclination_deg": 64.768,
+      "raan_deg": 142.2842,
+      "arg_perigee_deg": 91.7353,
+      "mean_anomaly_deg": 269.7834,
+      "mean_motion_rev_day": 14.93683057
+    }
+  ]
 }

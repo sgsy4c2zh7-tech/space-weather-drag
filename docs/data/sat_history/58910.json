@@ -1,5 +1,34 @@
 {
   "norad_id": 58910,
   "name": "GEESAT-2 06",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T21:46:24.075840",
+      "apogee_km": 560.765925494512,
+      "perigee_km": 552.2140048285346,
+      "latitude_deg": 36.26510051192809,
+      "longitude_deg": 158.09341760003008,
+      "semi_major_axis_km": 6934.626965161523,
+      "eccentricity": 0.00061661,
+      "inclination_deg": 49.9889,
+      "raan_deg": 323.6862,
+      "arg_perigee_deg": 97.3544,
+      "mean_anomaly_deg": 262.8104,
+      "mean_motion_rev_day": 15.03377707
+    },
+    {
+      "epoch": "2026-03-29T02:33:32.620320",
+      "apogee_km": 560.7565834558964,
+      "perigee_km": 552.1992686371541,
+      "latitude_deg": -37.90280558829989,
+      "longitude_deg": 177.2362448000349,
+      "semi_major_axis_km": 6934.6149260465245,
+      "eccentricity": 0.000617,
+      "inclination_deg": 49.9889,
+      "raan_deg": 322.7331,
+      "arg_perigee_deg": 98.0409,
+      "mean_anomaly_deg": 262.1238,
+      "mean_motion_rev_day": 15.03381622
+    }
+  ]
 }

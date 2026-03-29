@@ -1,5 +1,34 @@
 {
   "norad_id": 42986,
   "name": "COSMOS 2523",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T23:11:38.482368",
+      "apogee_km": 629.3511861798233,
+      "perigee_km": 534.5406582103642,
+      "latitude_deg": 75.8592635174971,
+      "longitude_deg": 11.376091520069167,
+      "semi_major_axis_km": 6960.0829221950935,
+      "eccentricity": 0.00681102,
+      "inclination_deg": 97.5045,
+      "raan_deg": 104.4948,
+      "arg_perigee_deg": 138.2397,
+      "mean_anomaly_deg": 222.4052,
+      "mean_motion_rev_day": 14.95137524
+    },
+    {
+      "epoch": "2026-03-29T04:00:45.573696",
+      "apogee_km": 629.3467132058504,
+      "perigee_km": 534.5365222749906,
+      "latitude_deg": -72.95524510669235,
+      "longitude_deg": 30.650637439917773,
+      "semi_major_axis_km": 6960.078617740421,
+      "eccentricity": 0.006811,
+      "inclination_deg": 97.5044,
+      "raan_deg": 104.6871,
+      "arg_perigee_deg": 137.5771,
+      "mean_anomaly_deg": 223.0744,
+      "mean_motion_rev_day": 14.95138911
+    }
+  ]
 }

@@ -1,5 +1,34 @@
 {
   "norad_id": 41879,
   "name": "WGS F8 (USA 272)",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T14:47:38.891904",
+      "apogee_km": 35787.15667003454,
+      "perigee_km": 35784.421917775115,
+      "latitude_deg": 0.012084091632072278,
+      "longitude_deg": -132.9234534399584,
+      "semi_major_axis_km": 42163.92629390483,
+      "eccentricity": 3.243e-05,
+      "inclination_deg": 0.0121,
+      "raan_deg": 197.2846,
+      "arg_perigee_deg": 146.0895,
+      "mean_anomaly_deg": 214.3648,
+      "mean_motion_rev_day": 1.00274659
+    },
+    {
+      "epoch": "2026-03-28T20:09:38.534112",
+      "apogee_km": 35787.486868433414,
+      "perigee_km": 35785.71594942024,
+      "latitude_deg": -0.010337559734385273,
+      "longitude_deg": -111.45718432008289,
+      "semi_major_axis_km": 42164.73840892683,
+      "eccentricity": 2.1e-05,
+      "inclination_deg": 0.0117,
+      "raan_deg": 195.1919,
+      "arg_perigee_deg": 225.75,
+      "mean_anomaly_deg": 217.5141,
+      "mean_motion_rev_day": 1.00271762
+    }
+  ]
 }

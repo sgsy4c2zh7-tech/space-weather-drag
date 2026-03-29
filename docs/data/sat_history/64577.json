@@ -1,5 +1,34 @@
 {
   "norad_id": 64577,
   "name": "LYRA-3",
-  "history": []
+  "history": [
+    {
+      "epoch": "2026-03-28T20:59:00.468672",
+      "apogee_km": 661.5771549340197,
+      "perigee_km": 633.6899044858528,
+      "latitude_deg": 62.25906675040985,
+      "longitude_deg": 1.633854079991579,
+      "semi_major_axis_km": 7025.7705297099355,
+      "eccentricity": 0.00198464,
+      "inclination_deg": 97.7655,
+      "raan_deg": 196.1682,
+      "arg_perigee_deg": 239.0087,
+      "mean_anomaly_deg": 120.9173,
+      "mean_motion_rev_day": 14.74218376
+    },
+    {
+      "epoch": "2026-03-29T05:07:41.896704",
+      "apogee_km": 661.5744577533978,
+      "perigee_km": 633.6695481454835,
+      "latitude_deg": -2.665460204981452,
+      "longitude_deg": 34.21321855997667,
+      "semi_major_axis_km": 7025.75900294944,
+      "eccentricity": 0.0019859,
+      "inclination_deg": 97.7655,
+      "raan_deg": 196.4935,
+      "arg_perigee_deg": 237.8838,
+      "mean_anomaly_deg": 122.0444,
+      "mean_motion_rev_day": 14.74222004
+    }
+  ]
 }
