@@ -11,6 +11,7 @@ permissions:
 jobs:
   update:
     runs-on: ubuntu-latest
+    timeout-minutes: 30
 
     steps:
       - name: Checkout repository
@@ -42,6 +43,13 @@ jobs:
 
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
+
+      - name: Show generated counts
+        run: |
+          echo "sat_history count:"
+          find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
+          echo "catalog count:"
+          find docs/data/catalog -maxdepth 1 -name "*.json" | wc -l
 
       - name: Commit and push
         run: |
