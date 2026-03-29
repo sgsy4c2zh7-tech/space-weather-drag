@@ -1,1 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Satellite Orbit Monitor</title>
+</head>
+<body>
+  <h1>Satellite Orbit Monitor</h1>
+  <input id="norad" placeholder="NORAD ID">
+  <button onclick="loadData()">表示</button>
 
+  <canvas id="chart"></canvas>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script>
+    async function loadData() {
+      const id = document.getElementById("norad").value;
+      const res = await fetch(`data/${id}.json`);
+      const data = await res.json();
+
+      const labels = data.history.map(h => h.epoch);
+      const apogee = data.history.map(h => h.apogee_km);
+      const perigee = data.history.map(h => h.perigee_km);
+
+      new Chart(document.getElementById("chart"), {
+        type: "line",
+        data: {
+          labels: labels,
+          datasets: [
+            { label: "Apogee", data: apogee },
+            { label: "Perigee", data: perigee }
+          ]
+        }
+      });
+    }
+  </script>
+</body>
+</html>
