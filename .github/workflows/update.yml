@@ -1,29 +1,55 @@
 name: Update Data
 
 on:
-  schedule:
-    - cron: "0 */6 * * *"
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   update:
     runs-on: ubuntu-latest
 
     steps:
-      - uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-      - uses: actions/setup-python@v5
+      - name: Setup Python
+        uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      - run: pip install requests
+      - name: Prepare folders
+        run: mkdir -p docs/data scripts
 
-      - run: python scripts/fetch_tle.py
-      - run: python scripts/build_history.py
+      - name: Create test JSON
+        run: |
+          python - <<'PY'
+          import json
+          from datetime import datetime, timezone
 
-      - run: |
-          git config user.name "bot"
-          git config user.email "bot@github.com"
-          git add .
-          git commit -m "update data" || echo "no changes"
+          data = {
+            "norad_id": 25544,
+            "name": "ISS (ZARYA)",
+            "history": [
+              {
+                "epoch": datetime.now(timezone.utc).isoformat(),
+                "apogee_km": 423.1,
+                "perigee_km": 417.8,
+                "inclination_deg": 51.64
+              }
+            ]
+          }
+
+          with open("docs/data/25544.json", "w", encoding="utf-8") as f:
+              json.dump(data, f, ensure_ascii=False, indent=2)
+          print("docs/data/25544.json created")
+          PY
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add docs/data/25544.json
+          git commit -m "Add test satellite data" || echo "No changes to commit"
           git push
