@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Space Weather Drag Viewer</title>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -14,9 +12,6 @@
       background: #0b1220;
       color: #e8eefc;
     }
-
-    h1, h2 { margin-bottom: 10px; }
-
     .controls, .card {
       background: #131c2f;
       border: 1px solid #26324d;
@@ -24,221 +19,332 @@
       padding: 14px;
       margin-bottom: 14px;
     }
-
     .row {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       align-items: end;
     }
-
     label {
       display: flex;
       flex-direction: column;
       font-size: 14px;
+      gap: 6px;
     }
-
     input, select, button {
-      padding: 6px;
-      border-radius: 6px;
+      padding: 8px;
+      border-radius: 8px;
       border: 1px solid #3d4d73;
       background: #0f1728;
       color: #fff;
     }
-
-    button {
-      cursor: pointer;
-      font-weight: bold;
+    .grid {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
     }
-
-    /* ⭐ これが重要：高さ固定 */
     .chart-wrap {
       position: relative;
       width: 100%;
       height: 420px;
     }
-
     .chart-wrap.small {
       height: 260px;
     }
-
     canvas {
       width: 100% !important;
       height: 100% !important;
       background: #fff;
       border-radius: 8px;
     }
-
     table {
       width: 100%;
       border-collapse: collapse;
+      font-size: 14px;
     }
-
-    td, th {
+    th, td {
       border: 1px solid #31415f;
       padding: 6px;
+      text-align: left;
     }
-
-    th {
-      background: #1a2740;
+    th { background: #1a2740; }
+    #satList {
+      width: 280px;
     }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
+    @media (max-width: 900px) {
+      .grid { grid-template-columns: 1fr; }
     }
   </style>
 </head>
-
 <body>
+  <h1>Space Weather Drag Viewer</h1>
 
-<h1>Space Weather Drag Viewer</h1>
+  <div class="controls">
+    <div class="row">
+      <label>
+        NORAD ID
+        <input id="norad" value="25544" list="satelliteSuggestions" />
+        <datalist id="satelliteSuggestions"></datalist>
+      </label>
 
-<div class="controls">
-  <div class="row">
-    <label>NORAD ID
-      <input id="norad" value="25544">
-    </label>
+      <label>
+        開始日
+        <input id="startDate" type="date" />
+      </label>
 
-    <label>開始日
-      <input id="startDate" type="date">
-    </label>
+      <label>
+        終了日
+        <input id="endDate" type="date" />
+      </label>
 
-    <label>終了日
-      <input id="endDate" type="date">
-    </label>
+      <label>
+        宇宙天気指数
+        <select id="indexType">
+          <option value="kp">Kp</option>
+          <option value="ae">AE</option>
+        </select>
+      </label>
 
-    <label>指数
-      <select id="indexType">
-        <option value="kp">Kp</option>
-        <option value="ae">AE</option>
-      </select>
-    </label>
+      <label>
+        軌道グラフ項目
+        <select id="orbitMetric">
+          <option value="altitude">アポジ / ペリジ</option>
+          <option value="latlon">緯度 / 経度</option>
+          <option value="inclination">傾斜角</option>
+          <option value="elements">6要素</option>
+          <option value="meanmotion">平均運動</option>
+        </select>
+      </label>
 
-    <button onclick="loadData()">表示</button>
+      <button id="loadBtn">表示</button>
+    </div>
+    <p id="status">未読込</p>
   </div>
-</div>
 
-<div class="grid">
+  <div class="grid">
+    <div>
+      <div class="card">
+        <h2>軌道グラフ</h2>
+        <div class="chart-wrap">
+          <canvas id="orbitChart"></canvas>
+        </div>
+      </div>
 
-  <div>
-    <div class="card">
-      <h2>衛星グラフ</h2>
-      <div class="chart-wrap">
-        <canvas id="orbitChart"></canvas>
+      <div class="card">
+        <h2>Kp / AE</h2>
+        <div class="chart-wrap small">
+          <canvas id="indexChart"></canvas>
+        </div>
       </div>
     </div>
 
-    <div class="card">
-      <h2>指数グラフ</h2>
-      <div class="chart-wrap small">
-        <canvas id="indexChart"></canvas>
+    <div>
+      <div class="card">
+        <h2>最新値</h2>
+        <table>
+          <tbody id="infoTable"></tbody>
+        </table>
       </div>
     </div>
   </div>
 
-  <div>
-    <div class="card">
-      <h2>最新軌道情報</h2>
-      <table id="infoTable"></table>
-    </div>
-  </div>
+  <script>
+    let orbitChart = null;
+    let indexChart = null;
 
-</div>
-
-<script>
-let orbitChart = null;
-let indexChart = null;
-
-function setDefaultDates() {
-  const today = new Date();
-  const end = today.toISOString().slice(0,10);
-
-  const startObj = new Date();
-  startObj.setDate(startObj.getDate() - 30);
-
-  document.getElementById("startDate").value = startObj.toISOString().slice(0,10);
-  document.getElementById("endDate").value = end;
-}
-
-function withinRange(t, start, end) {
-  const d = new Date(t);
-  return d >= new Date(start) && d <= new Date(end);
-}
-
-async function loadData() {
-  const id = document.getElementById("norad").value;
-  const start = document.getElementById("startDate").value;
-  const end = document.getElementById("endDate").value;
-  const type = document.getElementById("indexType").value;
-
-  const sat = await fetch(`data/${id}.json`).then(r => r.json());
-
-  const hist = sat.history.filter(h => withinRange(h.epoch, start, end));
-
-  const labels = hist.map(h => h.epoch);
-  const apogee = hist.map(h => h.apogee_km);
-  const perigee = hist.map(h => h.perigee_km);
-
-  if (orbitChart) orbitChart.destroy();
-
-  orbitChart = new Chart(document.getElementById("orbitChart"), {
-    type: "line",
-    data: {
-      labels,
-      datasets: [
-        { label: "Apogee", data: apogee },
-        { label: "Perigee", data: perigee }
-      ]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
+    function setDefaultDates() {
+      const today = new Date();
+      const end = today.toISOString().slice(0, 10);
+      const startObj = new Date();
+      startObj.setDate(startObj.getDate() - 30);
+      document.getElementById("startDate").value = startObj.toISOString().slice(0, 10);
+      document.getElementById("endDate").value = end;
     }
-  });
 
-  // NOAA データ
-  let indexData = [];
-
-  if (type === "kp") {
-    const obs = await fetch("data/noaa/kp_observed.json").then(r=>r.json());
-    indexData = obs.data;
-  } else {
-    const ae = await fetch("data/noaa/ae_observed.json").then(r=>r.json());
-    indexData = ae.data;
-  }
-
-  const idxFiltered = indexData.filter(d => withinRange(d.time_tag, start, end));
-
-  if (indexChart) indexChart.destroy();
-
-  indexChart = new Chart(document.getElementById("indexChart"), {
-    type: "bar",
-    data: {
-      labels: idxFiltered.map(d=>d.time_tag),
-      datasets: [{
-        label: type,
-        data: idxFiltered.map(d=>d.kp_index || d.ae_index)
-      }]
-    },
-    options: {
-      responsive: true,
-      maintainAspectRatio: false
+    function parseDateUTC(s) {
+      return new Date(s);
     }
-  });
 
-  const latest = hist[hist.length - 1];
+    function withinRange(iso, start, end) {
+      const t = parseDateUTC(iso);
+      const s = new Date(start + "T00:00:00Z");
+      const e = new Date(end + "T23:59:59Z");
+      return t >= s && t <= e;
+    }
 
-  document.getElementById("infoTable").innerHTML = `
-    <tr><th>Apogee</th><td>${latest.apogee_km}</td></tr>
-    <tr><th>Perigee</th><td>${latest.perigee_km}</td></tr>
-    <tr><th>Inclination</th><td>${latest.inclination_deg}</td></tr>
-  `;
-}
+    function fmt(v, digits = 3) {
+      if (v === null || v === undefined || Number.isNaN(v)) return "-";
+      return Number(v).toFixed(digits);
+    }
 
-setDefaultDates();
-</script>
+    async function getJson(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
+      return await res.json();
+    }
 
+    function buildOrbitDatasets(metric, hist) {
+      if (metric === "altitude") {
+        return [
+          { label: "Apogee (km)", data: hist.map(h => h.apogee_km), borderWidth: 2, tension: 0.15 },
+          { label: "Perigee (km)", data: hist.map(h => h.perigee_km), borderWidth: 2, tension: 0.15 }
+        ];
+      }
+      if (metric === "latlon") {
+        return [
+          { label: "Latitude (deg)", data: hist.map(h => h.latitude_deg), borderWidth: 2, tension: 0.15 },
+          { label: "Longitude (deg)", data: hist.map(h => h.longitude_deg), borderWidth: 2, tension: 0.15 }
+        ];
+      }
+      if (metric === "inclination") {
+        return [
+          { label: "Inclination (deg)", data: hist.map(h => h.inclination_deg), borderWidth: 2, tension: 0.15 }
+        ];
+      }
+      if (metric === "meanmotion") {
+        return [
+          { label: "Mean Motion (rev/day)", data: hist.map(h => h.mean_motion_rev_day), borderWidth: 2, tension: 0.15 }
+        ];
+      }
+      return [
+        { label: "Semi-major axis (km)", data: hist.map(h => h.semi_major_axis_km), borderWidth: 2, tension: 0.15 },
+        { label: "Eccentricity", data: hist.map(h => h.eccentricity), borderWidth: 2, tension: 0.15 },
+        { label: "Inclination (deg)", data: hist.map(h => h.inclination_deg), borderWidth: 2, tension: 0.15 },
+        { label: "RAAN (deg)", data: hist.map(h => h.raan_deg), borderWidth: 2, tension: 0.15 },
+        { label: "Arg. Perigee (deg)", data: hist.map(h => h.arg_perigee_deg), borderWidth: 2, tension: 0.15 },
+        { label: "Mean Anomaly (deg)", data: hist.map(h => h.mean_anomaly_deg), borderWidth: 2, tension: 0.15 }
+      ];
+    }
+
+    function fillInfoTable(latest, sat) {
+      document.getElementById("infoTable").innerHTML = `
+        <tr><th>衛星名</th><td>${sat.name || "-"}</td></tr>
+        <tr><th>NORAD ID</th><td>${sat.norad_id || "-"}</td></tr>
+        <tr><th>Epoch</th><td>${latest.epoch || "-"}</td></tr>
+        <tr><th>Apogee (km)</th><td>${fmt(latest.apogee_km)}</td></tr>
+        <tr><th>Perigee (km)</th><td>${fmt(latest.perigee_km)}</td></tr>
+        <tr><th>Latitude (deg)</th><td>${fmt(latest.latitude_deg)}</td></tr>
+        <tr><th>Longitude (deg)</th><td>${fmt(latest.longitude_deg)}</td></tr>
+        <tr><th>Semi-major axis (km)</th><td>${fmt(latest.semi_major_axis_km)}</td></tr>
+        <tr><th>Eccentricity</th><td>${fmt(latest.eccentricity, 6)}</td></tr>
+        <tr><th>Inclination (deg)</th><td>${fmt(latest.inclination_deg)}</td></tr>
+        <tr><th>RAAN (deg)</th><td>${fmt(latest.raan_deg)}</td></tr>
+        <tr><th>Arg. Perigee (deg)</th><td>${fmt(latest.arg_perigee_deg)}</td></tr>
+        <tr><th>Mean Anomaly (deg)</th><td>${fmt(latest.mean_anomaly_deg)}</td></tr>
+        <tr><th>Mean Motion (rev/day)</th><td>${fmt(latest.mean_motion_rev_day, 6)}</td></tr>
+      `;
+    }
+
+    function mergeKpObservedForecast(obs, fcst, start, end) {
+      const map = new Map();
+
+      for (const item of obs) {
+        if (withinRange(item.time_tag, start, end)) {
+          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+        }
+      }
+      for (const item of fcst) {
+        if (withinRange(item.time_tag, start, end) && !map.has(item.time_tag)) {
+          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+        }
+      }
+
+      return Array.from(map.values()).sort((a, b) => a.time.localeCompare(b.time));
+    }
+
+    async function loadSuggestions() {
+      try {
+        const sats = await getJson("data/satellites.json");
+        const dl = document.getElementById("satelliteSuggestions");
+        dl.innerHTML = sats.slice(0, 2000).map(s => {
+          return `<option value="${s.norad_id}">${s.name}</option>`;
+        }).join("");
+      } catch (e) {
+        console.log("satellite suggestions load skipped:", e.message);
+      }
+    }
+
+    async function loadData() {
+      const norad = document.getElementById("norad").value.trim();
+      const start = document.getElementById("startDate").value;
+      const end = document.getElementById("endDate").value;
+      const indexType = document.getElementById("indexType").value;
+      const orbitMetric = document.getElementById("orbitMetric").value;
+      const status = document.getElementById("status");
+
+      if (!norad || !start || !end) {
+        status.textContent = "NORAD ID と開始日・終了日を入れてください。";
+        return;
+      }
+
+      try {
+        status.textContent = "読込中...";
+
+        const sat = await getJson(`data/sat_history/${norad}.json`);
+        const hist = (sat.history || [])
+          .filter(h => withinRange(h.epoch, start, end))
+          .sort((a, b) => a.epoch.localeCompare(b.epoch));
+
+        if (hist.length === 0) {
+          status.textContent = "指定期間の履歴がありません。";
+          return;
+        }
+
+        const latest = hist[hist.length - 1];
+        fillInfoTable(latest, sat);
+
+        if (orbitChart) orbitChart.destroy();
+        orbitChart = new Chart(document.getElementById("orbitChart"), {
+          type: "line",
+          data: {
+            labels: hist.map(h => h.epoch),
+            datasets: buildOrbitDatasets(orbitMetric, hist)
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+
+        let idxSeries = [];
+        if (indexType === "kp") {
+          const obs = await getJson("data/noaa/kp_observed.json");
+          const fcst = await getJson("data/noaa/kp_forecast.json");
+          idxSeries = mergeKpObservedForecast(obs.data || [], fcst.data || [], start, end);
+        } else {
+          const ae = await getJson("data/noaa/ae_observed.json");
+          idxSeries = (ae.data || [])
+            .filter(x => withinRange(x.time_tag, start, end))
+            .map(x => ({ time: x.time_tag, value: Number(x.ae_index) }))
+            .sort((a, b) => a.time.localeCompare(b.time));
+        }
+
+        if (indexChart) indexChart.destroy();
+        indexChart = new Chart(document.getElementById("indexChart"), {
+          type: "bar",
+          data: {
+            labels: idxSeries.map(x => x.time),
+            datasets: [{
+              label: indexType === "kp" ? "Kp" : "AE",
+              data: idxSeries.map(x => x.value),
+              borderWidth: 1
+            }]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+
+        status.textContent = `表示完了: ${sat.name} / ${hist.length}件`;
+      } catch (e) {
+        status.textContent = `エラー: ${e.message}`;
+      }
+    }
+
+    setDefaultDates();
+    loadSuggestions();
+    document.getElementById("loadBtn").addEventListener("click", loadData);
+  </script>
 </body>
 </html>
