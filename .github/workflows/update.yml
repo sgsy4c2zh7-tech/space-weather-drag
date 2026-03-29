@@ -1,9 +1,9 @@
-name: FULL REBUILD SAT HISTORY
+name: SPACE WEATHER DRAG FULL STACK
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 0,4,8,12,16,20 * * *"
+    - cron: "10 */3 * * *"
 
 permissions:
   contents: write
@@ -11,7 +11,7 @@ permissions:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests
+          pip install requests numpy scipy sgp4 pymsis
 
       - name: Prepare folders
         run: |
@@ -33,23 +33,28 @@ jobs:
           mkdir -p docs/data/catalog
           mkdir -p docs/data/sat_history
           mkdir -p docs/data/noaa
+          mkdir -p docs/data/analysis
           mkdir -p scripts
 
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
+      - name: Fetch NOAA data
+        run: python scripts/fetch_noaa.py
+
       - name: Rebuild satellite histories from all snapshots
         run: python scripts/build_sat_history.py
 
-      - name: Fetch NOAA data
-        run: python scripts/fetch_noaa.py
+      - name: Build advanced analysis for selected satellites
+        run: python scripts/build_drag_analysis.py
 
       - name: Show generated counts
         run: |
           echo "sat_history json count:"
           find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
-
-          echo "sample files:"
+          echo "analysis json count:"
+          find docs/data/analysis -maxdepth 1 -name "*.json" | wc -l
+          echo "sample sat_history files:"
           find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
 
       - name: Commit and push
@@ -57,5 +62,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
-          git commit -m "Full rebuild satellite histories and NOAA data" || echo "No changes to commit"
+          git commit -m "Update catalog, histories, NOAA, and drag analysis" || echo "No changes to commit"
           git push
