@@ -13,7 +13,6 @@ KEEP_DAYS = 30
 
 os.makedirs(HISTORY_DIR, exist_ok=True)
 
-
 def clamp_longitude(lon_deg: float) -> float:
     while lon_deg > 180:
         lon_deg -= 360
@@ -21,11 +20,9 @@ def clamp_longitude(lon_deg: float) -> float:
         lon_deg += 360
     return lon_deg
 
-
 def calc_sma_from_mean_motion(mean_motion_rev_day: float) -> float:
     n = mean_motion_rev_day * 2.0 * math.pi / 86400.0
     return (MU / (n * n)) ** (1.0 / 3.0)
-
 
 def latest_snapshot_file():
     files = [
@@ -38,7 +35,6 @@ def latest_snapshot_file():
     files.sort()
     return files[-1]
 
-
 def parse_epoch(epoch_str: str):
     if not epoch_str:
         return None
@@ -46,7 +42,6 @@ def parse_epoch(epoch_str: str):
         return datetime.fromisoformat(str(epoch_str).replace("Z", "+00:00"))
     except Exception:
         return None
-
 
 def safe_float(value, default=None):
     try:
@@ -56,17 +51,13 @@ def safe_float(value, default=None):
     except Exception:
         return default
 
-
 def estimate_lat_lon(epoch_dt: datetime, norad_id: int, inclination_deg: float):
-    # 簡易版。後で SGP4 に差し替え可能。
     phase = (epoch_dt.timestamp() / 5400.0) + (norad_id % 997) * 0.01
     lat = math.sin(phase) * min(max(inclination_deg, 0.0), 85.0)
 
     lon_phase = (epoch_dt.timestamp() / 900.0) + norad_id * 0.1
     lon = clamp_longitude((lon_phase % 360.0) - 180.0)
-
     return lat, lon
-
 
 def build_entry(row: dict):
     norad_id = row.get("NORAD_CAT_ID")
@@ -97,9 +88,7 @@ def build_entry(row: dict):
     apogee_km = ra - EARTH_RADIUS_KM
     perigee_km = rp - EARTH_RADIUS_KM
 
-    latitude_deg, longitude_deg = estimate_lat_lon(
-        epoch_dt, int(norad_id), float(inclination)
-    )
+    latitude_deg, longitude_deg = estimate_lat_lon(epoch_dt, int(norad_id), float(inclination))
 
     return {
         "meta": {
@@ -122,7 +111,6 @@ def build_entry(row: dict):
         }
     }
 
-
 def load_existing_history(filepath: str, norad_id: int, name: str):
     if os.path.exists(filepath):
         try:
@@ -139,7 +127,6 @@ def load_existing_history(filepath: str, norad_id: int, name: str):
         "history": []
     }
 
-
 def trim_history(history: list, now_utc: datetime):
     cutoff = now_utc - timedelta(days=KEEP_DAYS)
     out = []
@@ -152,7 +139,6 @@ def trim_history(history: list, now_utc: datetime):
             continue
     out.sort(key=lambda x: x["epoch"])
     return out
-
 
 def append_history(filepath: str, meta: dict, entry: dict):
     data = load_existing_history(filepath, meta["norad_id"], meta["name"])
@@ -169,7 +155,6 @@ def append_history(filepath: str, meta: dict, entry: dict):
 
     with open(filepath, "w", encoding="utf-8") as f:
         json.dump(data, f, ensure_ascii=False, indent=2)
-
 
 def write_satellites_index(rows: list):
     sats = []
@@ -188,19 +173,16 @@ def write_satellites_index(rows: list):
     with open(SATELLITES_INDEX, "w", encoding="utf-8") as f:
         json.dump(sats, f, ensure_ascii=False, indent=2)
 
-
 def main():
     snap = latest_snapshot_file()
     if not snap:
-        print("No catalog snapshot found in docs/data/catalog/")
-        return
+        raise SystemExit("No catalog snapshot found in docs/data/catalog/")
 
     with open(snap, "r", encoding="utf-8") as f:
         rows = json.load(f)
 
     if not isinstance(rows, list):
-        print("Catalog snapshot is not a list.")
-        return
+        raise SystemExit("Catalog snapshot is not a list.")
 
     updated = 0
     skipped = 0
@@ -222,6 +204,8 @@ def main():
     print(f"Skipped rows: {skipped}")
     print(f"Wrote index: {SATELLITES_INDEX}")
 
+    if updated == 0:
+        raise SystemExit("No satellite histories were generated. Failing workflow on purpose.")
 
 if __name__ == "__main__":
     main()
