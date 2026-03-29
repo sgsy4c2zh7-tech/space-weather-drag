@@ -47,20 +47,17 @@ def safe_float(value, default=None):
 
 
 def estimate_lat_lon(epoch_dt: datetime, norad_id: int, inclination_deg: float):
-    # 簡易版。あとで SGP4 に差し替え可能
     phase = (epoch_dt.timestamp() / 5400.0) + (norad_id % 997) * 0.01
     lat = math.sin(phase) * min(max(inclination_deg, 0.0), 85.0)
 
     lon_phase = (epoch_dt.timestamp() / 900.0) + norad_id * 0.1
     lon = clamp_longitude((lon_phase % 360.0) - 180.0)
-
     return lat, lon
 
 
 def snapshot_files_in_range():
     now = datetime.now(timezone.utc)
     cutoff = now - timedelta(days=KEEP_DAYS)
-
     files = []
     for name in os.listdir(CATALOG_DIR):
         if not name.endswith(".json"):
@@ -72,7 +69,6 @@ def snapshot_files_in_range():
                 files.append(path)
         except Exception:
             continue
-
     files.sort()
     return files
 
@@ -83,7 +79,7 @@ def build_entry(row: dict):
     epoch_str = row.get("EPOCH")
 
     if norad_id is None or epoch_str is None:
-      return None
+        return None
 
     epoch_dt = parse_epoch(epoch_str)
     if epoch_dt is None:
@@ -106,9 +102,7 @@ def build_entry(row: dict):
     apogee_km = ra - EARTH_RADIUS_KM
     perigee_km = rp - EARTH_RADIUS_KM
 
-    latitude_deg, longitude_deg = estimate_lat_lon(
-        epoch_dt, int(norad_id), float(inclination)
-    )
+    latitude_deg, longitude_deg = estimate_lat_lon(epoch_dt, int(norad_id), float(inclination))
 
     return {
         "norad_id": int(norad_id),
@@ -125,8 +119,8 @@ def build_entry(row: dict):
             "raan_deg": raan,
             "arg_perigee_deg": arg_perigee,
             "mean_anomaly_deg": mean_anomaly,
-            "mean_motion_rev_day": mean_motion
-        }
+            "mean_motion_rev_day": mean_motion,
+        },
     }
 
 
@@ -161,7 +155,6 @@ def rebuild_histories_from_snapshots(files):
 
 
 def write_sat_history_files(by_sat):
-    # 既存 json をいったん削除して完全再構築
     for name in os.listdir(HISTORY_DIR):
         if name.endswith(".json"):
             os.remove(os.path.join(HISTORY_DIR, name))
@@ -178,7 +171,7 @@ def write_sat_history_files(by_sat):
         data = {
             "norad_id": norad_id,
             "name": payload["name"] or f"NORAD-{norad_id}",
-            "history": history
+            "history": history,
         }
 
         out_path = os.path.join(HISTORY_DIR, f"{norad_id}.json")
@@ -195,7 +188,7 @@ def write_satellites_index(by_sat):
     for norad_id, payload in by_sat.items():
         sats.append({
             "norad_id": int(norad_id),
-            "name": payload["name"] or f"NORAD-{norad_id}"
+            "name": payload["name"] or f"NORAD-{norad_id}",
         })
 
     sats.sort(key=lambda x: x["norad_id"])
