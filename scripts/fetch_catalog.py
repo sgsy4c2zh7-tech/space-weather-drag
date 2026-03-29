@@ -1,52 +1,71 @@
-name: Update Satellite Catalog and NOAA Data
+import json
+import os
+from datetime import datetime, timezone, timedelta
+from urllib.request import Request, urlopen
 
-on:
-  workflow_dispatch:
-  schedule:
-    - cron: "10 0,4,8,12,16,20 * * *"
+CATALOG_DIR = "docs/data/catalog"
+LATEST_INDEX = "docs/data/satellites.json"
 
-permissions:
-  contents: write
+CELESTRAK_ACTIVE_JSON = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=json"
 
-jobs:
-  update:
-    runs-on: ubuntu-latest
+os.makedirs(CATALOG_DIR, exist_ok=True)
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
 
-      - name: Setup Python
-        uses: actions/setup-python@v5
-        with:
-          python-version: "3.11"
+def fetch_json(url: str):
+    req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
+    with urlopen(req, timeout=180) as resp:
+        return json.loads(resp.read().decode("utf-8"))
 
-      - name: Install dependencies
-        run: |
-          python -m pip install --upgrade pip
-          pip install requests
 
-      - name: Prepare folders
-        run: |
-          mkdir -p docs/data
-          mkdir -p docs/data/catalog
-          mkdir -p docs/data/sat_history
-          mkdir -p docs/data/noaa
-          mkdir -p scripts
+def cleanup_old_files(folder: str, days: int = 30):
+    cutoff = datetime.now(timezone.utc) - timedelta(days=days)
+    for name in os.listdir(folder):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(folder, name)
+        try:
+            mtime = datetime.fromtimestamp(os.path.getmtime(path), tz=timezone.utc)
+            if mtime < cutoff:
+                os.remove(path)
+                print(f"Deleted old snapshot: {path}")
+        except Exception as e:
+            print(f"Skip cleanup for {path}: {e}")
 
-      - name: Fetch full CelesTrak catalog snapshot
-        run: python scripts/fetch_catalog.py
 
-      - name: Build 30-day satellite histories
-        run: python scripts/build_sat_history.py
+def build_satellite_index(rows):
+    out = []
+    for r in rows:
+        norad = r.get("NORAD_CAT_ID")
+        name = r.get("OBJECT_NAME")
+        if norad is None:
+            continue
+        out.append({
+            "norad_id": int(norad),
+            "name": name or f"NORAD-{norad}"
+        })
+    out.sort(key=lambda x: x["norad_id"])
+    return out
 
-      - name: Fetch NOAA data
-        run: python scripts/fetch_noaa.py
 
-      - name: Commit and push
-        run: |
-          git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add docs/data
-          git commit -m "Update satellite catalog, histories, and NOAA data" || echo "No changes to commit"
-          git push
+def main():
+    rows = fetch_json(CELESTRAK_ACTIVE_JSON)
+    now = datetime.now(timezone.utc)
+    stamp = now.strftime("%Y-%m-%dT%H%MZ")
+    snap_path = os.path.join(CATALOG_DIR, f"active_{stamp}.json")
+
+    with open(snap_path, "w", encoding="utf-8") as f:
+        json.dump(rows, f, ensure_ascii=False, indent=2)
+
+    sat_index = build_satellite_index(rows)
+    with open(LATEST_INDEX, "w", encoding="utf-8") as f:
+        json.dump(sat_index, f, ensure_ascii=False, indent=2)
+
+    cleanup_old_files(CATALOG_DIR, days=30)
+
+    print(f"Snapshot rows: {len(rows)}")
+    print(f"Wrote snapshot: {snap_path}")
+    print(f"Wrote satellite index: {LATEST_INDEX}")
+
+
+if __name__ == "__main__":
+    main()
