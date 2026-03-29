@@ -6,7 +6,6 @@
   <title>Space Weather Drag Viewer</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/chartjs-adapter-date-fns"></script>
 
   <style>
     body {
@@ -341,6 +340,49 @@
       return Array.from(map.values()).sort((a, b) => a.time.localeCompare(b.time));
     }
 
+    function parseUtc(s) {
+      return new Date(s);
+    }
+
+    function formatBinLabel(date) {
+      const m = date.getUTCMonth() + 1;
+      const d = date.getUTCDate();
+      const h = date.getUTCHours();
+      return `${m}/${d} ${String(h).padStart(2, "0")}:00`;
+    }
+
+    function buildTimeBins(startDate, endDate, stepHours = 3) {
+      const bins = [];
+      const start = new Date(startDate + "T00:00:00Z");
+      const end = new Date(endDate + "T23:59:59Z");
+
+      let current = new Date(start);
+      while (current <= end) {
+        bins.push(new Date(current));
+        current = new Date(current.getTime() + stepHours * 3600 * 1000);
+      }
+      return bins;
+    }
+
+    function nearestBinIndex(isoTime, bins) {
+      const t = parseUtc(isoTime).getTime();
+      let bestIdx = -1;
+      let bestDiff = Infinity;
+
+      for (let i = 0; i < bins.length; i++) {
+        const diff = Math.abs(bins[i].getTime() - t);
+        if (diff < bestDiff) {
+          bestDiff = diff;
+          bestIdx = i;
+        }
+      }
+      return bestIdx;
+    }
+
+    function makeEmptySeries(length) {
+      return Array.from({ length }, () => null);
+    }
+
     function makeLineStyle() {
       return {
         borderWidth: 2,
@@ -353,111 +395,83 @@
       };
     }
 
-    function buildOrbitDatasets(metric, hist, analysisHist) {
+    function buildOrbitDatasets(metric, hist, analysisHist, bins) {
       const style = makeLineStyle();
+      const n = bins.length;
+
+      function mapSeries(source, key, label) {
+        const arr = makeEmptySeries(n);
+        for (const row of source) {
+          const idx = nearestBinIndex(row.epoch, bins);
+          if (idx >= 0) arr[idx] = row[key] ?? null;
+        }
+        return { label, data: arr, ...style };
+      }
 
       if (metric === "altitude") {
         return [
-          {
-            label: "Apogee (km)",
-            data: hist.map(h => ({ x: h.epoch, y: h.apogee_km })),
-            ...style
-          },
-          {
-            label: "Perigee (km)",
-            data: hist.map(h => ({ x: h.epoch, y: h.perigee_km })),
-            ...style
-          }
+          mapSeries(hist, "apogee_km", "Apogee (km)"),
+          mapSeries(hist, "perigee_km", "Perigee (km)")
         ];
       }
 
       if (metric === "latlon") {
         return [
-          {
-            label: "Latitude (deg)",
-            data: hist.map(h => ({ x: h.epoch, y: h.latitude_deg })),
-            ...style
-          },
-          {
-            label: "Longitude (deg)",
-            data: hist.map(h => ({ x: h.epoch, y: h.longitude_deg })),
-            ...style
-          }
+          mapSeries(hist, "latitude_deg", "Latitude (deg)"),
+          mapSeries(hist, "longitude_deg", "Longitude (deg)")
         ];
       }
 
       if (metric === "inclination") {
-        return [
-          {
-            label: "Inclination (deg)",
-            data: hist.map(h => ({ x: h.epoch, y: h.inclination_deg })),
-            ...style
-          }
-        ];
+        return [mapSeries(hist, "inclination_deg", "Inclination (deg)")];
       }
 
       if (metric === "meanmotion") {
-        return [
-          {
-            label: "Mean Motion (rev/day)",
-            data: hist.map(h => ({ x: h.epoch, y: h.mean_motion_rev_day })),
-            ...style
-          }
-        ];
+        return [mapSeries(hist, "mean_motion_rev_day", "Mean Motion (rev/day)")];
       }
 
       if (metric === "density") {
-        return [
-          {
-            label: "NRLMSIS Density",
-            data: (analysisHist || []).map(h => ({ x: h.epoch, y: h.nrlmsis_density })),
-            ...style
-          }
-        ];
+        return [mapSeries(analysisHist || [], "nrlmsis_density", "NRLMSIS Density")];
       }
 
       if (metric === "height") {
-        return [
-          {
-            label: "Height (km)",
-            data: hist.map(h => ({ x: h.epoch, y: h.height_km })),
-            ...style
-          }
-        ];
+        return [mapSeries(hist, "height_km", "Height (km)")];
       }
 
       return [
-        {
-          label: "Semi-major axis (km)",
-          data: hist.map(h => ({ x: h.epoch, y: h.semi_major_axis_km })),
-          ...style
-        },
-        {
-          label: "Eccentricity",
-          data: hist.map(h => ({ x: h.epoch, y: h.eccentricity })),
-          ...style
-        },
-        {
-          label: "Inclination (deg)",
-          data: hist.map(h => ({ x: h.epoch, y: h.inclination_deg })),
-          ...style
-        },
-        {
-          label: "RAAN (deg)",
-          data: hist.map(h => ({ x: h.epoch, y: h.raan_deg })),
-          ...style
-        },
-        {
-          label: "Arg. Perigee (deg)",
-          data: hist.map(h => ({ x: h.epoch, y: h.arg_perigee_deg })),
-          ...style
-        },
-        {
-          label: "Mean Anomaly (deg)",
-          data: hist.map(h => ({ x: h.epoch, y: h.mean_anomaly_deg })),
-          ...style
-        }
+        mapSeries(hist, "semi_major_axis_km", "Semi-major axis (km)"),
+        mapSeries(hist, "eccentricity", "Eccentricity"),
+        mapSeries(hist, "inclination_deg", "Inclination (deg)"),
+        mapSeries(hist, "raan_deg", "RAAN (deg)"),
+        mapSeries(hist, "arg_perigee_deg", "Arg. Perigee (deg)"),
+        mapSeries(hist, "mean_anomaly_deg", "Mean Anomaly (deg)")
       ];
+    }
+
+    function buildIndexDataset(series, label, bins) {
+      const arr = makeEmptySeries(bins.length);
+      for (const row of series) {
+        const idx = nearestBinIndex(row.time, bins);
+        if (idx >= 0) arr[idx] = row.value;
+      }
+      return {
+        label,
+        data: arr,
+        borderWidth: 1
+      };
+    }
+
+    function buildStormDataset(series, bins) {
+      const arr = makeEmptySeries(bins.length);
+      for (const row of series) {
+        const idx = nearestBinIndex(row.time, bins);
+        if (idx >= 0) arr[idx] = row.delta_h_km;
+      }
+      return {
+        label: "Δ高度 (km)",
+        data: arr,
+        borderWidth: 1
+      };
     }
 
     async function loadData() {
@@ -501,24 +515,21 @@
         fillInfoTable(latest, sat);
         fillCorrTable(analysis);
 
+        const bins = buildTimeBins(start, end, 3);
+        const labels = bins.map(formatBinLabel);
+
         orbitChart = destroyChart(orbitChart);
         orbitChart = new Chart(document.getElementById("orbitChart"), {
           type: "line",
           data: {
-            datasets: buildOrbitDatasets(orbitMetric, hist, analysisHist)
+            labels,
+            datasets: buildOrbitDatasets(orbitMetric, hist, analysisHist, bins)
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            parsing: false,
             scales: {
               x: {
-                type: "time",
-                min: start + "T00:00:00Z",
-                max: end + "T23:59:59Z",
-                time: {
-                  tooltipFormat: "yyyy-MM-dd HH:mm"
-                },
                 title: {
                   display: true,
                   text: "UTC"
@@ -545,24 +556,14 @@
         indexChart = new Chart(document.getElementById("indexChart"), {
           type: "bar",
           data: {
-            datasets: [{
-              label: indexType === "kp" ? "Kp" : "AE",
-              data: idxSeries.map(x => ({ x: x.time, y: x.value })),
-              borderWidth: 1
-            }]
+            labels,
+            datasets: [buildIndexDataset(idxSeries, indexType === "kp" ? "Kp" : "AE", bins)]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            parsing: false,
             scales: {
               x: {
-                type: "time",
-                min: start + "T00:00:00Z",
-                max: end + "T23:59:59Z",
-                time: {
-                  tooltipFormat: "yyyy-MM-dd HH:mm"
-                },
                 title: {
                   display: true,
                   text: "UTC"
@@ -577,23 +578,17 @@
         stormChart = new Chart(document.getElementById("stormChart"), {
           type: "bar",
           data: {
-            datasets: [{
-              label: "Δ高度 (km)",
-              data: storms.map(x => ({ x: x.time, y: x.delta_h_km })),
-              borderWidth: 1
-            }]
+            labels,
+            datasets: [buildStormDataset(storms, bins)]
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
-            parsing: false,
             scales: {
               x: {
-                type: "time",
-                min: start + "T00:00:00Z",
-                max: end + "T23:59:59Z",
-                time: {
-                  tooltipFormat: "yyyy-MM-dd HH:mm"
+                title: {
+                  display: true,
+                  text: "UTC"
                 }
               }
             }
@@ -633,7 +628,7 @@
           }
         });
 
-        status.textContent = `表示完了: ${sat.name} / ${hist.length}件`;
+        status.textContent = `表示完了: ${sat.name} / ${hist.length}件 / Kp(AE)=${idxSeries.length}件`;
       } catch (e) {
         status.textContent = `エラー: ${e.message}`;
       }
