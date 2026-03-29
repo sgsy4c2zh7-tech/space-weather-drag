@@ -2,72 +2,28 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>space-weather-drag</title>
-  <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 24px;
-      line-height: 1.5;
-    }
-    input, button {
-      font-size: 16px;
-      padding: 8px;
-      margin-right: 8px;
-    }
-    pre {
-      background: #f4f4f4;
-      padding: 12px;
-      border: 1px solid #ccc;
-      white-space: pre-wrap;
-      word-break: break-word;
-    }
-  </style>
+  <title>Space Weather Drag</title>
 </head>
 <body>
-  <h1>space-weather-drag</h1>
-  <p>まずは JSON が読めるかだけ確認します。</p>
 
-  <input id="norad" value="25544" placeholder="NORAD ID">
-  <button id="loadBtn">読み込む</button>
+<h1>Satellite Viewer</h1>
 
-  <p id="status">未実行</p>
-  <pre id="out">ここに結果が出ます</pre>
+<input id="norad" value="25544">
+<button onclick="loadData()">表示</button>
 
-  <script>
-    async function loadData() {
-      const id = document.getElementById("norad").value.trim();
-      const status = document.getElementById("status");
-      const out = document.getElementById("out");
+<pre id="out">ここにデータが出る</pre>
 
-      if (!id) {
-        status.textContent = "NORAD IDを入力してください";
-        return;
-      }
+<script>
+async function loadData() {
+  const id = document.getElementById("norad").value;
 
-      const url = "data/" + id + ".json";
-      status.textContent = "読込中: " + url;
-      out.textContent = "";
+  const res = await fetch(`data/${id}.json`);
+  const data = await res.json();
 
-      try {
-        const res = await fetch(url, { cache: "no-store" });
-        status.textContent = "HTTP status: " + res.status;
+  document.getElementById("out").textContent =
+    JSON.stringify(data, null, 2);
+}
+</script>
 
-        if (!res.ok) {
-          out.textContent = "読込失敗: " + url;
-          return;
-        }
-
-        const data = await res.json();
-        out.textContent = JSON.stringify(data, null, 2);
-        status.textContent = "成功: " + url;
-      } catch (e) {
-        status.textContent = "エラー発生";
-        out.textContent = String(e);
-      }
-    }
-
-    document.getElementById("loadBtn").addEventListener("click", loadData);
-  </script>
 </body>
 </html>
