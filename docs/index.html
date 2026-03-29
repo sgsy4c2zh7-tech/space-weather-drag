@@ -12,7 +12,11 @@
       background: #0b1220;
       color: #e8eefc;
     }
-    h1, h2 { margin: 0 0 12px 0; }
+
+    h1, h2 {
+      margin: 0 0 12px 0;
+    }
+
     .controls, .card {
       background: #131c2f;
       border: 1px solid #26324d;
@@ -20,18 +24,21 @@
       padding: 14px;
       margin-bottom: 14px;
     }
+
     .row {
       display: flex;
       gap: 10px;
       flex-wrap: wrap;
       align-items: end;
     }
+
     label {
       display: flex;
       flex-direction: column;
       font-size: 14px;
       gap: 6px;
     }
+
     input, select, button {
       padding: 8px;
       border-radius: 8px;
@@ -39,39 +46,63 @@
       background: #0f1728;
       color: #fff;
     }
-    button { cursor: pointer; font-weight: bold; }
+
+    button {
+      cursor: pointer;
+      font-weight: bold;
+    }
+
     .grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
       gap: 14px;
     }
+
     .chart-wrap {
       position: relative;
       width: 100%;
       height: 420px;
     }
+
     .chart-wrap.small {
       height: 260px;
     }
+
     canvas {
       width: 100% !important;
       height: 100% !important;
       background: #fff;
       border-radius: 8px;
     }
+
     table {
       width: 100%;
       border-collapse: collapse;
       font-size: 14px;
     }
+
     th, td {
       border: 1px solid #31415f;
       padding: 6px;
       text-align: left;
     }
-    th { background: #1a2740; }
+
+    th {
+      background: #1a2740;
+      width: 48%;
+    }
+
+    #status {
+      margin-top: 10px;
+      font-size: 14px;
+      color: #d6e4ff;
+      white-space: pre-wrap;
+    }
+
     @media (max-width: 900px) {
-      .grid { grid-template-columns: 1fr; }
+      .grid {
+        grid-template-columns: 1fr;
+      }
     }
   </style>
 </head>
@@ -117,7 +148,8 @@
 
       <button id="loadBtn">表示</button>
     </div>
-    <p id="status">未読込</p>
+
+    <div id="status">未読込</div>
   </div>
 
   <div class="grid">
@@ -154,21 +186,19 @@
     function setDefaultDates() {
       const today = new Date();
       const end = today.toISOString().slice(0, 10);
+
       const startObj = new Date();
       startObj.setDate(startObj.getDate() - 30);
-      document.getElementById("startDate").value = startObj.toISOString().slice(0, 10);
+      const start = startObj.toISOString().slice(0, 10);
+
+      document.getElementById("startDate").value = start;
       document.getElementById("endDate").value = end;
     }
 
-    function parseDateUTC(s) {
-      return new Date(s);
-    }
-
     function withinRange(iso, start, end) {
-      const t = parseDateUTC(iso);
-      const s = new Date(start + "T00:00:00Z");
-      const e = new Date(end + "T23:59:59Z");
-      return t >= s && t <= e;
+      if (!iso || !start || !end) return false;
+      const day = String(iso).slice(0, 10);
+      return day >= start && day <= end;
     }
 
     function fmt(v, digits = 3) {
@@ -185,33 +215,97 @@
     function buildOrbitDatasets(metric, hist) {
       if (metric === "altitude") {
         return [
-          { label: "Apogee (km)", data: hist.map(h => h.apogee_km), borderWidth: 2, tension: 0.15 },
-          { label: "Perigee (km)", data: hist.map(h => h.perigee_km), borderWidth: 2, tension: 0.15 }
+          {
+            label: "Apogee (km)",
+            data: hist.map(h => h.apogee_km),
+            borderWidth: 2,
+            tension: 0.15
+          },
+          {
+            label: "Perigee (km)",
+            data: hist.map(h => h.perigee_km),
+            borderWidth: 2,
+            tension: 0.15
+          }
         ];
       }
+
       if (metric === "latlon") {
         return [
-          { label: "Latitude (deg)", data: hist.map(h => h.latitude_deg), borderWidth: 2, tension: 0.15 },
-          { label: "Longitude (deg)", data: hist.map(h => h.longitude_deg), borderWidth: 2, tension: 0.15 }
+          {
+            label: "Latitude (deg)",
+            data: hist.map(h => h.latitude_deg),
+            borderWidth: 2,
+            tension: 0.15
+          },
+          {
+            label: "Longitude (deg)",
+            data: hist.map(h => h.longitude_deg),
+            borderWidth: 2,
+            tension: 0.15
+          }
         ];
       }
+
       if (metric === "inclination") {
         return [
-          { label: "Inclination (deg)", data: hist.map(h => h.inclination_deg), borderWidth: 2, tension: 0.15 }
+          {
+            label: "Inclination (deg)",
+            data: hist.map(h => h.inclination_deg),
+            borderWidth: 2,
+            tension: 0.15
+          }
         ];
       }
+
       if (metric === "meanmotion") {
         return [
-          { label: "Mean Motion (rev/day)", data: hist.map(h => h.mean_motion_rev_day), borderWidth: 2, tension: 0.15 }
+          {
+            label: "Mean Motion (rev/day)",
+            data: hist.map(h => h.mean_motion_rev_day),
+            borderWidth: 2,
+            tension: 0.15
+          }
         ];
       }
+
       return [
-        { label: "Semi-major axis (km)", data: hist.map(h => h.semi_major_axis_km), borderWidth: 2, tension: 0.15 },
-        { label: "Eccentricity", data: hist.map(h => h.eccentricity), borderWidth: 2, tension: 0.15 },
-        { label: "Inclination (deg)", data: hist.map(h => h.inclination_deg), borderWidth: 2, tension: 0.15 },
-        { label: "RAAN (deg)", data: hist.map(h => h.raan_deg), borderWidth: 2, tension: 0.15 },
-        { label: "Arg. Perigee (deg)", data: hist.map(h => h.arg_perigee_deg), borderWidth: 2, tension: 0.15 },
-        { label: "Mean Anomaly (deg)", data: hist.map(h => h.mean_anomaly_deg), borderWidth: 2, tension: 0.15 }
+        {
+          label: "Semi-major axis (km)",
+          data: hist.map(h => h.semi_major_axis_km),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Eccentricity",
+          data: hist.map(h => h.eccentricity),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Inclination (deg)",
+          data: hist.map(h => h.inclination_deg),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "RAAN (deg)",
+          data: hist.map(h => h.raan_deg),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Arg. Perigee (deg)",
+          data: hist.map(h => h.arg_perigee_deg),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Mean Anomaly (deg)",
+          data: hist.map(h => h.mean_anomaly_deg),
+          borderWidth: 2,
+          tension: 0.15
+        }
       ];
     }
 
@@ -239,12 +333,19 @@
 
       for (const item of obs) {
         if (withinRange(item.time_tag, start, end)) {
-          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          map.set(item.time_tag, {
+            time: item.time_tag,
+            value: Number(item.kp_index)
+          });
         }
       }
+
       for (const item of fcst) {
         if (withinRange(item.time_tag, start, end) && !map.has(item.time_tag)) {
-          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          map.set(item.time_tag, {
+            time: item.time_tag,
+            value: Number(item.kp_index)
+          });
         }
       }
 
@@ -288,13 +389,32 @@
         status.textContent = "読込中...";
 
         const sat = await loadSatelliteData(norad);
+        const allHistory = sat.history || [];
 
-        const hist = (sat.history || [])
+        const hist = allHistory
           .filter(h => withinRange(h.epoch, start, end))
           .sort((a, b) => a.epoch.localeCompare(b.epoch));
 
+        console.log("allHistory count =", allHistory.length);
+        console.log("filtered count =", hist.length);
+        console.log("first epoch =", allHistory[0]?.epoch);
+        console.log("last epoch =", allHistory[allHistory.length - 1]?.epoch);
+
         if (hist.length === 0) {
-          status.textContent = "指定期間の履歴がありません。";
+          status.textContent =
+            `指定期間の履歴がありません。\n` +
+            `全件数: ${allHistory.length}\n` +
+            `最初: ${allHistory[0]?.epoch || "-"}\n` +
+            `最後: ${allHistory[allHistory.length - 1]?.epoch || "-"}`;
+          if (orbitChart) {
+            orbitChart.destroy();
+            orbitChart = null;
+          }
+          if (indexChart) {
+            indexChart.destroy();
+            indexChart = null;
+          }
+          document.getElementById("infoTable").innerHTML = "";
           return;
         }
 
@@ -315,6 +435,7 @@
         });
 
         let idxSeries = [];
+
         if (indexType === "kp") {
           const obs = await getJson("data/noaa/kp_observed.json");
           const fcst = await getJson("data/noaa/kp_forecast.json");
@@ -332,11 +453,13 @@
           type: "bar",
           data: {
             labels: idxSeries.map(x => x.time),
-            datasets: [{
-              label: indexType === "kp" ? "Kp" : "AE",
-              data: idxSeries.map(x => x.value),
-              borderWidth: 1
-            }]
+            datasets: [
+              {
+                label: indexType === "kp" ? "Kp" : "AE",
+                data: idxSeries.map(x => x.value),
+                borderWidth: 1
+              }
+            ]
           },
           options: {
             responsive: true,
