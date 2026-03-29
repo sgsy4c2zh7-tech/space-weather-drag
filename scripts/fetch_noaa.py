@@ -54,7 +54,6 @@ def main():
         "data": kp_fcst
     })
 
-    # AE はまず空で置く。後で NOAA/NCEI 実取得に差し替え
     write_json(os.path.join(OUT_DIR, "ae_observed.json"), {
         "source": "NOAA/NCEI",
         "updated_at": datetime.now(timezone.utc).isoformat(),
