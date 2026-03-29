@@ -4,6 +4,8 @@ import os
 from collections import defaultdict
 from datetime import datetime, timezone, timedelta
 
+from skyfield.api import EarthSatellite, load, wgs84
+
 CATALOG_DIR = "docs/data/catalog"
 HISTORY_DIR = "docs/data/sat_history"
 SATELLITES_INDEX = "docs/data/satellites.json"
@@ -14,13 +16,7 @@ KEEP_DAYS = 30
 
 os.makedirs(HISTORY_DIR, exist_ok=True)
 
-
-def clamp_longitude(lon_deg: float) -> float:
-    while lon_deg > 180:
-        lon_deg -= 360
-    while lon_deg < -180:
-        lon_deg += 360
-    return lon_deg
+TS = load.timescale()
 
 
 def calc_sma_from_mean_motion(mean_motion_rev_day: float) -> float:
@@ -32,7 +28,10 @@ def parse_epoch(epoch_str: str):
     if not epoch_str:
         return None
     try:
-        return datetime.fromisoformat(str(epoch_str).replace("Z", "+00:00"))
+        dt = datetime.fromisoformat(str(epoch_str).replace("Z", "+00:00"))
+        if dt.tzinfo is None:
+            dt = dt.replace(tzinfo=timezone.utc)
+        return dt.astimezone(timezone.utc)
     except Exception:
         return None
 
@@ -46,19 +45,11 @@ def safe_float(value, default=None):
         return default
 
 
-def estimate_lat_lon(epoch_dt: datetime, norad_id: int, inclination_deg: float):
-    phase = (epoch_dt.timestamp() / 5400.0) + (norad_id % 997) * 0.01
-    lat = math.sin(phase) * min(max(inclination_deg, 0.0), 85.0)
-
-    lon_phase = (epoch_dt.timestamp() / 900.0) + norad_id * 0.1
-    lon = clamp_longitude((lon_phase % 360.0) - 180.0)
-    return lat, lon
-
-
 def snapshot_files_in_range():
     now = datetime.now(timezone.utc)
     cutoff = now - timedelta(days=KEEP_DAYS)
     files = []
+
     for name in os.listdir(CATALOG_DIR):
         if not name.endswith(".json"):
             continue
@@ -69,8 +60,24 @@ def snapshot_files_in_range():
                 files.append(path)
         except Exception:
             continue
+
     files.sort()
     return files
+
+
+def skyfield_true_lat_lon_height(row: dict, epoch_dt: datetime):
+    """
+    OMM(JSON) -> Skyfield EarthSatellite.from_omm() -> true lat/lon/height
+    """
+    sat = EarthSatellite.from_omm(TS, row)
+    t = TS.from_datetime(epoch_dt)
+    geocentric = sat.at(t)
+    gp = wgs84.geographic_position_of(geocentric)
+
+    lat_deg = gp.latitude.degrees
+    lon_deg = gp.longitude.degrees
+    height_km = gp.elevation.km
+    return lat_deg, lon_deg, height_km
 
 
 def build_entry(row: dict):
@@ -102,7 +109,11 @@ def build_entry(row: dict):
     apogee_km = ra - EARTH_RADIUS_KM
     perigee_km = rp - EARTH_RADIUS_KM
 
-    latitude_deg, longitude_deg = estimate_lat_lon(epoch_dt, int(norad_id), float(inclination))
+    try:
+        latitude_deg, longitude_deg, height_km = skyfield_true_lat_lon_height(row, epoch_dt)
+    except Exception as e:
+        print(f"Skyfield propagation failed for {norad_id}: {e}")
+        return None
 
     return {
         "norad_id": int(norad_id),
@@ -113,6 +124,7 @@ def build_entry(row: dict):
             "perigee_km": perigee_km,
             "latitude_deg": latitude_deg,
             "longitude_deg": longitude_deg,
+            "height_km": height_km,
             "semi_major_axis_km": semi_major_axis,
             "eccentricity": eccentricity,
             "inclination_deg": inclination,
