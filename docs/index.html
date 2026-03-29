@@ -341,20 +341,32 @@
       return Array.from(map.values()).sort((a, b) => a.time.localeCompare(b.time));
     }
 
+    function makeLineStyle() {
+      return {
+        borderWidth: 2,
+        tension: 0.15,
+        pointRadius: 4,
+        pointHoverRadius: 6,
+        showLine: true,
+        fill: false,
+        spanGaps: true
+      };
+    }
+
     function buildOrbitDatasets(metric, hist, analysisHist) {
+      const style = makeLineStyle();
+
       if (metric === "altitude") {
         return [
           {
             label: "Apogee (km)",
             data: hist.map(h => ({ x: h.epoch, y: h.apogee_km })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           },
           {
             label: "Perigee (km)",
             data: hist.map(h => ({ x: h.epoch, y: h.perigee_km })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -364,14 +376,12 @@
           {
             label: "Latitude (deg)",
             data: hist.map(h => ({ x: h.epoch, y: h.latitude_deg })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           },
           {
             label: "Longitude (deg)",
             data: hist.map(h => ({ x: h.epoch, y: h.longitude_deg })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -381,8 +391,7 @@
           {
             label: "Inclination (deg)",
             data: hist.map(h => ({ x: h.epoch, y: h.inclination_deg })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -392,8 +401,7 @@
           {
             label: "Mean Motion (rev/day)",
             data: hist.map(h => ({ x: h.epoch, y: h.mean_motion_rev_day })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -403,8 +411,7 @@
           {
             label: "NRLMSIS Density",
             data: (analysisHist || []).map(h => ({ x: h.epoch, y: h.nrlmsis_density })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -414,8 +421,7 @@
           {
             label: "Height (km)",
             data: hist.map(h => ({ x: h.epoch, y: h.height_km })),
-            borderWidth: 2,
-            tension: 0.15
+            ...style
           }
         ];
       }
@@ -424,38 +430,32 @@
         {
           label: "Semi-major axis (km)",
           data: hist.map(h => ({ x: h.epoch, y: h.semi_major_axis_km })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         },
         {
           label: "Eccentricity",
           data: hist.map(h => ({ x: h.epoch, y: h.eccentricity })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         },
         {
           label: "Inclination (deg)",
           data: hist.map(h => ({ x: h.epoch, y: h.inclination_deg })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         },
         {
           label: "RAAN (deg)",
           data: hist.map(h => ({ x: h.epoch, y: h.raan_deg })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         },
         {
           label: "Arg. Perigee (deg)",
           data: hist.map(h => ({ x: h.epoch, y: h.arg_perigee_deg })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         },
         {
           label: "Mean Anomaly (deg)",
           data: hist.map(h => ({ x: h.epoch, y: h.mean_anomaly_deg })),
-          borderWidth: 2,
-          tension: 0.15
+          ...style
         }
       ];
     }
@@ -607,7 +607,10 @@
           data: {
             datasets: [{
               label: "Δ高度 vs Kp",
-              data: corrPts.map(x => ({ x: x.kp, y: x.delta_h_km }))
+              data: corrPts.map(x => ({ x: x.kp, y: x.delta_h_km })),
+              pointRadius: 4,
+              pointHoverRadius: 6,
+              showLine: false
             }]
           },
           options: {
