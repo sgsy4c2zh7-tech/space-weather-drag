@@ -1,68 +1,437 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
-  <meta charset="UTF-8">
-  <title>Satellite Viewer</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Space Weather Drag Viewer</title>
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 16px;
+      background: #0b1220;
+      color: #e8eefc;
+    }
+    h1, h2, h3 { margin: 0 0 10px 0; }
+    .controls, .card {
+      background: #131c2f;
+      border: 1px solid #26324d;
+      border-radius: 12px;
+      padding: 14px;
+      margin-bottom: 14px;
+    }
+    .row {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      align-items: end;
+    }
+    label {
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+      font-size: 14px;
+    }
+    input, select, button {
+      padding: 8px 10px;
+      font-size: 14px;
+      border-radius: 8px;
+      border: 1px solid #3d4d73;
+      background: #0f1728;
+      color: #e8eefc;
+    }
+    button {
+      cursor: pointer;
+      font-weight: 700;
+    }
+    canvas {
+      background: #ffffff;
+      border-radius: 8px;
+      margin-top: 10px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid #31415f;
+      padding: 8px;
+      text-align: left;
+    }
+    th {
+      background: #1a2740;
+    }
+    .muted {
+      color: #9db0d8;
+      font-size: 13px;
+    }
+    .grid-2 {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 14px;
+    }
+    @media (max-width: 900px) {
+      .grid-2 {
+        grid-template-columns: 1fr;
+      }
+    }
+    .pill {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 999px;
+      background: #243451;
+      color: #d7e4ff;
+      font-size: 12px;
+      margin-left: 8px;
+    }
+  </style>
 </head>
 <body>
+  <h1>Space Weather Drag Viewer <span class="pill">GitHub Pages</span></h1>
+  <p class="muted">衛星履歴と NOAA の Kp / AE を同じ期間で表示します。</p>
 
-<h1>Satellite Viewer</h1>
+  <div class="controls">
+    <div class="row">
+      <label>
+        NORAD ID
+        <input id="norad" value="25544" />
+      </label>
 
-<input id="norad" value="25544">
-<button onclick="loadData()">表示</button>
+      <label>
+        開始日
+        <input id="startDate" type="date" />
+      </label>
 
-<canvas id="chart" width="800" height="400"></canvas>
+      <label>
+        終了日
+        <input id="endDate" type="date" />
+      </label>
 
-<script>
-let chart;
+      <label>
+        指数
+        <select id="indexType">
+          <option value="kp">Kp</option>
+          <option value="ae">AE</option>
+        </select>
+      </label>
 
-async function loadData() {
-  const id = document.getElementById("norad").value;
+      <label>
+        軌道表示
+        <select id="orbitMetric">
+          <option value="altitude">アポジ / ペリジ</option>
+          <option value="latlon">緯度 / 経度</option>
+          <option value="inclination">軌道傾斜角</option>
+          <option value="elements">6要素</option>
+        </select>
+      </label>
 
-  const res = await fetch(`data/${id}.json`);
-  const data = await res.json();
+      <button id="loadBtn">表示</button>
+    </div>
+    <p id="status" class="muted">未読込</p>
+  </div>
 
-  const labels = data.history.map(h => h.epoch);
-  const apogee = data.history.map(h => h.apogee_km);
-  const perigee = data.history.map(h => h.perigee_km);
+  <div class="grid-2">
+    <div>
+      <div class="card">
+        <h2>衛星グラフ</h2>
+        <canvas id="orbitChart" height="140"></canvas>
+      </div>
 
-  // 前のグラフ削除
-  if (chart) {
-    chart.destroy();
-  }
+      <div class="card">
+        <h2>宇宙天気指数棒グラフ</h2>
+        <canvas id="indexChart" height="120"></canvas>
+      </div>
+    </div>
 
-  chart = new Chart(document.getElementById("chart"), {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [
+    <div>
+      <div class="card">
+        <h2>最新軌道6要素</h2>
+        <table>
+          <tbody id="elementsTable"></tbody>
+        </table>
+      </div>
+
+      <div class="card">
+        <h2>最新位置</h2>
+        <table>
+          <tbody id="positionTable"></tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    let orbitChart = null;
+    let indexChart = null;
+
+    function setDefaultDates() {
+      const today = new Date();
+      const end = today.toISOString().slice(0, 10);
+      const startObj = new Date(today);
+      startObj.setDate(startObj.getDate() - 30);
+      const start = startObj.toISOString().slice(0, 10);
+
+      document.getElementById("startDate").value = start;
+      document.getElementById("endDate").value = end;
+    }
+
+    function isoToDate(isoStr) {
+      return new Date(isoStr);
+    }
+
+    function withinRange(isoStr, startDateStr, endDateStr) {
+      const t = isoToDate(isoStr);
+      const start = new Date(startDateStr + "T00:00:00Z");
+      const end = new Date(endDateStr + "T23:59:59Z");
+      return t >= start && t <= end;
+    }
+
+    function formatNum(v, digits = 3) {
+      if (v === null || v === undefined || Number.isNaN(v)) return "-";
+      return Number(v).toFixed(digits);
+    }
+
+    function fillTable(tableId, rows) {
+      const tbody = document.getElementById(tableId);
+      tbody.innerHTML = rows.map(([k, v]) => `
+        <tr>
+          <th>${k}</th>
+          <td>${v}</td>
+        </tr>
+      `).join("");
+    }
+
+    async function fetchJson(url) {
+      const res = await fetch(url, { cache: "no-store" });
+      if (!res.ok) throw new Error(`${url} : HTTP ${res.status}`);
+      return await res.json();
+    }
+
+    function makeOrbitDatasets(metric, history) {
+      if (metric === "altitude") {
+        return [
+          {
+            label: "Apogee (km)",
+            data: history.map(h => h.apogee_km),
+            borderWidth: 2,
+            tension: 0.15
+          },
+          {
+            label: "Perigee (km)",
+            data: history.map(h => h.perigee_km),
+            borderWidth: 2,
+            tension: 0.15
+          }
+        ];
+      }
+
+      if (metric === "latlon") {
+        return [
+          {
+            label: "Latitude (deg)",
+            data: history.map(h => h.latitude_deg),
+            borderWidth: 2,
+            tension: 0.15
+          },
+          {
+            label: "Longitude (deg)",
+            data: history.map(h => h.longitude_deg),
+            borderWidth: 2,
+            tension: 0.15
+          }
+        ];
+      }
+
+      if (metric === "inclination") {
+        return [
+          {
+            label: "Inclination (deg)",
+            data: history.map(h => h.inclination_deg),
+            borderWidth: 2,
+            tension: 0.15
+          }
+        ];
+      }
+
+      return [
         {
-          label: 'Apogee (km)',
-          data: apogee,
-          borderWidth: 2
+          label: "Semi-major axis (km)",
+          data: history.map(h => h.semi_major_axis_km),
+          borderWidth: 2,
+          tension: 0.15
         },
         {
-          label: 'Perigee (km)',
-          data: perigee,
-          borderWidth: 2
+          label: "Eccentricity",
+          data: history.map(h => h.eccentricity),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "RAAN (deg)",
+          data: history.map(h => h.raan_deg),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Arg Perigee (deg)",
+          data: history.map(h => h.arg_perigee_deg),
+          borderWidth: 2,
+          tension: 0.15
+        },
+        {
+          label: "Mean Anomaly (deg)",
+          data: history.map(h => h.mean_anomaly_deg),
+          borderWidth: 2,
+          tension: 0.15
         }
-      ]
-    },
-    options: {
-      responsive: true,
-      scales: {
-        y: {
-          title: {
-            display: true,
-            text: 'Altitude (km)'
+      ];
+    }
+
+    function mergeKpObservedForecast(observed, forecast, startDate, endDate) {
+      const byTime = new Map();
+
+      for (const item of observed) {
+        if (withinRange(item.time_tag, startDate, endDate)) {
+          byTime.set(item.time_tag, {
+            time: item.time_tag,
+            value: Number(item.kp_index),
+            source: "observed"
+          });
+        }
+      }
+
+      for (const item of forecast) {
+        if (withinRange(item.time_tag, startDate, endDate)) {
+          if (!byTime.has(item.time_tag)) {
+            byTime.set(item.time_tag, {
+              time: item.time_tag,
+              value: Number(item.kp_index),
+              source: "forecast"
+            });
           }
         }
       }
-    }
-  });
-}
-</script>
 
+      return Array.from(byTime.values()).sort((a, b) => a.time.localeCompare(b.time));
+    }
+
+    function filterAe(aeData, startDate, endDate) {
+      return aeData
+        .filter(item => withinRange(item.time_tag, startDate, endDate))
+        .map(item => ({
+          time: item.time_tag,
+          value: Number(item.ae_index)
+        }))
+        .sort((a, b) => a.time.localeCompare(b.time));
+    }
+
+    async function loadData() {
+      const norad = document.getElementById("norad").value.trim();
+      const startDate = document.getElementById("startDate").value;
+      const endDate = document.getElementById("endDate").value;
+      const indexType = document.getElementById("indexType").value;
+      const orbitMetric = document.getElementById("orbitMetric").value;
+      const status = document.getElementById("status");
+
+      if (!norad || !startDate || !endDate) {
+        status.textContent = "NORAD ID, 開始日, 終了日を入れてください。";
+        return;
+      }
+
+      try {
+        status.textContent = "読込中...";
+
+        const sat = await fetchJson(`data/${norad}.json`);
+        const history = sat.history
+          .filter(h => withinRange(h.epoch, startDate, endDate))
+          .sort((a, b) => a.epoch.localeCompare(b.epoch));
+
+        if (history.length === 0) {
+          status.textContent = "その期間の衛星履歴がありません。";
+          return;
+        }
+
+        const latest = history[history.length - 1];
+
+        fillTable("elementsTable", [
+          ["衛星名", sat.name || "-"],
+          ["NORAD ID", sat.norad_id || "-"],
+          ["Epoch", latest.epoch || "-"],
+          ["Semi-major axis (km)", formatNum(latest.semi_major_axis_km)],
+          ["Eccentricity", formatNum(latest.eccentricity, 6)],
+          ["Inclination (deg)", formatNum(latest.inclination_deg)],
+          ["RAAN (deg)", formatNum(latest.raan_deg)],
+          ["Arg Perigee (deg)", formatNum(latest.arg_perigee_deg)],
+          ["Mean Anomaly (deg)", formatNum(latest.mean_anomaly_deg)]
+        ]);
+
+        fillTable("positionTable", [
+          ["Latitude (deg)", formatNum(latest.latitude_deg)],
+          ["Longitude (deg)", formatNum(latest.longitude_deg)],
+          ["Apogee (km)", formatNum(latest.apogee_km)],
+          ["Perigee (km)", formatNum(latest.perigee_km)]
+        ]);
+
+        const orbitLabels = history.map(h => h.epoch);
+        const orbitDatasets = makeOrbitDatasets(orbitMetric, history);
+
+        if (orbitChart) orbitChart.destroy();
+        orbitChart = new Chart(document.getElementById("orbitChart"), {
+          type: "line",
+          data: {
+            labels: orbitLabels,
+            datasets: orbitDatasets
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+
+        let indexSeries = [];
+
+        if (indexType === "kp") {
+          const kpObserved = await fetchJson("data/noaa/kp_observed.json");
+          const kpForecast = await fetchJson("data/noaa/kp_forecast.json");
+          indexSeries = mergeKpObservedForecast(
+            kpObserved.data || [],
+            kpForecast.data || [],
+            startDate,
+            endDate
+          );
+        } else {
+          const aeObserved = await fetchJson("data/noaa/ae_observed.json");
+          indexSeries = filterAe(aeObserved.data || [], startDate, endDate);
+        }
+
+        if (indexChart) indexChart.destroy();
+        indexChart = new Chart(document.getElementById("indexChart"), {
+          type: "bar",
+          data: {
+            labels: indexSeries.map(x => x.time),
+            datasets: [
+              {
+                label: indexType === "kp" ? "Kp" : "AE",
+                data: indexSeries.map(x => x.value),
+                borderWidth: 1
+              }
+            ]
+          },
+          options: {
+            responsive: true,
+            maintainAspectRatio: false
+          }
+        });
+
+        status.textContent = `表示完了: ${sat.name || norad} / ${history.length}件`;
+      } catch (err) {
+        status.textContent = `エラー: ${err.message}`;
+      }
+    }
+
+    setDefaultDates();
+    document.getElementById("loadBtn").addEventListener("click", loadData);
+  </script>
 </body>
 </html>
