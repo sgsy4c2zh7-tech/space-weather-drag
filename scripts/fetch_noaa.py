@@ -9,7 +9,6 @@ os.makedirs(OUT_DIR, exist_ok=True)
 SWPC_KP_OBS = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.json"
 SWPC_KP_FCST = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json"
 SWPC_DST = "https://services.swpc.noaa.gov/products/kyoto-dst.json"
-SWPC_EST_KP_1M = "https://services.swpc.noaa.gov/products/noaa-estimated-planetary-k-index-1-minute.json"
 
 KP_HISTORY_FILE = os.path.join(OUT_DIR, "kp_history.json")
 KEEP_DAYS = 30
@@ -138,7 +137,6 @@ def main():
     kp_obs = normalize_kp(fetch_json(SWPC_KP_OBS))
     kp_fcst = normalize_kp(fetch_json(SWPC_KP_FCST))
     dst = normalize_dst(fetch_json(SWPC_DST))
-    est_kp = normalize_kp(fetch_json(SWPC_EST_KP_1M))
 
     write_json(os.path.join(OUT_DIR, "kp_observed.json"), {
         "source": "NOAA/SWPC",
@@ -156,12 +154,6 @@ def main():
         "source": "NOAA/SWPC",
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "data": dst,
-    })
-
-    write_json(os.path.join(OUT_DIR, "kp_estimated_1m.json"), {
-        "source": "NOAA/SWPC",
-        "updated_at": datetime.now(timezone.utc).isoformat(),
-        "data": est_kp,
     })
 
     write_json(os.path.join(OUT_DIR, "ae_observed.json"), {
@@ -182,7 +174,6 @@ def main():
     print(f"kp_observed: {len(kp_obs)}")
     print(f"kp_forecast: {len(kp_fcst)}")
     print(f"dst: {len(dst)}")
-    print(f"kp_estimated_1m: {len(est_kp)}")
     print(f"kp_history: {len(merged_history)}")
 
 
