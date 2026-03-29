@@ -1,36 +1,37 @@
 <!DOCTYPE html>
-<html>
+<html lang="ja">
 <head>
-  <title>Satellite Orbit Monitor</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>space-weather-drag</title>
 </head>
 <body>
-  <h1>Satellite Orbit Monitor</h1>
-  <input id="norad" placeholder="NORAD ID">
+  <h1>space-weather-drag</h1>
+  <p>ここまで見えれば反映OK</p>
+
+  <input id="norad" placeholder="NORAD IDを入力">
   <button onclick="loadData()">表示</button>
 
-  <canvas id="chart"></canvas>
+  <pre id="out">まだ未読込</pre>
 
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script>
     async function loadData() {
-      const id = document.getElementById("norad").value;
-      const res = await fetch(`data/${id}.json`);
-      const data = await res.json();
+      const id = document.getElementById("norad").value.trim();
+      if (!id) {
+        document.getElementById("out").textContent = "NORAD IDを入力してください";
+        return;
+      }
 
-      const labels = data.history.map(h => h.epoch);
-      const apogee = data.history.map(h => h.apogee_km);
-      const perigee = data.history.map(h => h.perigee_km);
-
-      new Chart(document.getElementById("chart"), {
-        type: "line",
-        data: {
-          labels: labels,
-          datasets: [
-            { label: "Apogee", data: apogee },
-            { label: "Perigee", data: perigee }
-          ]
-        }
-      });
+      try {
+        const res = await fetch(`data/${id}.json`);
+        if (!res.ok) throw new Error(`HTTP ${res.status}`);
+        const data = await res.json();
+        document.getElementById("out").textContent =
+          JSON.stringify(data, null, 2);
+      } catch (e) {
+        document.getElementById("out").textContent =
+          `読込失敗: ${e.message}`;
+      }
     }
   </script>
 </body>
