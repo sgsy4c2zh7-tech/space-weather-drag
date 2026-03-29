@@ -25,7 +25,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests numpy scipy sgp4 pymsis
+          pip install requests numpy scipy sgp4 skyfield pymsis
 
       - name: Prepare folders
         run: |
