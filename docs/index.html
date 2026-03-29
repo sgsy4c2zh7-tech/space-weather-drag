@@ -2,47 +2,72 @@
 <html lang="ja">
 <head>
   <meta charset="UTF-8">
-  <title>Space Weather Drag</title>
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>space-weather-drag</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 24px;
+      line-height: 1.5;
+    }
+    input, button {
+      font-size: 16px;
+      padding: 8px;
+      margin-right: 8px;
+    }
+    pre {
+      background: #f4f4f4;
+      padding: 12px;
+      border: 1px solid #ccc;
+      white-space: pre-wrap;
+      word-break: break-word;
+    }
+  </style>
 </head>
 <body>
+  <h1>space-weather-drag</h1>
+  <p>まずは JSON が読めるかだけ確認します。</p>
 
-<h1>Space Weather Drag Viewer</h1>
+  <input id="norad" value="25544" placeholder="NORAD ID">
+  <button id="loadBtn">読み込む</button>
 
-<input id="norad" placeholder="NORAD ID（例:25544）">
-<button onclick="loadData()">表示</button>
+  <p id="status">未実行</p>
+  <pre id="out">ここに結果が出ます</pre>
 
-<canvas id="chart" width="800" height="400"></canvas>
+  <script>
+    async function loadData() {
+      const id = document.getElementById("norad").value.trim();
+      const status = document.getElementById("status");
+      const out = document.getElementById("out");
 
-<script>
-async function loadData() {
-  const id = document.getElementById("norad").value;
+      if (!id) {
+        status.textContent = "NORAD IDを入力してください";
+        return;
+      }
 
-  const res = await fetch(`data/${id}.json`);
-  const data = await res.json();
+      const url = "data/" + id + ".json";
+      status.textContent = "読込中: " + url;
+      out.textContent = "";
 
-  const labels = data.history.map(h => h.epoch);
-  const apogee = data.history.map(h => h.apogee_km);
-  const perigee = data.history.map(h => h.perigee_km);
+      try {
+        const res = await fetch(url, { cache: "no-store" });
+        status.textContent = "HTTP status: " + res.status;
 
-  new Chart(document.getElementById("chart"), {
-    type: 'line',
-    data: {
-      labels: labels,
-      datasets: [
-        {
-          label: 'Apogee',
-          data: apogee
-        },
-        {
-          label: 'Perigee',
-          data: perigee
+        if (!res.ok) {
+          out.textContent = "読込失敗: " + url;
+          return;
         }
-      ]
-    }
-  });
-}
-</script>
 
+        const data = await res.json();
+        out.textContent = JSON.stringify(data, null, 2);
+        status.textContent = "成功: " + url;
+      } catch (e) {
+        status.textContent = "エラー発生";
+        out.textContent = String(e);
+      }
+    }
+
+    document.getElementById("loadBtn").addEventListener("click", loadData);
+  </script>
 </body>
 </html>
