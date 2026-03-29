@@ -1,1 +1,29 @@
+name: Update Data
 
+on:
+  schedule:
+    - cron: "0 */6 * * *"
+  workflow_dispatch:
+
+jobs:
+  update:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.11"
+
+      - run: pip install requests
+
+      - run: python scripts/fetch_tle.py
+      - run: python scripts/build_history.py
+
+      - run: |
+          git config user.name "bot"
+          git config user.email "bot@github.com"
+          git add .
+          git commit -m "update data" || echo "no changes"
+          git push
