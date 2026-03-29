@@ -12,6 +12,7 @@
       background: #0b1220;
       color: #e8eefc;
     }
+    h1, h2 { margin: 0 0 12px 0; }
     .controls, .card {
       background: #131c2f;
       border: 1px solid #26324d;
@@ -38,6 +39,7 @@
       background: #0f1728;
       color: #fff;
     }
+    button { cursor: pointer; font-weight: bold; }
     .grid {
       display: grid;
       grid-template-columns: 2fr 1fr;
@@ -68,9 +70,6 @@
       text-align: left;
     }
     th { background: #1a2740; }
-    #satList {
-      width: 280px;
-    }
     @media (max-width: 900px) {
       .grid { grid-template-columns: 1fr; }
     }
@@ -264,6 +263,14 @@
       }
     }
 
+    async function loadSatelliteData(norad) {
+      try {
+        return await getJson(`data/sat_history/${norad}.json`);
+      } catch (e1) {
+        return await getJson(`data/${norad}.json`);
+      }
+    }
+
     async function loadData() {
       const norad = document.getElementById("norad").value.trim();
       const start = document.getElementById("startDate").value;
@@ -280,7 +287,8 @@
       try {
         status.textContent = "読込中...";
 
-        const sat = await getJson(`data/sat_history/${norad}.json`);
+        const sat = await loadSatelliteData(norad);
+
         const hist = (sat.history || [])
           .filter(h => withinRange(h.epoch, start, end))
           .sort((a, b) => a.epoch.localeCompare(b.epoch));
