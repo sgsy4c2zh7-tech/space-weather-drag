@@ -147,6 +147,7 @@
         軌道グラフ項目
         <select id="orbitMetric">
           <option value="altitude">アポジ / ペリジ</option>
+          <option value="delta_altitude">Δ高度</option>
           <option value="latlon">緯度 / 経度</option>
           <option value="inclination">傾斜角</option>
           <option value="elements">6要素</option>
@@ -190,7 +191,7 @@
         </div>
 
         <div class="card">
-          <h2>Δ高度 vs Kp 相関</h2>
+          <h2>Kp vs Δ高度 相関</h2>
           <div class="chart-wrap small">
             <canvas id="corrChart"></canvas>
           </div>
@@ -314,12 +315,42 @@
       `;
     }
 
-    function fillCorrTable(analysis) {
-      const pearson = analysis?.pearson || {};
+    function fillCorrTable(analysis, corrPoints) {
+      let pearson = analysis?.pearson || {};
+
+      if ((!pearson.kp_vs_delta_h && pearson.kp_vs_delta_h !== 0) && corrPoints.length >= 2) {
+        const xs = corrPoints.map(p => p.kp);
+        const ys = corrPoints.map(p => p.delta_h_km);
+        pearson.kp_vs_delta_h = computePearson(xs, ys);
+      }
+
       document.getElementById("corrTable").innerHTML = `
         <tr><th>Kp vs Δ高度</th><td>${fmt(pearson.kp_vs_delta_h, 4)}</td></tr>
         <tr><th>Kp vs 低下率</th><td>${fmt(pearson.kp_vs_rate, 4)}</td></tr>
       `;
+    }
+
+    function computePearson(xs, ys) {
+      if (!xs || !ys || xs.length !== ys.length || xs.length < 2) return null;
+
+      const n = xs.length;
+      const meanX = xs.reduce((a, b) => a + b, 0) / n;
+      const meanY = ys.reduce((a, b) => a + b, 0) / n;
+
+      let num = 0;
+      let denX = 0;
+      let denY = 0;
+
+      for (let i = 0; i < n; i++) {
+        const dx = xs[i] - meanX;
+        const dy = ys[i] - meanY;
+        num += dx * dy;
+        denX += dx * dx;
+        denY += dy * dy;
+      }
+
+      if (denX === 0 || denY === 0) return null;
+      return num / Math.sqrt(denX * denY);
     }
 
     function mergeKpObservedForecast(obs, fcst, start, end) {
@@ -327,13 +358,19 @@
 
       for (const item of obs) {
         if (withinRange(item.time_tag, start, end)) {
-          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          map.set(item.time_tag, {
+            time: item.time_tag,
+            value: Number(item.kp_index)
+          });
         }
       }
 
       for (const item of fcst) {
         if (withinRange(item.time_tag, start, end) && !map.has(item.time_tag)) {
-          map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          map.set(item.time_tag, {
+            time: item.time_tag,
+            value: Number(item.kp_index)
+          });
         }
       }
 
@@ -395,56 +432,88 @@
       };
     }
 
+    function buildDeltaAltitudeHistory(hist) {
+      const out = [];
+      for (let i = 1; i < hist.length; i++) {
+        const prev = hist[i - 1];
+        const cur = hist[i];
+
+        const prevAvg = (Number(prev.apogee_km) + Number(prev.perigee_km)) / 2;
+        const curAvg = (Number(cur.apogee_km) + Number(cur.perigee_km)) / 2;
+
+        out.push({
+          epoch: cur.epoch,
+          delta_altitude_km: curAvg - prevAvg
+        });
+      }
+      return out;
+    }
+
     function buildOrbitDatasets(metric, hist, analysisHist, bins) {
       const style = makeLineStyle();
       const n = bins.length;
 
-      function mapSeries(source, key, label) {
+      function mapSeries(source, timeKey, valueKey, label) {
         const arr = makeEmptySeries(n);
         for (const row of source) {
-          const idx = nearestBinIndex(row.epoch, bins);
-          if (idx >= 0) arr[idx] = row[key] ?? null;
+          const idx = nearestBinIndex(row[timeKey], bins);
+          if (idx >= 0) arr[idx] = row[valueKey] ?? null;
         }
         return { label, data: arr, ...style };
       }
 
       if (metric === "altitude") {
         return [
-          mapSeries(hist, "apogee_km", "Apogee (km)"),
-          mapSeries(hist, "perigee_km", "Perigee (km)")
+          mapSeries(hist, "epoch", "apogee_km", "Apogee (km)"),
+          mapSeries(hist, "epoch", "perigee_km", "Perigee (km)")
+        ];
+      }
+
+      if (metric === "delta_altitude") {
+        const deltaHist = buildDeltaAltitudeHistory(hist);
+        return [
+          mapSeries(deltaHist, "epoch", "delta_altitude_km", "ΔAltitude (km)")
         ];
       }
 
       if (metric === "latlon") {
         return [
-          mapSeries(hist, "latitude_deg", "Latitude (deg)"),
-          mapSeries(hist, "longitude_deg", "Longitude (deg)")
+          mapSeries(hist, "epoch", "latitude_deg", "Latitude (deg)"),
+          mapSeries(hist, "epoch", "longitude_deg", "Longitude (deg)")
         ];
       }
 
       if (metric === "inclination") {
-        return [mapSeries(hist, "inclination_deg", "Inclination (deg)")];
+        return [
+          mapSeries(hist, "epoch", "inclination_deg", "Inclination (deg)")
+        ];
       }
 
       if (metric === "meanmotion") {
-        return [mapSeries(hist, "mean_motion_rev_day", "Mean Motion (rev/day)")];
+        return [
+          mapSeries(hist, "epoch", "mean_motion_rev_day", "Mean Motion (rev/day)")
+        ];
       }
 
       if (metric === "density") {
-        return [mapSeries(analysisHist || [], "nrlmsis_density", "NRLMSIS Density")];
+        return [
+          mapSeries(analysisHist || [], "epoch", "nrlmsis_density", "NRLMSIS Density")
+        ];
       }
 
       if (metric === "height") {
-        return [mapSeries(hist, "height_km", "Height (km)")];
+        return [
+          mapSeries(hist, "epoch", "height_km", "Height (km)")
+        ];
       }
 
       return [
-        mapSeries(hist, "semi_major_axis_km", "Semi-major axis (km)"),
-        mapSeries(hist, "eccentricity", "Eccentricity"),
-        mapSeries(hist, "inclination_deg", "Inclination (deg)"),
-        mapSeries(hist, "raan_deg", "RAAN (deg)"),
-        mapSeries(hist, "arg_perigee_deg", "Arg. Perigee (deg)"),
-        mapSeries(hist, "mean_anomaly_deg", "Mean Anomaly (deg)")
+        mapSeries(hist, "epoch", "semi_major_axis_km", "Semi-major axis (km)"),
+        mapSeries(hist, "epoch", "eccentricity", "Eccentricity"),
+        mapSeries(hist, "epoch", "inclination_deg", "Inclination (deg)"),
+        mapSeries(hist, "epoch", "raan_deg", "RAAN (deg)"),
+        mapSeries(hist, "epoch", "arg_perigee_deg", "Arg. Perigee (deg)"),
+        mapSeries(hist, "epoch", "mean_anomaly_deg", "Mean Anomaly (deg)")
       ];
     }
 
@@ -472,6 +541,23 @@
         data: arr,
         borderWidth: 1
       };
+    }
+
+    function buildCorrelationPointsFromData(hist, kpSeries) {
+      const deltaHist = buildDeltaAltitudeHistory(hist);
+      const out = [];
+
+      for (const row of deltaHist) {
+        const idx = nearestBinIndex(row.epoch, kpSeries.map(k => parseUtc(k.time)));
+        if (idx >= 0 && kpSeries[idx]) {
+          out.push({
+            time: row.epoch,
+            kp: kpSeries[idx].value,
+            delta_h_km: row.delta_altitude_km
+          });
+        }
+      }
+      return out.filter(x => x.kp !== null && !Number.isNaN(x.kp));
     }
 
     async function loadData() {
@@ -513,10 +599,35 @@
 
         const latest = hist[hist.length - 1];
         fillInfoTable(latest, sat);
-        fillCorrTable(analysis);
 
         const bins = buildTimeBins(start, end, 3);
         const labels = bins.map(formatBinLabel);
+
+        let idxSeries = [];
+        if (indexType === "kp") {
+          try {
+            const kpHist = await getJson("data/noaa/kp_history.json");
+            idxSeries = (kpHist.data || [])
+              .filter(x => withinRange(x.time_tag, start, end))
+              .map(x => ({ time: x.time_tag, value: Number(x.kp_index) }))
+              .sort((a, b) => a.time.localeCompare(b.time));
+          } catch (e) {
+            const obs = await getJson("data/noaa/kp_observed.json");
+            const fcst = await getJson("data/noaa/kp_forecast.json");
+            idxSeries = mergeKpObservedForecast(obs.data || [], fcst.data || [], start, end);
+          }
+        } else {
+          const ae = await getJson("data/noaa/ae_observed.json");
+          idxSeries = (ae.data || [])
+            .filter(x => withinRange(x.time_tag, start, end))
+            .map(x => ({ time: x.time_tag, value: Number(x.ae_index) }))
+            .sort((a, b) => a.time.localeCompare(b.time));
+        }
+
+        const corrPts = (analysis?.correlation_points || []).filter(x => withinRange(x.time, start, end));
+        const fallbackCorrPts = corrPts.length > 0 ? corrPts : buildCorrelationPointsFromData(hist, idxSeries);
+
+        fillCorrTable(analysis, fallbackCorrPts);
 
         orbitChart = destroyChart(orbitChart);
         orbitChart = new Chart(document.getElementById("orbitChart"), {
@@ -538,19 +649,6 @@
             }
           }
         });
-
-        let idxSeries = [];
-        if (indexType === "kp") {
-          const obs = await getJson("data/noaa/kp_observed.json");
-          const fcst = await getJson("data/noaa/kp_forecast.json");
-          idxSeries = mergeKpObservedForecast(obs.data || [], fcst.data || [], start, end);
-        } else {
-          const ae = await getJson("data/noaa/ae_observed.json");
-          idxSeries = (ae.data || [])
-            .filter(x => withinRange(x.time_tag, start, end))
-            .map(x => ({ time: x.time_tag, value: Number(x.ae_index) }))
-            .sort((a, b) => a.time.localeCompare(b.time));
-        }
 
         indexChart = destroyChart(indexChart);
         indexChart = new Chart(document.getElementById("indexChart"), {
@@ -595,14 +693,13 @@
           }
         });
 
-        const corrPts = (analysis?.correlation_points || []).filter(x => withinRange(x.time, start, end));
         corrChart = destroyChart(corrChart);
         corrChart = new Chart(document.getElementById("corrChart"), {
           type: "scatter",
           data: {
             datasets: [{
               label: "Δ高度 vs Kp",
-              data: corrPts.map(x => ({ x: x.kp, y: x.delta_h_km })),
+              data: fallbackCorrPts.map(x => ({ x: x.kp, y: x.delta_h_km })),
               pointRadius: 4,
               pointHoverRadius: 6,
               showLine: false
@@ -628,7 +725,7 @@
           }
         });
 
-        status.textContent = `表示完了: ${sat.name} / ${hist.length}件 / Kp(AE)=${idxSeries.length}件`;
+        status.textContent = `表示完了: ${sat.name} / 履歴=${hist.length}件 / 指数=${idxSeries.length}件`;
       } catch (e) {
         status.textContent = `エラー: ${e.message}`;
       }
