@@ -1,6 +1,7 @@
 import json
 import math
 import os
+from collections import defaultdict
 from datetime import datetime, timezone, timedelta
 
 CATALOG_DIR = "docs/data/catalog"
@@ -27,18 +28,6 @@ def calc_sma_from_mean_motion(mean_motion_rev_day: float) -> float:
     return (MU / (n * n)) ** (1.0 / 3.0)
 
 
-def latest_snapshot_file():
-    files = [
-        os.path.join(CATALOG_DIR, f)
-        for f in os.listdir(CATALOG_DIR)
-        if f.endswith(".json")
-    ]
-    if not files:
-        return None
-    files.sort()
-    return files[-1]
-
-
 def parse_epoch(epoch_str: str):
     if not epoch_str:
         return None
@@ -58,12 +47,34 @@ def safe_float(value, default=None):
 
 
 def estimate_lat_lon(epoch_dt: datetime, norad_id: int, inclination_deg: float):
+    # 簡易版。あとで SGP4 に差し替え可能
     phase = (epoch_dt.timestamp() / 5400.0) + (norad_id % 997) * 0.01
     lat = math.sin(phase) * min(max(inclination_deg, 0.0), 85.0)
 
     lon_phase = (epoch_dt.timestamp() / 900.0) + norad_id * 0.1
     lon = clamp_longitude((lon_phase % 360.0) - 180.0)
+
     return lat, lon
+
+
+def snapshot_files_in_range():
+    now = datetime.now(timezone.utc)
+    cutoff = now - timedelta(days=KEEP_DAYS)
+
+    files = []
+    for name in os.listdir(CATALOG_DIR):
+        if not name.endswith(".json"):
+            continue
+        path = os.path.join(CATALOG_DIR, name)
+        try:
+            mtime = datetime.fromtimestamp(os.path.getmtime(path), tz=timezone.utc)
+            if mtime >= cutoff:
+                files.append(path)
+        except Exception:
+            continue
+
+    files.sort()
+    return files
 
 
 def build_entry(row: dict):
@@ -72,7 +83,7 @@ def build_entry(row: dict):
     epoch_str = row.get("EPOCH")
 
     if norad_id is None or epoch_str is None:
-        return None
+      return None
 
     epoch_dt = parse_epoch(epoch_str)
     if epoch_dt is None:
@@ -100,10 +111,8 @@ def build_entry(row: dict):
     )
 
     return {
-        "meta": {
-            "norad_id": int(norad_id),
-            "name": str(name)
-        },
+        "norad_id": int(norad_id),
+        "name": str(name),
         "entry": {
             "epoch": epoch_dt.isoformat().replace("+00:00", "Z"),
             "apogee_km": apogee_km,
@@ -121,64 +130,72 @@ def build_entry(row: dict):
     }
 
 
-def trim_history(history: list, now_utc: datetime):
-    cutoff = now_utc - timedelta(days=KEEP_DAYS)
-    out = []
-    for item in history:
-        try:
-            t = datetime.fromisoformat(item["epoch"].replace("Z", "+00:00"))
-            if t >= cutoff:
-                out.append(item)
-        except Exception:
+def rebuild_histories_from_snapshots(files):
+    by_sat = defaultdict(lambda: {"name": None, "history_by_epoch": {}})
+    total_rows = 0
+    valid_rows = 0
+
+    for path in files:
+        with open(path, "r", encoding="utf-8") as f:
+            rows = json.load(f)
+
+        if not isinstance(rows, list):
             continue
-    out.sort(key=lambda x: x["epoch"])
-    return out
+
+        total_rows += len(rows)
+
+        for row in rows:
+            built = build_entry(row)
+            if not built:
+                continue
+
+            valid_rows += 1
+            norad_id = built["norad_id"]
+            name = built["name"]
+            entry = built["entry"]
+
+            by_sat[norad_id]["name"] = name
+            by_sat[norad_id]["history_by_epoch"][entry["epoch"]] = entry
+
+    return by_sat, total_rows, valid_rows
 
 
-def load_existing_history(filepath: str, norad_id: int, name: str):
-    if os.path.exists(filepath):
-        try:
-            with open(filepath, "r", encoding="utf-8") as f:
-                data = json.load(f)
-            if isinstance(data.get("history"), list):
-                return data
-        except Exception:
-            pass
+def write_sat_history_files(by_sat):
+    # 既存 json をいったん削除して完全再構築
+    for name in os.listdir(HISTORY_DIR):
+        if name.endswith(".json"):
+            os.remove(os.path.join(HISTORY_DIR, name))
 
-    return {
-        "norad_id": norad_id,
-        "name": name,
-        "history": []
-    }
+    written = 0
 
+    for norad_id, payload in by_sat.items():
+        history = list(payload["history_by_epoch"].values())
+        history.sort(key=lambda x: x["epoch"])
 
-def append_history(filepath: str, meta: dict, entry: dict):
-    data = load_existing_history(filepath, meta["norad_id"], meta["name"])
-    history = data.get("history", [])
+        if not history:
+            continue
 
-    if not any(h.get("epoch") == entry["epoch"] for h in history):
-        history.append(entry)
+        data = {
+            "norad_id": norad_id,
+            "name": payload["name"] or f"NORAD-{norad_id}",
+            "history": history
+        }
 
-    history = trim_history(history, datetime.now(timezone.utc))
+        out_path = os.path.join(HISTORY_DIR, f"{norad_id}.json")
+        with open(out_path, "w", encoding="utf-8") as f:
+            json.dump(data, f, ensure_ascii=False, indent=2)
 
-    data["norad_id"] = meta["norad_id"]
-    data["name"] = meta["name"]
-    data["history"] = history
+        written += 1
 
-    with open(filepath, "w", encoding="utf-8") as f:
-        json.dump(data, f, ensure_ascii=False, indent=2)
+    return written
 
 
-def write_satellites_index(rows: list):
+def write_satellites_index(by_sat):
     sats = []
-    for row in rows:
-        norad_id = row.get("NORAD_CAT_ID")
-        name = row.get("OBJECT_NAME") or row.get("OBJECT_ID") or f"NORAD-{norad_id}"
-        if norad_id is None:
-            continue
+    for norad_id, payload in by_sat.items():
         sats.append({
             "norad_id": int(norad_id),
-            "name": str(name)
+            "name": payload["name"] or f"NORAD-{norad_id}"
         })
 
     sats.sort(key=lambda x: x["norad_id"])
@@ -188,43 +205,25 @@ def write_satellites_index(rows: list):
 
 
 def main():
-    snap = latest_snapshot_file()
-    if not snap:
-        raise SystemExit("No catalog snapshot found in docs/data/catalog/")
+    if not os.path.isdir(CATALOG_DIR):
+        raise SystemExit("docs/data/catalog does not exist")
 
-    with open(snap, "r", encoding="utf-8") as f:
-        rows = json.load(f)
+    files = snapshot_files_in_range()
+    if not files:
+        raise SystemExit("No catalog snapshots found in the last 30 days.")
 
-    if not isinstance(rows, list) or len(rows) == 0:
-        raise SystemExit("Catalog snapshot is not a valid non-empty list.")
+    by_sat, total_rows, valid_rows = rebuild_histories_from_snapshots(files)
+    written = write_sat_history_files(by_sat)
+    write_satellites_index(by_sat)
 
-    updated = 0
-    skipped = 0
+    print(f"Catalog snapshots used: {len(files)}")
+    print(f"Total input rows: {total_rows}")
+    print(f"Valid rows converted: {valid_rows}")
+    print(f"sat_history files written: {written}")
 
-    for row in rows:
-        try:
-            built = build_entry(row)
-            if not built:
-                skipped += 1
-                continue
+    if written < 100:
+        raise SystemExit(f"Too few sat_history files written: {written}")
 
-            out_path = os.path.join(HISTORY_DIR, f"{built['meta']['norad_id']}.json")
-            append_history(out_path, built["meta"], built["entry"])
-            updated += 1
-        except Exception as e:
-            skipped += 1
-            print(f"skip row: {e}")
-
-    write_satellites_index(rows)
-
-    print(f"Snapshot file: {snap}")
-    print(f"Input rows: {len(rows)}")
-    print(f"Updated histories: {updated}")
-    print(f"Skipped rows: {skipped}")
-    print(f"Wrote index: {SATELLITES_INDEX}")
-
-    if updated < 100:
-        raise SystemExit(f"Too few histories generated: {updated}")
 
 if __name__ == "__main__":
     main()
