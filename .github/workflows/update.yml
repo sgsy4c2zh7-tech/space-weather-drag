@@ -50,11 +50,16 @@ jobs:
 
       - name: Show generated counts
         run: |
-          echo "sat_history json count:"
+          echo "===== sat_history json count ====="
           find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
-          echo "analysis json count:"
+
+          echo "===== analysis json count ====="
           find docs/data/analysis -maxdepth 1 -name "*.json" | wc -l
-          echo "sample sat_history files:"
+
+          echo "===== noaa files ====="
+          find docs/data/noaa -maxdepth 1 -type f | sort
+
+          echo "===== sample sat_history files ====="
           find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
 
       - name: Commit and push
