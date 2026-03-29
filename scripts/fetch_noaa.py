@@ -1,6 +1,6 @@
 import json
 import os
-from datetime import datetime, timezone
+from datetime import datetime, timezone, timedelta
 from urllib.request import Request, urlopen
 
 OUT_DIR = "docs/data/noaa"
@@ -10,6 +10,9 @@ SWPC_KP_OBS = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index.js
 SWPC_KP_FCST = "https://services.swpc.noaa.gov/products/noaa-planetary-k-index-forecast.json"
 SWPC_DST = "https://services.swpc.noaa.gov/products/kyoto-dst.json"
 SWPC_EST_KP_1M = "https://services.swpc.noaa.gov/products/noaa-estimated-planetary-k-index-1-minute.json"
+
+KP_HISTORY_FILE = os.path.join(OUT_DIR, "kp_history.json")
+KEEP_DAYS = 30
 
 
 def fetch_json(url: str):
@@ -82,6 +85,55 @@ def normalize_dst(raw):
     return out
 
 
+def parse_dt(s: str):
+    return datetime.fromisoformat(s.replace("Z", "+00:00")).astimezone(timezone.utc)
+
+
+def load_existing_history():
+    if not os.path.exists(KP_HISTORY_FILE):
+        return {"updated_at": None, "data": []}
+    try:
+        with open(KP_HISTORY_FILE, "r", encoding="utf-8") as f:
+            obj = json.load(f)
+        if isinstance(obj, dict) and isinstance(obj.get("data"), list):
+            return obj
+    except Exception:
+        pass
+    return {"updated_at": None, "data": []}
+
+
+def merge_kp_history(existing_rows, new_rows):
+    by_time = {}
+
+    for row in existing_rows:
+        t = row.get("time_tag")
+        v = row.get("kp_index")
+        if t is None or v is None:
+            continue
+        by_time[t] = {"time_tag": t, "kp_index": float(v)}
+
+    for row in new_rows:
+        t = row.get("time_tag")
+        v = row.get("kp_index")
+        if t is None or v is None:
+            continue
+        by_time[t] = {"time_tag": t, "kp_index": float(v)}
+
+    merged = list(by_time.values())
+    merged.sort(key=lambda x: x["time_tag"])
+
+    cutoff = datetime.now(timezone.utc) - timedelta(days=KEEP_DAYS)
+    trimmed = []
+    for row in merged:
+        try:
+            if parse_dt(row["time_tag"]) >= cutoff:
+                trimmed.append(row)
+        except Exception:
+            continue
+
+    return trimmed
+
+
 def main():
     kp_obs = normalize_kp(fetch_json(SWPC_KP_OBS))
     kp_fcst = normalize_kp(fetch_json(SWPC_KP_FCST))
@@ -112,17 +164,26 @@ def main():
         "data": est_kp,
     })
 
-    # AE は NOAA/NCEI 実装前のプレースホルダ
     write_json(os.path.join(OUT_DIR, "ae_observed.json"), {
         "source": "NOAA/NCEI",
         "updated_at": datetime.now(timezone.utc).isoformat(),
         "data": [],
     })
 
+    existing = load_existing_history()
+    merged_history = merge_kp_history(existing.get("data", []), kp_obs)
+
+    write_json(KP_HISTORY_FILE, {
+        "source": "NOAA/SWPC",
+        "updated_at": datetime.now(timezone.utc).isoformat(),
+        "data": merged_history,
+    })
+
     print(f"kp_observed: {len(kp_obs)}")
     print(f"kp_forecast: {len(kp_fcst)}")
     print(f"dst: {len(dst)}")
     print(f"kp_estimated_1m: {len(est_kp)}")
+    print(f"kp_history: {len(merged_history)}")
 
 
 if __name__ == "__main__":
