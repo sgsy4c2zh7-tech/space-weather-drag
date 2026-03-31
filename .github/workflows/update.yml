@@ -1,9 +1,9 @@
-name: SPACE WEATHER DRAG BASIC
+name: SPACE WEATHER DRAG AUTO UPDATE
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 */3 * * *"
+    - cron: "10 */3 * * *"   # 3時間ごと
 
 permissions:
   contents: write
@@ -11,22 +11,34 @@ permissions:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    timeout-minutes: 60
 
     steps:
+      # -------------------------
+      # Checkout
+      # -------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
+      # -------------------------
+      # Python setup
+      # -------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # -------------------------
+      # Install dependencies
+      # -------------------------
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests numpy scipy sgp4 skyfield pymsis
 
+      # -------------------------
+      # Prepare directories
+      # -------------------------
       - name: Prepare folders
         run: |
           mkdir -p docs/data
@@ -34,44 +46,61 @@ jobs:
           mkdir -p docs/data/sat_history
           mkdir -p docs/data/noaa
           mkdir -p docs/data/analysis
-          mkdir -p scripts
 
+      # -------------------------
+      # Fetch CelesTrak (全衛星)
+      # -------------------------
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
+      # -------------------------
+      # Fetch NOAA (Kp/AE)
+      # -------------------------
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
-      - name: Rebuild satellite histories from all snapshots
+      # -------------------------
+      # Build sat_history
+      # -------------------------
+      - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
 
+      # -------------------------
+      # ★検索用インデックス生成（超重要）
+      # -------------------------
       - name: Build satellite search index
         run: python scripts/build_satellite_index_full.py
 
-      - name: Build advanced analysis for selected satellites
+      # -------------------------
+      # 解析（Δ高度・相関）
+      # -------------------------
+      - name: Build drag analysis
         run: python scripts/build_drag_analysis.py
 
-      - name: Show generated counts
+      # -------------------------
+      # Debug表示
+      # -------------------------
+      - name: Show generated files
         run: |
-          echo "===== sat_history json count ====="
-          find docs/data/sat_history -maxdepth 1 -name "*.json" | wc -l
+          echo "===== sat_history count ====="
+          find docs/data/sat_history -name "*.json" | wc -l
 
-          echo "===== analysis json count ====="
-          find docs/data/analysis -maxdepth 1 -name "*.json" | wc -l
+          echo "===== analysis count ====="
+          find docs/data/analysis -name "*.json" | wc -l
 
-          echo "===== noaa files ====="
-          find docs/data/noaa -maxdepth 1 -type f | sort
+          echo "===== index file ====="
+          ls -lh docs/data/satellite_index_full.json || echo "index missing"
 
-          echo "===== search index files ====="
-          find docs/data -maxdepth 1 -name "satellite_index_full.json" -o -name "satellites.json" | sort
+          echo "===== NOAA ====="
+          ls docs/data/noaa
 
-          echo "===== sample sat_history files ====="
-          find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
-
+      # -------------------------
+      # Commit & Push
+      # -------------------------
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
-          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git config user.email "github-actions@github.com"
           git add docs/data
-          git commit -m "Update satellite histories, search index, and NOAA data" || echo "No changes to commit"
+          git commit -m "Auto update satellite data, NOAA, index" || echo "No changes"
           git push
