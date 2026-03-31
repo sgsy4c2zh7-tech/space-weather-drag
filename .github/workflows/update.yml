@@ -1,9 +1,9 @@
-name: SPACE WEATHER DRAG AUTO UPDATE
+name: SPACE WEATHER DRAG DAILY
 
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 */3 * * *"   # 3時間ごと
+    - cron: "10 0 * * *"   # 毎日1回（UTC 00:10）
 
 permissions:
   contents: write
@@ -21,7 +21,7 @@ jobs:
         uses: actions/checkout@v4
 
       # -------------------------
-      # Python setup
+      # Python
       # -------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
@@ -29,7 +29,7 @@ jobs:
           python-version: "3.11"
 
       # -------------------------
-      # Install dependencies
+      # Install libs
       # -------------------------
       - name: Install dependencies
         run: |
@@ -37,7 +37,7 @@ jobs:
           pip install requests numpy scipy sgp4 skyfield pymsis
 
       # -------------------------
-      # Prepare directories
+      # Prepare dirs
       # -------------------------
       - name: Prepare folders
         run: |
@@ -48,59 +48,56 @@ jobs:
           mkdir -p docs/data/analysis
 
       # -------------------------
-      # Fetch CelesTrak (全衛星)
+      # CelesTrak
       # -------------------------
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
       # -------------------------
-      # Fetch NOAA (Kp/AE)
+      # NOAA
       # -------------------------
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
       # -------------------------
-      # Build sat_history
+      # sat_history
       # -------------------------
       - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
 
       # -------------------------
-      # ★検索用インデックス生成（超重要）
+      # 🔥 検索用インデックス
       # -------------------------
       - name: Build satellite search index
         run: python scripts/build_satellite_index_full.py
 
       # -------------------------
-      # 解析（Δ高度・相関）
+      # 解析
       # -------------------------
       - name: Build drag analysis
         run: python scripts/build_drag_analysis.py
 
       # -------------------------
-      # Debug表示
+      # Debug
       # -------------------------
       - name: Show generated files
         run: |
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
 
-          echo "===== analysis count ====="
-          find docs/data/analysis -name "*.json" | wc -l
-
-          echo "===== index file ====="
+          echo "===== index ====="
           ls -lh docs/data/satellite_index_full.json || echo "index missing"
 
           echo "===== NOAA ====="
           ls docs/data/noaa
 
       # -------------------------
-      # Commit & Push
+      # Commit
       # -------------------------
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
           git add docs/data
-          git commit -m "Auto update satellite data, NOAA, index" || echo "No changes"
+          git commit -m "Daily update satellite data + NOAA + index" || echo "No changes"
           git push
