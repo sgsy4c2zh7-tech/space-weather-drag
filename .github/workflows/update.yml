@@ -1,4 +1,4 @@
-name: SPACE WEATHER DRAG FULL STACK
+name: SPACE WEATHER DRAG BASIC
 
 on:
   workflow_dispatch:
@@ -11,11 +11,7 @@ permissions:
 jobs:
   rebuild:
     runs-on: ubuntu-latest
-    timeout-minutes: 60
-
-    env:
-      SPACETRACK_ID: ${{ secrets.SPACETRACK_ID }}
-      SPACETRACK_PASSWORD: ${{ secrets.SPACETRACK_PASSWORD }}
+    timeout-minutes: 45
 
     steps:
       - name: Checkout repository
@@ -40,19 +36,6 @@ jobs:
           mkdir -p docs/data/analysis
           mkdir -p scripts
 
-      - name: Check Space-Track backfill marker
-        id: backfill_check
-        run: |
-          if [ -f docs/data/spacetrack_backfill_done.json ]; then
-            echo "needs_backfill=false" >> $GITHUB_OUTPUT
-          else
-            echo "needs_backfill=true" >> $GITHUB_OUTPUT
-          fi
-
-      - name: Backfill from Space-Track (first run only)
-        if: steps.backfill_check.outputs.needs_backfill == 'true'
-        run: python scripts/backfill_from_spacetrack.py
-
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
@@ -76,9 +59,6 @@ jobs:
           echo "===== noaa files ====="
           find docs/data/noaa -maxdepth 1 -type f | sort
 
-          echo "===== marker files ====="
-          find docs/data -maxdepth 1 -type f | sort
-
           echo "===== sample sat_history files ====="
           find docs/data/sat_history -maxdepth 1 -name "*.json" | sort | head -20
 
@@ -87,5 +67,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add docs/data
-          git commit -m "Update catalog, histories, NOAA, and drag analysis" || echo "No changes to commit"
+          git commit -m "Update satellite histories and NOAA data" || echo "No changes to commit"
           git push
