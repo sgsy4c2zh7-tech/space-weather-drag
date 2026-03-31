@@ -4,9 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Space Weather Drag Viewer</title>
-
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-
   <style>
     body {
       font-family: Arial, sans-serif;
@@ -15,7 +13,7 @@
       color: #e8eefc;
     }
 
-    h1, h2 {
+    h1, h2, h3 {
       margin: 0 0 12px 0;
     }
 
@@ -83,21 +81,28 @@
       border-radius: 8px;
     }
 
+    .results {
+      max-height: 360px;
+      overflow: auto;
+      border: 1px solid #31415f;
+      border-radius: 8px;
+    }
+
     table {
       width: 100%;
       border-collapse: collapse;
-      font-size: 14px;
+      font-size: 13px;
     }
 
     th, td {
       border: 1px solid #31415f;
       padding: 6px;
       text-align: left;
+      vertical-align: top;
     }
 
     th {
       background: #1a2740;
-      width: 48%;
     }
 
     #status {
@@ -107,7 +112,19 @@
       white-space: pre-wrap;
     }
 
-    @media (max-width: 900px) {
+    .small-text {
+      font-size: 12px;
+      color: #b9c8ea;
+    }
+
+    .selected-list {
+      max-height: 220px;
+      overflow: auto;
+      border: 1px solid #31415f;
+      border-radius: 8px;
+    }
+
+    @media (max-width: 1100px) {
       .grid, .subgrid {
         grid-template-columns: 1fr;
       }
@@ -118,58 +135,145 @@
   <h1>Space Weather Drag Viewer</h1>
 
   <div class="controls">
+    <h2>衛星検索</h2>
     <div class="row">
       <label>
-        NORAD ID
-        <input id="norad" value="25544" list="satelliteSuggestions" />
-        <datalist id="satelliteSuggestions"></datalist>
+        名前 / NORAD ID
+        <input id="qText" placeholder="ISS / 25544" />
       </label>
 
       <label>
-        開始日
-        <input id="startDate" type="date" />
+        アポジ最小
+        <input id="apogeeMin" type="number" placeholder="例: 300" />
       </label>
 
       <label>
-        終了日
-        <input id="endDate" type="date" />
+        アポジ最大
+        <input id="apogeeMax" type="number" placeholder="例: 600" />
       </label>
 
       <label>
-        宇宙天気指数
-        <select id="indexType">
-          <option value="kp">Kp</option>
-          <option value="ae">AE</option>
-        </select>
+        ペリジ最小
+        <input id="perigeeMin" type="number" placeholder="例: 300" />
       </label>
 
       <label>
-        軌道グラフ項目
-        <select id="orbitMetric">
-          <option value="altitude">アポジ / ペリジ</option>
-          <option value="delta_altitude">Δ高度</option>
-          <option value="latlon">緯度 / 経度</option>
-          <option value="inclination">傾斜角</option>
-          <option value="elements">6要素</option>
-          <option value="meanmotion">平均運動</option>
-          <option value="density">NRLMSIS密度</option>
-          <option value="height">真高度</option>
-        </select>
+        ペリジ最大
+        <input id="perigeeMax" type="number" placeholder="例: 600" />
       </label>
-
-      <button id="loadBtn">表示</button>
-      <button onclick="setRangeDays(1)">1日</button>
-      <button onclick="setRangeDays(7)">7日</button>
-      <button onclick="setRangeDays(30)">30日</button>
     </div>
 
-    <div id="status">未読込</div>
+    <div class="row" style="margin-top:10px;">
+      <label>
+        傾斜角最小
+        <input id="incMin" type="number" placeholder="例: 50" />
+      </label>
+
+      <label>
+        傾斜角最大
+        <input id="incMax" type="number" placeholder="例: 60" />
+      </label>
+
+      <label>
+        緯度最小
+        <input id="latMin" type="number" placeholder="例: -10" />
+      </label>
+
+      <label>
+        緯度最大
+        <input id="latMax" type="number" placeholder="例: 10" />
+      </label>
+
+      <label>
+        経度最小
+        <input id="lonMin" type="number" placeholder="例: 120" />
+      </label>
+
+      <label>
+        経度最大
+        <input id="lonMax" type="number" placeholder="例: 160" />
+      </label>
+    </div>
+
+    <div class="row" style="margin-top:10px;">
+      <button id="searchBtn">検索</button>
+      <button id="clearSearchBtn">検索条件クリア</button>
+      <button id="selectTopBtn">上位10件選択</button>
+      <button id="clearSelectionBtn">選択解除</button>
+    </div>
+
+    <div class="small-text" id="searchStatus">未検索</div>
   </div>
 
   <div class="grid">
     <div>
       <div class="card">
-        <h2>軌道グラフ</h2>
+        <h2>検索結果</h2>
+        <div class="results">
+          <table>
+            <thead>
+              <tr>
+                <th>選択</th>
+                <th>NORAD</th>
+                <th>名前</th>
+                <th>アポジ</th>
+                <th>ペリジ</th>
+                <th>傾斜角</th>
+                <th>緯度</th>
+                <th>経度</th>
+              </tr>
+            </thead>
+            <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>プロット設定</h2>
+        <div class="row">
+          <label>
+            開始日
+            <input id="startDate" type="date" />
+          </label>
+
+          <label>
+            終了日
+            <input id="endDate" type="date" />
+          </label>
+
+          <label>
+            指数
+            <select id="indexType">
+              <option value="kp">Kp</option>
+              <option value="ae">AE</option>
+            </select>
+          </label>
+
+          <label>
+            プロット項目
+            <select id="orbitMetric">
+              <option value="altitude">アポジ / ペリジ</option>
+              <option value="delta_altitude">Δ高度</option>
+              <option value="height">真高度</option>
+              <option value="latlon">緯度 / 経度</option>
+              <option value="inclination">傾斜角</option>
+              <option value="elements">6要素</option>
+              <option value="meanmotion">平均運動</option>
+              <option value="density">NRLMSIS密度</option>
+            </select>
+          </label>
+
+          <button id="plotBtn">選択衛星を同時プロット</button>
+          <button onclick="setRangeDays(1)">1日</button>
+          <button onclick="setRangeDays(7)">7日</button>
+          <button onclick="setRangeDays(30)">30日</button>
+        </div>
+
+        <div id="status">未読込</div>
+      </div>
+
+      <div class="card">
+        <h2>軌道グラフ（複数衛星同時）</h2>
         <div class="chart-wrap">
           <canvas id="orbitChart"></canvas>
         </div>
@@ -201,10 +305,19 @@
 
     <div>
       <div class="card">
-        <h2>最新値</h2>
-        <table>
-          <tbody id="infoTable"></tbody>
-        </table>
+        <h2>選択中の衛星</h2>
+        <div class="selected-list">
+          <table>
+            <thead>
+              <tr>
+                <th>NORAD</th>
+                <th>名前</th>
+                <th>最新Epoch</th>
+              </tr>
+            </thead>
+            <tbody id="selectedBody"></tbody>
+          </table>
+        </div>
       </div>
 
       <div class="card">
@@ -213,10 +326,32 @@
           <tbody id="corrTable"></tbody>
         </table>
       </div>
+
+      <div class="card">
+        <h2>最新値一覧</h2>
+        <div class="selected-list">
+          <table>
+            <thead>
+              <tr>
+                <th>NORAD</th>
+                <th>名前</th>
+                <th>Height</th>
+                <th>Apogee</th>
+                <th>Perigee</th>
+                <th>Inc</th>
+              </tr>
+            </thead>
+            <tbody id="latestTableBody"></tbody>
+          </table>
+        </div>
+      </div>
     </div>
   </div>
 
   <script>
+    let satelliteIndex = [];
+    let selectedIds = new Set();
+
     let orbitChart = null;
     let indexChart = null;
     let stormChart = null;
@@ -225,11 +360,9 @@
     function setDefaultDates() {
       const today = new Date();
       const end = today.toISOString().slice(0, 10);
-
       const startObj = new Date();
       startObj.setDate(startObj.getDate() - 30);
       const start = startObj.toISOString().slice(0, 10);
-
       document.getElementById("startDate").value = start;
       document.getElementById("endDate").value = end;
     }
@@ -238,11 +371,9 @@
       const end = new Date();
       const start = new Date();
       start.setDate(end.getDate() - days);
-
       document.getElementById("startDate").value = start.toISOString().slice(0, 10);
       document.getElementById("endDate").value = end.toISOString().slice(0, 10);
-
-      loadData();
+      if (selectedIds.size > 0) loadMultiPlot();
     }
 
     function withinRange(iso, start, end) {
@@ -251,9 +382,14 @@
       return day >= start && day <= end;
     }
 
-    function fmt(v, digits = 3) {
+    function fmt(v, digits = 2) {
       if (v === null || v === undefined || Number.isNaN(v)) return "-";
       return Number(v).toFixed(digits);
+    }
+
+    function numVal(id) {
+      const v = document.getElementById(id).value.trim();
+      return v === "" ? null : Number(v);
     }
 
     async function getJson(url) {
@@ -262,15 +398,103 @@
       return await res.json();
     }
 
-    async function loadSuggestions() {
-      try {
-        const sats = await getJson("data/satellites.json");
-        const dl = document.getElementById("satelliteSuggestions");
-        dl.innerHTML = sats.slice(0, 2000).map(s =>
-          `<option value="${s.norad_id}">${s.name}</option>`
-        ).join("");
-      } catch (e) {
-        console.log("satellite suggestions load skipped:", e.message);
+    function destroyChart(chart) {
+      if (chart) chart.destroy();
+      return null;
+    }
+
+    async function loadSatelliteIndex() {
+      satelliteIndex = await getJson("data/satellite_index_full.json");
+    }
+
+    function passesRange(v, minV, maxV) {
+      if (v === null || v === undefined) return false;
+      if (minV !== null && Number(v) < minV) return false;
+      if (maxV !== null && Number(v) > maxV) return false;
+      return true;
+    }
+
+    function filterSatellites() {
+      const q = document.getElementById("qText").value.trim().toLowerCase();
+
+      const apogeeMin = numVal("apogeeMin");
+      const apogeeMax = numVal("apogeeMax");
+      const perigeeMin = numVal("perigeeMin");
+      const perigeeMax = numVal("perigeeMax");
+      const incMin = numVal("incMin");
+      const incMax = numVal("incMax");
+      const latMin = numVal("latMin");
+      const latMax = numVal("latMax");
+      const lonMin = numVal("lonMin");
+      const lonMax = numVal("lonMax");
+
+      return satelliteIndex.filter(s => {
+        const textOk = q === "" ||
+          String(s.norad_id).includes(q) ||
+          String(s.name || "").toLowerCase().includes(q);
+
+        return textOk &&
+          passesRange(s.apogee_km, apogeeMin, apogeeMax) &&
+          passesRange(s.perigee_km, perigeeMin, perigeeMax) &&
+          passesRange(s.inclination_deg, incMin, incMax) &&
+          passesRange(s.latitude_deg, latMin, latMax) &&
+          passesRange(s.longitude_deg, lonMin, lonMax);
+      });
+    }
+
+    function renderResults(rows) {
+      const body = document.getElementById("resultsBody");
+      body.innerHTML = rows.map(s => `
+        <tr>
+          <td>
+            <input type="checkbox" ${selectedIds.has(Number(s.norad_id)) ? "checked" : ""}
+              onchange="toggleSelection(${Number(s.norad_id)}, this.checked)">
+          </td>
+          <td>${s.norad_id}</td>
+          <td>${s.name || "-"}</td>
+          <td>${fmt(s.apogee_km)}</td>
+          <td>${fmt(s.perigee_km)}</td>
+          <td>${fmt(s.inclination_deg)}</td>
+          <td>${fmt(s.latitude_deg)}</td>
+          <td>${fmt(s.longitude_deg)}</td>
+        </tr>
+      `).join("");
+
+      document.getElementById("searchStatus").textContent = `検索結果: ${rows.length}件 / 選択中: ${selectedIds.size}件`;
+      renderSelectedList();
+    }
+
+    function toggleSelection(noradId, checked) {
+      if (checked) {
+        if (selectedIds.size >= 10 && !selectedIds.has(noradId)) {
+          alert("同時プロットは10機までにしてください。");
+          runSearch();
+          return;
+        }
+        selectedIds.add(noradId);
+      } else {
+        selectedIds.delete(noradId);
+      }
+      renderSelectedList();
+      runSearch(false);
+    }
+
+    function renderSelectedList() {
+      const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+      document.getElementById("selectedBody").innerHTML = selected.map(s => `
+        <tr>
+          <td>${s.norad_id}</td>
+          <td>${s.name || "-"}</td>
+          <td>${s.epoch || "-"}</td>
+        </tr>
+      `).join("");
+    }
+
+    function runSearch(updateStatus = true) {
+      const rows = filterSatellites();
+      renderResults(rows);
+      if (updateStatus) {
+        document.getElementById("status").textContent = `検索完了: ${rows.length}件`;
       }
     }
 
@@ -290,93 +514,6 @@
       }
     }
 
-    function destroyChart(chart) {
-      if (chart) chart.destroy();
-      return null;
-    }
-
-    function fillInfoTable(latest, sat) {
-      document.getElementById("infoTable").innerHTML = `
-        <tr><th>衛星名</th><td>${sat.name || "-"}</td></tr>
-        <tr><th>NORAD ID</th><td>${sat.norad_id || "-"}</td></tr>
-        <tr><th>Epoch</th><td>${latest.epoch || "-"}</td></tr>
-        <tr><th>Apogee (km)</th><td>${fmt(latest.apogee_km)}</td></tr>
-        <tr><th>Perigee (km)</th><td>${fmt(latest.perigee_km)}</td></tr>
-        <tr><th>Latitude (deg)</th><td>${fmt(latest.latitude_deg)}</td></tr>
-        <tr><th>Longitude (deg)</th><td>${fmt(latest.longitude_deg)}</td></tr>
-        <tr><th>Height (km)</th><td>${fmt(latest.height_km)}</td></tr>
-        <tr><th>Semi-major axis (km)</th><td>${fmt(latest.semi_major_axis_km)}</td></tr>
-        <tr><th>Eccentricity</th><td>${fmt(latest.eccentricity, 6)}</td></tr>
-        <tr><th>Inclination (deg)</th><td>${fmt(latest.inclination_deg)}</td></tr>
-        <tr><th>RAAN (deg)</th><td>${fmt(latest.raan_deg)}</td></tr>
-        <tr><th>Arg. Perigee (deg)</th><td>${fmt(latest.arg_perigee_deg)}</td></tr>
-        <tr><th>Mean Anomaly (deg)</th><td>${fmt(latest.mean_anomaly_deg)}</td></tr>
-        <tr><th>Mean Motion (rev/day)</th><td>${fmt(latest.mean_motion_rev_day, 6)}</td></tr>
-      `;
-    }
-
-    function fillCorrTable(analysis, corrPoints) {
-      let pearson = analysis?.pearson || {};
-
-      if ((!pearson.kp_vs_delta_h && pearson.kp_vs_delta_h !== 0) && corrPoints.length >= 2) {
-        const xs = corrPoints.map(p => p.kp);
-        const ys = corrPoints.map(p => p.delta_h_km);
-        pearson.kp_vs_delta_h = computePearson(xs, ys);
-      }
-
-      document.getElementById("corrTable").innerHTML = `
-        <tr><th>Kp vs Δ高度</th><td>${fmt(pearson.kp_vs_delta_h, 4)}</td></tr>
-        <tr><th>Kp vs 低下率</th><td>${fmt(pearson.kp_vs_rate, 4)}</td></tr>
-      `;
-    }
-
-    function computePearson(xs, ys) {
-      if (!xs || !ys || xs.length !== ys.length || xs.length < 2) return null;
-
-      const n = xs.length;
-      const meanX = xs.reduce((a, b) => a + b, 0) / n;
-      const meanY = ys.reduce((a, b) => a + b, 0) / n;
-
-      let num = 0;
-      let denX = 0;
-      let denY = 0;
-
-      for (let i = 0; i < n; i++) {
-        const dx = xs[i] - meanX;
-        const dy = ys[i] - meanY;
-        num += dx * dy;
-        denX += dx * dx;
-        denY += dy * dy;
-      }
-
-      if (denX === 0 || denY === 0) return null;
-      return num / Math.sqrt(denX * denY);
-    }
-
-    function mergeKpObservedForecast(obs, fcst, start, end) {
-      const map = new Map();
-
-      for (const item of obs) {
-        if (withinRange(item.time_tag, start, end)) {
-          map.set(item.time_tag, {
-            time: item.time_tag,
-            value: Number(item.kp_index)
-          });
-        }
-      }
-
-      for (const item of fcst) {
-        if (withinRange(item.time_tag, start, end) && !map.has(item.time_tag)) {
-          map.set(item.time_tag, {
-            time: item.time_tag,
-            value: Number(item.kp_index)
-          });
-        }
-      }
-
-      return Array.from(map.values()).sort((a, b) => a.time.localeCompare(b.time));
-    }
-
     function parseUtc(s) {
       return new Date(s);
     }
@@ -392,7 +529,6 @@
       const bins = [];
       const start = new Date(startDate + "T00:00:00Z");
       const end = new Date(endDate + "T23:59:59Z");
-
       let current = new Date(start);
       while (current <= end) {
         bins.push(new Date(current));
@@ -405,7 +541,6 @@
       const t = parseUtc(isoTime).getTime();
       let bestIdx = -1;
       let bestDiff = Infinity;
-
       for (let i = 0; i < bins.length; i++) {
         const diff = Math.abs(bins[i].getTime() - t);
         if (diff < bestDiff) {
@@ -420,27 +555,13 @@
       return Array.from({ length }, () => null);
     }
 
-    function makeLineStyle() {
-      return {
-        borderWidth: 2,
-        tension: 0.15,
-        pointRadius: 4,
-        pointHoverRadius: 6,
-        showLine: true,
-        fill: false,
-        spanGaps: true
-      };
-    }
-
     function buildDeltaAltitudeHistory(hist) {
       const out = [];
       for (let i = 1; i < hist.length; i++) {
         const prev = hist[i - 1];
         const cur = hist[i];
-
         const prevAvg = (Number(prev.apogee_km) + Number(prev.perigee_km)) / 2;
         const curAvg = (Number(cur.apogee_km) + Number(cur.perigee_km)) / 2;
-
         out.push({
           epoch: cur.epoch,
           delta_altitude_km: curAvg - prevAvg
@@ -449,71 +570,78 @@
       return out;
     }
 
-    function buildOrbitDatasets(metric, hist, analysisHist, bins) {
+    function makeLineStyle() {
+      return {
+        borderWidth: 2,
+        tension: 0.15,
+        pointRadius: 3,
+        pointHoverRadius: 5,
+        showLine: true,
+        fill: false,
+        spanGaps: true
+      };
+    }
+
+    function buildSeriesForMetric(metric, satName, hist, analysisHist, bins) {
       const style = makeLineStyle();
-      const n = bins.length;
 
       function mapSeries(source, timeKey, valueKey, label) {
-        const arr = makeEmptySeries(n);
+        const arr = makeEmptySeries(bins.length);
         for (const row of source) {
           const idx = nearestBinIndex(row[timeKey], bins);
           if (idx >= 0) arr[idx] = row[valueKey] ?? null;
         }
-        return { label, data: arr, ...style };
+        return {
+          label: `${satName} - ${label}`,
+          data: arr,
+          ...style
+        };
       }
 
       if (metric === "altitude") {
         return [
-          mapSeries(hist, "epoch", "apogee_km", "Apogee (km)"),
-          mapSeries(hist, "epoch", "perigee_km", "Perigee (km)")
+          mapSeries(hist, "epoch", "apogee_km", "Apogee"),
+          mapSeries(hist, "epoch", "perigee_km", "Perigee")
         ];
       }
 
       if (metric === "delta_altitude") {
         const deltaHist = buildDeltaAltitudeHistory(hist);
         return [
-          mapSeries(deltaHist, "epoch", "delta_altitude_km", "ΔAltitude (km)")
-        ];
-      }
-
-      if (metric === "latlon") {
-        return [
-          mapSeries(hist, "epoch", "latitude_deg", "Latitude (deg)"),
-          mapSeries(hist, "epoch", "longitude_deg", "Longitude (deg)")
-        ];
-      }
-
-      if (metric === "inclination") {
-        return [
-          mapSeries(hist, "epoch", "inclination_deg", "Inclination (deg)")
-        ];
-      }
-
-      if (metric === "meanmotion") {
-        return [
-          mapSeries(hist, "epoch", "mean_motion_rev_day", "Mean Motion (rev/day)")
-        ];
-      }
-
-      if (metric === "density") {
-        return [
-          mapSeries(analysisHist || [], "epoch", "nrlmsis_density", "NRLMSIS Density")
+          mapSeries(deltaHist, "epoch", "delta_altitude_km", "ΔAltitude")
         ];
       }
 
       if (metric === "height") {
+        return [mapSeries(hist, "epoch", "height_km", "Height")];
+      }
+
+      if (metric === "latlon") {
         return [
-          mapSeries(hist, "epoch", "height_km", "Height (km)")
+          mapSeries(hist, "epoch", "latitude_deg", "Latitude"),
+          mapSeries(hist, "epoch", "longitude_deg", "Longitude")
         ];
       }
 
+      if (metric === "inclination") {
+        return [mapSeries(hist, "epoch", "inclination_deg", "Inclination")];
+      }
+
+      if (metric === "meanmotion") {
+        return [mapSeries(hist, "epoch", "mean_motion_rev_day", "MeanMotion")];
+      }
+
+      if (metric === "density") {
+        return [mapSeries(analysisHist || [], "epoch", "nrlmsis_density", "Density")];
+      }
+
       return [
-        mapSeries(hist, "epoch", "semi_major_axis_km", "Semi-major axis (km)"),
+        mapSeries(hist, "epoch", "semi_major_axis_km", "SMA"),
         mapSeries(hist, "epoch", "eccentricity", "Eccentricity"),
-        mapSeries(hist, "epoch", "inclination_deg", "Inclination (deg)"),
-        mapSeries(hist, "epoch", "raan_deg", "RAAN (deg)"),
-        mapSeries(hist, "epoch", "arg_perigee_deg", "Arg. Perigee (deg)"),
-        mapSeries(hist, "epoch", "mean_anomaly_deg", "Mean Anomaly (deg)")
+        mapSeries(hist, "epoch", "inclination_deg", "Inclination"),
+        mapSeries(hist, "epoch", "raan_deg", "RAAN"),
+        mapSeries(hist, "epoch", "arg_perigee_deg", "ArgPerigee"),
+        mapSeries(hist, "epoch", "mean_anomaly_deg", "MeanAnomaly")
       ];
     }
 
@@ -543,102 +671,167 @@
       };
     }
 
-    function buildCorrelationPointsFromData(hist, kpSeries) {
-      const deltaHist = buildDeltaAltitudeHistory(hist);
-      const out = [];
+    function computePearson(xs, ys) {
+      if (!xs || !ys || xs.length !== ys.length || xs.length < 2) return null;
 
-      for (const row of deltaHist) {
-        const idx = nearestBinIndex(row.epoch, kpSeries.map(k => parseUtc(k.time)));
-        if (idx >= 0 && kpSeries[idx]) {
-          out.push({
-            time: row.epoch,
-            kp: kpSeries[idx].value,
-            delta_h_km: row.delta_altitude_km
-          });
-        }
+      const n = xs.length;
+      const meanX = xs.reduce((a, b) => a + b, 0) / n;
+      const meanY = ys.reduce((a, b) => a + b, 0) / n;
+
+      let num = 0;
+      let denX = 0;
+      let denY = 0;
+
+      for (let i = 0; i < n; i++) {
+        const dx = xs[i] - meanX;
+        const dy = ys[i] - meanY;
+        num += dx * dy;
+        denX += dx * dx;
+        denY += dy * dy;
       }
-      return out.filter(x => x.kp !== null && !Number.isNaN(x.kp));
+
+      if (denX === 0 || denY === 0) return null;
+      return num / Math.sqrt(denX * denY);
     }
 
-    async function loadData() {
-      const norad = document.getElementById("norad").value.trim();
+    async function loadKpSeries(start, end) {
+      try {
+        const kpHist = await getJson("data/noaa/kp_history.json");
+        return (kpHist.data || [])
+          .filter(x => withinRange(x.time_tag, start, end))
+          .map(x => ({ time: x.time_tag, value: Number(x.kp_index) }))
+          .sort((a, b) => a.time.localeCompare(b.time));
+      } catch (e) {
+        const obs = await getJson("data/noaa/kp_observed.json");
+        const fcst = await getJson("data/noaa/kp_forecast.json");
+        const map = new Map();
+
+        for (const item of (obs.data || [])) {
+          if (withinRange(item.time_tag, start, end)) {
+            map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          }
+        }
+        for (const item of (fcst.data || [])) {
+          if (withinRange(item.time_tag, start, end) && !map.has(item.time_tag)) {
+            map.set(item.time_tag, { time: item.time_tag, value: Number(item.kp_index) });
+          }
+        }
+        return Array.from(map.values()).sort((a, b) => a.time.localeCompare(b.time));
+      }
+    }
+
+    function renderLatestTable(rows) {
+      document.getElementById("latestTableBody").innerHTML = rows.map(r => `
+        <tr>
+          <td>${r.norad_id}</td>
+          <td>${r.name}</td>
+          <td>${fmt(r.latest?.height_km)}</td>
+          <td>${fmt(r.latest?.apogee_km)}</td>
+          <td>${fmt(r.latest?.perigee_km)}</td>
+          <td>${fmt(r.latest?.inclination_deg)}</td>
+        </tr>
+      `).join("");
+    }
+
+    function fillCorrTable(corrPoints) {
+      const xs = corrPoints.map(p => p.kp);
+      const ys = corrPoints.map(p => p.delta_h_km);
+      const pearson = computePearson(xs, ys);
+
+      document.getElementById("corrTable").innerHTML = `
+        <tr><th>Kp vs Δ高度</th><td>${fmt(pearson, 4)}</td></tr>
+        <tr><th>点数</th><td>${corrPoints.length}</td></tr>
+      `;
+    }
+
+    async function loadMultiPlot() {
       const start = document.getElementById("startDate").value;
       const end = document.getElementById("endDate").value;
       const indexType = document.getElementById("indexType").value;
       const orbitMetric = document.getElementById("orbitMetric").value;
       const status = document.getElementById("status");
 
-      if (!norad || !start || !end) {
-        status.textContent = "NORAD ID と開始日・終了日を入れてください。";
+      const ids = Array.from(selectedIds);
+      if (ids.length === 0) {
+        status.textContent = "衛星を1機以上選択してください。";
         return;
       }
 
       try {
         status.textContent = "読込中...";
 
-        const sat = await loadSatelliteData(norad);
-        const analysis = await loadAnalysisData(norad);
-
-        const allHistory = sat.history || [];
-        const analysisHist = (analysis?.history_enriched || []).filter(h => withinRange(h.epoch, start, end));
-
-        const hist = allHistory
-          .filter(h => withinRange(h.epoch, start, end))
-          .sort((a, b) => a.epoch.localeCompare(b.epoch));
-
-        if (hist.length === 0) {
-          status.textContent = `指定期間の履歴がありません。\n全件数: ${allHistory.length}`;
-          orbitChart = destroyChart(orbitChart);
-          indexChart = destroyChart(indexChart);
-          stormChart = destroyChart(stormChart);
-          corrChart = destroyChart(corrChart);
-          document.getElementById("infoTable").innerHTML = "";
-          document.getElementById("corrTable").innerHTML = "";
-          return;
-        }
-
-        const latest = hist[hist.length - 1];
-        fillInfoTable(latest, sat);
-
         const bins = buildTimeBins(start, end, 3);
         const labels = bins.map(formatBinLabel);
 
-        let idxSeries = [];
-        if (indexType === "kp") {
-          try {
-            const kpHist = await getJson("data/noaa/kp_history.json");
-            idxSeries = (kpHist.data || [])
-              .filter(x => withinRange(x.time_tag, start, end))
-              .map(x => ({ time: x.time_tag, value: Number(x.kp_index) }))
-              .sort((a, b) => a.time.localeCompare(b.time));
-          } catch (e) {
-            const obs = await getJson("data/noaa/kp_observed.json");
-            const fcst = await getJson("data/noaa/kp_forecast.json");
-            idxSeries = mergeKpObservedForecast(obs.data || [], fcst.data || [], start, end);
+        const loaded = [];
+        let allOrbitDatasets = [];
+        let mergedStorms = [];
+        let corrPoints = [];
+
+        for (const id of ids) {
+          const sat = await loadSatelliteData(id);
+          const analysis = await loadAnalysisData(id);
+
+          const hist = (sat.history || [])
+            .filter(h => withinRange(h.epoch, start, end))
+            .sort((a, b) => a.epoch.localeCompare(b.epoch));
+
+          const analysisHist = (analysis?.history_enriched || [])
+            .filter(h => withinRange(h.epoch, start, end));
+
+          if (hist.length === 0) continue;
+
+          loaded.push({
+            norad_id: sat.norad_id,
+            name: sat.name,
+            latest: hist[hist.length - 1]
+          });
+
+          allOrbitDatasets.push(
+            ...buildSeriesForMetric(orbitMetric, sat.name || String(id), hist, analysisHist, bins)
+          );
+
+          const storms = (analysis?.storm_events || []).filter(x => withinRange(x.time, start, end));
+          mergedStorms.push(...storms);
+
+          const deltaHist = buildDeltaAltitudeHistory(hist);
+          const kpSeriesForCorr = await loadKpSeries(start, end);
+
+          for (const row of deltaHist) {
+            const idx = nearestBinIndex(row.epoch, kpSeriesForCorr.map(k => parseUtc(k.time)));
+            if (idx >= 0 && kpSeriesForCorr[idx]) {
+              corrPoints.push({
+                time: row.epoch,
+                kp: kpSeriesForCorr[idx].value,
+                delta_h_km: row.delta_altitude_km,
+                sat: sat.name
+              });
+            }
           }
-        } else {
-          const ae = await getJson("data/noaa/ae_observed.json");
-          idxSeries = (ae.data || [])
-            .filter(x => withinRange(x.time_tag, start, end))
-            .map(x => ({ time: x.time_tag, value: Number(x.ae_index) }))
-            .sort((a, b) => a.time.localeCompare(b.time));
         }
 
-        const corrPts = (analysis?.correlation_points || []).filter(x => withinRange(x.time, start, end));
-        const fallbackCorrPts = corrPts.length > 0 ? corrPts : buildCorrelationPointsFromData(hist, idxSeries);
+        if (loaded.length === 0) {
+          status.textContent = "指定期間に表示できる履歴がありません。";
+          return;
+        }
 
-        fillCorrTable(analysis, fallbackCorrPts);
+        renderLatestTable(loaded);
 
         orbitChart = destroyChart(orbitChart);
         orbitChart = new Chart(document.getElementById("orbitChart"), {
           type: "line",
           data: {
             labels,
-            datasets: buildOrbitDatasets(orbitMetric, hist, analysisHist, bins)
+            datasets: allOrbitDatasets
           },
           options: {
             responsive: true,
             maintainAspectRatio: false,
+            plugins: {
+              legend: {
+                display: true
+              }
+            },
             scales: {
               x: {
                 title: {
@@ -649,6 +842,17 @@
             }
           }
         });
+
+        let idxSeries = [];
+        if (indexType === "kp") {
+          idxSeries = await loadKpSeries(start, end);
+        } else {
+          const ae = await getJson("data/noaa/ae_observed.json");
+          idxSeries = (ae.data || [])
+            .filter(x => withinRange(x.time_tag, start, end))
+            .map(x => ({ time: x.time_tag, value: Number(x.ae_index) }))
+            .sort((a, b) => a.time.localeCompare(b.time));
+        }
 
         indexChart = destroyChart(indexChart);
         indexChart = new Chart(document.getElementById("indexChart"), {
@@ -671,25 +875,16 @@
           }
         });
 
-        const storms = (analysis?.storm_events || []).filter(x => withinRange(x.time, start, end));
         stormChart = destroyChart(stormChart);
         stormChart = new Chart(document.getElementById("stormChart"), {
           type: "bar",
           data: {
             labels,
-            datasets: [buildStormDataset(storms, bins)]
+            datasets: [buildStormDataset(mergedStorms, bins)]
           },
           options: {
             responsive: true,
-            maintainAspectRatio: false,
-            scales: {
-              x: {
-                title: {
-                  display: true,
-                  text: "UTC"
-                }
-              }
-            }
+            maintainAspectRatio: false
           }
         });
 
@@ -698,8 +893,8 @@
           type: "scatter",
           data: {
             datasets: [{
-              label: "Δ高度 vs Kp",
-              data: fallbackCorrPts.map(x => ({ x: x.kp, y: x.delta_h_km })),
+              label: "Kp vs Δ高度",
+              data: corrPoints.map(x => ({ x: x.kp, y: x.delta_h_km })),
               pointRadius: 4,
               pointHoverRadius: 6,
               showLine: false
@@ -725,15 +920,42 @@
           }
         });
 
-        status.textContent = `表示完了: ${sat.name} / 履歴=${hist.length}件 / 指数=${idxSeries.length}件`;
+        fillCorrTable(corrPoints);
+        status.textContent = `表示完了: ${loaded.length}機 / 指数=${idxSeries.length}件 / 相関点=${corrPoints.length}件`;
       } catch (e) {
         status.textContent = `エラー: ${e.message}`;
       }
     }
 
-    setDefaultDates();
-    loadSuggestions();
-    document.getElementById("loadBtn").addEventListener("click", loadData);
+    document.getElementById("searchBtn").addEventListener("click", () => runSearch());
+    document.getElementById("clearSearchBtn").addEventListener("click", () => {
+      [
+        "qText", "apogeeMin", "apogeeMax", "perigeeMin", "perigeeMax",
+        "incMin", "incMax", "latMin", "latMax", "lonMin", "lonMax"
+      ].forEach(id => document.getElementById(id).value = "");
+      runSearch();
+    });
+
+    document.getElementById("selectTopBtn").addEventListener("click", () => {
+      const rows = filterSatellites().slice(0, 10);
+      selectedIds = new Set(rows.map(r => Number(r.norad_id)));
+      runSearch(false);
+    });
+
+    document.getElementById("clearSelectionBtn").addEventListener("click", () => {
+      selectedIds.clear();
+      runSearch(false);
+    });
+
+    document.getElementById("plotBtn").addEventListener("click", loadMultiPlot);
+
+    async function init() {
+      setDefaultDates();
+      await loadSatelliteIndex();
+      runSearch();
+    }
+
+    init();
   </script>
 </body>
 </html>
