@@ -1,6 +1,6 @@
 {
   "norad_id": 68629,
-  "name": "STP-S29A OBJECT C",
+  "name": "RAWHIDE-1",
   "history": [
     {
       "epoch": "2026-04-07T22:00:21.398976Z",
@@ -91,6 +91,21 @@
       "arg_perigee_deg": 320.0387,
       "mean_anomaly_deg": 39.9379,
       "mean_motion_rev_day": 15.23725039
+    },
+    {
+      "epoch": "2026-04-14T14:38:27.805056Z",
+      "apogee_km": 506.9314293020643,
+      "perigee_km": 482.19657838922376,
+      "latitude_deg": -2.2733668629071134e-05,
+      "longitude_deg": -0.34596702260930184,
+      "height_km": 486.44418104361966,
+      "semi_major_axis_km": 6872.701003845644,
+      "eccentricity": 0.0017995,
+      "inclination_deg": 60.0223,
+      "raan_deg": 62.0539,
+      "arg_perigee_deg": 321.8498,
+      "mean_anomaly_deg": 38.1307,
+      "mean_motion_rev_day": 15.23742519
     }
   ]
 }
