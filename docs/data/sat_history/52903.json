@@ -1,6 +1,6 @@
 {
   "norad_id": 52903,
-  "name": "CMS-02 (GSAT 24)",
+  "name": "CMS-02 (GSAT-24)",
   "history": [
     {
       "epoch": "2026-03-28T22:01:31.440000Z",
@@ -406,6 +406,21 @@
       "arg_perigee_deg": 99.1519,
       "mean_anomaly_deg": 174.6668,
       "mean_motion_rev_day": 1.00271207
+    },
+    {
+      "epoch": "2026-04-21T18:41:45.269088Z",
+      "apogee_km": 35796.70528357375,
+      "perigee_km": 35776.88776481737,
+      "latitude_deg": -0.013949394953454833,
+      "longitude_deg": 83.02492141740166,
+      "height_km": 35792.22259609018,
+      "semi_major_axis_km": 42164.93352419556,
+      "eccentricity": 0.000235,
+      "inclination_deg": 0.0111,
+      "raan_deg": 235.9515,
+      "arg_perigee_deg": 103.9783,
+      "mean_anomaly_deg": 233.4037,
+      "mean_motion_rev_day": 1.00271066
     }
   ]
 }
