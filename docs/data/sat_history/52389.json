@@ -1,6 +1,6 @@
 {
   "norad_id": 52389,
-  "name": "JILIN-1 GAOFEN 3D04",
+  "name": "JILIN-1 GAOFEN 03D04",
   "history": [
     {
       "epoch": "2026-03-28T22:09:39.743424Z",
@@ -277,7 +277,7 @@
       "apogee_km": 290.9190063335409,
       "perigee_km": 282.8116974726863,
       "latitude_deg": -6.852109244674023e-05,
-      "longitude_deg": 72.45086308817632,
+      "longitude_deg": 72.45086308817628,
       "height_km": 291.75655492307135,
       "semi_major_axis_km": 6665.002351903113,
       "eccentricity": 0.0006082,
@@ -391,6 +391,21 @@
       "arg_perigee_deg": 248.8413,
       "mean_anomaly_deg": 111.2058,
       "mean_motion_rev_day": 16.02593181
+    },
+    {
+      "epoch": "2026-04-23T13:17:19.315392Z",
+      "apogee_km": 270.0462837346877,
+      "perigee_km": 259.6692616003038,
+      "latitude_deg": -3.7307052907453396e-05,
+      "longitude_deg": -178.02564478414553,
+      "height_km": 269.847183237511,
+      "semi_major_axis_km": 6642.994772667495,
+      "eccentricity": 0.00078105,
+      "inclination_deg": 97.4921,
+      "raan_deg": 232.9041,
+      "arg_perigee_deg": 249.9164,
+      "mean_anomaly_deg": 110.1275,
+      "mean_motion_rev_day": 16.03455442
     }
   ]
 }
