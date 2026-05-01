@@ -1,6 +1,6 @@
 {
   "norad_id": 68687,
-  "name": "GUOWANG TEST OBJECT A",
+  "name": "HJS-8A",
   "history": [
     {
       "epoch": "2026-04-13T13:42:39.250368Z",
@@ -226,6 +226,21 @@
       "arg_perigee_deg": 114.6669,
       "mean_anomaly_deg": 245.4651,
       "mean_motion_rev_day": 13.65695279
+    },
+    {
+      "epoch": "2026-04-30T02:23:03.488352Z",
+      "apogee_km": 1017.197441465376,
+      "perigee_km": 1015.1137298147414,
+      "latitude_deg": -7.324942921069706e-05,
+      "longitude_deg": 45.3155052288239,
+      "height_km": 1019.1153122666459,
+      "semi_major_axis_km": 7394.292585640058,
+      "eccentricity": 0.0001409,
+      "inclination_deg": 86.4967,
+      "raan_deg": 299.131,
+      "arg_perigee_deg": 90.4523,
+      "mean_anomaly_deg": 269.6795,
+      "mean_motion_rev_day": 13.6539345
     }
   ]
 }

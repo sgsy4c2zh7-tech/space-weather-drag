@@ -1,6 +1,6 @@
 {
   "norad_id": 68759,
-  "name": "2026-083G",
+  "name": "COSMOS 2611",
   "history": [
     {
       "epoch": "2026-04-18T10:09:31.045536Z",
@@ -181,6 +181,21 @@
       "arg_perigee_deg": 223.8537,
       "mean_anomaly_deg": 136.1842,
       "mean_motion_rev_day": 15.06034074
+    },
+    {
+      "epoch": "2026-04-30T15:27:47.723904Z",
+      "apogee_km": 555.7616604610939,
+      "perigee_km": 540.8739385150748,
+      "latitude_deg": -1.116640016526891e-05,
+      "longitude_deg": 169.07166242154452,
+      "height_km": 557.1773190983969,
+      "semi_major_axis_km": 6926.454799488084,
+      "eccentricity": 0.0010747,
+      "inclination_deg": 96.9538,
+      "raan_deg": 259.6086,
+      "arg_perigee_deg": 219.2127,
+      "mean_anomaly_deg": 140.8324,
+      "mean_motion_rev_day": 15.06039128
     }
   ]
 }
