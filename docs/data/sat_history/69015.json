@@ -1,6 +1,6 @@
 {
   "norad_id": 69015,
-  "name": "CAS500-2 RIDESHARE OBJECT AM",
+  "name": "FRONTIERSAT",
   "history": [
     {
       "epoch": "2026-05-09T15:34:11.163648Z",
@@ -46,6 +46,21 @@
       "arg_perigee_deg": 157.8083,
       "mean_anomaly_deg": 202.3541,
       "mean_motion_rev_day": 15.21094037
+    },
+    {
+      "epoch": "2026-05-12T19:21:12.960864Z",
+      "apogee_km": 508.7318391792478,
+      "perigee_km": 496.28887649733406,
+      "latitude_deg": 6.245553752475482e-06,
+      "longitude_deg": -129.61553114273184,
+      "height_km": 511.213517178569,
+      "semi_major_axis_km": 6880.647357838291,
+      "eccentricity": 0.0009042,
+      "inclination_deg": 97.4041,
+      "raan_deg": 31.2641,
+      "arg_perigee_deg": 154.5307,
+      "mean_anomaly_deg": 205.6376,
+      "mean_motion_rev_day": 15.21103661
     }
   ]
 }

@@ -1,6 +1,6 @@
 {
   "norad_id": 69023,
-  "name": "CAS500-2 RIDESHARE OBJECT AV",
+  "name": "QUBE-II",
   "history": [
     {
       "epoch": "2026-05-09T15:42:35.648928Z",
@@ -46,6 +46,21 @@
       "arg_perigee_deg": 110.2612,
       "mean_anomaly_deg": 249.9141,
       "mean_motion_rev_day": 15.19682435
+    },
+    {
+      "epoch": "2026-05-12T19:33:50.294880Z",
+      "apogee_km": 510.1261023391471,
+      "perigee_km": 503.41744722899784,
+      "latitude_deg": -2.0834913411254897e-05,
+      "longitude_deg": -132.7699256479423,
+      "height_km": 510.88913114581743,
+      "semi_major_axis_km": 6884.908774784072,
+      "eccentricity": 0.0004872,
+      "inclination_deg": 97.4108,
+      "raan_deg": 31.2739,
+      "arg_perigee_deg": 107.9849,
+      "mean_anomaly_deg": 252.1917,
+      "mean_motion_rev_day": 15.19691648
     }
   ]
 }
