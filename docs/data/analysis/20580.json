@@ -1,7 +1,7 @@
 {
   "norad_id": 20580,
   "name": "HST",
-  "updated_at": "2026-05-13T04:15:11.814253+00:00",
+  "updated_at": "2026-05-14T04:14:42.950138+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T19:09:20.319840Z",
@@ -866,6 +866,24 @@
       "avg_altitude_km": 474.739412872254,
       "kp_nearest": 1.0,
       "nrlmsis_density": 7.080526486305527e-13
+    },
+    {
+      "epoch": "2026-05-13T20:18:00.933696Z",
+      "apogee_km": 476.1597062858309,
+      "perigee_km": 473.23765715114587,
+      "latitude_deg": -1.9710195154726025e-06,
+      "longitude_deg": 139.10435701987302,
+      "height_km": 473.48930705456473,
+      "semi_major_axis_km": 6852.835681718489,
+      "eccentricity": 0.0002132,
+      "inclination_deg": 28.4755,
+      "raan_deg": 315.2084,
+      "arg_perigee_deg": 111.6506,
+      "mean_anomaly_deg": 248.4317,
+      "mean_motion_rev_day": 15.30372963,
+      "avg_altitude_km": 474.6986817184884,
+      "kp_nearest": 3.0,
+      "nrlmsis_density": 8.254174253818913e-13
     }
   ],
   "storm_events": [],
@@ -1151,10 +1169,16 @@
       "kp": 1.0,
       "delta_h_km": -0.009200715277529525,
       "rate_km_per_day": -0.02351467019259503
+    },
+    {
+      "time": "2026-05-13T20:18:00.933696Z",
+      "kp": 3.0,
+      "delta_h_km": -0.040731153765591444,
+      "rate_km_per_day": -0.024983753669099776
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": 0.09580487811775884,
-    "kp_vs_rate": 0.1446288331635272
+    "kp_vs_delta_h": 0.06674377452214576,
+    "kp_vs_rate": 0.18903262896526266
   }
 }
