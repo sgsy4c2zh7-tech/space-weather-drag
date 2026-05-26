@@ -3,7 +3,10 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hybrid Satellite Viewer - History + On-demand SGP4 RIC</title>
+  <title>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</title>
+
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
@@ -50,6 +53,12 @@
       color: #fff;
     }
 
+    input[type="color"] {
+      padding: 2px;
+      height: 38px;
+      width: 70px;
+    }
+
     textarea {
       min-height: 72px;
       resize: vertical;
@@ -90,6 +99,14 @@
       border-radius: 8px;
     }
 
+    #geoMap {
+      width: 100%;
+      height: 520px;
+      border-radius: 10px;
+      border: 1px solid #31415f;
+      background: #0f1728;
+    }
+
     .results, .selected-list {
       max-height: 360px;
       overflow: auto;
@@ -114,7 +131,7 @@
       background: #1a2740;
     }
 
-    #status, #searchStatus, #tleStatus {
+    #status, #searchStatus, #tleStatus, #geoStatus {
       margin-top: 10px;
       font-size: 14px;
       color: #d6e4ff;
@@ -142,7 +159,7 @@
 </head>
 
 <body>
-  <h1>Hybrid Satellite Viewer - History + On-demand SGP4 RIC</h1>
+  <h1>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</h1>
 
   <div class="controls">
     <h2>衛星検索</h2>
@@ -258,17 +275,56 @@
 
       <div>
         <div class="small-text">
-          TLEは「表示・接近解析」ボタンを押した時だけ取得します。<br><br>
-          読込優先順位：<br>
+          GEO地図：sat_history の最新 latitude_deg / longitude_deg を使用。<br>
+          接近解析：選択衛星だけ CelesTrak からTLE取得、SGP4でRIC計算。<br><br>
+          TLE読込優先順位：<br>
           1. 手動TLE localStorage<br>
           2. CelesTrak取得済みキャッシュ localStorage<br>
           3. docs/data/tle_history/NORAD.json<br>
           4. docs/data/tle/NORAD.json<br>
-          5. CelesTrak直接取得<br><br>
-          緯度・経度・高度・軌道要素グラフは従来の sat_history を使用。<br>
-          RIC・再接近距離・TRICだけSGP4を使用。
+          5. CelesTrak直接取得
         </div>
       </div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>GEO衛星マップ</h2>
+
+    <div class="row">
+      <label>
+        国コード 複数可
+        <input id="geoCountries" placeholder="US,JPN,CHN,RUS" />
+      </label>
+
+      <label>
+        GEO色
+        <input id="geoColor" type="color" value="#ff3333" />
+      </label>
+
+      <label>
+        GEO判定 Perigee最小
+        <input id="geoPerigeeMin" type="number" value="35000" />
+      </label>
+
+      <label>
+        GEO判定 Apogee最大
+        <input id="geoApogeeMax" type="number" value="37000" />
+      </label>
+
+      <button id="showGeoBtn">GEO表示</button>
+      <button id="clearGeoBtn">GEO消去</button>
+    </div>
+
+    <div class="small-text" style="margin-top:8px;">
+      国コードは satellite_index_full.json 内の country / country_code / COUNTRY_CODE / object_country 等を自動参照します。
+      空欄なら全GEOを表示します。
+    </div>
+
+    <div id="geoStatus">GEO未表示</div>
+
+    <div style="margin-top:12px;">
+      <div id="geoMap"></div>
     </div>
   </div>
 
@@ -484,6 +540,9 @@ let lonChart = null;
 let ricChart = null;
 let distanceChart = null;
 let tricChart = null;
+
+let geoMap = null;
+let geoLayer = null;
 
 const CELESTRAK_CACHE_KEY = "celestrakTleCacheV1";
 const MANUAL_TLE_KEY = "manualTleStore";
@@ -1497,6 +1556,174 @@ async function runHybridAnalysis() {
   }
 }
 
+function getSatCountry(s) {
+  const keys = [
+    "country",
+    "country_code",
+    "COUNTRY_CODE",
+    "object_country",
+    "OBJECT_COUNTRY",
+    "owner",
+    "OWNER",
+    "users",
+    "USER"
+  ];
+
+  for (const k of keys) {
+    if (s[k] !== undefined && s[k] !== null && String(s[k]).trim() !== "") {
+      return String(s[k]).trim().toUpperCase();
+    }
+  }
+
+  return "UNK";
+}
+
+function isGeoCandidate(s) {
+  const perigeeMin = numVal("geoPerigeeMin") ?? 35000;
+  const apogeeMax = numVal("geoApogeeMax") ?? 37000;
+
+  const ap = Number(s.apogee_km);
+  const pe = Number(s.perigee_km);
+
+  if (Number.isNaN(ap) || Number.isNaN(pe)) return false;
+
+  return pe >= perigeeMin && ap <= apogeeMax;
+}
+
+function normalizeLon(lon) {
+  let x = Number(lon);
+  while (x > 180) x -= 360;
+  while (x < -180) x += 360;
+  return x;
+}
+
+function initGeoMap() {
+  if (geoMap) return;
+
+  geoMap = L.map("geoMap", {
+    worldCopyJump: true
+  }).setView([0, 140], 2);
+
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
+    maxZoom: 8,
+    attribution: "&copy; OpenStreetMap contributors"
+  }).addTo(geoMap);
+
+  geoLayer = L.layerGroup().addTo(geoMap);
+}
+
+function clearGeoMap() {
+  initGeoMap();
+  geoLayer.clearLayers();
+  document.getElementById("geoStatus").textContent = "GEOを消去しました。";
+}
+
+async function showGeoSatellites() {
+  initGeoMap();
+  geoLayer.clearLayers();
+
+  const status = document.getElementById("geoStatus");
+  const color = document.getElementById("geoColor").value || "#ff3333";
+
+  const rawCountries = document.getElementById("geoCountries").value.trim();
+  const countrySet = new Set(
+    rawCountries
+      ? rawCountries.split(",").map(x => x.trim().toUpperCase()).filter(Boolean)
+      : []
+  );
+
+  const candidates = satelliteIndex.filter(s => {
+    if (!isGeoCandidate(s)) return false;
+    const c = getSatCountry(s);
+    if (countrySet.size === 0) return true;
+    return countrySet.has(c);
+  });
+
+  status.textContent = `GEO候補 ${candidates.length}件を読込中...`;
+
+  let shown = 0;
+  let missing = 0;
+
+  for (const s of candidates) {
+    const norad = Number(s.norad_id);
+    const name = s.name || String(norad);
+    const country = getSatCountry(s);
+
+    try {
+      const sat = await loadSatelliteData(norad);
+      const hist = Array.isArray(sat.history) ? sat.history : [];
+
+      if (hist.length === 0) {
+        missing++;
+        continue;
+      }
+
+      const latest = [...hist]
+        .filter(x =>
+          x.latitude_deg !== undefined &&
+          x.longitude_deg !== undefined &&
+          x.latitude_deg !== null &&
+          x.longitude_deg !== null
+        )
+        .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)))
+        .pop();
+
+      if (!latest) {
+        missing++;
+        continue;
+      }
+
+      const lat = Number(latest.latitude_deg);
+      const lon = normalizeLon(latest.longitude_deg);
+
+      if (Number.isNaN(lat) || Number.isNaN(lon)) {
+        missing++;
+        continue;
+      }
+
+      const marker = L.circleMarker([lat, lon], {
+        radius: 6,
+        color,
+        fillColor: color,
+        fillOpacity: 0.75,
+        weight: 1.5
+      });
+
+      marker.bindPopup(`
+        <b>${name}</b><br>
+        NORAD: ${norad}<br>
+        Country: ${country}<br>
+        Lat: ${fmt(lat, 4)} deg<br>
+        Lon: ${fmt(lon, 4)} deg<br>
+        Height: ${fmt(latest.height_km, 2)} km<br>
+        Epoch: ${latest.epoch || "-"}<br>
+        Apogee: ${fmt(latest.apogee_km, 2)} km<br>
+        Perigee: ${fmt(latest.perigee_km, 2)} km
+      `);
+
+      marker.addTo(geoLayer);
+      shown++;
+
+      if (shown % 25 === 0) {
+        status.textContent = `GEO表示中... ${shown}/${candidates.length}`;
+        await new Promise(r => setTimeout(r, 1));
+      }
+
+    } catch {
+      missing++;
+    }
+  }
+
+  status.textContent =
+    `GEO表示完了: ${shown}件 / 取得失敗・履歴なし: ${missing}件 / 候補: ${candidates.length}件`;
+
+  if (shown > 0) {
+    try {
+      geoMap.fitBounds(geoLayer.getBounds(), { padding: [20, 20] });
+    } catch {}
+  }
+}
+
 function applyManualTleFromUi() {
   const norad = document.getElementById("manualNorad").value.trim();
   const name = document.getElementById("manualName").value.trim();
@@ -1589,10 +1816,13 @@ document.getElementById("clearTleCacheBtn").addEventListener("click", clearCeles
 document.getElementById("plotBtn").addEventListener("click", runHybridAnalysis);
 document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
+document.getElementById("showGeoBtn").addEventListener("click", showGeoSatellites);
+document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
 
 async function init() {
   setDefaultDates();
   updateTleStatus();
+  initGeoMap();
 
   try {
     await loadSatelliteIndex();
