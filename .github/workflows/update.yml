@@ -62,11 +62,17 @@ jobs:
           echo "===== tle_history count ====="
           find docs/data/tle_history -name "*.json" | wc -l
 
+          echo "===== sample tle_history ====="
+          find docs/data/tle_history -name "*.json" | head -5
+
           echo "===== index ====="
           ls -lh docs/data/satellite_index_full.json || echo "index missing"
 
           echo "===== NOAA ====="
-          ls docs/data/noaa
+          ls docs/data/noaa || echo "NOAA missing"
+
+          echo "===== analysis count ====="
+          find docs/data/analysis -name "*.json" | wc -l
 
       - name: Commit and push
         run: |
