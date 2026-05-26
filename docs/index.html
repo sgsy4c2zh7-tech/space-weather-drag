@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hybrid Satellite Viewer - History + SGP4 RIC</title>
+  <title>Hybrid Satellite Viewer - History + On-demand SGP4 RIC</title>
 
   <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
@@ -16,7 +16,7 @@
       color: #e8eefc;
     }
 
-    h1, h2, h3 {
+    h1, h2 {
       margin: 0 0 12px 0;
     }
 
@@ -142,7 +142,7 @@
 </head>
 
 <body>
-  <h1>Hybrid Satellite Viewer - History + SGP4 RIC</h1>
+  <h1>Hybrid Satellite Viewer - History + On-demand SGP4 RIC</h1>
 
   <div class="controls">
     <h2>衛星検索</h2>
@@ -211,6 +211,7 @@
       <button id="clearSearchBtn">検索条件クリア</button>
       <button id="selectTopBtn">上位10件選択</button>
       <button id="clearSelectionBtn">選択解除</button>
+      <button id="clearTleCacheBtn">CelesTrakキャッシュ削除</button>
     </div>
 
     <div id="searchStatus">未検索</div>
@@ -257,13 +258,15 @@
 
       <div>
         <div class="small-text">
-          このHTMLはハイブリッド方式です。<br>
-          ・緯度、経度、高度、軌道要素グラフ：従来の sat_history の保存値を使用<br>
-          ・RIC、再接近距離、TRIC：tle_history のTLEを使ってSGP4伝播<br><br>
-          TLE読込優先順位：<br>
+          TLEは「表示・接近解析」ボタンを押した時だけ取得します。<br><br>
+          読込優先順位：<br>
           1. 手動TLE localStorage<br>
-          2. docs/data/tle_history/NORAD.json<br>
-          3. docs/data/tle/NORAD.json<br>
+          2. CelesTrak取得済みキャッシュ localStorage<br>
+          3. docs/data/tle_history/NORAD.json<br>
+          4. docs/data/tle/NORAD.json<br>
+          5. CelesTrak直接取得<br><br>
+          緯度・経度・高度・軌道要素グラフは従来の sat_history を使用。<br>
+          RIC・再接近距離・TRICだけSGP4を使用。
         </div>
       </div>
     </div>
@@ -482,6 +485,10 @@ let ricChart = null;
 let distanceChart = null;
 let tricChart = null;
 
+const CELESTRAK_CACHE_KEY = "celestrakTleCacheV1";
+const MANUAL_TLE_KEY = "manualTleStore";
+const CELESTRAK_CACHE_MAX_AGE_HOURS = 24;
+
 function fmt(v, digits = 2) {
   if (v === null || v === undefined || Number.isNaN(Number(v))) return "-";
   return Number(v).toFixed(digits);
@@ -505,6 +512,12 @@ async function getJson(url) {
   const res = await fetch(url, { cache: "no-store" });
   if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
   return await res.json();
+}
+
+async function getText(url) {
+  const res = await fetch(url, { cache: "no-store" });
+  if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
+  return await res.text();
 }
 
 function setDefaultDates() {
@@ -709,21 +722,43 @@ async function loadSatelliteData(norad) {
 
 function getManualTleStore() {
   try {
-    return JSON.parse(localStorage.getItem("manualTleStore") || "{}");
+    return JSON.parse(localStorage.getItem(MANUAL_TLE_KEY) || "{}");
   } catch {
     return {};
   }
 }
 
 function saveManualTleStore(store) {
-  localStorage.setItem("manualTleStore", JSON.stringify(store));
+  localStorage.setItem(MANUAL_TLE_KEY, JSON.stringify(store));
+}
+
+function getCelestrakCache() {
+  try {
+    return JSON.parse(localStorage.getItem(CELESTRAK_CACHE_KEY) || "{}");
+  } catch {
+    return {};
+  }
+}
+
+function saveCelestrakCache(cache) {
+  localStorage.setItem(CELESTRAK_CACHE_KEY, JSON.stringify(cache));
+}
+
+function clearCelestrakCache() {
+  localStorage.removeItem(CELESTRAK_CACHE_KEY);
+  updateTleStatus();
+  document.getElementById("tleStatus").textContent = "CelesTrakキャッシュを削除しました。";
 }
 
 function updateTleStatus() {
-  const store = getManualTleStore();
-  const keys = Object.keys(store);
+  const manual = getManualTleStore();
+  const cache = getCelestrakCache();
+
+  const manualCount = Object.keys(manual).length;
+  const cacheCount = Object.keys(cache).length;
+
   document.getElementById("tleStatus").textContent =
-    keys.length === 0 ? "未設定" : `保存済み手動TLE: ${keys.length}件`;
+    `手動TLE: ${manualCount}件 / CelesTrakキャッシュ: ${cacheCount}件`;
 }
 
 function isValidTlePair(tle1, tle2) {
@@ -768,9 +803,78 @@ function findTleInObject(obj) {
   return null;
 }
 
+function parseCelestrakTleText(text) {
+  const lines = text.split(/\r?\n/).map(x => x.trim()).filter(Boolean);
+
+  let name = null;
+  let tle1 = null;
+  let tle2 = null;
+
+  for (let i = 0; i < lines.length; i++) {
+    if (lines[i].startsWith("1 ") && i + 1 < lines.length && lines[i + 1].startsWith("2 ")) {
+      tle1 = lines[i];
+      tle2 = lines[i + 1];
+
+      if (i - 1 >= 0 && !lines[i - 1].startsWith("1 ") && !lines[i - 1].startsWith("2 ")) {
+        name = lines[i - 1];
+      }
+      break;
+    }
+  }
+
+  if (!isValidTlePair(tle1, tle2)) return null;
+
+  return {
+    name,
+    tle1,
+    tle2,
+    tle_epoch: parseTleEpoch(tle1)
+  };
+}
+
+function getCachedCelestrakTle(norad) {
+  const cache = getCelestrakCache();
+  const item = cache[String(norad)];
+
+  if (!item || !isValidTlePair(item.tle1, item.tle2)) return null;
+
+  const fetchedAt = new Date(item.fetched_at || 0).getTime();
+  const ageHours = (Date.now() - fetchedAt) / 3600000;
+
+  if (ageHours > CELESTRAK_CACHE_MAX_AGE_HOURS) return null;
+
+  return item;
+}
+
+function saveCachedCelestrakTle(norad, item) {
+  const cache = getCelestrakCache();
+
+  cache[String(norad)] = {
+    name: item.name || String(norad),
+    fetched_at: new Date().toISOString(),
+    tle_epoch: item.tle_epoch || parseTleEpoch(item.tle1),
+    tle1: item.tle1,
+    tle2: item.tle2
+  };
+
+  saveCelestrakCache(cache);
+  updateTleStatus();
+}
+
+async function fetchCelestrakTleByNorad(norad) {
+  const url = `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(norad)}&FORMAT=TLE`;
+  const text = await getText(url);
+
+  if (!text || text.includes("No GP data found") || text.includes("Invalid query")) {
+    return null;
+  }
+
+  return parseCelestrakTleText(text);
+}
+
 async function loadTleForSatellite(norad) {
-  const store = getManualTleStore();
-  const manual = store[String(norad)];
+  const manualStore = getManualTleStore();
+  const manual = manualStore[String(norad)];
 
   if (manual && isValidTlePair(manual.tle1, manual.tle2)) {
     return {
@@ -788,15 +892,35 @@ async function loadTleForSatellite(norad) {
     };
   }
 
+  const cached = getCachedCelestrakTle(norad);
+  if (cached) {
+    return {
+      norad_id: Number(norad),
+      name: cached.name || String(norad),
+      source: "celestrak_cache",
+      tle_history: [
+        {
+          fetched_at: cached.fetched_at,
+          tle_epoch: cached.tle_epoch || parseTleEpoch(cached.tle1),
+          tle1: cached.tle1,
+          tle2: cached.tle2
+        }
+      ]
+    };
+  }
+
   try {
     const obj = await getJson(`data/tle_history/${norad}.json`);
     if (obj && Array.isArray(obj.tle_history) && obj.tle_history.length > 0) {
-      return {
-        norad_id: Number(obj.norad_id || norad),
-        name: obj.name || String(norad),
-        source: "tle_history",
-        tle_history: obj.tle_history
-      };
+      const validHist = obj.tle_history.filter(x => isValidTlePair(x.tle1, x.tle2));
+      if (validHist.length > 0) {
+        return {
+          norad_id: Number(obj.norad_id || norad),
+          name: obj.name || String(norad),
+          source: "tle_history",
+          tle_history: validHist
+        };
+      }
     }
   } catch {}
 
@@ -819,6 +943,26 @@ async function loadTleForSatellite(norad) {
       };
     }
   } catch {}
+
+  const ct = await fetchCelestrakTleByNorad(norad);
+
+  if (ct && isValidTlePair(ct.tle1, ct.tle2)) {
+    saveCachedCelestrakTle(norad, ct);
+
+    return {
+      norad_id: Number(norad),
+      name: ct.name || String(norad),
+      source: "celestrak_live",
+      tle_history: [
+        {
+          fetched_at: new Date().toISOString(),
+          tle_epoch: ct.tle_epoch || parseTleEpoch(ct.tle1),
+          tle1: ct.tle1,
+          tle2: ct.tle2
+        }
+      ]
+    };
+  }
 
   throw new Error(`NORAD ${norad} のTLEが見つかりません。`);
 }
@@ -1021,7 +1165,7 @@ async function runHybridAnalysis() {
   }
 
   try {
-    status.textContent = "履歴データとTLE履歴を読込中...";
+    status.textContent = "履歴データを読込中...";
 
     const historyBins = buildTimeBins(start, end, 180);
     const historyLabels = historyBins.map(formatBinLabel);
@@ -1143,23 +1287,25 @@ async function runHybridAnalysis() {
       return;
     }
 
-    status.textContent = "SGP4接近解析中...";
+    status.textContent = "選択衛星のTLEを取得中...";
 
     const tleMap = new Map();
     const tleLoadRows = [];
 
     for (const id of ids) {
+      status.textContent = `選択衛星のTLEを取得中... NORAD ${id}`;
+
       try {
         const tleObj = await loadTleForSatellite(id);
         tleMap.set(Number(id), tleObj);
 
-        const first = tleObj.tle_history?.[tleObj.tle_history.length - 1];
+        const latest = tleObj.tle_history?.[tleObj.tle_history.length - 1];
 
         tleLoadRows.push({
           norad_id: Number(id),
           name: tleObj.name,
           source: tleObj.source,
-          tle_epoch: first?.tle_epoch || first?.fetched_at || "-",
+          tle_epoch: latest?.tle_epoch || latest?.fetched_at || "-",
           count: tleObj.tle_history?.length || 0
         });
       } catch (e) {
@@ -1179,6 +1325,8 @@ async function runHybridAnalysis() {
       status.textContent = "主衛星のTLEが見つかりません。履歴グラフのみ表示しました。";
       return;
     }
+
+    status.textContent = "SGP4接近解析中...";
 
     const primaryTleObj = tleMap.get(primaryId);
 
@@ -1437,6 +1585,7 @@ document.getElementById("clearSelectionBtn").addEventListener("click", () => {
   runSearch(false);
 });
 
+document.getElementById("clearTleCacheBtn").addEventListener("click", clearCelestrakCache);
 document.getElementById("plotBtn").addEventListener("click", runHybridAnalysis);
 document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
