@@ -3,7 +3,7 @@ name: SPACE WEATHER DRAG DAILY
 on:
   workflow_dispatch:
   schedule:
-    - cron: "10 0 * * *"   # 毎日1回（UTC 00:10）
+    - cron: "10 0 * * *"
 
 permissions:
   contents: write
@@ -14,76 +14,53 @@ jobs:
     timeout-minutes: 60
 
     steps:
-      # -------------------------
-      # Checkout
-      # -------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
 
-      # -------------------------
-      # Python
-      # -------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
-      # -------------------------
-      # Install libs
-      # -------------------------
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
           pip install requests numpy scipy sgp4 skyfield pymsis
 
-      # -------------------------
-      # Prepare dirs
-      # -------------------------
       - name: Prepare folders
         run: |
           mkdir -p docs/data
           mkdir -p docs/data/catalog
           mkdir -p docs/data/sat_history
+          mkdir -p docs/data/tle_history
           mkdir -p docs/data/noaa
           mkdir -p docs/data/analysis
 
-      # -------------------------
-      # CelesTrak
-      # -------------------------
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
-      # -------------------------
-      # NOAA
-      # -------------------------
+      - name: Build TLE histories
+        run: python scripts/build_tle_history.py
+
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
-      # -------------------------
-      # sat_history
-      # -------------------------
       - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
 
-      # -------------------------
-      # 🔥 検索用インデックス
-      # -------------------------
       - name: Build satellite search index
         run: python scripts/build_satellite_index_full.py
 
-      # -------------------------
-      # 解析
-      # -------------------------
       - name: Build drag analysis
         run: python scripts/build_drag_analysis.py
 
-      # -------------------------
-      # Debug
-      # -------------------------
       - name: Show generated files
         run: |
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
+
+          echo "===== tle_history count ====="
+          find docs/data/tle_history -name "*.json" | wc -l
 
           echo "===== index ====="
           ls -lh docs/data/satellite_index_full.json || echo "index missing"
@@ -91,13 +68,10 @@ jobs:
           echo "===== NOAA ====="
           ls docs/data/noaa
 
-      # -------------------------
-      # Commit
-      # -------------------------
       - name: Commit and push
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
           git add docs/data
-          git commit -m "Daily update satellite data + NOAA + index" || echo "No changes"
+          git commit -m "Daily update satellite data + TLE history + NOAA + index" || echo "No changes"
           git push
