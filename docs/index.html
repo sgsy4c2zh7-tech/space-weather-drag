@@ -12,523 +12,256 @@
   <script src="https://cdn.jsdelivr.net/npm/satellite.js@5.0.0/dist/satellite.min.js"></script>
 
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      margin: 16px;
-      background: #0b1220;
-      color: #e8eefc;
-    }
-
-    h1, h2 {
-      margin: 0 0 12px 0;
-    }
-
-    .controls, .card {
-      background: #131c2f;
-      border: 1px solid #26324d;
-      border-radius: 12px;
-      padding: 14px;
-      margin-bottom: 14px;
-    }
-
-    .row {
-      display: flex;
-      gap: 10px;
-      flex-wrap: wrap;
-      align-items: end;
-    }
-
-    label {
-      display: flex;
-      flex-direction: column;
-      font-size: 14px;
-      gap: 6px;
-    }
-
-    input, select, button, textarea {
-      padding: 8px;
-      border-radius: 8px;
-      border: 1px solid #3d4d73;
-      background: #0f1728;
-      color: #fff;
-    }
-
-    input[type="color"] {
-      padding: 2px;
-      height: 38px;
-      width: 70px;
-    }
-
-    textarea {
-      min-height: 72px;
-      resize: vertical;
-      font-family: Consolas, monospace;
-    }
-
-    button {
-      cursor: pointer;
-      font-weight: bold;
-    }
-
-    .grid {
-      display: grid;
-      grid-template-columns: 2fr 1fr;
-      gap: 14px;
-    }
-
-    .subgrid {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 14px;
-    }
-
-    .chart-wrap {
-      position: relative;
-      width: 100%;
-      height: 390px;
-    }
-
-    .chart-wrap.small {
-      height: 280px;
-    }
-
-    canvas {
-      width: 100% !important;
-      height: 100% !important;
-      background: #fff;
-      border-radius: 8px;
-    }
-
-    #geoMap {
-      width: 100%;
-      height: 520px;
-      border-radius: 10px;
-      border: 1px solid #31415f;
-      background: #0f1728;
-    }
-
-    .results, .selected-list {
-      max-height: 360px;
-      overflow: auto;
-      border: 1px solid #31415f;
-      border-radius: 8px;
-    }
-
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      font-size: 13px;
-    }
-
-    th, td {
-      border: 1px solid #31415f;
-      padding: 6px;
-      text-align: left;
-      vertical-align: top;
-    }
-
-    th {
-      background: #1a2740;
-    }
-
-    #status, #searchStatus, #tleStatus, #geoStatus {
-      margin-top: 10px;
-      font-size: 14px;
-      color: #d6e4ff;
-      white-space: pre-wrap;
-    }
-
-    .small-text {
-      font-size: 12px;
-      color: #b9c8ea;
-      line-height: 1.5;
-    }
-
-    .manual-tle-box {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 10px;
-    }
-
-    @media (max-width: 1100px) {
-      .grid, .subgrid, .manual-tle-box {
-        grid-template-columns: 1fr;
-      }
-    }
+    body{font-family:Arial,sans-serif;margin:16px;background:#0b1220;color:#e8eefc}
+    h1,h2{margin:0 0 12px 0}
+    .controls,.card{background:#131c2f;border:1px solid #26324d;border-radius:12px;padding:14px;margin-bottom:14px}
+    .row{display:flex;gap:10px;flex-wrap:wrap;align-items:end}
+    label{display:flex;flex-direction:column;font-size:14px;gap:6px}
+    input,select,button,textarea{padding:8px;border-radius:8px;border:1px solid #3d4d73;background:#0f1728;color:#fff}
+    select[multiple]{min-width:170px;height:96px}
+    input[type="color"]{padding:2px;height:38px;width:70px}
+    textarea{min-height:72px;resize:vertical;font-family:Consolas,monospace}
+    button{cursor:pointer;font-weight:bold}
+    .grid{display:grid;grid-template-columns:2fr 1fr;gap:14px}
+    .subgrid{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+    .chart-wrap{position:relative;width:100%;height:390px}
+    .chart-wrap.small{height:280px}
+    canvas{width:100%!important;height:100%!important;background:#fff;border-radius:8px}
+    #geoMap{width:100%;height:520px;border-radius:10px;border:1px solid #31415f;background:#0f1728}
+    .results,.selected-list{max-height:360px;overflow:auto;border:1px solid #31415f;border-radius:8px}
+    table{width:100%;border-collapse:collapse;font-size:13px}
+    th,td{border:1px solid #31415f;padding:6px;text-align:left;vertical-align:top}
+    th{background:#1a2740}
+    #status,#searchStatus,#tleStatus,#geoStatus{margin-top:10px;font-size:14px;color:#d6e4ff;white-space:pre-wrap}
+    .small-text{font-size:12px;color:#b9c8ea;line-height:1.5}
+    .manual-tle-box{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+    @media(max-width:1100px){.grid,.subgrid,.manual-tle-box{grid-template-columns:1fr}}
   </style>
 </head>
 
 <body>
-  <h1>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</h1>
+<h1>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</h1>
 
-  <div class="controls">
-    <h2>衛星検索</h2>
-
-    <div class="row">
-      <label>
-        名前 / NORAD ID
-        <input id="qText" placeholder="ISS / 25544" />
-      </label>
-
-      <label>
-        アポジ最小
-        <input id="apogeeMin" type="number" placeholder="300" />
-      </label>
-
-      <label>
-        アポジ最大
-        <input id="apogeeMax" type="number" placeholder="600" />
-      </label>
-
-      <label>
-        ペリジ最小
-        <input id="perigeeMin" type="number" placeholder="300" />
-      </label>
-
-      <label>
-        ペリジ最大
-        <input id="perigeeMax" type="number" placeholder="600" />
-      </label>
-    </div>
-
-    <div class="row" style="margin-top:10px;">
-      <label>
-        傾斜角最小
-        <input id="incMin" type="number" placeholder="50" />
-      </label>
-
-      <label>
-        傾斜角最大
-        <input id="incMax" type="number" placeholder="60" />
-      </label>
-
-      <label>
-        緯度最小
-        <input id="latMin" type="number" placeholder="-10" />
-      </label>
-
-      <label>
-        緯度最大
-        <input id="latMax" type="number" placeholder="10" />
-      </label>
-
-      <label>
-        経度最小
-        <input id="lonMin" type="number" placeholder="120" />
-      </label>
-
-      <label>
-        経度最大
-        <input id="lonMax" type="number" placeholder="160" />
-      </label>
-    </div>
-
-    <div class="row" style="margin-top:10px;">
-      <button id="searchBtn">検索</button>
-      <button id="clearSearchBtn">検索条件クリア</button>
-      <button id="selectTopBtn">上位10件選択</button>
-      <button id="clearSelectionBtn">選択解除</button>
-      <button id="clearTleCacheBtn">CelesTrakキャッシュ削除</button>
-    </div>
-
-    <div id="searchStatus">未検索</div>
+<div class="controls">
+  <h2>衛星検索</h2>
+  <div class="row">
+    <label>名前 / NORAD ID<input id="qText" placeholder="ISS / 25544"/></label>
+    <label>アポジ最小<input id="apogeeMin" type="number" placeholder="300"/></label>
+    <label>アポジ最大<input id="apogeeMax" type="number" placeholder="600"/></label>
+    <label>ペリジ最小<input id="perigeeMin" type="number" placeholder="300"/></label>
+    <label>ペリジ最大<input id="perigeeMax" type="number" placeholder="600"/></label>
   </div>
 
-  <div class="controls">
-    <h2>手動TLE入力</h2>
-
-    <div class="manual-tle-box">
-      <div>
-        <div class="row">
-          <label>
-            NORAD ID
-            <input id="manualNorad" type="number" placeholder="25544" />
-          </label>
-
-          <label style="flex:1;">
-            衛星名
-            <input id="manualName" placeholder="ISS (ZARYA)" />
-          </label>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-          <label style="width:100%;">
-            TLE Line 1
-            <textarea id="manualTle1" placeholder="1 25544U 98067A ..."></textarea>
-          </label>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-          <label style="width:100%;">
-            TLE Line 2
-            <textarea id="manualTle2" placeholder="2 25544  51.64 ..."></textarea>
-          </label>
-        </div>
-
-        <div class="row" style="margin-top:10px;">
-          <button id="applyManualTleBtn">手動TLE反映</button>
-          <button id="clearManualTleBtn">手動TLE削除</button>
-        </div>
-
-        <div id="tleStatus">未設定</div>
-      </div>
-
-      <div>
-        <div class="small-text">
-          GEO地図：sat_history の最新 latitude_deg / longitude_deg を使用。<br>
-          接近解析：選択衛星だけ CelesTrak からTLE取得、SGP4でRIC計算。<br><br>
-          TLE読込優先順位：<br>
-          1. 手動TLE localStorage<br>
-          2. CelesTrak取得済みキャッシュ localStorage<br>
-          3. docs/data/tle_history/NORAD.json<br>
-          4. docs/data/tle/NORAD.json<br>
-          5. CelesTrak直接取得
-        </div>
-      </div>
-    </div>
+  <div class="row" style="margin-top:10px;">
+    <label>傾斜角最小<input id="incMin" type="number" placeholder="50"/></label>
+    <label>傾斜角最大<input id="incMax" type="number" placeholder="60"/></label>
+    <label>緯度最小<input id="latMin" type="number" placeholder="-10"/></label>
+    <label>緯度最大<input id="latMax" type="number" placeholder="10"/></label>
+    <label>経度最小<input id="lonMin" type="number" placeholder="120"/></label>
+    <label>経度最大<input id="lonMax" type="number" placeholder="160"/></label>
   </div>
 
-  <div class="card">
-    <h2>GEO衛星マップ</h2>
-
-    <div class="row">
-      <label>
-        国コード 複数可
-        <input id="geoCountries" placeholder="US,JPN,CHN,RUS" />
-      </label>
-
-      <label>
-        GEO色
-        <input id="geoColor" type="color" value="#ff3333" />
-      </label>
-
-      <label>
-        GEO判定 Perigee最小
-        <input id="geoPerigeeMin" type="number" value="35000" />
-      </label>
-
-      <label>
-        GEO判定 Apogee最大
-        <input id="geoApogeeMax" type="number" value="37000" />
-      </label>
-
-      <button id="showGeoBtn">GEO表示</button>
-      <button id="clearGeoBtn">GEO消去</button>
-    </div>
-
-    <div class="small-text" style="margin-top:8px;">
-      国コードは satellite_index_full.json 内の country / country_code / COUNTRY_CODE / object_country 等を自動参照します。
-      空欄なら全GEOを表示します。
-    </div>
-
-    <div id="geoStatus">GEO未表示</div>
-
-    <div style="margin-top:12px;">
-      <div id="geoMap"></div>
-    </div>
+  <div class="row" style="margin-top:10px;">
+    <button id="searchBtn">検索</button>
+    <button id="clearSearchBtn">検索条件クリア</button>
+    <button id="selectTopBtn">上位10件選択</button>
+    <button id="clearSelectionBtn">選択解除</button>
+    <button id="clearTleCacheBtn">CelesTrakキャッシュ削除</button>
   </div>
 
-  <div class="grid">
+  <div id="searchStatus">未検索</div>
+</div>
+
+<div class="controls">
+  <h2>手動TLE入力</h2>
+
+  <div class="manual-tle-box">
     <div>
-      <div class="card">
-        <h2>検索結果</h2>
-        <div class="results">
-          <table>
-            <thead>
-              <tr>
-                <th>選択</th>
-                <th>NORAD</th>
-                <th>名前</th>
-                <th>アポジ</th>
-                <th>ペリジ</th>
-                <th>傾斜角</th>
-                <th>緯度</th>
-                <th>経度</th>
-              </tr>
-            </thead>
-            <tbody id="resultsBody"></tbody>
-          </table>
-        </div>
+      <div class="row">
+        <label>NORAD ID<input id="manualNorad" type="number" placeholder="25544"/></label>
+        <label style="flex:1;">衛星名<input id="manualName" placeholder="ISS (ZARYA)"/></label>
       </div>
 
-      <div class="card">
-        <h2>解析設定</h2>
+      <label style="margin-top:10px;">TLE Line 1<textarea id="manualTle1" placeholder="1 25544U 98067A ..."></textarea></label>
+      <label style="margin-top:10px;">TLE Line 2<textarea id="manualTle2" placeholder="2 25544  51.64 ..."></textarea></label>
 
-        <div class="row">
-          <label>
-            開始日
-            <input id="startDate" type="date" />
-          </label>
-
-          <label>
-            終了日
-            <input id="endDate" type="date" />
-          </label>
-
-          <label>
-            主衛星
-            <select id="primarySelect"></select>
-          </label>
-
-          <label>
-            SGP4接近解析間隔
-            <select id="stepMinutes">
-              <option value="5">5分</option>
-              <option value="10" selected>10分</option>
-              <option value="30">30分</option>
-              <option value="60">1時間</option>
-            </select>
-          </label>
-
-          <label>
-            履歴グラフ項目
-            <select id="historyMetric">
-              <option value="height">真高度</option>
-              <option value="altitude">アポジ / ペリジ</option>
-              <option value="inclination">傾斜角</option>
-              <option value="elements">6要素</option>
-              <option value="meanmotion">平均運動</option>
-            </select>
-          </label>
-
-          <button id="plotBtn">表示・接近解析</button>
-          <button onclick="setRangeDays(1)">1日</button>
-          <button onclick="setRangeDays(7)">7日</button>
-          <button onclick="setRangeDays(30)">30日</button>
-        </div>
-
-        <div id="status">未読込</div>
+      <div class="row" style="margin-top:10px;">
+        <button id="applyManualTleBtn">手動TLE反映</button>
+        <button id="clearManualTleBtn">手動TLE削除</button>
       </div>
 
-      <div class="card">
-        <h2>履歴グラフ</h2>
-        <div class="small-text">sat_history の保存済みデータをそのまま表示します。</div>
-        <div class="chart-wrap">
-          <canvas id="historyChart"></canvas>
-        </div>
-      </div>
+      <div id="tleStatus">未設定</div>
+    </div>
 
-      <div class="subgrid">
-        <div class="card">
-          <h2>緯度グラフ</h2>
-          <div class="small-text">sat_history の latitude_deg を使用。</div>
-          <div class="chart-wrap small">
-            <canvas id="latChart"></canvas>
-          </div>
-        </div>
+    <div class="small-text">
+      GEO地図：sat_history の最新 latitude_deg / longitude_deg を使用。<br>
+      接近解析：選択衛星だけ CelesTrak からTLE取得、SGP4でRIC計算。<br><br>
+      TLE読込優先順位：手動TLE → CelesTrakキャッシュ → tle_history → data/tle → CelesTrak直接取得
+    </div>
+  </div>
+</div>
 
-        <div class="card">
-          <h2>経度グラフ</h2>
-          <div class="small-text">sat_history の longitude_deg を使用。</div>
-          <div class="chart-wrap small">
-            <canvas id="lonChart"></canvas>
-          </div>
-        </div>
-      </div>
+<div class="card">
+  <h2>GEO衛星マップ</h2>
 
-      <div class="card">
-        <h2>SGP4 RIC 距離グラフ</h2>
-        <div class="small-text">主衛星を基準に、対象衛星の相対位置をRICで表示します。</div>
-        <div class="chart-wrap">
-          <canvas id="ricChart"></canvas>
-        </div>
-      </div>
+  <div class="row">
+    <label>
+      表示国 複数選択
+      <select id="geoCountriesSelect" multiple size="4">
+        <option value="JPN" selected>日本 JPN</option>
+        <option value="US" selected>アメリカ US</option>
+        <option value="CHN" selected>中国 CHN</option>
+        <option value="RUS" selected>ロシア RUS</option>
+      </select>
+    </label>
 
-      <div class="card">
-        <h2>SGP4 相対距離 / 再接近距離</h2>
-        <div class="chart-wrap small">
-          <canvas id="distanceChart"></canvas>
-        </div>
-      </div>
+    <label>日本<input id="geoColorJPN" type="color" value="#0066ff"/></label>
+    <label>アメリカ<input id="geoColorUS" type="color" value="#00aa44"/></label>
+    <label>中国<input id="geoColorCHN" type="color" value="#ff2222"/></label>
+    <label>ロシア<input id="geoColorRUS" type="color" value="#ffd400"/></label>
 
-      <div class="card">
-        <h2>SGP4 TRIC プロット</h2>
-        <div class="small-text">
-          横軸 R、縦軸 I、点サイズは |C|。ツールチップにT・R・I・C・距離を表示します。
-        </div>
-        <div class="chart-wrap">
-          <canvas id="tricChart"></canvas>
-        </div>
+    <label>GEO Perigee最小<input id="geoPerigeeMin" type="number" value="35000"/></label>
+    <label>GEO Apogee最大<input id="geoApogeeMax" type="number" value="37000"/></label>
+
+    <button id="showGeoBtn">GEO表示</button>
+    <button id="clearGeoBtn">GEO消去</button>
+  </div>
+
+  <div class="small-text" style="margin-top:8px;">
+    Ctrl / Cmd を押しながら複数国を選択できます。GEO位置は sat_history の最新値を使います。
+  </div>
+
+  <div id="geoStatus">GEO未表示</div>
+  <div style="margin-top:12px;"><div id="geoMap"></div></div>
+</div>
+
+<div class="grid">
+  <div>
+    <div class="card">
+      <h2>検索結果</h2>
+      <div class="results">
+        <table>
+          <thead>
+            <tr>
+              <th>選択</th><th>NORAD</th><th>名前</th><th>アポジ</th><th>ペリジ</th>
+              <th>傾斜角</th><th>緯度</th><th>経度</th>
+            </tr>
+          </thead>
+          <tbody id="resultsBody"></tbody>
+        </table>
       </div>
     </div>
 
-    <div>
-      <div class="card">
-        <h2>選択中の衛星</h2>
-        <div class="selected-list">
-          <table>
-            <thead>
-              <tr>
-                <th>NORAD</th>
-                <th>名前</th>
-                <th>最新Epoch</th>
-              </tr>
-            </thead>
-            <tbody id="selectedBody"></tbody>
-          </table>
-        </div>
-      </div>
+    <div class="card">
+      <h2>解析設定</h2>
+      <div class="row">
+        <label>開始日<input id="startDate" type="date"/></label>
+        <label>終了日<input id="endDate" type="date"/></label>
+        <label>主衛星<select id="primarySelect"></select></label>
 
-      <div class="card">
-        <h2>SGP4 再接近結果</h2>
-        <div class="selected-list">
-          <table>
-            <thead>
-              <tr>
-                <th>対象</th>
-                <th>TCA UTC</th>
-                <th>距離 km</th>
-                <th>R</th>
-                <th>I</th>
-                <th>C</th>
-                <th>TLE source</th>
-              </tr>
-            </thead>
-            <tbody id="closestBody"></tbody>
-          </table>
-        </div>
-      </div>
+        <label>
+          SGP4接近解析間隔
+          <select id="stepMinutes">
+            <option value="5">5分</option>
+            <option value="10" selected>10分</option>
+            <option value="30">30分</option>
+            <option value="60">1時間</option>
+          </select>
+        </label>
 
-      <div class="card">
-        <h2>最新履歴値一覧</h2>
-        <div class="selected-list">
-          <table>
-            <thead>
-              <tr>
-                <th>NORAD</th>
-                <th>名前</th>
-                <th>Height</th>
-                <th>Apogee</th>
-                <th>Perigee</th>
-                <th>Inc</th>
-                <th>Lat</th>
-                <th>Lon</th>
-              </tr>
-            </thead>
-            <tbody id="latestTableBody"></tbody>
-          </table>
-        </div>
-      </div>
+        <label>
+          履歴グラフ項目
+          <select id="historyMetric">
+            <option value="height">真高度</option>
+            <option value="altitude">アポジ / ペリジ</option>
+            <option value="inclination">傾斜角</option>
+            <option value="elements">6要素</option>
+            <option value="meanmotion">平均運動</option>
+          </select>
+        </label>
 
+        <button id="plotBtn">表示・接近解析</button>
+        <button onclick="setRangeDays(1)">1日</button>
+        <button onclick="setRangeDays(7)">7日</button>
+        <button onclick="setRangeDays(30)">30日</button>
+      </div>
+      <div id="status">未読込</div>
+    </div>
+
+    <div class="card">
+      <h2>履歴グラフ</h2>
+      <div class="chart-wrap"><canvas id="historyChart"></canvas></div>
+    </div>
+
+    <div class="subgrid">
       <div class="card">
-        <h2>TLE読込状況</h2>
-        <div class="selected-list">
-          <table>
-            <thead>
-              <tr>
-                <th>NORAD</th>
-                <th>名前</th>
-                <th>Source</th>
-                <th>TLE Epoch</th>
-                <th>履歴数</th>
-              </tr>
-            </thead>
-            <tbody id="tleLoadBody"></tbody>
-          </table>
-        </div>
+        <h2>緯度グラフ</h2>
+        <div class="chart-wrap small"><canvas id="latChart"></canvas></div>
+      </div>
+      <div class="card">
+        <h2>経度グラフ</h2>
+        <div class="chart-wrap small"><canvas id="lonChart"></canvas></div>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>SGP4 RIC 距離グラフ</h2>
+      <div class="chart-wrap"><canvas id="ricChart"></canvas></div>
+    </div>
+
+    <div class="card">
+      <h2>SGP4 相対距離 / 再接近距離</h2>
+      <div class="chart-wrap small"><canvas id="distanceChart"></canvas></div>
+    </div>
+
+    <div class="card">
+      <h2>SGP4 TRIC プロット</h2>
+      <div class="chart-wrap"><canvas id="tricChart"></canvas></div>
+    </div>
+  </div>
+
+  <div>
+    <div class="card">
+      <h2>選択中の衛星</h2>
+      <div class="selected-list">
+        <table>
+          <thead><tr><th>NORAD</th><th>名前</th><th>最新Epoch</th></tr></thead>
+          <tbody id="selectedBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>SGP4 再接近結果</h2>
+      <div class="selected-list">
+        <table>
+          <thead><tr><th>対象</th><th>TCA UTC</th><th>距離 km</th><th>R</th><th>I</th><th>C</th><th>TLE source</th></tr></thead>
+          <tbody id="closestBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>最新履歴値一覧</h2>
+      <div class="selected-list">
+        <table>
+          <thead><tr><th>NORAD</th><th>名前</th><th>Height</th><th>Apogee</th><th>Perigee</th><th>Inc</th><th>Lat</th><th>Lon</th></tr></thead>
+          <tbody id="latestTableBody"></tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <h2>TLE読込状況</h2>
+      <div class="selected-list">
+        <table>
+          <thead><tr><th>NORAD</th><th>名前</th><th>Source</th><th>TLE Epoch</th><th>履歴数</th></tr></thead>
+          <tbody id="tleLoadBody"></tbody>
+        </table>
       </div>
     </div>
   </div>
+</div>
 
 <script>
 let satelliteIndex = [];
@@ -548,160 +281,137 @@ const CELESTRAK_CACHE_KEY = "celestrakTleCacheV1";
 const MANUAL_TLE_KEY = "manualTleStore";
 const CELESTRAK_CACHE_MAX_AGE_HOURS = 24;
 
-function fmt(v, digits = 2) {
-  if (v === null || v === undefined || Number.isNaN(Number(v))) return "-";
-  return Number(v).toFixed(digits);
+function fmt(v,d=2){
+  if(v===null || v===undefined || Number.isNaN(Number(v))) return "-";
+  return Number(v).toFixed(d);
 }
 
-function parseUtc(s) {
-  return new Date(s);
-}
+function parseUtc(s){ return new Date(s); }
 
-function destroyChart(chart) {
-  if (chart) chart.destroy();
+function destroyChart(chart){
+  if(chart) chart.destroy();
   return null;
 }
 
-function numVal(id) {
+function numVal(id){
   const v = document.getElementById(id).value.trim();
   return v === "" ? null : Number(v);
 }
 
-async function getJson(url) {
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
+async function getJson(url){
+  const res = await fetch(url,{cache:"no-store"});
+  if(!res.ok) throw new Error(`${url} HTTP ${res.status}`);
   return await res.json();
 }
 
-async function getText(url) {
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
+async function getText(url){
+  const res = await fetch(url,{cache:"no-store"});
+  if(!res.ok) throw new Error(`${url} HTTP ${res.status}`);
   return await res.text();
 }
 
-function setDefaultDates() {
+function setDefaultDates(){
   const today = new Date();
-  const end = today.toISOString().slice(0, 10);
+  const end = today.toISOString().slice(0,10);
   const startObj = new Date();
   startObj.setDate(startObj.getDate() - 7);
-  const start = startObj.toISOString().slice(0, 10);
-  document.getElementById("startDate").value = start;
+  document.getElementById("startDate").value = startObj.toISOString().slice(0,10);
   document.getElementById("endDate").value = end;
 }
 
-function setRangeDays(days) {
+function setRangeDays(days){
   const end = new Date();
   const start = new Date();
   start.setDate(end.getDate() - days);
-  document.getElementById("startDate").value = start.toISOString().slice(0, 10);
-  document.getElementById("endDate").value = end.toISOString().slice(0, 10);
-  if (selectedIds.size > 0) runHybridAnalysis();
+  document.getElementById("startDate").value = start.toISOString().slice(0,10);
+  document.getElementById("endDate").value = end.toISOString().slice(0,10);
+  if(selectedIds.size > 0) runHybridAnalysis();
 }
 
-function withinRange(iso, start, end) {
-  if (!iso || !start || !end) return false;
-  const day = String(iso).slice(0, 10);
+function withinRange(iso,start,end){
+  if(!iso || !start || !end) return false;
+  const day = String(iso).slice(0,10);
   return day >= start && day <= end;
 }
 
-function formatBinLabel(date) {
-  const m = date.getUTCMonth() + 1;
-  const d = date.getUTCDate();
-  const h = date.getUTCHours();
-  const min = date.getUTCMinutes();
-  return `${m}/${d} ${String(h).padStart(2, "0")}:${String(min).padStart(2, "0")}`;
+function formatBinLabel(date){
+  return `${date.getUTCMonth()+1}/${date.getUTCDate()} ${String(date.getUTCHours()).padStart(2,"0")}:${String(date.getUTCMinutes()).padStart(2,"0")}`;
 }
 
-function buildTimeBins(startDate, endDate, stepMinutes) {
+function buildTimeBins(startDate,endDate,stepMinutes){
   const bins = [];
   const start = new Date(startDate + "T00:00:00Z");
   const end = new Date(endDate + "T23:59:59Z");
   let current = new Date(start);
-
-  while (current <= end) {
+  while(current <= end){
     bins.push(new Date(current));
     current = new Date(current.getTime() + stepMinutes * 60 * 1000);
   }
-
   return bins;
 }
 
-function nearestBinIndex(isoTime, bins) {
+function nearestBinIndex(isoTime,bins){
   const t = parseUtc(isoTime).getTime();
   let bestIdx = -1;
   let bestDiff = Infinity;
-
-  for (let i = 0; i < bins.length; i++) {
+  for(let i=0;i<bins.length;i++){
     const diff = Math.abs(bins[i].getTime() - t);
-    if (diff < bestDiff) {
+    if(diff < bestDiff){
       bestDiff = diff;
       bestIdx = i;
     }
   }
-
   return bestIdx;
 }
 
-function makeEmptySeries(length) {
-  return Array.from({ length }, () => null);
+function makeEmptySeries(length){
+  return Array.from({length},()=>null);
 }
 
-function makeLineStyle() {
+function makeLineStyle(){
   return {
-    borderWidth: 2,
-    tension: 0.15,
-    pointRadius: 2,
-    pointHoverRadius: 5,
-    showLine: true,
-    fill: false,
-    spanGaps: true
+    borderWidth:2,
+    tension:0.15,
+    pointRadius:2,
+    pointHoverRadius:5,
+    showLine:true,
+    fill:false,
+    spanGaps:true
   };
 }
 
-function passesRange(v, minV, maxV) {
-  if (minV === null && maxV === null) return true;
-  if (v === null || v === undefined) return false;
-  if (minV !== null && Number(v) < minV) return false;
-  if (maxV !== null && Number(v) > maxV) return false;
+function passesRange(v,minV,maxV){
+  if(minV === null && maxV === null) return true;
+  if(v === null || v === undefined) return false;
+  if(minV !== null && Number(v) < minV) return false;
+  if(maxV !== null && Number(v) > maxV) return false;
   return true;
 }
 
-async function loadSatelliteIndex() {
+async function loadSatelliteIndex(){
   satelliteIndex = await getJson("data/satellite_index_full.json");
 }
 
-function filterSatellites() {
+function filterSatellites(){
   const q = document.getElementById("qText").value.trim().toLowerCase();
 
-  const apogeeMin = numVal("apogeeMin");
-  const apogeeMax = numVal("apogeeMax");
-  const perigeeMin = numVal("perigeeMin");
-  const perigeeMax = numVal("perigeeMax");
-  const incMin = numVal("incMin");
-  const incMax = numVal("incMax");
-  const latMin = numVal("latMin");
-  const latMax = numVal("latMax");
-  const lonMin = numVal("lonMin");
-  const lonMax = numVal("lonMax");
-
-  return satelliteIndex.filter(s => {
-    const textOk = q === "" ||
+  return satelliteIndex.filter(s=>{
+    const textOk =
+      q === "" ||
       String(s.norad_id).includes(q) ||
       String(s.name || "").toLowerCase().includes(q);
 
     return textOk &&
-      passesRange(s.apogee_km, apogeeMin, apogeeMax) &&
-      passesRange(s.perigee_km, perigeeMin, perigeeMax) &&
-      passesRange(s.inclination_deg, incMin, incMax) &&
-      passesRange(s.latitude_deg, latMin, latMax) &&
-      passesRange(s.longitude_deg, lonMin, lonMax);
+      passesRange(s.apogee_km,numVal("apogeeMin"),numVal("apogeeMax")) &&
+      passesRange(s.perigee_km,numVal("perigeeMin"),numVal("perigeeMax")) &&
+      passesRange(s.inclination_deg,numVal("incMin"),numVal("incMax")) &&
+      passesRange(s.latitude_deg,numVal("latMin"),numVal("latMax")) &&
+      passesRange(s.longitude_deg,numVal("lonMin"),numVal("lonMax"));
   });
 }
 
-function renderResults(rows) {
-  const body = document.getElementById("resultsBody");
-
-  body.innerHTML = rows.map(s => `
+function renderResults(rows){
+  document.getElementById("resultsBody").innerHTML = rows.map(s=>`
     <tr>
       <td>
         <input type="checkbox" ${selectedIds.has(Number(s.norad_id)) ? "checked" : ""}
@@ -723,26 +433,25 @@ function renderResults(rows) {
   renderSelectedList();
 }
 
-function toggleSelection(noradId, checked) {
-  if (checked) {
-    if (selectedIds.size >= 10 && !selectedIds.has(noradId)) {
+function toggleSelection(noradId,checked){
+  if(checked){
+    if(selectedIds.size >= 10 && !selectedIds.has(noradId)){
       alert("同時解析は10機までにしてください。");
       runSearch(false);
       return;
     }
     selectedIds.add(noradId);
-  } else {
+  }else{
     selectedIds.delete(noradId);
   }
-
   renderSelectedList();
   runSearch(false);
 }
 
-function renderSelectedList() {
-  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+function renderSelectedList(){
+  const selected = satelliteIndex.filter(s=>selectedIds.has(Number(s.norad_id)));
 
-  document.getElementById("selectedBody").innerHTML = selected.map(s => `
+  document.getElementById("selectedBody").innerHTML = selected.map(s=>`
     <tr>
       <td>${s.norad_id}</td>
       <td>${s.name || "-"}</td>
@@ -753,358 +462,284 @@ function renderSelectedList() {
   const primarySelect = document.getElementById("primarySelect");
   const current = primarySelect.value;
 
-  primarySelect.innerHTML = selected.map(s => `
+  primarySelect.innerHTML = selected.map(s=>`
     <option value="${s.norad_id}">${s.norad_id} / ${s.name || "-"}</option>
   `).join("");
 
-  if (current && selectedIds.has(Number(current))) {
+  if(current && selectedIds.has(Number(current))){
     primarySelect.value = current;
   }
 }
 
-function runSearch(updateStatus = true) {
+function runSearch(updateStatus=true){
   const rows = filterSatellites();
   renderResults(rows);
-
-  if (updateStatus) {
+  if(updateStatus){
     document.getElementById("status").textContent = `検索完了: ${rows.length}件`;
   }
 }
 
-async function loadSatelliteData(norad) {
-  try {
+async function loadSatelliteData(norad){
+  try{
     return await getJson(`data/sat_history/${norad}.json`);
-  } catch (e1) {
+  }catch(e1){
     return await getJson(`data/${norad}.json`);
   }
 }
 
-function getManualTleStore() {
-  try {
-    return JSON.parse(localStorage.getItem(MANUAL_TLE_KEY) || "{}");
-  } catch {
-    return {};
-  }
+function getManualTleStore(){
+  try{return JSON.parse(localStorage.getItem(MANUAL_TLE_KEY) || "{}");}
+  catch{return {};}
 }
 
-function saveManualTleStore(store) {
-  localStorage.setItem(MANUAL_TLE_KEY, JSON.stringify(store));
+function saveManualTleStore(store){
+  localStorage.setItem(MANUAL_TLE_KEY,JSON.stringify(store));
 }
 
-function getCelestrakCache() {
-  try {
-    return JSON.parse(localStorage.getItem(CELESTRAK_CACHE_KEY) || "{}");
-  } catch {
-    return {};
-  }
+function getCelestrakCache(){
+  try{return JSON.parse(localStorage.getItem(CELESTRAK_CACHE_KEY) || "{}");}
+  catch{return {};}
 }
 
-function saveCelestrakCache(cache) {
-  localStorage.setItem(CELESTRAK_CACHE_KEY, JSON.stringify(cache));
+function saveCelestrakCache(cache){
+  localStorage.setItem(CELESTRAK_CACHE_KEY,JSON.stringify(cache));
 }
 
-function clearCelestrakCache() {
+function clearCelestrakCache(){
   localStorage.removeItem(CELESTRAK_CACHE_KEY);
   updateTleStatus();
   document.getElementById("tleStatus").textContent = "CelesTrakキャッシュを削除しました。";
 }
 
-function updateTleStatus() {
-  const manual = getManualTleStore();
-  const cache = getCelestrakCache();
-
-  const manualCount = Object.keys(manual).length;
-  const cacheCount = Object.keys(cache).length;
-
+function updateTleStatus(){
+  const manualCount = Object.keys(getManualTleStore()).length;
+  const cacheCount = Object.keys(getCelestrakCache()).length;
   document.getElementById("tleStatus").textContent =
     `手動TLE: ${manualCount}件 / CelesTrakキャッシュ: ${cacheCount}件`;
 }
 
-function isValidTlePair(tle1, tle2) {
+function isValidTlePair(tle1,tle2){
   return typeof tle1 === "string" &&
     typeof tle2 === "string" &&
     tle1.trim().startsWith("1 ") &&
     tle2.trim().startsWith("2 ");
 }
 
-function parseTleEpoch(line1) {
-  try {
-    const yy = parseInt(line1.slice(18, 20), 10);
-    const dayOfYear = parseFloat(line1.slice(20, 32));
+function parseTleEpoch(line1){
+  try{
+    const yy = parseInt(line1.slice(18,20),10);
+    const dayOfYear = parseFloat(line1.slice(20,32));
     const year = yy < 57 ? 2000 + yy : 1900 + yy;
-    const jan1 = new Date(Date.UTC(year, 0, 1, 0, 0, 0));
+    const jan1 = new Date(Date.UTC(year,0,1,0,0,0));
     const ms = (dayOfYear - 1) * 24 * 3600 * 1000;
     return new Date(jan1.getTime() + ms).toISOString();
-  } catch {
+  }catch{
     return null;
   }
 }
 
-function findTleInObject(obj) {
-  if (!obj) return null;
-
+function findTleInObject(obj){
+  if(!obj) return null;
   const pairs = [
-    ["tle1", "tle2"],
-    ["line1", "line2"],
-    ["tle_line1", "tle_line2"],
-    ["TLE_LINE1", "TLE_LINE2"]
+    ["tle1","tle2"],
+    ["line1","line2"],
+    ["tle_line1","tle_line2"],
+    ["TLE_LINE1","TLE_LINE2"]
   ];
-
-  for (const [a, b] of pairs) {
-    if (isValidTlePair(obj[a], obj[b])) {
-      return {
-        tle1: obj[a].trim(),
-        tle2: obj[b].trim()
-      };
+  for(const [a,b] of pairs){
+    if(isValidTlePair(obj[a],obj[b])){
+      return {tle1:obj[a].trim(),tle2:obj[b].trim()};
     }
   }
-
   return null;
 }
 
-function parseCelestrakTleText(text) {
-  const lines = text.split(/\r?\n/).map(x => x.trim()).filter(Boolean);
-
+function parseCelestrakTleText(text){
+  const lines = text.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
   let name = null;
   let tle1 = null;
   let tle2 = null;
 
-  for (let i = 0; i < lines.length; i++) {
-    if (lines[i].startsWith("1 ") && i + 1 < lines.length && lines[i + 1].startsWith("2 ")) {
+  for(let i=0;i<lines.length;i++){
+    if(lines[i].startsWith("1 ") && i+1<lines.length && lines[i+1].startsWith("2 ")){
       tle1 = lines[i];
-      tle2 = lines[i + 1];
-
-      if (i - 1 >= 0 && !lines[i - 1].startsWith("1 ") && !lines[i - 1].startsWith("2 ")) {
-        name = lines[i - 1];
+      tle2 = lines[i+1];
+      if(i-1>=0 && !lines[i-1].startsWith("1 ") && !lines[i-1].startsWith("2 ")){
+        name = lines[i-1];
       }
       break;
     }
   }
 
-  if (!isValidTlePair(tle1, tle2)) return null;
-
-  return {
-    name,
-    tle1,
-    tle2,
-    tle_epoch: parseTleEpoch(tle1)
-  };
+  if(!isValidTlePair(tle1,tle2)) return null;
+  return {name,tle1,tle2,tle_epoch:parseTleEpoch(tle1)};
 }
 
-function getCachedCelestrakTle(norad) {
+function getCachedCelestrakTle(norad){
   const cache = getCelestrakCache();
   const item = cache[String(norad)];
-
-  if (!item || !isValidTlePair(item.tle1, item.tle2)) return null;
+  if(!item || !isValidTlePair(item.tle1,item.tle2)) return null;
 
   const fetchedAt = new Date(item.fetched_at || 0).getTime();
   const ageHours = (Date.now() - fetchedAt) / 3600000;
-
-  if (ageHours > CELESTRAK_CACHE_MAX_AGE_HOURS) return null;
+  if(ageHours > CELESTRAK_CACHE_MAX_AGE_HOURS) return null;
 
   return item;
 }
 
-function saveCachedCelestrakTle(norad, item) {
+function saveCachedCelestrakTle(norad,item){
   const cache = getCelestrakCache();
-
   cache[String(norad)] = {
-    name: item.name || String(norad),
-    fetched_at: new Date().toISOString(),
-    tle_epoch: item.tle_epoch || parseTleEpoch(item.tle1),
-    tle1: item.tle1,
-    tle2: item.tle2
+    name:item.name || String(norad),
+    fetched_at:new Date().toISOString(),
+    tle_epoch:item.tle_epoch || parseTleEpoch(item.tle1),
+    tle1:item.tle1,
+    tle2:item.tle2
   };
-
   saveCelestrakCache(cache);
   updateTleStatus();
 }
 
-async function fetchCelestrakTleByNorad(norad) {
+async function fetchCelestrakTleByNorad(norad){
   const url = `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(norad)}&FORMAT=TLE`;
   const text = await getText(url);
-
-  if (!text || text.includes("No GP data found") || text.includes("Invalid query")) {
-    return null;
-  }
-
+  if(!text || text.includes("No GP data found") || text.includes("Invalid query")) return null;
   return parseCelestrakTleText(text);
 }
 
-async function loadTleForSatellite(norad) {
-  const manualStore = getManualTleStore();
-  const manual = manualStore[String(norad)];
+async function loadTleForSatellite(norad){
+  const manual = getManualTleStore()[String(norad)];
 
-  if (manual && isValidTlePair(manual.tle1, manual.tle2)) {
+  if(manual && isValidTlePair(manual.tle1,manual.tle2)){
     return {
-      norad_id: Number(norad),
-      name: manual.name || String(norad),
-      source: "manual",
-      tle_history: [
-        {
-          fetched_at: new Date().toISOString(),
-          tle_epoch: parseTleEpoch(manual.tle1),
-          tle1: manual.tle1.trim(),
-          tle2: manual.tle2.trim()
-        }
-      ]
+      norad_id:Number(norad),
+      name:manual.name || String(norad),
+      source:"manual",
+      tle_history:[{
+        fetched_at:new Date().toISOString(),
+        tle_epoch:parseTleEpoch(manual.tle1),
+        tle1:manual.tle1.trim(),
+        tle2:manual.tle2.trim()
+      }]
     };
   }
 
   const cached = getCachedCelestrakTle(norad);
-  if (cached) {
+  if(cached){
     return {
-      norad_id: Number(norad),
-      name: cached.name || String(norad),
-      source: "celestrak_cache",
-      tle_history: [
-        {
-          fetched_at: cached.fetched_at,
-          tle_epoch: cached.tle_epoch || parseTleEpoch(cached.tle1),
-          tle1: cached.tle1,
-          tle2: cached.tle2
-        }
-      ]
+      norad_id:Number(norad),
+      name:cached.name || String(norad),
+      source:"celestrak_cache",
+      tle_history:[{
+        fetched_at:cached.fetched_at,
+        tle_epoch:cached.tle_epoch || parseTleEpoch(cached.tle1),
+        tle1:cached.tle1,
+        tle2:cached.tle2
+      }]
     };
   }
 
-  try {
+  try{
     const obj = await getJson(`data/tle_history/${norad}.json`);
-    if (obj && Array.isArray(obj.tle_history) && obj.tle_history.length > 0) {
-      const validHist = obj.tle_history.filter(x => isValidTlePair(x.tle1, x.tle2));
-      if (validHist.length > 0) {
+    if(obj && Array.isArray(obj.tle_history)){
+      const validHist = obj.tle_history.filter(x=>isValidTlePair(x.tle1,x.tle2));
+      if(validHist.length > 0){
         return {
-          norad_id: Number(obj.norad_id || norad),
-          name: obj.name || String(norad),
-          source: "tle_history",
-          tle_history: validHist
+          norad_id:Number(obj.norad_id || norad),
+          name:obj.name || String(norad),
+          source:"tle_history",
+          tle_history:validHist
         };
       }
     }
-  } catch {}
+  }catch{}
 
-  try {
+  try{
     const obj = await getJson(`data/tle/${norad}.json`);
     const tle = findTleInObject(obj);
-    if (tle) {
+    if(tle){
       return {
-        norad_id: Number(obj.norad_id || norad),
-        name: obj.name || String(norad),
-        source: "data/tle",
-        tle_history: [
-          {
-            fetched_at: obj.fetched_at || new Date().toISOString(),
-            tle_epoch: obj.tle_epoch || parseTleEpoch(tle.tle1),
-            tle1: tle.tle1,
-            tle2: tle.tle2
-          }
-        ]
+        norad_id:Number(obj.norad_id || norad),
+        name:obj.name || String(norad),
+        source:"data/tle",
+        tle_history:[{
+          fetched_at:obj.fetched_at || new Date().toISOString(),
+          tle_epoch:obj.tle_epoch || parseTleEpoch(tle.tle1),
+          tle1:tle.tle1,
+          tle2:tle.tle2
+        }]
       };
     }
-  } catch {}
+  }catch{}
 
   const ct = await fetchCelestrakTleByNorad(norad);
-
-  if (ct && isValidTlePair(ct.tle1, ct.tle2)) {
-    saveCachedCelestrakTle(norad, ct);
-
+  if(ct && isValidTlePair(ct.tle1,ct.tle2)){
+    saveCachedCelestrakTle(norad,ct);
     return {
-      norad_id: Number(norad),
-      name: ct.name || String(norad),
-      source: "celestrak_live",
-      tle_history: [
-        {
-          fetched_at: new Date().toISOString(),
-          tle_epoch: ct.tle_epoch || parseTleEpoch(ct.tle1),
-          tle1: ct.tle1,
-          tle2: ct.tle2
-        }
-      ]
+      norad_id:Number(norad),
+      name:ct.name || String(norad),
+      source:"celestrak_live",
+      tle_history:[{
+        fetched_at:new Date().toISOString(),
+        tle_epoch:ct.tle_epoch || parseTleEpoch(ct.tle1),
+        tle1:ct.tle1,
+        tle2:ct.tle2
+      }]
     };
   }
 
   throw new Error(`NORAD ${norad} のTLEが見つかりません。`);
 }
 
-function pickNearestTle(tleHistory, targetDate) {
-  if (!tleHistory || tleHistory.length === 0) return null;
-
+function pickNearestTle(tleHistory,targetDate){
+  if(!tleHistory || tleHistory.length===0) return null;
   const target = targetDate.getTime();
   let best = null;
   let bestDiff = Infinity;
 
-  for (const item of tleHistory) {
-    if (!isValidTlePair(item.tle1, item.tle2)) continue;
-
+  for(const item of tleHistory){
+    if(!isValidTlePair(item.tle1,item.tle2)) continue;
     const t = item.tle_epoch || item.fetched_at || parseTleEpoch(item.tle1);
-    if (!t) continue;
-
+    if(!t) continue;
     const diff = Math.abs(new Date(t).getTime() - target);
-
-    if (diff < bestDiff) {
+    if(diff < bestDiff){
       bestDiff = diff;
       best = item;
     }
   }
-
   return best;
 }
 
-function makeHistoryDataset(source, timeKey, valueKey, label, bins) {
+function makeHistoryDataset(source,timeKey,valueKey,label,bins){
   const arr = makeEmptySeries(bins.length);
-
-  for (const row of source) {
-    const idx = nearestBinIndex(row[timeKey], bins);
-    if (idx >= 0) {
-      arr[idx] = row[valueKey] ?? null;
-    }
+  for(const row of source){
+    const idx = nearestBinIndex(row[timeKey],bins);
+    if(idx >= 0) arr[idx] = row[valueKey] ?? null;
   }
-
-  return {
-    label,
-    data: arr,
-    ...makeLineStyle()
-  };
+  return {label,data:arr,...makeLineStyle()};
 }
 
-function buildHistorySeriesForMetric(metric, satName, hist, bins) {
-  if (metric === "height") {
-    return [
-      makeHistoryDataset(hist, "epoch", "height_km", `${satName} - Height`, bins)
-    ];
-  }
-
-  if (metric === "altitude") {
-    return [
-      makeHistoryDataset(hist, "epoch", "apogee_km", `${satName} - Apogee`, bins),
-      makeHistoryDataset(hist, "epoch", "perigee_km", `${satName} - Perigee`, bins)
-    ];
-  }
-
-  if (metric === "inclination") {
-    return [
-      makeHistoryDataset(hist, "epoch", "inclination_deg", `${satName} - Inclination`, bins)
-    ];
-  }
-
-  if (metric === "meanmotion") {
-    return [
-      makeHistoryDataset(hist, "epoch", "mean_motion_rev_day", `${satName} - MeanMotion`, bins)
-    ];
-  }
+function buildHistorySeriesForMetric(metric,satName,hist,bins){
+  if(metric === "height") return [makeHistoryDataset(hist,"epoch","height_km",`${satName} - Height`,bins)];
+  if(metric === "altitude") return [
+    makeHistoryDataset(hist,"epoch","apogee_km",`${satName} - Apogee`,bins),
+    makeHistoryDataset(hist,"epoch","perigee_km",`${satName} - Perigee`,bins)
+  ];
+  if(metric === "inclination") return [makeHistoryDataset(hist,"epoch","inclination_deg",`${satName} - Inclination`,bins)];
+  if(metric === "meanmotion") return [makeHistoryDataset(hist,"epoch","mean_motion_rev_day",`${satName} - MeanMotion`,bins)];
 
   return [
-    makeHistoryDataset(hist, "epoch", "semi_major_axis_km", `${satName} - SMA`, bins),
-    makeHistoryDataset(hist, "epoch", "eccentricity", `${satName} - Ecc`, bins),
-    makeHistoryDataset(hist, "epoch", "inclination_deg", `${satName} - Inc`, bins),
-    makeHistoryDataset(hist, "epoch", "raan_deg", `${satName} - RAAN`, bins),
-    makeHistoryDataset(hist, "epoch", "arg_perigee_deg", `${satName} - ArgPerigee`, bins),
-    makeHistoryDataset(hist, "epoch", "mean_anomaly_deg", `${satName} - MeanAnomaly`, bins)
+    makeHistoryDataset(hist,"epoch","semi_major_axis_km",`${satName} - SMA`,bins),
+    makeHistoryDataset(hist,"epoch","eccentricity",`${satName} - Ecc`,bins),
+    makeHistoryDataset(hist,"epoch","inclination_deg",`${satName} - Inc`,bins),
+    makeHistoryDataset(hist,"epoch","raan_deg",`${satName} - RAAN`,bins),
+    makeHistoryDataset(hist,"epoch","arg_perigee_deg",`${satName} - ArgPerigee`,bins),
+    makeHistoryDataset(hist,"epoch","mean_anomaly_deg",`${satName} - MeanAnomaly`,bins)
   ];
 }
 
-function renderLatestTable(rows) {
-  document.getElementById("latestTableBody").innerHTML = rows.map(r => `
+function renderLatestTable(rows){
+  document.getElementById("latestTableBody").innerHTML = rows.map(r=>`
     <tr>
       <td>${r.norad_id}</td>
       <td>${r.name}</td>
@@ -1118,86 +753,67 @@ function renderLatestTable(rows) {
   `).join("");
 }
 
-function norm(a) {
-  return Math.sqrt(a[0] * a[0] + a[1] * a[1] + a[2] * a[2]);
-}
-
-function dot(a, b) {
-  return a[0] * b[0] + a[1] * b[1] + a[2] * b[2];
-}
-
-function sub(a, b) {
+function norm(a){return Math.sqrt(a[0]*a[0]+a[1]*a[1]+a[2]*a[2]);}
+function dot(a,b){return a[0]*b[0]+a[1]*b[1]+a[2]*b[2];}
+function sub(a,b){return [a[0]-b[0],a[1]-b[1],a[2]-b[2]];}
+function cross(a,b){
   return [
-    a[0] - b[0],
-    a[1] - b[1],
-    a[2] - b[2]
+    a[1]*b[2]-a[2]*b[1],
+    a[2]*b[0]-a[0]*b[2],
+    a[0]*b[1]-a[1]*b[0]
   ];
 }
-
-function cross(a, b) {
-  return [
-    a[1] * b[2] - a[2] * b[1],
-    a[2] * b[0] - a[0] * b[2],
-    a[0] * b[1] - a[1] * b[0]
-  ];
-}
-
-function unit(a) {
+function unit(a){
   const n = norm(a);
-  if (!n) return null;
-  return [a[0] / n, a[1] / n, a[2] / n];
+  if(!n) return null;
+  return [a[0]/n,a[1]/n,a[2]/n];
 }
 
-function relativeRic(chief, deputy) {
+function relativeRic(chief,deputy){
   const rHat = unit(chief.r);
-  const hHat = unit(cross(chief.r, chief.v));
-  if (!rHat || !hHat) return null;
+  const hHat = unit(cross(chief.r,chief.v));
+  if(!rHat || !hHat) return null;
+  const iHat = unit(cross(hHat,rHat));
+  if(!iHat) return null;
 
-  const iHat = unit(cross(hHat, rHat));
-  if (!iHat) return null;
-
-  const dr = sub(deputy.r, chief.r);
-
-  const R = dot(dr, rHat);
-  const I = dot(dr, iHat);
-  const C = dot(dr, hHat);
-  const D = Math.sqrt(R * R + I * I + C * C);
-
-  return { R, I, C, D };
+  const dr = sub(deputy.r,chief.r);
+  const R = dot(dr,rHat);
+  const I = dot(dr,iHat);
+  const C = dot(dr,hHat);
+  const D = Math.sqrt(R*R + I*I + C*C);
+  return {R,I,C,D};
 }
 
-function propagateOneSgp4(tleEntry, date) {
-  try {
-    const satrec = satellite.twoline2satrec(tleEntry.tle1, tleEntry.tle2);
-    const pv = satellite.propagate(satrec, date);
-
-    if (!pv || !pv.position || !pv.velocity) return null;
-
+function propagateOneSgp4(tleEntry,date){
+  try{
+    const satrec = satellite.twoline2satrec(tleEntry.tle1,tleEntry.tle2);
+    const pv = satellite.propagate(satrec,date);
+    if(!pv || !pv.position || !pv.velocity) return null;
     return {
-      r: [pv.position.x, pv.position.y, pv.position.z],
-      v: [pv.velocity.x, pv.velocity.y, pv.velocity.z]
+      r:[pv.position.x,pv.position.y,pv.position.z],
+      v:[pv.velocity.x,pv.velocity.y,pv.velocity.z]
     };
-  } catch {
+  }catch{
     return null;
   }
 }
 
-function renderClosestTable(rows) {
-  document.getElementById("closestBody").innerHTML = rows.map(r => `
+function renderClosestTable(rows){
+  document.getElementById("closestBody").innerHTML = rows.map(r=>`
     <tr>
       <td>${r.name}</td>
       <td>${r.time}</td>
-      <td>${fmt(r.D, 3)}</td>
-      <td>${fmt(r.R, 3)}</td>
-      <td>${fmt(r.I, 3)}</td>
-      <td>${fmt(r.C, 3)}</td>
+      <td>${fmt(r.D,3)}</td>
+      <td>${fmt(r.R,3)}</td>
+      <td>${fmt(r.I,3)}</td>
+      <td>${fmt(r.C,3)}</td>
       <td>${r.source || "-"}</td>
     </tr>
   `).join("");
 }
 
-function renderTleLoadTable(rows) {
-  document.getElementById("tleLoadBody").innerHTML = rows.map(r => `
+function renderTleLoadTable(rows){
+  document.getElementById("tleLoadBody").innerHTML = rows.map(r=>`
     <tr>
       <td>${r.norad_id}</td>
       <td>${r.name}</td>
@@ -1208,135 +824,97 @@ function renderTleLoadTable(rows) {
   `).join("");
 }
 
-async function runHybridAnalysis() {
+async function runHybridAnalysis(){
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
   const stepMinutes = Number(document.getElementById("stepMinutes").value);
   const historyMetric = document.getElementById("historyMetric").value;
   const primaryId = Number(document.getElementById("primarySelect").value);
   const status = document.getElementById("status");
-
   const ids = Array.from(selectedIds);
 
-  if (ids.length === 0) {
+  if(ids.length === 0){
     status.textContent = "衛星を1機以上選択してください。";
     return;
   }
 
-  try {
+  try{
     status.textContent = "履歴データを読込中...";
 
-    const historyBins = buildTimeBins(start, end, 180);
+    const historyBins = buildTimeBins(start,end,180);
     const historyLabels = historyBins.map(formatBinLabel);
-
-    const sgp4Bins = buildTimeBins(start, end, stepMinutes);
+    const sgp4Bins = buildTimeBins(start,end,stepMinutes);
     const sgp4Labels = sgp4Bins.map(formatBinLabel);
 
     const historyLoaded = [];
     const latestRows = [];
-
     let historyDatasets = [];
     let latDatasets = [];
     let lonDatasets = [];
 
-    for (const id of ids) {
+    for(const id of ids){
       let sat;
-
-      try {
-        sat = await loadSatelliteData(id);
-      } catch {
-        continue;
-      }
+      try{sat = await loadSatelliteData(id);}
+      catch{continue;}
 
       const hist = (sat.history || [])
-        .filter(h => withinRange(h.epoch, start, end))
-        .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)));
+        .filter(h=>withinRange(h.epoch,start,end))
+        .sort((a,b)=>String(a.epoch).localeCompare(String(b.epoch)));
 
-      if (hist.length === 0) continue;
+      if(hist.length === 0) continue;
 
       const name = sat.name || String(id);
+      historyLoaded.push({norad_id:Number(id),name,hist});
+      latestRows.push({norad_id:Number(id),name,latest:hist[hist.length-1]});
 
-      historyLoaded.push({
-        norad_id: Number(id),
-        name,
-        hist
-      });
-
-      latestRows.push({
-        norad_id: Number(id),
-        name,
-        latest: hist[hist.length - 1]
-      });
-
-      historyDatasets.push(
-        ...buildHistorySeriesForMetric(historyMetric, name, hist, historyBins)
-      );
-
-      latDatasets.push(
-        makeHistoryDataset(hist, "epoch", "latitude_deg", `${name} - Latitude`, historyBins)
-      );
-
-      lonDatasets.push(
-        makeHistoryDataset(hist, "epoch", "longitude_deg", `${name} - Longitude`, historyBins)
-      );
+      historyDatasets.push(...buildHistorySeriesForMetric(historyMetric,name,hist,historyBins));
+      latDatasets.push(makeHistoryDataset(hist,"epoch","latitude_deg",`${name} - Latitude`,historyBins));
+      lonDatasets.push(makeHistoryDataset(hist,"epoch","longitude_deg",`${name} - Longitude`,historyBins));
     }
 
     renderLatestTable(latestRows);
 
     historyChart = destroyChart(historyChart);
-    historyChart = new Chart(document.getElementById("historyChart"), {
-      type: "line",
-      data: {
-        labels: historyLabels,
-        datasets: historyDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          legend: { display: true }
-        },
-        scales: {
-          x: { title: { display: true, text: "UTC" } }
-        }
+    historyChart = new Chart(document.getElementById("historyChart"),{
+      type:"line",
+      data:{labels:historyLabels,datasets:historyDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{legend:{display:true}},
+        scales:{x:{title:{display:true,text:"UTC"}}}
       }
     });
 
     latChart = destroyChart(latChart);
-    latChart = new Chart(document.getElementById("latChart"), {
-      type: "line",
-      data: {
-        labels: historyLabels,
-        datasets: latDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: { title: { display: true, text: "UTC" } },
-          y: { title: { display: true, text: "Latitude deg" } }
+    latChart = new Chart(document.getElementById("latChart"),{
+      type:"line",
+      data:{labels:historyLabels,datasets:latDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{
+          x:{title:{display:true,text:"UTC"}},
+          y:{title:{display:true,text:"Latitude deg"}}
         }
       }
     });
 
     lonChart = destroyChart(lonChart);
-    lonChart = new Chart(document.getElementById("lonChart"), {
-      type: "line",
-      data: {
-        labels: historyLabels,
-        datasets: lonDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: { title: { display: true, text: "UTC" } },
-          y: { title: { display: true, text: "Longitude deg" } }
+    lonChart = new Chart(document.getElementById("lonChart"),{
+      type:"line",
+      data:{labels:historyLabels,datasets:lonDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{
+          x:{title:{display:true,text:"UTC"}},
+          y:{title:{display:true,text:"Longitude deg"}}
         }
       }
     });
 
-    if (ids.length < 2) {
+    if(ids.length < 2){
       ricChart = destroyChart(ricChart);
       distanceChart = destroyChart(distanceChart);
       tricChart = destroyChart(tricChart);
@@ -1351,36 +929,33 @@ async function runHybridAnalysis() {
     const tleMap = new Map();
     const tleLoadRows = [];
 
-    for (const id of ids) {
+    for(const id of ids){
       status.textContent = `選択衛星のTLEを取得中... NORAD ${id}`;
-
-      try {
+      try{
         const tleObj = await loadTleForSatellite(id);
-        tleMap.set(Number(id), tleObj);
-
+        tleMap.set(Number(id),tleObj);
         const latest = tleObj.tle_history?.[tleObj.tle_history.length - 1];
-
         tleLoadRows.push({
-          norad_id: Number(id),
-          name: tleObj.name,
-          source: tleObj.source,
-          tle_epoch: latest?.tle_epoch || latest?.fetched_at || "-",
-          count: tleObj.tle_history?.length || 0
+          norad_id:Number(id),
+          name:tleObj.name,
+          source:tleObj.source,
+          tle_epoch:latest?.tle_epoch || latest?.fetched_at || "-",
+          count:tleObj.tle_history?.length || 0
         });
-      } catch (e) {
+      }catch{
         tleLoadRows.push({
-          norad_id: Number(id),
-          name: String(id),
-          source: "missing",
-          tle_epoch: "-",
-          count: 0
+          norad_id:Number(id),
+          name:String(id),
+          source:"missing",
+          tle_epoch:"-",
+          count:0
         });
       }
     }
 
     renderTleLoadTable(tleLoadRows);
 
-    if (!tleMap.has(primaryId)) {
+    if(!tleMap.has(primaryId)){
       status.textContent = "主衛星のTLEが見つかりません。履歴グラフのみ表示しました。";
       return;
     }
@@ -1388,38 +963,33 @@ async function runHybridAnalysis() {
     status.textContent = "SGP4接近解析中...";
 
     const primaryTleObj = tleMap.get(primaryId);
-
     let ricDatasets = [];
     let distanceDatasets = [];
     let tricDatasets = [];
     let closestRows = [];
 
-    for (const [id, targetTleObj] of tleMap.entries()) {
-      if (Number(id) === primaryId) continue;
+    for(const [id,targetTleObj] of tleMap.entries()){
+      if(Number(id) === primaryId) continue;
 
       const Rarr = makeEmptySeries(sgp4Bins.length);
       const Iarr = makeEmptySeries(sgp4Bins.length);
       const Carr = makeEmptySeries(sgp4Bins.length);
       const Darr = makeEmptySeries(sgp4Bins.length);
       const bubbles = [];
-
       let closest = null;
 
-      for (let i = 0; i < sgp4Bins.length; i++) {
+      for(let i=0;i<sgp4Bins.length;i++){
         const t = sgp4Bins[i];
+        const chiefTle = pickNearestTle(primaryTleObj.tle_history,t);
+        const targetTle = pickNearestTle(targetTleObj.tle_history,t);
+        if(!chiefTle || !targetTle) continue;
 
-        const chiefTle = pickNearestTle(primaryTleObj.tle_history, t);
-        const targetTle = pickNearestTle(targetTleObj.tle_history, t);
+        const chief = propagateOneSgp4(chiefTle,t);
+        const deputy = propagateOneSgp4(targetTle,t);
+        if(!chief || !deputy) continue;
 
-        if (!chiefTle || !targetTle) continue;
-
-        const chief = propagateOneSgp4(chiefTle, t);
-        const deputy = propagateOneSgp4(targetTle, t);
-
-        if (!chief || !deputy) continue;
-
-        const ric = relativeRic(chief, deputy);
-        if (!ric) continue;
+        const ric = relativeRic(chief,deputy);
+        if(!ric) continue;
 
         Rarr[i] = ric.R;
         Iarr[i] = ric.I;
@@ -1427,123 +997,86 @@ async function runHybridAnalysis() {
         Darr[i] = ric.D;
 
         bubbles.push({
-          x: ric.R,
-          y: ric.I,
-          r: Math.max(3, Math.min(18, Math.abs(ric.C) / 20)),
-          c: ric.C,
-          d: ric.D,
-          t: t.toISOString()
+          x:ric.R,
+          y:ric.I,
+          r:Math.max(3,Math.min(18,Math.abs(ric.C)/20)),
+          c:ric.C,
+          d:ric.D,
+          t:t.toISOString()
         });
 
-        if (!closest || ric.D < closest.D) {
-          closest = {
-            name: targetTleObj.name,
-            time: t.toISOString(),
-            source: targetTleObj.source,
-            ...ric
-          };
+        if(!closest || ric.D < closest.D){
+          closest = {name:targetTleObj.name,time:t.toISOString(),source:targetTleObj.source,...ric};
         }
       }
 
-      if (closest) closestRows.push(closest);
+      if(closest) closestRows.push(closest);
 
-      ricDatasets.push({
-        label: `${targetTleObj.name} - R`,
-        data: Rarr,
-        ...makeLineStyle()
-      });
-
-      ricDatasets.push({
-        label: `${targetTleObj.name} - I`,
-        data: Iarr,
-        ...makeLineStyle()
-      });
-
-      ricDatasets.push({
-        label: `${targetTleObj.name} - C`,
-        data: Carr,
-        ...makeLineStyle()
-      });
-
-      distanceDatasets.push({
-        label: `${targetTleObj.name} - Distance`,
-        data: Darr,
-        ...makeLineStyle()
-      });
-
-      tricDatasets.push({
-        label: targetTleObj.name,
-        data: bubbles,
-        type: "bubble"
-      });
+      ricDatasets.push({label:`${targetTleObj.name} - R`,data:Rarr,...makeLineStyle()});
+      ricDatasets.push({label:`${targetTleObj.name} - I`,data:Iarr,...makeLineStyle()});
+      ricDatasets.push({label:`${targetTleObj.name} - C`,data:Carr,...makeLineStyle()});
+      distanceDatasets.push({label:`${targetTleObj.name} - Distance`,data:Darr,...makeLineStyle()});
+      tricDatasets.push({label:targetTleObj.name,data:bubbles,type:"bubble"});
     }
 
-    closestRows.sort((a, b) => a.D - b.D);
+    closestRows.sort((a,b)=>a.D-b.D);
     renderClosestTable(closestRows);
 
     ricChart = destroyChart(ricChart);
-    ricChart = new Chart(document.getElementById("ricChart"), {
-      type: "line",
-      data: {
-        labels: sgp4Labels,
-        datasets: ricDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: { title: { display: true, text: "UTC" } },
-          y: { title: { display: true, text: "RIC km" } }
+    ricChart = new Chart(document.getElementById("ricChart"),{
+      type:"line",
+      data:{labels:sgp4Labels,datasets:ricDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{
+          x:{title:{display:true,text:"UTC"}},
+          y:{title:{display:true,text:"RIC km"}}
         }
       }
     });
 
     distanceChart = destroyChart(distanceChart);
-    distanceChart = new Chart(document.getElementById("distanceChart"), {
-      type: "line",
-      data: {
-        labels: sgp4Labels,
-        datasets: distanceDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        scales: {
-          x: { title: { display: true, text: "UTC" } },
-          y: { title: { display: true, text: "Relative Distance km" } }
+    distanceChart = new Chart(document.getElementById("distanceChart"),{
+      type:"line",
+      data:{labels:sgp4Labels,datasets:distanceDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        scales:{
+          x:{title:{display:true,text:"UTC"}},
+          y:{title:{display:true,text:"Relative Distance km"}}
         }
       }
     });
 
     tricChart = destroyChart(tricChart);
-    tricChart = new Chart(document.getElementById("tricChart"), {
-      type: "bubble",
-      data: {
-        datasets: tricDatasets
-      },
-      options: {
-        responsive: true,
-        maintainAspectRatio: false,
-        plugins: {
-          tooltip: {
-            callbacks: {
-              label: function(ctx) {
+    tricChart = new Chart(document.getElementById("tricChart"),{
+      type:"bubble",
+      data:{datasets:tricDatasets},
+      options:{
+        responsive:true,
+        maintainAspectRatio:false,
+        plugins:{
+          tooltip:{
+            callbacks:{
+              label:function(ctx){
                 const p = ctx.raw;
                 return [
                   `${ctx.dataset.label}`,
                   `T: ${p.t}`,
-                  `R: ${fmt(p.x, 3)} km`,
-                  `I: ${fmt(p.y, 3)} km`,
-                  `C: ${fmt(p.c, 3)} km`,
-                  `D: ${fmt(p.d, 3)} km`
+                  `R: ${fmt(p.x,3)} km`,
+                  `I: ${fmt(p.y,3)} km`,
+                  `C: ${fmt(p.c,3)} km`,
+                  `D: ${fmt(p.d,3)} km`
                 ];
               }
             }
           }
         },
-        scales: {
-          x: { title: { display: true, text: "R km" } },
-          y: { title: { display: true, text: "I km" } }
+        scales:{
+          x:{title:{display:true,text:"R km"}},
+          y:{title:{display:true,text:"I km"}}
         }
       }
     });
@@ -1551,92 +1084,122 @@ async function runHybridAnalysis() {
     status.textContent =
       `表示完了: 履歴=${historyLoaded.length}機 / SGP4 TLE=${tleMap.size}機 / 主衛星=${primaryTleObj.name} / 接近ペア=${closestRows.length}`;
 
-  } catch (e) {
+  }catch(e){
     status.textContent = `エラー: ${e.message}`;
   }
 }
 
-function getSatCountry(s) {
+function getSatCountry(s){
   const keys = [
-    "country",
-    "country_code",
-    "COUNTRY_CODE",
-    "object_country",
-    "OBJECT_COUNTRY",
-    "owner",
-    "OWNER",
-    "users",
-    "USER"
+    "country","country_code","COUNTRY_CODE","object_country","OBJECT_COUNTRY",
+    "owner","OWNER","users","USER"
   ];
 
-  for (const k of keys) {
-    if (s[k] !== undefined && s[k] !== null && String(s[k]).trim() !== "") {
+  for(const k of keys){
+    if(s[k] !== undefined && s[k] !== null && String(s[k]).trim() !== ""){
       return String(s[k]).trim().toUpperCase();
     }
   }
-
   return "UNK";
 }
 
-function isGeoCandidate(s) {
+function getSelectedGeoCountries(){
+  const sel = document.getElementById("geoCountriesSelect");
+  return new Set(Array.from(sel.selectedOptions).map(o=>o.value.toUpperCase()));
+}
+
+function getGeoColorByCountry(country){
+  const c = String(country || "").toUpperCase();
+
+  if(c === "JPN" || c === "JP" || c === "JAPAN"){
+    return document.getElementById("geoColorJPN").value || "#0066ff";
+  }
+
+  if(c === "US" || c === "USA" || c === "UNITED STATES"){
+    return document.getElementById("geoColorUS").value || "#00aa44";
+  }
+
+  if(c === "CHN" || c === "CN" || c === "CHINA" || c === "PRC"){
+    return document.getElementById("geoColorCHN").value || "#ff2222";
+  }
+
+  if(c === "RUS" || c === "RU" || c === "RUSSIA" || c === "CIS"){
+    return document.getElementById("geoColorRUS").value || "#ffd400";
+  }
+
+  return "#aaaaaa";
+}
+
+function countryMatchesSelected(country,selectedSet){
+  const c = String(country || "").toUpperCase();
+
+  const aliases = {
+    JPN:["JPN","JP","JAPAN"],
+    US:["US","USA","UNITED STATES"],
+    CHN:["CHN","CN","CHINA","PRC"],
+    RUS:["RUS","RU","RUSSIA","CIS"]
+  };
+
+  for(const selected of selectedSet){
+    if((aliases[selected] || [selected]).includes(c)) return true;
+  }
+
+  return false;
+}
+
+function isGeoCandidate(s){
   const perigeeMin = numVal("geoPerigeeMin") ?? 35000;
   const apogeeMax = numVal("geoApogeeMax") ?? 37000;
 
   const ap = Number(s.apogee_km);
   const pe = Number(s.perigee_km);
 
-  if (Number.isNaN(ap) || Number.isNaN(pe)) return false;
-
+  if(Number.isNaN(ap) || Number.isNaN(pe)) return false;
   return pe >= perigeeMin && ap <= apogeeMax;
 }
 
-function normalizeLon(lon) {
+function normalizeLon(lon){
   let x = Number(lon);
-  while (x > 180) x -= 360;
-  while (x < -180) x += 360;
+  while(x > 180) x -= 360;
+  while(x < -180) x += 360;
   return x;
 }
 
-function initGeoMap() {
-  if (geoMap) return;
+function initGeoMap(){
+  if(geoMap) return;
 
-  geoMap = L.map("geoMap", {
-    worldCopyJump: true
-  }).setView([0, 140], 2);
+  geoMap = L.map("geoMap",{worldCopyJump:true}).setView([0,140],2);
 
-  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png", {
-    maxZoom: 8,
-    attribution: "&copy; OpenStreetMap contributors"
+  L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{
+    maxZoom:8,
+    attribution:"&copy; OpenStreetMap contributors"
   }).addTo(geoMap);
 
   geoLayer = L.layerGroup().addTo(geoMap);
 }
 
-function clearGeoMap() {
+function clearGeoMap(){
   initGeoMap();
   geoLayer.clearLayers();
   document.getElementById("geoStatus").textContent = "GEOを消去しました。";
 }
 
-async function showGeoSatellites() {
+async function showGeoSatellites(){
   initGeoMap();
   geoLayer.clearLayers();
 
   const status = document.getElementById("geoStatus");
-  const color = document.getElementById("geoColor").value || "#ff3333";
+  const selectedCountries = getSelectedGeoCountries();
 
-  const rawCountries = document.getElementById("geoCountries").value.trim();
-  const countrySet = new Set(
-    rawCountries
-      ? rawCountries.split(",").map(x => x.trim().toUpperCase()).filter(Boolean)
-      : []
-  );
+  if(selectedCountries.size === 0){
+    status.textContent = "表示する国を1つ以上選択してください。";
+    return;
+  }
 
-  const candidates = satelliteIndex.filter(s => {
-    if (!isGeoCandidate(s)) return false;
+  const candidates = satelliteIndex.filter(s=>{
+    if(!isGeoCandidate(s)) return false;
     const c = getSatCountry(s);
-    if (countrySet.size === 0) return true;
-    return countrySet.has(c);
+    return countryMatchesSelected(c,selectedCountries);
   });
 
   status.textContent = `GEO候補 ${candidates.length}件を読込中...`;
@@ -1644,31 +1207,32 @@ async function showGeoSatellites() {
   let shown = 0;
   let missing = 0;
 
-  for (const s of candidates) {
+  for(const s of candidates){
     const norad = Number(s.norad_id);
     const name = s.name || String(norad);
     const country = getSatCountry(s);
+    const color = getGeoColorByCountry(country);
 
-    try {
+    try{
       const sat = await loadSatelliteData(norad);
       const hist = Array.isArray(sat.history) ? sat.history : [];
 
-      if (hist.length === 0) {
+      if(hist.length === 0){
         missing++;
         continue;
       }
 
       const latest = [...hist]
-        .filter(x =>
+        .filter(x=>
           x.latitude_deg !== undefined &&
           x.longitude_deg !== undefined &&
           x.latitude_deg !== null &&
           x.longitude_deg !== null
         )
-        .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)))
+        .sort((a,b)=>String(a.epoch).localeCompare(String(b.epoch)))
         .pop();
 
-      if (!latest) {
+      if(!latest){
         missing++;
         continue;
       }
@@ -1676,40 +1240,40 @@ async function showGeoSatellites() {
       const lat = Number(latest.latitude_deg);
       const lon = normalizeLon(latest.longitude_deg);
 
-      if (Number.isNaN(lat) || Number.isNaN(lon)) {
+      if(Number.isNaN(lat) || Number.isNaN(lon)){
         missing++;
         continue;
       }
 
-      const marker = L.circleMarker([lat, lon], {
-        radius: 6,
+      const marker = L.circleMarker([lat,lon],{
+        radius:6,
         color,
-        fillColor: color,
-        fillOpacity: 0.75,
-        weight: 1.5
+        fillColor:color,
+        fillOpacity:0.78,
+        weight:1.5
       });
 
       marker.bindPopup(`
         <b>${name}</b><br>
         NORAD: ${norad}<br>
         Country: ${country}<br>
-        Lat: ${fmt(lat, 4)} deg<br>
-        Lon: ${fmt(lon, 4)} deg<br>
-        Height: ${fmt(latest.height_km, 2)} km<br>
+        Lat: ${fmt(lat,4)} deg<br>
+        Lon: ${fmt(lon,4)} deg<br>
+        Height: ${fmt(latest.height_km,2)} km<br>
         Epoch: ${latest.epoch || "-"}<br>
-        Apogee: ${fmt(latest.apogee_km, 2)} km<br>
-        Perigee: ${fmt(latest.perigee_km, 2)} km
+        Apogee: ${fmt(latest.apogee_km,2)} km<br>
+        Perigee: ${fmt(latest.perigee_km,2)} km
       `);
 
       marker.addTo(geoLayer);
       shown++;
 
-      if (shown % 25 === 0) {
+      if(shown % 25 === 0){
         status.textContent = `GEO表示中... ${shown}/${candidates.length}`;
-        await new Promise(r => setTimeout(r, 1));
+        await new Promise(r=>setTimeout(r,1));
       }
 
-    } catch {
+    }catch{
       missing++;
     }
   }
@@ -1717,58 +1281,46 @@ async function showGeoSatellites() {
   status.textContent =
     `GEO表示完了: ${shown}件 / 取得失敗・履歴なし: ${missing}件 / 候補: ${candidates.length}件`;
 
-  if (shown > 0) {
-    try {
-      geoMap.fitBounds(geoLayer.getBounds(), { padding: [20, 20] });
-    } catch {}
+  if(shown > 0){
+    try{
+      geoMap.fitBounds(geoLayer.getBounds(),{padding:[20,20]});
+    }catch{}
   }
 }
 
-function applyManualTleFromUi() {
+function applyManualTleFromUi(){
   const norad = document.getElementById("manualNorad").value.trim();
   const name = document.getElementById("manualName").value.trim();
   const tle1 = document.getElementById("manualTle1").value.trim();
   const tle2 = document.getElementById("manualTle2").value.trim();
 
-  if (!norad || !tle1 || !tle2) {
-    document.getElementById("tleStatus").textContent =
-      "NORAD ID, TLE1, TLE2 を入れてください。";
+  if(!norad || !tle1 || !tle2){
+    document.getElementById("tleStatus").textContent = "NORAD ID, TLE1, TLE2 を入れてください。";
     return;
   }
 
-  if (!isValidTlePair(tle1, tle2)) {
-    document.getElementById("tleStatus").textContent =
-      "TLE形式が正しくありません。";
+  if(!isValidTlePair(tle1,tle2)){
+    document.getElementById("tleStatus").textContent = "TLE形式が正しくありません。";
     return;
   }
 
-  try {
-    satellite.twoline2satrec(tle1, tle2);
-
+  try{
+    satellite.twoline2satrec(tle1,tle2);
     const store = getManualTleStore();
-    store[String(Number(norad))] = {
-      name,
-      tle1,
-      tle2
-    };
-
+    store[String(Number(norad))] = {name,tle1,tle2};
     saveManualTleStore(store);
     updateTleStatus();
-
-    document.getElementById("tleStatus").textContent =
-      `手動TLEを保存しました: NORAD ${norad}`;
-  } catch (e) {
-    document.getElementById("tleStatus").textContent =
-      `エラー: ${e.message}`;
+    document.getElementById("tleStatus").textContent = `手動TLEを保存しました: NORAD ${norad}`;
+  }catch(e){
+    document.getElementById("tleStatus").textContent = `エラー: ${e.message}`;
   }
 }
 
-function clearManualTleFromUi() {
+function clearManualTleFromUi(){
   const norad = document.getElementById("manualNorad").value.trim();
 
-  if (!norad) {
-    document.getElementById("tleStatus").textContent =
-      "削除する NORAD ID を入れてください。";
+  if(!norad){
+    document.getElementById("tleStatus").textContent = "削除する NORAD ID を入れてください。";
     return;
   }
 
@@ -1777,59 +1329,47 @@ function clearManualTleFromUi() {
   saveManualTleStore(store);
   updateTleStatus();
 
-  document.getElementById("tleStatus").textContent =
-    `手動TLEを削除しました: NORAD ${norad}`;
+  document.getElementById("tleStatus").textContent = `手動TLEを削除しました: NORAD ${norad}`;
 }
 
-document.getElementById("searchBtn").addEventListener("click", () => runSearch());
+document.getElementById("searchBtn").addEventListener("click",()=>runSearch());
 
-document.getElementById("clearSearchBtn").addEventListener("click", () => {
+document.getElementById("clearSearchBtn").addEventListener("click",()=>{
   [
-    "qText",
-    "apogeeMin",
-    "apogeeMax",
-    "perigeeMin",
-    "perigeeMax",
-    "incMin",
-    "incMax",
-    "latMin",
-    "latMax",
-    "lonMin",
-    "lonMax"
-  ].forEach(id => document.getElementById(id).value = "");
-
+    "qText","apogeeMin","apogeeMax","perigeeMin","perigeeMax",
+    "incMin","incMax","latMin","latMax","lonMin","lonMax"
+  ].forEach(id=>document.getElementById(id).value="");
   runSearch();
 });
 
-document.getElementById("selectTopBtn").addEventListener("click", () => {
-  const rows = filterSatellites().slice(0, 10);
-  selectedIds = new Set(rows.map(r => Number(r.norad_id)));
+document.getElementById("selectTopBtn").addEventListener("click",()=>{
+  const rows = filterSatellites().slice(0,10);
+  selectedIds = new Set(rows.map(r=>Number(r.norad_id)));
   runSearch(false);
 });
 
-document.getElementById("clearSelectionBtn").addEventListener("click", () => {
+document.getElementById("clearSelectionBtn").addEventListener("click",()=>{
   selectedIds.clear();
   runSearch(false);
 });
 
-document.getElementById("clearTleCacheBtn").addEventListener("click", clearCelestrakCache);
-document.getElementById("plotBtn").addEventListener("click", runHybridAnalysis);
-document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
-document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
-document.getElementById("showGeoBtn").addEventListener("click", showGeoSatellites);
-document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
+document.getElementById("clearTleCacheBtn").addEventListener("click",clearCelestrakCache);
+document.getElementById("plotBtn").addEventListener("click",runHybridAnalysis);
+document.getElementById("applyManualTleBtn").addEventListener("click",applyManualTleFromUi);
+document.getElementById("clearManualTleBtn").addEventListener("click",clearManualTleFromUi);
+document.getElementById("showGeoBtn").addEventListener("click",showGeoSatellites);
+document.getElementById("clearGeoBtn").addEventListener("click",clearGeoMap);
 
-async function init() {
+async function init(){
   setDefaultDates();
   updateTleStatus();
   initGeoMap();
 
-  try {
+  try{
     await loadSatelliteIndex();
     runSearch();
-  } catch (e) {
-    document.getElementById("status").textContent =
-      `初期化エラー: ${e.message}`;
+  }catch(e){
+    document.getElementById("status").textContent = `初期化エラー: ${e.message}`;
   }
 }
 
