@@ -32,15 +32,11 @@ jobs:
           mkdir -p docs/data
           mkdir -p docs/data/catalog
           mkdir -p docs/data/sat_history
-          mkdir -p docs/data/tle_history
           mkdir -p docs/data/noaa
           mkdir -p docs/data/analysis
 
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
-
-      - name: Build TLE histories
-        run: python scripts/build_tle_history.py
 
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
@@ -59,12 +55,6 @@ jobs:
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
 
-          echo "===== tle_history count ====="
-          find docs/data/tle_history -name "*.json" | wc -l
-
-          echo "===== sample tle_history ====="
-          find docs/data/tle_history -name "*.json" | head -5
-
           echo "===== index ====="
           ls -lh docs/data/satellite_index_full.json || echo "index missing"
 
@@ -79,5 +69,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
           git add docs/data
-          git commit -m "Daily update satellite data + TLE history + NOAA + index" || echo "No changes"
+          git commit -m "Daily update satellite data + NOAA + index" || echo "No changes"
           git push
