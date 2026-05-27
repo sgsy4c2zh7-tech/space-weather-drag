@@ -34,12 +34,16 @@ jobs:
           mkdir -p docs/data/sat_history
           mkdir -p docs/data/noaa
           mkdir -p docs/data/analysis
+          mkdir -p docs/data/launches
 
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
+
+      - name: Fetch launch calendar
+        run: python scripts/fetch_launches.py
 
       - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
@@ -61,6 +65,9 @@ jobs:
           echo "===== NOAA ====="
           ls docs/data/noaa || echo "NOAA missing"
 
+          echo "===== launches ====="
+          ls -lh docs/data/launches/weekly_launches.json || echo "launch calendar missing"
+
           echo "===== analysis count ====="
           find docs/data/analysis -name "*.json" | wc -l
 
@@ -69,5 +76,5 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
           git add docs/data
-          git commit -m "Daily update satellite data + NOAA + index" || echo "No changes"
+          git commit -m "Daily update satellite data + NOAA + launches + index" || echo "No changes"
           git push
