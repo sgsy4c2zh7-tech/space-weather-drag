@@ -1,1 +1,85 @@
-
+{
+  "updated_at": "2026-05-27T02:25:00.225609Z",
+  "source": "Launch Library 2 / The Space Devs",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-05-27T02%3A25%3A00.225609Z&net__lte=2026-06-03T02%3A25%3A00.225609Z&ordering=net",
+  "window_start": "2026-05-27T02:25:00.225609Z",
+  "window_end": "2026-06-03T02:25:00.225609Z",
+  "count": 5,
+  "launches": [
+    {
+      "id": "384fb817-2a18-46ec-b294-613c08ecea52",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-53",
+      "net": "2026-05-29T11:52:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-53",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/384fb817-2a18-46ec-b294-613c08ecea52/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "ff0a6a32-6513-4e85-9fd8-a2d022add74d",
+      "name": "Atlas V 551 | Amazon Leo (LA-07)",
+      "net": "2026-05-29T23:33:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "United Launch Alliance",
+      "mission": "Amazon Leo (LA-07)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 41",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ff0a6a32-6513-4e85-9fd8-a2d022add74d/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/atlas2520v2520551_image_20190224012316.jpeg"
+    },
+    {
+      "id": "a7341350-789e-4f61-99a4-a61ebc40c05b",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-41",
+      "net": "2026-05-30T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-41",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a7341350-789e-4f61-99a4-a61ebc40c05b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "0ab3587d-bb8c-4515-a321-2ec154840659",
+      "name": "Long March 2D | Unknown Payload",
+      "net": "2026-05-30T18:07:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 3 (LC-3/LA-1)",
+      "location": "Xichang Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0ab3587d-bb8c-4515-a321-2ec154840659/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
+    },
+    {
+      "id": "ca3d56b7-2175-48e4-9a6a-2ecc9996d96b",
+      "name": "New Glenn | Amazon Leo (LN-01)",
+      "net": "2026-06-02T18:04:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "Blue Origin",
+      "mission": "Amazon Leo (LN-01)",
+      "mission_type": "Communications",
+      "pad": "Launch Complex 36A",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ca3d56b7-2175-48e4-9a6a-2ecc9996d96b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/new_glenn_on_lc_image_20240313170026.jpeg"
+    }
+  ]
+}
