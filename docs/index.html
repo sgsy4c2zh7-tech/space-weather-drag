@@ -1583,19 +1583,32 @@ async function runHybridAnalysis() {
 }
 
 function getSatCountry(s) {
-  return String(
-    s.country_code ||
-    s.country ||
-    s.COUNTRY_CODE ||
-    s.COUNTRY ||
-    s.object_country ||
-    s.OBJECT_COUNTRY ||
-    s.owner ||
-    s.OWNER ||
-    s.users ||
-    s.USER ||
-    "UNK"
-  ).trim().toUpperCase();
+  const keys = [
+    "owner",
+    "OWNER",
+    "country_code",
+    "COUNTRY_CODE",
+    "country",
+    "COUNTRY",
+    "object_country",
+    "OBJECT_COUNTRY",
+    "users",
+    "USER"
+  ];
+
+  for (const k of keys) {
+    const raw = s[k];
+    if (raw === undefined || raw === null) continue;
+
+    const v = String(raw).trim().toUpperCase();
+
+    // country_code が "UNK" の場合に owner: "PRC" などを拾えるようにする
+    if (v && !["UNK", "UNKNOWN", "N/A", "NONE", "-"].includes(v)) {
+      return v;
+    }
+  }
+
+  return "UNK";
 }
 
 function normalizeCountryGroup(country) {
@@ -1681,6 +1694,8 @@ function clearGeoMap() {
 }
 
 async function showGeoSatellites(forceAllGeo = false) {
+  // addEventListener から直接呼ばれて MouseEvent が入っても、全GEO表示扱いにしない
+  forceAllGeo = forceAllGeo === true;
   initGeoMap();
   geoLayer.clearLayers();
 
@@ -1901,7 +1916,8 @@ document.getElementById("clearTleCacheBtn").addEventListener("click", clearCeles
 document.getElementById("plotBtn").addEventListener("click", runHybridAnalysis);
 document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
-document.getElementById("showGeoBtn").addEventListener("click", showGeoSatellites);
+document.getElementById("showGeoBtn").addEventListener("click", () => showGeoSatellites(false));
+document.getElementById("showAllGeoBtn").addEventListener("click", () => showGeoSatellites(true));
 document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
 
 async function init() {
