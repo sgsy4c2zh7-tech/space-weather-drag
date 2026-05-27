@@ -2,11 +2,16 @@ name: SPACE WEATHER DRAG DAILY
 
 on:
   workflow_dispatch:
+
   schedule:
     - cron: "10 0 * * *"
 
 permissions:
   contents: write
+
+concurrency:
+  group: space-weather-drag-main
+  cancel-in-progress: false
 
 jobs:
   rebuild:
@@ -14,19 +19,41 @@ jobs:
     timeout-minutes: 60
 
     steps:
+
+      # -------------------------
+      # Checkout
+      # -------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
+      # -------------------------
+      # Python
+      # -------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # -------------------------
+      # Install libs
+      # -------------------------
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests numpy scipy sgp4 skyfield pymsis
 
+          pip install \
+            requests \
+            numpy \
+            scipy \
+            sgp4 \
+            skyfield \
+            pymsis
+
+      # -------------------------
+      # Prepare dirs
+      # -------------------------
       - name: Prepare folders
         run: |
           mkdir -p docs/data
@@ -36,45 +63,122 @@ jobs:
           mkdir -p docs/data/analysis
           mkdir -p docs/data/launches
 
+      # -------------------------
+      # CelesTrak catalog
+      # -------------------------
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
+      # -------------------------
+      # NOAA
+      # -------------------------
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
+      # -------------------------
+      # Launch calendar
+      # -------------------------
       - name: Fetch launch calendar
         run: python scripts/fetch_launches.py
 
+      # -------------------------
+      # sat_history
+      # -------------------------
       - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
 
+      # -------------------------
+      # Search index
+      # -------------------------
       - name: Build satellite search index
         run: python scripts/build_satellite_index_full.py
 
+      # -------------------------
+      # Drag analysis
+      # -------------------------
       - name: Build drag analysis
         run: python scripts/build_drag_analysis.py
 
+      # -------------------------
+      # Debug
+      # -------------------------
       - name: Show generated files
         run: |
+
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
 
+          echo ""
+          echo "===== catalog ====="
+          ls -lh docs/data/catalog | tail -20
+
+          echo ""
           echo "===== index ====="
           ls -lh docs/data/satellite_index_full.json || echo "index missing"
 
+          echo ""
           echo "===== NOAA ====="
-          ls docs/data/noaa || echo "NOAA missing"
+          ls -lh docs/data/noaa || echo "NOAA missing"
 
+          echo ""
           echo "===== launches ====="
-          ls -lh docs/data/launches/weekly_launches.json || echo "launch calendar missing"
+          ls -lh docs/data/launches || echo "launches missing"
 
+          echo ""
           echo "===== analysis count ====="
           find docs/data/analysis -name "*.json" | wc -l
 
+      # -------------------------
+      # Git status
+      # -------------------------
+      - name: Git status
+        run: |
+          git status
+          git branch
+          git log --oneline -5
+
+      # -------------------------
+      # Commit & push
+      # -------------------------
       - name: Commit and push
         run: |
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
+
+          # 最新取得
+          git fetch origin main
+
+          # 変更追加
           git add docs/data
-          git commit -m "Daily update satellite data + NOAA + launches + index" || echo "No changes"
-          git push
+
+          # 変更なければ終了
+          git diff --cached --quiet && echo "No changes" && exit 0
+
+          # commit
+          git commit -m "Daily update satellite data + NOAA + launches + index"
+
+          # rebase retry
+          for i in 1 2 3
+          do
+            echo "Rebase attempt $i"
+
+            git pull --rebase origin main && break
+
+            echo "Retry in 5 sec..."
+            sleep 5
+          done
+
+          # push retry
+          for i in 1 2 3
+          do
+            echo "Push attempt $i"
+
+            git push && break
+
+            echo "Push retry in 5 sec..."
+
+            git pull --rebase origin main || true
+
+            sleep 5
+          done
