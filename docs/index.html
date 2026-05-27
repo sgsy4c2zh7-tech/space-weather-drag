@@ -337,6 +337,17 @@
         <input id="geoApogeeMax" type="number" value="37000" />
       </label>
 
+      <label>
+        基準衛星
+        <select id="geoReferenceSat"></select>
+      </label>
+
+      <label>
+        周辺経度幅 ±deg
+        <input id="geoNearbyRange" type="number" value="10" step="1" />
+      </label>
+
+      <button id="showNearbyGeoBtn">周辺GEO表示</button>
       <button id="showGeoBtn">GEO表示</button>
       <button id="showAllGeoBtn">全GEO表示</button>
       <button id="clearGeoBtn">GEO消去</button>
@@ -344,6 +355,7 @@
 
     <div class="small-text" style="margin-top:8px;">
       Ctrl / Cmd を押しながら複数国を選択できます。GEO位置は sat_history の最新 latitude_deg / longitude_deg を使います。<br>
+      「周辺GEO表示」は、選択した基準衛星の最新経度を中心に、対象国GEOだけを±経度幅で抽出します。<br>
       候補0件の場合、診断として「全GEO判定」「国一致」「国コードサンプル」を表示します。
     </div>
 
@@ -785,6 +797,24 @@ function renderSelectedList() {
 
   if (current && selectedIds.has(Number(current))) {
     primarySelect.value = current;
+  }
+
+  updateGeoReferenceList();
+}
+
+function updateGeoReferenceList() {
+  const sel = document.getElementById("geoReferenceSat");
+  if (!sel) return;
+
+  const current = sel.value;
+  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+
+  sel.innerHTML = selected.map(s => `
+    <option value="${s.norad_id}">${s.norad_id} / ${s.name || "-"}</option>
+  `).join("");
+
+  if (current && selectedIds.has(Number(current))) {
+    sel.value = current;
   }
 }
 
@@ -1824,6 +1854,181 @@ async function showGeoSatellites(forceAllGeo = false) {
 }
 
 
+function longitudeDelta(lonA, lonB) {
+  let d = normalizeLon(lonA) - normalizeLon(lonB);
+  while (d > 180) d -= 360;
+  while (d < -180) d += 360;
+  return d;
+}
+
+function getLatestLatLonFromHistory(history) {
+  if (!Array.isArray(history) || history.length === 0) return null;
+
+  const latest = [...history]
+    .filter(x =>
+      x.latitude_deg !== undefined &&
+      x.longitude_deg !== undefined &&
+      x.latitude_deg !== null &&
+      x.longitude_deg !== null
+    )
+    .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)))
+    .pop();
+
+  if (!latest) return null;
+
+  const lat = Number(latest.latitude_deg);
+  const lon = normalizeLon(latest.longitude_deg);
+
+  if (Number.isNaN(lat) || Number.isNaN(lon)) return null;
+
+  return { latest, lat, lon };
+}
+
+async function showNearbyGeoSatellites() {
+  initGeoMap();
+  geoLayer.clearLayers();
+
+  const status = document.getElementById("geoStatus");
+  const refNorad = Number(document.getElementById("geoReferenceSat").value);
+  const selectedCountries = getSelectedGeoCountries();
+  const rangeDeg = Number(document.getElementById("geoNearbyRange").value) || 10;
+
+  if (!refNorad) {
+    status.textContent = "基準衛星を選択してください。検索結果から衛星を選択すると候補に出ます。";
+    return;
+  }
+
+  if (selectedCountries.size === 0) {
+    status.textContent = "対象国を1つ以上選択してください。";
+    return;
+  }
+
+  const refSat = satelliteIndex.find(s => Number(s.norad_id) === refNorad);
+  if (!refSat) {
+    status.textContent = "基準衛星が satellite_index_full.json 内に見つかりません。";
+    return;
+  }
+
+  let refData;
+  try {
+    refData = await loadSatelliteData(refNorad);
+  } catch {
+    status.textContent = `基準衛星 NORAD ${refNorad} の履歴を取得できません。`;
+    return;
+  }
+
+  const refPos = getLatestLatLonFromHistory(refData.history || []);
+  if (!refPos) {
+    status.textContent = "基準衛星の最新緯度経度がありません。";
+    return;
+  }
+
+  const refLon = refPos.lon;
+  const refLat = refPos.lat;
+
+  const totalGeo = satelliteIndex.filter(s => isGeoCandidate(s));
+  const countryMatchedGeo = totalGeo.filter(s => countryMatchesSelected(getSatCountry(s), selectedCountries));
+
+  const candidates = countryMatchedGeo.filter(s => Number(s.norad_id) !== refNorad);
+
+  status.textContent =
+    `周辺GEO候補 ${candidates.length}件を読込中...\n` +
+    `基準衛星: ${refSat.name || refNorad} / 基準経度=${fmt(refLon, 2)} deg / 範囲=±${rangeDeg} deg\n` +
+    `全GEO判定: ${totalGeo.length}件 / 対象国GEO: ${countryMatchedGeo.length}件`;
+
+  let shown = 0;
+  let missing = 0;
+  let outside = 0;
+
+  for (const s of candidates) {
+    const norad = Number(s.norad_id);
+    const name = s.name || String(norad);
+    const country = getSatCountry(s);
+
+    try {
+      const sat = await loadSatelliteData(norad);
+      const pos = getLatestLatLonFromHistory(sat.history || []);
+
+      if (!pos) {
+        missing++;
+        continue;
+      }
+
+      const dLonSigned = longitudeDelta(pos.lon, refLon);
+      const dLonAbs = Math.abs(dLonSigned);
+
+      if (dLonAbs > rangeDeg) {
+        outside++;
+        continue;
+      }
+
+      const color = getGeoColorByCountry(country);
+
+      const marker = L.circleMarker([pos.lat, pos.lon], {
+        radius: 7,
+        color,
+        fillColor: color,
+        fillOpacity: 0.82,
+        weight: 1.5
+      });
+
+      marker.bindPopup(`
+        <b>${name}</b><br>
+        NORAD: ${norad}<br>
+        Country: ${country}<br>
+        LonDiff: ${fmt(dLonAbs, 2)} deg<br>
+        Signed ΔLon: ${fmt(dLonSigned, 2)} deg<br>
+        Lat: ${fmt(pos.lat, 4)} deg<br>
+        Lon: ${fmt(pos.lon, 4)} deg<br>
+        Height: ${fmt(pos.latest.height_km, 2)} km<br>
+        Epoch: ${pos.latest.epoch || "-"}
+      `);
+
+      marker.addTo(geoLayer);
+      shown++;
+
+      if (shown % 25 === 0) {
+        status.textContent =
+          `周辺GEO表示中... ${shown}/${candidates.length}\n` +
+          `基準経度=${fmt(refLon, 2)} deg / 範囲=±${rangeDeg} deg`;
+        await new Promise(r => setTimeout(r, 1));
+      }
+
+    } catch {
+      missing++;
+    }
+  }
+
+  const refMarker = L.circleMarker([refLat, refLon], {
+    radius: 10,
+    color: "#ffffff",
+    fillColor: "#ffffff",
+    fillOpacity: 1,
+    weight: 3
+  });
+
+  refMarker.bindPopup(`
+    <b>基準衛星</b><br>
+    ${refSat.name || "-"}<br>
+    NORAD: ${refNorad}<br>
+    Country: ${getSatCountry(refSat)}<br>
+    Lat: ${fmt(refLat, 4)} deg<br>
+    Lon: ${fmt(refLon, 4)} deg<br>
+    Epoch: ${refPos.latest.epoch || "-"}
+  `);
+
+  refMarker.addTo(geoLayer);
+
+  status.textContent =
+    `周辺GEO表示完了: ${shown}件 / 範囲外: ${outside}件 / 取得失敗・履歴なし: ${missing}件\n` +
+    `基準衛星: ${refSat.name || refNorad} / 基準経度=${fmt(refLon, 2)} deg / 範囲=±${rangeDeg} deg\n` +
+    `全GEO判定: ${totalGeo.length}件 / 対象国GEO: ${countryMatchedGeo.length}件`;
+
+  try {
+    geoMap.fitBounds(geoLayer.getBounds(), { padding: [20, 20] });
+  } catch {}
+}
+
 function applyManualTleFromUi() {
   const norad = document.getElementById("manualNorad").value.trim();
   const name = document.getElementById("manualName").value.trim();
@@ -1918,6 +2123,7 @@ document.getElementById("applyManualTleBtn").addEventListener("click", applyManu
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
 document.getElementById("showGeoBtn").addEventListener("click", () => showGeoSatellites(false));
 document.getElementById("showAllGeoBtn").addEventListener("click", () => showGeoSatellites(true));
+document.getElementById("showNearbyGeoBtn").addEventListener("click", showNearbyGeoSatellites);
 document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
 
 async function init() {
