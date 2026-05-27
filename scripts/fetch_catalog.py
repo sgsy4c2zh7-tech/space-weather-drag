@@ -1,3 +1,4 @@
+import csv
 import json
 import os
 from datetime import datetime, timezone, timedelta
@@ -7,15 +8,40 @@ CATALOG_DIR = "docs/data/catalog"
 LATEST_INDEX = "docs/data/satellites.json"
 
 CELESTRAK_ACTIVE_JSON = "https://celestrak.org/NORAD/elements/gp.php?GROUP=active&FORMAT=json"
-CELESTRAK_SATCAT_ACTIVE_JSON = "https://celestrak.org/satcat/active.php?FORMAT=json"
+
+SATCAT_CSV_URLS = [
+    "https://celestrak.org/pub/satcat.csv",
+    "https://www.celestrak.org/pub/satcat.csv",
+]
 
 os.makedirs(CATALOG_DIR, exist_ok=True)
 
 
-def fetch_json(url: str):
+def fetch_text(url: str):
     req = Request(url, headers={"User-Agent": "Mozilla/5.0"})
     with urlopen(req, timeout=180) as resp:
-        return json.loads(resp.read().decode("utf-8"))
+        return resp.read().decode("utf-8", errors="replace")
+
+
+def fetch_json(url: str):
+    return json.loads(fetch_text(url))
+
+
+def fetch_satcat_csv():
+    last_error = None
+    for url in SATCAT_CSV_URLS:
+        try:
+            text = fetch_text(url)
+            rows = list(csv.DictReader(text.splitlines()))
+            if rows:
+                print(f"Fetched SATCAT CSV: {url}")
+                return rows
+        except Exception as e:
+            last_error = e
+            print(f"SATCAT CSV failed: {url} / {e}")
+
+    print(f"warning: SATCAT CSV unavailable. last_error={last_error}")
+    return []
 
 
 def cleanup_old_files(folder: str, days: int = 30):
@@ -35,32 +61,38 @@ def cleanup_old_files(folder: str, days: int = 30):
 
 def safe_int(v):
     try:
-        return int(v)
+        return int(str(v).strip())
     except Exception:
         return None
+
+
+def pick_first(row, keys, default=None):
+    for k in keys:
+        if k in row and row[k] not in [None, ""]:
+            return row[k]
+    return default
 
 
 def build_satcat_map(satcat_rows):
     out = {}
 
     for r in satcat_rows:
-        norad = safe_int(r.get("NORAD_CAT_ID") or r.get("NORAD"))
+        norad = safe_int(pick_first(r, ["NORAD_CAT_ID", "NORAD", "CATNR", "OBJECT_NUMBER"]))
         if norad is None:
             continue
 
-        country = (
-            r.get("COUNTRY")
-            or r.get("COUNTRY_CODE")
-            or r.get("OWNER")
-            or "UNK"
+        country = pick_first(
+            r,
+            ["COUNTRY", "OWNER", "COUNTRY_CODE", "LAUNCHING_STATE"],
+            "UNK"
         )
 
         out[norad] = {
             "country_code": str(country).strip().upper() if country else "UNK",
-            "object_type": r.get("OBJECT_TYPE"),
-            "launch_site": r.get("LAUNCH_SITE"),
-            "launch_date": r.get("LAUNCH_DATE"),
-            "decay_date": r.get("DECAY_DATE"),
+            "object_type": pick_first(r, ["OBJECT_TYPE", "TYPE"]),
+            "launch_site": pick_first(r, ["LAUNCH_SITE", "SITE"]),
+            "launch_date": pick_first(r, ["LAUNCH_DATE"]),
+            "decay_date": pick_first(r, ["DECAY_DATE"]),
         }
 
     return out
@@ -97,17 +129,14 @@ def main():
     if not isinstance(gp_rows, list) or len(gp_rows) == 0:
         raise SystemExit("CelesTrak GP catalog fetch returned no rows.")
 
-    satcat_rows = fetch_json(CELESTRAK_SATCAT_ACTIVE_JSON)
-    if not isinstance(satcat_rows, list) or len(satcat_rows) == 0:
-        raise SystemExit("CelesTrak SATCAT fetch returned no rows.")
-
+    satcat_rows = fetch_satcat_csv()
     satcat_map = build_satcat_map(satcat_rows)
 
     now = datetime.now(timezone.utc)
     stamp = now.strftime("%Y-%m-%dT%H%MZ")
 
     gp_snap_path = os.path.join(CATALOG_DIR, f"active_gp_{stamp}.json")
-    satcat_snap_path = os.path.join(CATALOG_DIR, f"active_satcat_{stamp}.json")
+    satcat_snap_path = os.path.join(CATALOG_DIR, f"satcat_{stamp}.json")
 
     with open(gp_snap_path, "w", encoding="utf-8") as f:
         json.dump(gp_rows, f, ensure_ascii=False, indent=2)
@@ -128,6 +157,7 @@ def main():
     print(f"SATCAT rows: {len(satcat_rows)}")
     print(f"Satellite index rows: {len(sat_index)}")
     print(f"With country_code: {with_country}")
+    print(f"Without country_code: {len(sat_index) - with_country}")
     print(f"Wrote GP snapshot: {gp_snap_path}")
     print(f"Wrote SATCAT snapshot: {satcat_snap_path}")
     print(f"Wrote satellite index: {LATEST_INDEX}")
