@@ -136,7 +136,7 @@
       background: #1a2740;
     }
 
-    #status, #searchStatus, #tleStatus, #geoStatus {
+    #status, #searchStatus, #tleStatus, #geoStatus, #launchStatus {
       margin-top: 10px;
       font-size: 14px;
       color: #d6e4ff;
@@ -363,6 +363,38 @@
 
     <div style="margin-top:12px;">
       <div id="geoMap"></div>
+    </div>
+  </div>
+
+  <div class="card">
+    <h2>1週間 打ち上げカレンダー</h2>
+
+    <div class="row">
+      <button id="loadLaunchCalendarBtn">打ち上げカレンダー読込</button>
+      <button id="autoLaunchCalendarBtn">再読込</button>
+    </div>
+
+    <div class="small-text" style="margin-top:8px;">
+      workflowで作成した <code>docs/data/launches/weekly_launches.json</code> を読み込みます。対象は日本・アメリカ・中国・ロシアに絞った今後1週間の打ち上げです。
+    </div>
+
+    <div id="launchStatus">未読込</div>
+
+    <div class="selected-list" style="margin-top:10px;">
+      <table>
+        <thead>
+          <tr>
+            <th>日時 UTC</th>
+            <th>日時 JST</th>
+            <th>国</th>
+            <th>ミッション / 打上げ名</th>
+            <th>事業者</th>
+            <th>射場</th>
+            <th>状態</th>
+          </tr>
+        </thead>
+        <tbody id="launchCalendarBody"></tbody>
+      </table>
     </div>
   </div>
 
@@ -2029,6 +2061,113 @@ async function showNearbyGeoSatellites() {
   } catch {}
 }
 
+
+function formatLaunchTimeUtc(iso) {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+  return d.toISOString().replace("T", " ").slice(0, 16) + " UTC";
+}
+
+function formatLaunchTimeJst(iso) {
+  if (!iso) return "-";
+  const d = new Date(iso);
+  if (Number.isNaN(d.getTime())) return iso;
+
+  const jst = new Date(d.getTime() + 9 * 3600 * 1000);
+  const y = jst.getUTCFullYear();
+  const m = String(jst.getUTCMonth() + 1).padStart(2, "0");
+  const day = String(jst.getUTCDate()).padStart(2, "0");
+  const h = String(jst.getUTCHours()).padStart(2, "0");
+  const min = String(jst.getUTCMinutes()).padStart(2, "0");
+
+  return `${y}-${m}-${day} ${h}:${min} JST`;
+}
+
+function launchCountryLabel(group) {
+  const g = String(group || "").toUpperCase();
+
+  if (g === "JPN") return "日本";
+  if (g === "US") return "アメリカ";
+  if (g === "CHN") return "中国";
+  if (g === "RUS") return "ロシア";
+
+  return group || "-";
+}
+
+function launchCountryClass(group) {
+  const g = String(group || "").toUpperCase();
+
+  if (g === "JPN") return "日本";
+  if (g === "US") return "アメリカ";
+  if (g === "CHN") return "中国";
+  if (g === "RUS") return "ロシア";
+
+  return "-";
+}
+
+function escapeHtml(s) {
+  return String(s ?? "")
+    .replaceAll("&", "&amp;")
+    .replaceAll("<", "&lt;")
+    .replaceAll(">", "&gt;")
+    .replaceAll('"', "&quot;")
+    .replaceAll("'", "&#039;");
+}
+
+async function loadLaunchCalendar() {
+  const status = document.getElementById("launchStatus");
+  const body = document.getElementById("launchCalendarBody");
+
+  try {
+    status.textContent = "打ち上げカレンダー読込中...";
+
+    const data = await getJson("data/launches/weekly_launches.json");
+    const launches = Array.isArray(data.launches) ? data.launches : [];
+
+    if (launches.length === 0) {
+      body.innerHTML = `
+        <tr>
+          <td colspan="7">今後1週間の対象国打ち上げはありません。</td>
+        </tr>
+      `;
+      status.textContent =
+        `表示完了: 0件 / 更新: ${data.updated_at || "-"} / 期間: ${data.window_start || "-"} ～ ${data.window_end || "-"}`;
+      return;
+    }
+
+    const sorted = [...launches].sort((a, b) => String(a.net || "").localeCompare(String(b.net || "")));
+
+    body.innerHTML = sorted.map(x => {
+      const title = x.name || x.mission || "-";
+      const mission = x.mission && x.mission !== x.name ? `<br><span class="small-text">${escapeHtml(x.mission)}</span>` : "";
+      const pad = x.pad && x.location ? `${x.pad}<br><span class="small-text">${x.location}</span>` : (x.location || x.pad || "-");
+
+      return `
+        <tr>
+          <td>${formatLaunchTimeUtc(x.net)}</td>
+          <td>${formatLaunchTimeJst(x.net)}</td>
+          <td>${launchCountryLabel(x.country_group)}</td>
+          <td>${escapeHtml(title)}${mission}</td>
+          <td>${escapeHtml(x.provider || "-")}</td>
+          <td>${pad}</td>
+          <td>${escapeHtml(x.status || "-")}</td>
+        </tr>
+      `;
+    }).join("");
+
+    status.textContent =
+      `表示完了: ${sorted.length}件 / 更新: ${data.updated_at || "-"} / 期間: ${data.window_start || "-"} ～ ${data.window_end || "-"}`;
+
+  } catch (e) {
+    body.innerHTML = "";
+    status.textContent =
+      `打ち上げカレンダー読込エラー: ${e.message}\n` +
+      `docs/data/launches/weekly_launches.json が存在するか確認してください。`;
+  }
+}
+
+
 function applyManualTleFromUi() {
   const norad = document.getElementById("manualNorad").value.trim();
   const name = document.getElementById("manualName").value.trim();
@@ -2125,6 +2264,8 @@ document.getElementById("showGeoBtn").addEventListener("click", () => showGeoSat
 document.getElementById("showAllGeoBtn").addEventListener("click", () => showGeoSatellites(true));
 document.getElementById("showNearbyGeoBtn").addEventListener("click", showNearbyGeoSatellites);
 document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
+document.getElementById("loadLaunchCalendarBtn").addEventListener("click", loadLaunchCalendar);
+document.getElementById("autoLaunchCalendarBtn").addEventListener("click", loadLaunchCalendar);
 
 async function init() {
   setDefaultDates();
