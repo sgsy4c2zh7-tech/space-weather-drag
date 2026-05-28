@@ -1,7 +1,7 @@
 {
   "norad_id": 25544,
   "name": "ISS (ZARYA)",
-  "updated_at": "2026-05-27T04:51:55.124229+00:00",
+  "updated_at": "2026-05-28T04:33:43.026048+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T20:59:21.130368Z",
@@ -1044,8 +1044,8 @@
       "mean_anomaly_deg": 279.8754,
       "mean_motion_rev_day": 15.49287262,
       "avg_altitude_km": 418.8098600375315,
-      "kp_nearest": 2.33,
-      "nrlmsis_density": 4.435308457312326e-12
+      "kp_nearest": 3.0,
+      "nrlmsis_density": 4.556915175063514e-12
     },
     {
       "epoch": "2026-05-21T19:26:35.460960Z",
@@ -1190,6 +1190,24 @@
       "avg_altitude_km": 418.4774985986096,
       "kp_nearest": 2.33,
       "nrlmsis_density": 3.371045196459699e-12
+    },
+    {
+      "epoch": "2026-05-27T20:57:20.208384Z",
+      "apogee_km": 423.4284087118858,
+      "perigee_km": 413.36681886963015,
+      "latitude_deg": 1.2762669827158082e-05,
+      "longitude_deg": -159.09461422369824,
+      "height_km": 420.46033627473173,
+      "semi_major_axis_km": 6796.534613790757,
+      "eccentricity": 0.0007402,
+      "inclination_deg": 51.6334,
+      "raan_deg": 40.6657,
+      "arg_perigee_deg": 105.3779,
+      "mean_anomaly_deg": 254.8028,
+      "mean_motion_rev_day": 15.49428223,
+      "avg_altitude_km": 418.397613790758,
+      "kp_nearest": 3.33,
+      "nrlmsis_density": 3.3780174837905186e-12
     }
   ],
   "storm_events": [],
@@ -1532,7 +1550,7 @@
     },
     {
       "time": "2026-05-20T20:13:19.706880Z",
-      "kp": 2.33,
+      "kp": 3.0,
       "delta_h_km": -0.034114648506147205,
       "rate_km_per_day": -0.033055054519840275
     },
@@ -1583,10 +1601,16 @@
       "kp": 2.33,
       "delta_h_km": -0.0242902195300303,
       "rate_km_per_day": -0.0941503528010535
+    },
+    {
+      "time": "2026-05-27T20:57:20.208384Z",
+      "kp": 3.33,
+      "delta_h_km": -0.079884807851613,
+      "rate_km_per_day": -0.07285679247887084
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": 0.045277635569140086,
-    "kp_vs_rate": -0.044251398881178745
+    "kp_vs_delta_h": 0.034721758772832664,
+    "kp_vs_rate": -0.04014525699264776
   }
 }

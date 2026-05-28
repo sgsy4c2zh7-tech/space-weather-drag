@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-05-27T04:45:55.213644Z",
+  "updated_at": "2026-05-28T04:26:42.530755Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-05-27T04%3A45%3A55.213644Z&net__lte=2026-06-03T04%3A45%3A55.213644Z&ordering=net",
-  "window_start": "2026-05-27T04:45:55.213644Z",
-  "window_end": "2026-06-03T04:45:55.213644Z",
-  "count": 5,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-05-28T04%3A26%3A42.530755Z&net__lte=2026-06-04T04%3A26%3A42.530755Z&ordering=net",
+  "window_start": "2026-05-28T04:26:42.530755Z",
+  "window_end": "2026-06-04T04:26:42.530755Z",
+  "count": 6,
   "launches": [
     {
       "id": "384fb817-2a18-46ec-b294-613c08ecea52",
@@ -67,19 +67,34 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
     },
     {
-      "id": "ca3d56b7-2175-48e4-9a6a-2ecc9996d96b",
-      "name": "New Glenn | Amazon Leo (LN-01)",
-      "net": "2026-06-02T18:04:00Z",
-      "status": "To Be Confirmed",
+      "id": "cfff5e89-af2e-46b1-9446-7b0f18de4ef7",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-43",
+      "net": "2026-06-03T08:02:00Z",
+      "status": "Go for Launch",
       "country_group": "US",
-      "provider": "Blue Origin",
-      "mission": "Amazon Leo (LN-01)",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-43",
       "mission_type": "Communications",
-      "pad": "Launch Complex 36A",
+      "pad": "Space Launch Complex 40",
       "location": "Cape Canaveral SFS, FL, USA",
       "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ca3d56b7-2175-48e4-9a6a-2ecc9996d96b/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/new_glenn_on_lc_image_20240313170026.jpeg"
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/cfff5e89-af2e-46b1-9446-7b0f18de4ef7/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "4936311a-af7c-4b05-8d7b-3eea59fc0f11",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-47",
+      "net": "2026-06-03T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-47",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/4936311a-af7c-4b05-8d7b-3eea59fc0f11/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
