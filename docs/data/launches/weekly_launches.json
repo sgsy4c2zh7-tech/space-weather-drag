@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-05-28T04:26:42.530755Z",
+  "updated_at": "2026-05-29T04:39:24.073524Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-05-28T04%3A26%3A42.530755Z&net__lte=2026-06-04T04%3A26%3A42.530755Z&ordering=net",
-  "window_start": "2026-05-28T04:26:42.530755Z",
-  "window_end": "2026-06-04T04:26:42.530755Z",
-  "count": 6,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-05-29T04%3A39%3A24.073524Z&net__lte=2026-06-05T04%3A39%3A24.073524Z&ordering=net",
+  "window_start": "2026-05-29T04:39:24.073524Z",
+  "window_end": "2026-06-05T04:39:24.073524Z",
+  "count": 7,
   "launches": [
     {
       "id": "384fb817-2a18-46ec-b294-613c08ecea52",
       "name": "Falcon 9 Block 5 | Starlink Group 10-53",
-      "net": "2026-05-29T11:52:00Z",
+      "net": "2026-05-29T12:03:09Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -95,6 +95,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/4936311a-af7c-4b05-8d7b-3eea59fc0f11/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "5db6b0f1-446d-4209-824f-1187e1b6d212",
+      "name": "Long March 6A | Unknown Payload",
+      "net": "2026-06-04T11:41:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9A",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5db6b0f1-446d-4209-824f-1187e1b6d212/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     }
   ]
 }
