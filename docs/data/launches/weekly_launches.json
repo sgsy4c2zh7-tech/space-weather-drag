@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-06-01T05:12:29.007915Z",
+  "updated_at": "2026-06-03T05:09:20.970907Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-01T05%3A12%3A29.007915Z&net__lte=2026-06-08T05%3A12%3A29.007915Z&ordering=net",
-  "window_start": "2026-06-01T05:12:29.007915Z",
-  "window_end": "2026-06-08T05:12:29.007915Z",
-  "count": 4,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-03T05%3A09%3A20.970907Z&net__lte=2026-06-10T05%3A09%3A20.970907Z&ordering=net",
+  "window_start": "2026-06-03T05:09:20.970907Z",
+  "window_end": "2026-06-10T05:09:20.970907Z",
+  "count": 7,
   "launches": [
     {
       "id": "cfff5e89-af2e-46b1-9446-7b0f18de4ef7",
       "name": "Falcon 9 Block 5 | Starlink Group 10-43",
-      "net": "2026-06-03T08:02:00Z",
+      "net": "2026-06-03T10:11:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -24,7 +24,7 @@
     {
       "id": "4936311a-af7c-4b05-8d7b-3eea59fc0f11",
       "name": "Falcon 9 Block 5 | Starlink Group 17-47",
-      "net": "2026-06-03T14:00:00Z",
+      "net": "2026-06-03T14:36:20Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -54,8 +54,8 @@
     {
       "id": "3dd21d77-a37d-419c-86fb-8591fe256583",
       "name": "Long March 8 | Unknown Payload",
-      "net": "2026-06-05T05:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-06-05T06:30:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Unknown Payload",
@@ -65,6 +65,51 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/3dd21d77-a37d-419c-86fb-8591fe256583/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8_liftoff_2_image_20240315183218.jpg"
+    },
+    {
+      "id": "114577dc-7617-461c-aaeb-9bd0f64b5a4b",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-35",
+      "net": "2026-06-07T10:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-35",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/114577dc-7617-461c-aaeb-9bd0f64b5a4b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "d8eb4b68-5307-4b3b-b585-5598958defc2",
+      "name": "Smart Dragon 3 | Unknown Payload",
+      "net": "2026-06-10T00:30:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Rocket Co. Ltd.",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Haiyang offshore launch location",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d8eb4b68-5307-4b3b-b585-5598958defc2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/smart_dragon_3__image_20240925074606.jpg"
+    },
+    {
+      "id": "e1a3b702-464f-435d-8c1f-ade9be196b77",
+      "name": "H3-30 | H3-30 Test Flight",
+      "net": "2026-06-10T00:53:59Z",
+      "status": "Go for Launch",
+      "country_group": "JPN",
+      "provider": "Mitsubishi Heavy Industries",
+      "mission": "H3-30 Test Flight",
+      "mission_type": "Test Flight",
+      "pad": "Yoshinobu Launch Complex LP-2",
+      "location": "Tanegashima Space Center, Japan",
+      "location_country_code": "JPN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1a3b702-464f-435d-8c1f-ade9be196b77/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-30_f6_cft_image_20251028183426.jpg"
     }
   ]
 }
