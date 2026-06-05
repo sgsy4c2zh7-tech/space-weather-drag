@@ -1,41 +1,11 @@
 {
-  "updated_at": "2026-06-04T05:02:06.128352Z",
+  "updated_at": "2026-06-05T04:45:37.516904Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-04T05%3A02%3A06.128352Z&net__lte=2026-06-11T05%3A02%3A06.128352Z&ordering=net",
-  "window_start": "2026-06-04T05:02:06.128352Z",
-  "window_end": "2026-06-11T05:02:06.128352Z",
-  "count": 9,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-05T04%3A45%3A37.516904Z&net__lte=2026-06-12T04%3A45%3A37.516904Z&ordering=net",
+  "window_start": "2026-06-05T04:45:37.516904Z",
+  "window_end": "2026-06-12T04:45:37.516904Z",
+  "count": 8,
   "launches": [
-    {
-      "id": "cfff5e89-af2e-46b1-9446-7b0f18de4ef7",
-      "name": "Falcon 9 Block 5 | Starlink Group 10-43",
-      "net": "2026-06-04T09:53:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 10-43",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/cfff5e89-af2e-46b1-9446-7b0f18de4ef7/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
-      "id": "5db6b0f1-446d-4209-824f-1187e1b6d212",
-      "name": "Long March 6A | Unknown Payload",
-      "net": "2026-06-04T11:41:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Complex 9A",
-      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/5db6b0f1-446d-4209-824f-1187e1b6d212/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
-    },
     {
       "id": "3dd21d77-a37d-419c-86fb-8591fe256583",
       "name": "Long March 8 | Unknown Payload",
@@ -82,19 +52,19 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
-      "id": "d8eb4b68-5307-4b3b-b585-5598958defc2",
-      "name": "Smart Dragon 3 | Unknown Payload",
-      "net": "2026-06-10T00:30:00Z",
-      "status": "To Be Confirmed",
+      "id": "93cd9d2d-d8e2-49a1-8a85-a0eb8aef4804",
+      "name": "Zhuque-2E Block 2 | Unknown Payload",
+      "net": "2026-06-09T08:20:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
-      "provider": "China Rocket Co. Ltd.",
+      "provider": "LandSpace",
       "mission": "Unknown Payload",
       "mission_type": "Unknown",
-      "pad": "Haiyang offshore launch location",
-      "location": "Haiyang Oriental Spaceport",
+      "pad": "Launch Area 96A",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
       "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/d8eb4b68-5307-4b3b-b585-5598958defc2/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/smart_dragon_3__image_20240925074606.jpg"
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/93cd9d2d-d8e2-49a1-8a85-a0eb8aef4804/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhuque-2e_block_image_20260514152313.jpg"
     },
     {
       "id": "e1a3b702-464f-435d-8c1f-ade9be196b77",
@@ -114,8 +84,8 @@
     {
       "id": "2670e4f1-d58b-4787-9c3f-f9eb03349513",
       "name": "Long March 5 | Unknown Payload",
-      "net": "2026-06-10T06:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-06-10T07:30:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Unknown Payload",
@@ -140,6 +110,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/c7b7e18f-1b42-467e-a8ed-181fb58080e8/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "e6cefffc-19a6-4a4b-a7f0-ebe907d5a6aa",
+      "name": "HASTE | Curveball",
+      "net": "2026-06-11T04:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "Curveball",
+      "mission_type": "Government/Top Secret",
+      "pad": "Rocket Lab Launch Complex 2 (Launch Area 0 C)",
+      "location": "Wallops Flight Facility, Virginia, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e6cefffc-19a6-4a4b-a7f0-ebe907d5a6aa/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     }
   ]
 }
