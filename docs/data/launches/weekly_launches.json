@@ -1,26 +1,11 @@
 {
-  "updated_at": "2026-06-05T04:45:37.516904Z",
+  "updated_at": "2026-06-06T04:17:58.327130Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-05T04%3A45%3A37.516904Z&net__lte=2026-06-12T04%3A45%3A37.516904Z&ordering=net",
-  "window_start": "2026-06-05T04:45:37.516904Z",
-  "window_end": "2026-06-12T04:45:37.516904Z",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-06T04%3A17%3A58.327130Z&net__lte=2026-06-13T04%3A17%3A58.327130Z&ordering=net",
+  "window_start": "2026-06-06T04:17:58.327130Z",
+  "window_end": "2026-06-13T04:17:58.327130Z",
   "count": 8,
   "launches": [
-    {
-      "id": "3dd21d77-a37d-419c-86fb-8591fe256583",
-      "name": "Long March 8 | Unknown Payload",
-      "net": "2026-06-05T06:30:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Commercial LC-1",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/3dd21d77-a37d-419c-86fb-8591fe256583/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8_liftoff_2_image_20240315183218.jpg"
-    },
     {
       "id": "af8d71dd-f439-47b3-91ed-57f959a581e0",
       "name": "Falcon 9 Block 5 | Starlink Group 17-43",
@@ -125,6 +110,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e6cefffc-19a6-4a4b-a7f0-ebe907d5a6aa/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "229267d8-74ca-4d0b-8711-b2efe621fc6b",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-54",
+      "net": "2026-06-12T12:27:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-54",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/229267d8-74ca-4d0b-8711-b2efe621fc6b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
