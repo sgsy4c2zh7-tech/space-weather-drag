@@ -1,15 +1,15 @@
 {
-  "updated_at": "2026-06-07T04:55:08.356436Z",
+  "updated_at": "2026-06-08T04:59:45.387112Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-07T04%3A55%3A08.356436Z&net__lte=2026-06-14T04%3A55%3A08.356436Z&ordering=net",
-  "window_start": "2026-06-07T04:55:08.356436Z",
-  "window_end": "2026-06-14T04:55:08.356436Z",
-  "count": 7,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-08T04%3A59%3A45.387112Z&net__lte=2026-06-15T04%3A59%3A45.387112Z&ordering=net",
+  "window_start": "2026-06-08T04:59:45.387112Z",
+  "window_end": "2026-06-15T04:59:45.387112Z",
+  "count": 8,
   "launches": [
     {
       "id": "114577dc-7617-461c-aaeb-9bd0f64b5a4b",
       "name": "Falcon 9 Block 5 | Starlink Group 10-35",
-      "net": "2026-06-08T10:07:00Z",
+      "net": "2026-06-08T10:13:50Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -109,6 +109,21 @@
       "location": "Cape Canaveral SFS, FL, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/229267d8-74ca-4d0b-8711-b2efe621fc6b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "bad5ea8c-8b17-4cb3-a063-d427fb092275",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-54",
+      "net": "2026-06-14T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-54",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/bad5ea8c-8b17-4cb3-a063-d427fb092275/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
