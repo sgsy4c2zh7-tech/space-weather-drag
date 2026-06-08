@@ -287,7 +287,7 @@
           2. CelesTrak取得済みキャッシュ localStorage<br>
           3. docs/data/tle_history/NORAD.json<br>
           4. docs/data/tle/NORAD.json<br>
-          5. CelesTrak直接取得
+          5. CelesTrak直接取得（FORMAT=TLE → 3LE → 2LE）
         </div>
       </div>
     </div>
@@ -637,16 +637,29 @@ function numVal(id) {
   return v === "" ? null : Number(v);
 }
 
-async function getJson(url) {
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
-  return await res.json();
+async function getText(url) {
+  const res = await fetch(url, {
+    cache: "no-store",
+    mode: "cors"
+  });
+
+  const text = await res.text();
+
+  if (!res.ok) {
+    throw new Error(`${url} HTTP ${res.status}: ${text.slice(0, 180)}`);
+  }
+
+  return text;
 }
 
-async function getText(url) {
-  const res = await fetch(url, { cache: "no-store" });
-  if (!res.ok) throw new Error(`${url} HTTP ${res.status}`);
-  return await res.text();
+async function getJson(url) {
+  const text = await getText(url);
+
+  try {
+    return JSON.parse(text);
+  } catch {
+    throw new Error(`${url} JSON parse failed: ${text.slice(0, 180)}`);
+  }
 }
 
 function setDefaultDates() {
@@ -1009,14 +1022,38 @@ function saveCachedCelestrakTle(norad, item) {
 }
 
 async function fetchCelestrakTleByNorad(norad) {
-  const url = `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(norad)}&FORMAT=TLE`;
-  const text = await getText(url);
+  const id = String(norad).trim();
 
-  if (!text || text.includes("No GP data found") || text.includes("Invalid query")) {
-    return null;
+  // CelesTrakのGP取得。TLE / 3LE / 2LEを順番に試す。
+  // satellite.js の twoline2satrec() は line1/line2 が必要なので、JSON/CSVは使わない。
+  const urls = [
+    `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(id)}&FORMAT=TLE`,
+    `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(id)}&FORMAT=3LE`,
+    `https://celestrak.org/NORAD/elements/gp.php?CATNR=${encodeURIComponent(id)}&FORMAT=2LE`
+  ];
+
+  let lastMessage = "";
+
+  for (const url of urls) {
+    try {
+      const text = await getText(url);
+      console.log("CelesTrak response:", url, text.slice(0, 200));
+
+      const parsed = parseCelestrakTleText(text);
+
+      if (parsed && isValidTlePair(parsed.tle1, parsed.tle2)) {
+        return parsed;
+      }
+
+      lastMessage = `parse failed: ${text.slice(0, 180)}`;
+    } catch (e) {
+      lastMessage = e.message;
+      console.warn("CelesTrak fetch failed:", url, e);
+    }
   }
 
-  return parseCelestrakTleText(text);
+  console.warn(`NORAD ${id} のCelesTrak TLE取得失敗: ${lastMessage}`);
+  return null;
 }
 
 async function loadTleForSatellite(norad) {
