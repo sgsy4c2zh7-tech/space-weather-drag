@@ -1,279 +1,260 @@
 import json
 import time
-import requests
+from datetime import datetime, timezone, timedelta
 from pathlib import Path
-from datetime import datetime, timezone
 
-CATALOG_DIR = Path("docs/data/catalog")
-OUT_DIR = Path("docs/data/tle_history")
-
-RETENTION_DAYS = 370
-CELESTRAK_SLEEP_SEC = 0.25
-REQUEST_TIMEOUT = 20
-
-OUT_DIR.mkdir(parents=True, exist_ok=True)
+import requests
 
 
-def now_iso():
+ROOT = Path(__file__).resolve().parents[1]
+
+CATALOG_PATH = ROOT / "docs" / "data" / "satellite_index_full.json"
+LATEST_DIR = ROOT / "docs" / "data" / "tle"
+HISTORY_DIR = ROOT / "docs" / "data" / "tle_history"
+
+KEEP_DAYS = 30
+REQUEST_SLEEP_SEC = 0.35
+MAX_SATS = 1200
+
+LATEST_DIR.mkdir(parents=True, exist_ok=True)
+HISTORY_DIR.mkdir(parents=True, exist_ok=True)
+
+
+def utc_now_iso():
     return datetime.now(timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
 
 
-def parse_tle_epoch(line1: str):
+def parse_tle_epoch(line1):
     try:
         yy = int(line1[18:20])
-        doy = float(line1[20:32])
+        day = float(line1[20:32])
         year = 2000 + yy if yy < 57 else 1900 + yy
-
         jan1 = datetime(year, 1, 1, tzinfo=timezone.utc)
-        dt = jan1.timestamp() + (doy - 1) * 86400
-
-        return datetime.fromtimestamp(dt, timezone.utc).replace(microsecond=0).isoformat().replace("+00:00", "Z")
+        epoch = jan1 + timedelta(days=day - 1)
+        return epoch.replace(microsecond=0).isoformat().replace("+00:00", "Z")
     except Exception:
         return None
 
 
-def load_json(path: Path):
-    with path.open("r", encoding="utf-8") as f:
-        return json.load(f)
+def valid_tle(tle1, tle2):
+    return isinstance(tle1, str) and isinstance(tle2, str) and tle1.startswith("1 ") and tle2.startswith("2 ")
 
 
-def save_json(path: Path, obj):
-    path.parent.mkdir(parents=True, exist_ok=True)
-    with path.open("w", encoding="utf-8") as f:
-        json.dump(obj, f, ensure_ascii=False, indent=2)
-
-
-def normalize_catalog_items(data):
-    if isinstance(data, list):
-        return data
-
-    if isinstance(data, dict):
-        for key in ["data", "satellites", "items", "catalog"]:
-            if isinstance(data.get(key), list):
-                return data[key]
-
-    return []
-
-
-def find_latest_catalog_file():
-    candidates = list(CATALOG_DIR.glob("*.json"))
-    if not candidates:
-        raise FileNotFoundError("No catalog JSON found in docs/data/catalog")
-
-    return max(candidates, key=lambda p: p.stat().st_mtime)
-
-
-def get_field(item, names):
-    for name in names:
-        if name in item and item[name] not in [None, ""]:
-            return item[name]
-    return None
-
-
-def is_valid_tle(line1, line2):
-    return (
-        isinstance(line1, str)
-        and isinstance(line2, str)
-        and line1.strip().startswith("1 ")
-        and line2.strip().startswith("2 ")
-    )
-
-
-def parse_celestrak_tle_text(text: str):
+def parse_tle_text(text):
     lines = [x.strip() for x in text.splitlines() if x.strip()]
 
-    if len(lines) < 2:
+    if not lines:
         return None
 
-    name = None
-    tle1 = None
-    tle2 = None
+    if lines[0].startswith("<") or "No GP data found" in text or "Invalid query" in text:
+        return None
 
-    for i in range(len(lines)):
-        if lines[i].startswith("1 ") and i + 1 < len(lines) and lines[i + 1].startswith("2 "):
+    for i in range(len(lines) - 1):
+        if lines[i].startswith("1 ") and lines[i + 1].startswith("2 "):
             tle1 = lines[i]
             tle2 = lines[i + 1]
-            if i - 1 >= 0 and not lines[i - 1].startswith(("1 ", "2 ")):
-                name = lines[i - 1]
-            break
+            name = None
 
-    if is_valid_tle(tle1, tle2):
-        return {
-            "name": name,
-            "tle1": tle1,
-            "tle2": tle2,
-        }
+            if i > 0 and not lines[i - 1].startswith("1 ") and not lines[i - 1].startswith("2 "):
+                name = lines[i - 1]
+
+            if not valid_tle(tle1, tle2):
+                return None
+
+            return {
+                "name": name,
+                "tle1": tle1,
+                "tle2": tle2,
+                "tle_epoch": parse_tle_epoch(tle1),
+            }
 
     return None
 
 
-def fetch_celestrak_by_catnr(norad_id: int):
-    url = f"https://celestrak.org/NORAD/elements/gp.php?CATNR={norad_id}&FORMAT=TLE"
+def fetch_tle(norad_id):
+    formats = ["TLE", "3LE", "2LE"]
 
+    for fmt in formats:
+        url = f"https://celestrak.org/NORAD/elements/gp.php?CATNR={norad_id}&FORMAT={fmt}"
+
+        try:
+            r = requests.get(url, timeout=20)
+            if r.status_code != 200:
+                continue
+
+            parsed = parse_tle_text(r.text)
+            if parsed:
+                return parsed
+
+        except Exception as e:
+            print(f"[WARN] fetch failed NORAD={norad_id} FORMAT={fmt}: {e}")
+
+    return None
+
+
+def load_json(path, default):
     try:
-        res = requests.get(url, timeout=REQUEST_TIMEOUT)
-        if res.status_code != 200:
-            return None
-
-        text = res.text.strip()
-
-        if not text or "No GP data found" in text or "Invalid query" in text:
-            return None
-
-        return parse_celestrak_tle_text(text)
-
+        if path.exists():
+            return json.loads(path.read_text(encoding="utf-8"))
     except Exception:
-        return None
+        pass
+    return default
 
 
-def prune_old_entries(entries):
-    now = datetime.now(timezone.utc)
-    kept = []
-
-    for e in entries:
-        t = e.get("fetched_at") or e.get("tle_epoch")
-
-        if not t:
-            kept.append(e)
-            continue
-
-        try:
-            dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
-            age_days = (now - dt).days
-
-            if age_days <= RETENTION_DAYS:
-                kept.append(e)
-
-        except Exception:
-            kept.append(e)
-
-    return kept
-
-
-def load_existing_history(norad: int, name: str):
-    out_path = OUT_DIR / f"{norad}.json"
-
-    if out_path.exists():
-        try:
-            obj = load_json(out_path)
-        except Exception:
-            obj = {}
-    else:
-        obj = {}
-
-    obj.setdefault("norad_id", norad)
-    obj.setdefault("name", name or str(norad))
-    obj.setdefault("tle_history", [])
-
-    obj["norad_id"] = norad
-    obj["name"] = name or obj.get("name") or str(norad)
-
-    return obj
-
-
-def append_tle_entry(obj, tle1, tle2, fetched_at, source):
-    tle1 = tle1.strip()
-    tle2 = tle2.strip()
-
-    tle_epoch = parse_tle_epoch(tle1)
-
-    new_entry = {
-        "fetched_at": fetched_at,
-        "tle_epoch": tle_epoch,
-        "source": source,
-        "tle1": tle1,
-        "tle2": tle2,
-    }
-
-    hist = obj.get("tle_history", [])
-
-    duplicate = any(
-        h.get("tle1") == new_entry["tle1"] and h.get("tle2") == new_entry["tle2"]
-        for h in hist
+def save_json(path, obj):
+    path.write_text(
+        json.dumps(obj, ensure_ascii=False, indent=2),
+        encoding="utf-8"
     )
 
-    if not duplicate:
-        hist.append(new_entry)
 
-    hist = prune_old_entries(hist)
-    hist.sort(key=lambda x: x.get("tle_epoch") or x.get("fetched_at") or "")
+def load_catalog_targets():
+    catalog = load_json(CATALOG_PATH, [])
 
-    obj["tle_history"] = hist
-    obj["latest_tle_epoch"] = tle_epoch
-    obj["updated_at"] = fetched_at
+    targets = []
+    seen = set()
 
-    return not duplicate
-
-
-def main():
-    fetched_at = now_iso()
-    catalog_file = find_latest_catalog_file()
-    data = load_json(catalog_file)
-    items = normalize_catalog_items(data)
-
-    updated = 0
-    skipped = 0
-    from_catalog = 0
-    from_celestrak = 0
-    celestrak_attempts = 0
-
-    for item in items:
-        norad = get_field(item, ["norad_id", "NORAD_CAT_ID", "norad", "id", "OBJECT_ID"])
-        name = get_field(item, ["name", "OBJECT_NAME", "satellite_name", "object_name", "SATNAME"])
-        tle1 = get_field(item, ["tle1", "TLE_LINE1", "line1", "TLE1"])
-        tle2 = get_field(item, ["tle2", "TLE_LINE2", "line2", "TLE2"])
+    for sat in catalog:
+        norad = sat.get("norad_id") or sat.get("NORAD_CAT_ID") or sat.get("catalog_number")
+        if norad is None:
+            continue
 
         try:
             norad = int(norad)
         except Exception:
-            skipped += 1
             continue
 
-        source = "catalog"
+        if norad in seen:
+            continue
 
-        if not is_valid_tle(tle1, tle2):
-            celestrak_attempts += 1
-            time.sleep(CELESTRAK_SLEEP_SEC)
+        seen.add(norad)
 
-            ct = fetch_celestrak_by_catnr(norad)
-            if not ct:
-                skipped += 1
-                continue
+        targets.append({
+            "norad_id": norad,
+            "name": sat.get("name") or sat.get("OBJECT_NAME") or str(norad),
+            "apogee_km": sat.get("apogee_km"),
+            "perigee_km": sat.get("perigee_km"),
+            "height_km": sat.get("height_km"),
+            "selected": sat.get("selected"),
+        })
 
-            tle1 = ct["tle1"]
-            tle2 = ct["tle2"]
+    # まず検索インデックスに載っている主要衛星を優先
+    # MAX_SATSでGitHub Actionsの時間超過を防止
+    targets = sorted(targets, key=lambda x: x["norad_id"])
 
-            if ct.get("name"):
-                name = name or ct["name"]
+    return targets[:MAX_SATS]
 
-            source = "celestrak_gp"
-            from_celestrak += 1
-        else:
-            from_catalog += 1
 
-        obj = load_existing_history(norad, name)
+def should_append(history, tle1, tle2):
+    if not history:
+        return True
 
-        changed = append_tle_entry(
-            obj=obj,
-            tle1=tle1,
-            tle2=tle2,
-            fetched_at=fetched_at,
-            source=source,
-        )
+    latest = history[-1]
+    return latest.get("tle1") != tle1 or latest.get("tle2") != tle2
 
-        save_json(OUT_DIR / f"{norad}.json", obj)
 
-        if changed:
-            updated += 1
+def prune_history(history):
+    cutoff = datetime.now(timezone.utc) - timedelta(days=KEEP_DAYS)
+    kept = []
 
-    print(f"catalog_file={catalog_file}")
-    print(f"items={len(items)}")
-    print(f"updated={updated}")
-    print(f"from_catalog={from_catalog}")
-    print(f"celestrak_attempts={celestrak_attempts}")
-    print(f"from_celestrak={from_celestrak}")
-    print(f"skipped={skipped}")
-    print(f"out_dir={OUT_DIR}")
+    for item in history:
+        t = item.get("fetched_at") or item.get("tle_epoch")
+        if not t:
+            kept.append(item)
+            continue
+
+        try:
+            dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
+            if dt >= cutoff:
+                kept.append(item)
+        except Exception:
+            kept.append(item)
+
+    return kept
+
+
+def update_one_sat(target):
+    norad = target["norad_id"]
+    catalog_name = target.get("name") or str(norad)
+
+    tle = fetch_tle(norad)
+    if not tle:
+        print(f"[MISS] NORAD {norad}: no TLE")
+        return False
+
+    fetched_at = utc_now_iso()
+    name = tle.get("name") or catalog_name
+
+    latest_obj = {
+        "norad_id": norad,
+        "name": name,
+        "fetched_at": fetched_at,
+        "tle_epoch": tle.get("tle_epoch"),
+        "tle1": tle["tle1"],
+        "tle2": tle["tle2"],
+    }
+
+    save_json(LATEST_DIR / f"{norad}.json", latest_obj)
+
+    hist_path = HISTORY_DIR / f"{norad}.json"
+    hist_obj = load_json(hist_path, {
+        "norad_id": norad,
+        "name": name,
+        "tle_history": []
+    })
+
+    hist_obj["norad_id"] = norad
+    hist_obj["name"] = name
+
+    history = hist_obj.get("tle_history", [])
+    history = prune_history(history)
+
+    entry = {
+        "fetched_at": fetched_at,
+        "tle_epoch": tle.get("tle_epoch"),
+        "tle1": tle["tle1"],
+        "tle2": tle["tle2"],
+    }
+
+    if should_append(history, tle["tle1"], tle["tle2"]):
+        history.append(entry)
+
+    hist_obj["tle_history"] = history
+
+    save_json(hist_path, hist_obj)
+
+    print(f"[OK] NORAD {norad}: {name} epoch={tle.get('tle_epoch')} history={len(history)}")
+    return True
+
+
+def main():
+    targets = load_catalog_targets()
+
+    if not targets:
+        raise RuntimeError(f"No targets found from {CATALOG_PATH}")
+
+    print(f"Targets: {len(targets)}")
+    print(f"Keep days: {KEEP_DAYS}")
+
+    ok = 0
+    miss = 0
+
+    for i, target in enumerate(targets, start=1):
+        try:
+            if update_one_sat(target):
+                ok += 1
+            else:
+                miss += 1
+        except Exception as e:
+            miss += 1
+            print(f"[ERROR] NORAD {target.get('norad_id')}: {e}")
+
+        if i % 50 == 0:
+            print(f"Progress: {i}/{len(targets)} ok={ok} miss={miss}")
+
+        time.sleep(REQUEST_SLEEP_SEC)
+
+    print(f"Done. ok={ok} miss={miss}")
 
 
 if __name__ == "__main__":
