@@ -367,7 +367,7 @@
   </div>
 
   <div class="card">
-    <h2>1週間 打ち上げカレンダー</h2>
+    <h2>2週間 打ち上げカレンダー</h2>
 
     <div class="row">
       <button id="loadLaunchCalendarBtn">打ち上げカレンダー読込</button>
@@ -375,7 +375,7 @@
     </div>
 
     <div class="small-text" style="margin-top:8px;">
-      workflowで作成した <code>docs/data/launches/weekly_launches.json</code> を読み込みます。対象は日本・アメリカ・中国・ロシアに絞った今後1週間の打ち上げです。
+      workflowで作成した <code>docs/data/launches/weekly_launches.json</code> を読み込みます。対象は日本・アメリカ・中国・ロシアに絞った今後2週間の打ち上げです。
     </div>
 
     <div id="launchStatus">未読込</div>
@@ -2436,7 +2436,7 @@ async function loadLaunchCalendar() {
     if (launches.length === 0) {
       body.innerHTML = `
         <tr>
-          <td colspan="7">今後1週間の対象国打ち上げはありません。</td>
+          <td colspan="7">今後2週間の対象国打ち上げはありません。</td>
         </tr>
       `;
       status.textContent =
