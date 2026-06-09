@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-09T11:08:58.808300Z",
+  "updated_at": "2026-06-09T16:54:28.065173Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T11%3A08%3A58.808300Z&net__lte=2026-06-23T11%3A08%3A58.808300Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T16%3A54%3A28.065173Z&net__lte=2026-06-23T16%3A54%3A28.065173Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-09T11:08:58.808300Z",
-  "window_end": "2026-06-23T11:08:58.808300Z",
-  "count": 12,
+  "window_start": "2026-06-09T16:54:28.065173Z",
+  "window_end": "2026-06-23T16:54:28.065173Z",
+  "count": 14,
   "launches": [
     {
       "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
@@ -83,21 +83,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
-      "id": "bad5ea8c-8b17-4cb3-a063-d427fb092275",
-      "name": "Falcon 9 Block 5 | Starlink Group 17-54",
-      "net": "2026-06-14T14:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 17-54",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/bad5ea8c-8b17-4cb3-a063-d427fb092275/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
       "id": "ffc0aee1-fdd7-4638-b098-9d0c01b40663",
       "name": "Kinetica 1 | Unknown Payload",
       "net": "2026-06-15T03:40:00Z",
@@ -111,6 +96,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ffc0aee1-fdd7-4638-b098-9d0c01b40663/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
+    },
+    {
+      "id": "bad5ea8c-8b17-4cb3-a063-d427fb092275",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-54",
+      "net": "2026-06-15T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-54",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/bad5ea8c-8b17-4cb3-a063-d427fb092275/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "0ff43072-5407-425b-8c8d-6bca068143b9",
@@ -141,6 +141,36 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/756a042f-3da8-4a21-bb42-5996fc148050/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "c3f48f48-0e0a-4bca-917e-de494cfca35b",
+      "name": "Falcon 9 Block 5 | BlueBird Block 2 #3-5",
+      "net": "2026-06-17T06:39:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "BlueBird Block 2 #3-5",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/c3f48f48-0e0a-4bca-917e-de494cfca35b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/f9_on_slc-40_2_image_20240919072420.jpg"
+    },
+    {
+      "id": "5d4099bf-a0be-4f54-b236-b6ab3aed4146",
+      "name": "Falcon 9 Block 5 | NROL-179",
+      "net": "2026-06-17T09:08:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-179",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5d4099bf-a0be-4f54-b236-b6ab3aed4146/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     },
     {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
