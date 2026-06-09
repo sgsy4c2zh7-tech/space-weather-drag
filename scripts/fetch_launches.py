@@ -9,6 +9,8 @@ OUT_FILE = OUT_DIR / "weekly_launches.json"
 
 BASE_URL = "https://ll.thespacedevs.com/2.2.0/launch/upcoming/"
 
+LOOKAHEAD_DAYS = 14
+
 COUNTRY_GROUPS = {
     "JPN": ["JPN", "JAPAN", "JAXA", "TANEGASHIMA", "UCHINOURA", "MHI"],
     "US": ["USA", "US", "UNITED STATES", "SPACEX", "ULA", "NASA", "VANDENBERG", "CAPE CANAVERAL", "KENNEDY"],
@@ -71,12 +73,12 @@ def main():
     OUT_DIR.mkdir(parents=True, exist_ok=True)
 
     now = datetime.now(timezone.utc)
-    week_later = now + timedelta(days=7)
+    window_end = now + timedelta(days=LOOKAHEAD_DAYS)
 
     params = {
         "limit": 100,
         "net__gte": now.isoformat().replace("+00:00", "Z"),
-        "net__lte": week_later.isoformat().replace("+00:00", "Z"),
+        "net__lte": window_end.isoformat().replace("+00:00", "Z"),
         "ordering": "net",
     }
 
@@ -95,8 +97,9 @@ def main():
         "updated_at": now.isoformat().replace("+00:00", "Z"),
         "source": "Launch Library 2 / The Space Devs",
         "source_url": url,
+        "window_days": LOOKAHEAD_DAYS,
         "window_start": now.isoformat().replace("+00:00", "Z"),
-        "window_end": week_later.isoformat().replace("+00:00", "Z"),
+        "window_end": window_end.isoformat().replace("+00:00", "Z"),
         "count": len(simplified),
         "launches": simplified,
     }
@@ -105,6 +108,7 @@ def main():
         json.dump(out, f, ensure_ascii=False, indent=2)
 
     print(f"Wrote {OUT_FILE}")
+    print(f"Window days: {LOOKAHEAD_DAYS}")
     print(f"Launches: {len(simplified)}")
 
 
