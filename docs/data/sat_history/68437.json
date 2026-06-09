@@ -1,13 +1,13 @@
 {
   "norad_id": 68437,
-  "name": "TRANSPORTER-16 OBJECT X",
+  "name": "AIGLONSAT-1",
   "history": [
     {
       "epoch": "2026-04-14T03:17:46.118976Z",
       "apogee_km": 512.1964393315575,
       "perigee_km": 511.7700786899295,
       "latitude_deg": -4.2383924978828934e-05,
-      "longitude_deg": 171.79366182703413,
+      "longitude_deg": 171.79366182703419,
       "height_km": 515.2440983090477,
       "semi_major_axis_km": 6890.120259010743,
       "eccentricity": 3.094e-05,
@@ -127,7 +127,7 @@
       "apogee_km": 512.6084905221032,
       "perigee_km": 509.5758518409493,
       "latitude_deg": -6.61936596408552e-06,
-      "longitude_deg": -83.8907876463828,
+      "longitude_deg": -83.89078764638276,
       "height_km": 515.5998266129876,
       "semi_major_axis_km": 6889.229171181526,
       "eccentricity": 0.0002201,
@@ -706,6 +706,21 @@
       "arg_perigee_deg": 83.9881,
       "mean_anomaly_deg": 276.1913,
       "mean_motion_rev_day": 15.19402333
+    },
+    {
+      "epoch": "2026-06-09T12:56:46.430592Z",
+      "apogee_km": 510.98679577089297,
+      "perigee_km": 504.23435626794526,
+      "latitude_deg": 4.418039294054499e-05,
+      "longitude_deg": 27.0241036220013,
+      "height_km": 510.2980758914696,
+      "semi_major_axis_km": 6885.747576019419,
+      "eccentricity": 0.00049032,
+      "inclination_deg": 97.4498,
+      "raan_deg": 119.1282,
+      "arg_perigee_deg": 83.3355,
+      "mean_anomaly_deg": 276.8438,
+      "mean_motion_rev_day": 15.1941397
     }
   ]
 }

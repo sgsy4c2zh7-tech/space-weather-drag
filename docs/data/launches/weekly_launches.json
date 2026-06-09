@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-06-09T16:54:28.065173Z",
+  "updated_at": "2026-06-09T22:55:49.938206Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T16%3A54%3A28.065173Z&net__lte=2026-06-23T16%3A54%3A28.065173Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T22%3A55%3A49.938206Z&net__lte=2026-06-23T22%3A55%3A49.938206Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-09T16:54:28.065173Z",
-  "window_end": "2026-06-23T16:54:28.065173Z",
+  "window_start": "2026-06-09T22:55:49.938206Z",
+  "window_end": "2026-06-23T22:55:49.938206Z",
   "count": 14,
   "launches": [
-    {
-      "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
-      "name": "Falcon 9 Block 5 | Starlink Group 17-44",
-      "net": "2026-06-10T14:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 17-44",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/c7b7e18f-1b42-467e-a8ed-181fb58080e8/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
     {
       "id": "e6cefffc-19a6-4a4b-a7f0-ebe907d5a6aa",
       "name": "HASTE | Curveball",
@@ -51,6 +36,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/2670e4f1-d58b-4787-9c3f-f9eb03349513/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20201119165033.png"
+    },
+    {
+      "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-44",
+      "net": "2026-06-11T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-44",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/c7b7e18f-1b42-467e-a8ed-181fb58080e8/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "e1a3b702-464f-435d-8c1f-ade9be196b77",
