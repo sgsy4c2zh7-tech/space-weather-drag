@@ -4,7 +4,7 @@ on:
   workflow_dispatch:
 
   schedule:
-    - cron: "10 */3 * * *"
+    - cron: "17 5,13,21 * * *"
 
 permissions:
   contents: write
@@ -32,13 +32,7 @@ jobs:
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install \
-            requests \
-            numpy \
-            scipy \
-            sgp4 \
-            skyfield \
-            pymsis
+          pip install requests numpy scipy sgp4 skyfield pymsis
 
       - name: Prepare folders
         run: |
@@ -51,11 +45,14 @@ jobs:
           mkdir -p docs/data/tle
           mkdir -p docs/data/tle_history
 
+      - name: Fetch Space-Track TLE history
+        env:
+          SPACETRACK_USERNAME: ${{ secrets.SPACETRACK_USERNAME }}
+          SPACETRACK_PASSWORD: ${{ secrets.SPACETRACK_PASSWORD }}
+        run: python scripts/build_tle_history.py
+
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
-
-      - name: Fetch TLE history
-        run: python scripts/fetch_tle_history.py
 
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
@@ -74,42 +71,17 @@ jobs:
 
       - name: Show generated files
         run: |
+          echo "===== TLE latest count ====="
+          find docs/data/tle -name "*.json" | wc -l
+
+          echo "===== TLE history count ====="
+          find docs/data/tle_history -name "*.json" | wc -l
+
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
 
-          echo ""
-          echo "===== tle latest count ====="
-          find docs/data/tle -name "*.json" | wc -l
-
-          echo ""
-          echo "===== tle_history count ====="
-          find docs/data/tle_history -name "*.json" | wc -l
-
-          echo ""
-          echo "===== catalog ====="
-          ls -lh docs/data/catalog | tail -20
-
-          echo ""
-          echo "===== index ====="
-          ls -lh docs/data/satellite_index_full.json || echo "index missing"
-
-          echo ""
-          echo "===== NOAA ====="
-          ls -lh docs/data/noaa || echo "NOAA missing"
-
-          echo ""
-          echo "===== launches ====="
-          ls -lh docs/data/launches || echo "launches missing"
-
-          echo ""
           echo "===== analysis count ====="
           find docs/data/analysis -name "*.json" | wc -l
-
-      - name: Git status
-        run: |
-          git status
-          git branch
-          git log --oneline -5
 
       - name: Commit and push
         run: |
@@ -121,21 +93,17 @@ jobs:
 
           git diff --cached --quiet && echo "No changes" && exit 0
 
-          git commit -m "Update satellite data + TLE history + NOAA + launches + index"
+          git commit -m "Update Space-Track TLE history + satellite data"
 
           for i in 1 2 3
           do
-            echo "Rebase attempt $i"
             git pull --rebase origin main && break
-            echo "Retry in 5 sec..."
             sleep 5
           done
 
           for i in 1 2 3
           do
-            echo "Push attempt $i"
             git push && break
-            echo "Push retry in 5 sec..."
             git pull --rebase origin main || true
             sleep 5
           done
