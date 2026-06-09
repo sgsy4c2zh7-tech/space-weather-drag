@@ -1,5 +1,5 @@
+import os
 import json
-import time
 from pathlib import Path
 from datetime import datetime, timezone, timedelta
 
@@ -8,13 +8,27 @@ import requests
 
 ROOT = Path(__file__).resolve().parents[1]
 
-CATALOG_PATH = ROOT / "docs/data/satellite_index_full.json"
 TLE_DIR = ROOT / "docs/data/tle"
 TLE_HISTORY_DIR = ROOT / "docs/data/tle_history"
 
-KEEP_DAYS = 30
-SLEEP_SEC = 0.35
-MAX_TARGETS = 1500
+KEEP_DAYS = 7
+
+USERNAME = os.environ.get("SPACETRACK_USERNAME")
+PASSWORD = os.environ.get("SPACETRACK_PASSWORD")
+
+BASE_URL = "https://www.space-track.org"
+LOGIN_URL = f"{BASE_URL}/ajaxauth/login"
+
+# アクティブっぽい衛星の最新GPをTLE形式で取得
+QUERY_URL = (
+    f"{BASE_URL}/basicspacedata/query/"
+    "class/gp/"
+    "decay_date/null-val/"
+    "epoch/>now-10/"
+    "orderby/NORAD_CAT_ID asc,EPOCH desc/"
+    "format/tle"
+)
+
 
 TLE_DIR.mkdir(parents=True, exist_ok=True)
 TLE_HISTORY_DIR.mkdir(parents=True, exist_ok=True)
@@ -24,7 +38,7 @@ def now_utc():
     return datetime.now(timezone.utc).replace(microsecond=0)
 
 
-def iso(dt):
+def to_iso(dt):
     return dt.isoformat().replace("+00:00", "Z")
 
 
@@ -44,13 +58,20 @@ def save_json(path, data):
     )
 
 
-def valid_tle(tle1, tle2):
+def is_valid_tle_pair(line1, line2):
     return (
-        isinstance(tle1, str)
-        and isinstance(tle2, str)
-        and tle1.strip().startswith("1 ")
-        and tle2.strip().startswith("2 ")
+        isinstance(line1, str)
+        and isinstance(line2, str)
+        and line1.startswith("1 ")
+        and line2.startswith("2 ")
     )
+
+
+def norad_from_tle1(line1):
+    try:
+        return int(line1[2:7])
+    except Exception:
+        return None
 
 
 def parse_tle_epoch(line1):
@@ -59,124 +80,98 @@ def parse_tle_epoch(line1):
         doy = float(line1[20:32])
         year = 2000 + yy if yy < 57 else 1900 + yy
         dt = datetime(year, 1, 1, tzinfo=timezone.utc) + timedelta(days=doy - 1)
-        return iso(dt.replace(microsecond=0))
+        return to_iso(dt)
     except Exception:
         return None
 
 
-def parse_tle_text(text):
-    if not text:
-        return None
+def parse_space_track_tle(text):
+    lines = [x.rstrip() for x in text.splitlines() if x.strip()]
+    items = []
 
-    if (
-        "No GP data found" in text
-        or "Invalid query" in text
-        or text.strip().startswith("<")
-    ):
-        return None
+    i = 0
+    while i < len(lines):
+        name = None
 
-    lines = [x.strip() for x in text.splitlines() if x.strip()]
+        if (
+            i + 2 < len(lines)
+            and not lines[i].startswith("1 ")
+            and lines[i + 1].startswith("1 ")
+            and lines[i + 2].startswith("2 ")
+        ):
+            name = lines[i].strip()
+            line1 = lines[i + 1].strip()
+            line2 = lines[i + 2].strip()
+            i += 3
 
-    for i in range(len(lines) - 1):
-        if lines[i].startswith("1 ") and lines[i + 1].startswith("2 "):
-            tle1 = lines[i]
-            tle2 = lines[i + 1]
+        elif (
+            i + 1 < len(lines)
+            and lines[i].startswith("1 ")
+            and lines[i + 1].startswith("2 ")
+        ):
+            line1 = lines[i].strip()
+            line2 = lines[i + 1].strip()
+            i += 2
 
-            if not valid_tle(tle1, tle2):
-                return None
+        else:
+            i += 1
+            continue
 
-            name = None
-            if i > 0 and not lines[i - 1].startswith(("1 ", "2 ")):
-                name = lines[i - 1]
+        if not is_valid_tle_pair(line1, line2):
+            continue
 
-            return {
-                "name": name,
-                "tle1": tle1,
-                "tle2": tle2,
-                "tle_epoch": parse_tle_epoch(tle1),
-            }
-
-    return None
-
-
-def fetch_tle_from_celestrak(norad):
-    for fmt in ["TLE", "3LE", "2LE"]:
-        url = f"https://celestrak.org/NORAD/elements/gp.php?CATNR={norad}&FORMAT={fmt}"
-        try:
-            r = requests.get(url, timeout=20)
-            if r.status_code != 200:
-                continue
-
-            parsed = parse_tle_text(r.text)
-            if parsed:
-                return parsed
-
-        except Exception as e:
-            print(f"[WARN] NORAD {norad} {fmt} failed: {e}")
-
-    return None
-
-
-def load_targets():
-    catalog = load_json(CATALOG_PATH, [])
-    targets = []
-    seen = set()
-
-    for s in catalog:
-        norad = (
-            s.get("norad_id")
-            or s.get("NORAD_CAT_ID")
-            or s.get("catalog_number")
-            or s.get("id")
-        )
-
+        norad = norad_from_tle1(line1)
         if norad is None:
             continue
 
-        try:
-            norad = int(norad)
-        except Exception:
-            continue
-
-        if norad in seen:
-            continue
-
-        seen.add(norad)
-
-        name = (
-            s.get("name")
-            or s.get("OBJECT_NAME")
-            or s.get("object_name")
-            or str(norad)
-        )
-
-        targets.append({
+        items.append({
             "norad_id": norad,
-            "name": name,
+            "name": name or str(norad),
+            "tle_epoch": parse_tle_epoch(line1),
+            "tle1": line1,
+            "tle2": line2,
         })
 
-    targets.sort(key=lambda x: x["norad_id"])
-    return targets[:MAX_TARGETS]
+    return items
+
+
+def dedupe_latest_by_norad(items):
+    latest = {}
+
+    for item in items:
+        norad = item["norad_id"]
+        epoch = item.get("tle_epoch") or ""
+
+        if norad not in latest:
+            latest[norad] = item
+            continue
+
+        old_epoch = latest[norad].get("tle_epoch") or ""
+
+        if epoch > old_epoch:
+            latest[norad] = item
+
+    return list(latest.values())
 
 
 def prune_history(history):
     cutoff = now_utc() - timedelta(days=KEEP_DAYS)
-    out = []
+    kept = []
 
     for item in history:
         t = item.get("fetched_at") or item.get("tle_epoch")
         if not t:
-            out.append(item)
+            kept.append(item)
             continue
 
         try:
             dt = datetime.fromisoformat(t.replace("Z", "+00:00"))
             if dt >= cutoff:
-                out.append(item)
+                kept.append(item)
         except Exception:
-            out.append(item)
+            kept.append(item)
 
-    return out
+    return kept
 
 
 def should_append(history, tle1, tle2):
@@ -187,35 +182,26 @@ def should_append(history, tle1, tle2):
     return last.get("tle1") != tle1 or last.get("tle2") != tle2
 
 
-def update_satellite(target):
-    norad = target["norad_id"]
-    fallback_name = target["name"]
+def update_one(item, fetched_at):
+    norad = item["norad_id"]
+    name = item.get("name") or str(norad)
 
-    tle = fetch_tle_from_celestrak(norad)
-
-    if not tle:
-        print(f"[MISS] {norad} no TLE")
-        return False
-
-    fetched_at = iso(now_utc())
-    name = tle.get("name") or fallback_name or str(norad)
-
-    latest = {
+    latest_obj = {
         "norad_id": norad,
         "name": name,
         "fetched_at": fetched_at,
-        "tle_epoch": tle.get("tle_epoch"),
-        "tle1": tle["tle1"],
-        "tle2": tle["tle2"],
+        "tle_epoch": item.get("tle_epoch"),
+        "tle1": item["tle1"],
+        "tle2": item["tle2"],
     }
 
-    save_json(TLE_DIR / f"{norad}.json", latest)
+    save_json(TLE_DIR / f"{norad}.json", latest_obj)
 
     hist_path = TLE_HISTORY_DIR / f"{norad}.json"
     hist_obj = load_json(hist_path, {
         "norad_id": norad,
         "name": name,
-        "tle_history": [],
+        "tle_history": []
     })
 
     history = hist_obj.get("tle_history", [])
@@ -223,53 +209,89 @@ def update_satellite(target):
 
     entry = {
         "fetched_at": fetched_at,
-        "tle_epoch": tle.get("tle_epoch"),
-        "tle1": tle["tle1"],
-        "tle2": tle["tle2"],
+        "tle_epoch": item.get("tle_epoch"),
+        "tle1": item["tle1"],
+        "tle2": item["tle2"],
     }
 
-    if should_append(history, tle["tle1"], tle["tle2"]):
+    if should_append(history, item["tle1"], item["tle2"]):
         history.append(entry)
 
     hist_obj = {
         "norad_id": norad,
         "name": name,
-        "tle_history": history,
+        "tle_history": history
     }
 
     save_json(hist_path, hist_obj)
 
-    print(f"[OK] {norad} {name} epoch={tle.get('tle_epoch')} hist={len(history)}")
-    return True
+    return len(history)
 
 
 def main():
-    targets = load_targets()
+    if not USERNAME or not PASSWORD:
+        raise RuntimeError(
+            "SPACETRACK_USERNAME / SPACETRACK_PASSWORD がGitHub Secretsにありません。"
+        )
 
-    if not targets:
-        raise RuntimeError(f"No targets from {CATALOG_PATH}")
+    session = requests.Session()
 
-    print(f"targets={len(targets)} keep_days={KEEP_DAYS}")
+    print("Login Space-Track...")
+    login_res = session.post(
+        LOGIN_URL,
+        data={
+            "identity": USERNAME,
+            "password": PASSWORD,
+        },
+        timeout=30,
+    )
+
+    if login_res.status_code != 200:
+        raise RuntimeError(f"Space-Track login failed HTTP {login_res.status_code}")
+
+    print("Fetch active GP TLE...")
+    res = session.get(QUERY_URL, timeout=120)
+
+    if res.status_code != 200:
+        raise RuntimeError(f"Space-Track query failed HTTP {res.status_code}: {res.text[:300]}")
+
+    items = parse_space_track_tle(res.text)
+    items = dedupe_latest_by_norad(items)
+
+    if not items:
+        raise RuntimeError("No TLE items parsed from Space-Track response.")
+
+    fetched_at = to_iso(now_utc())
+
+    print(f"Parsed latest active TLE count: {len(items)}")
+    print(f"Fetched at: {fetched_at}")
+    print(f"Keep days: {KEEP_DAYS}")
 
     ok = 0
-    miss = 0
 
-    for i, target in enumerate(targets, start=1):
-        try:
-            if update_satellite(target):
-                ok += 1
-            else:
-                miss += 1
-        except Exception as e:
-            miss += 1
-            print(f"[ERROR] {target.get('norad_id')}: {e}")
+    for item in items:
+        hist_len = update_one(item, fetched_at)
+        ok += 1
 
-        if i % 50 == 0:
-            print(f"progress {i}/{len(targets)} ok={ok} miss={miss}")
+        if ok % 1000 == 0:
+            print(f"Progress: {ok}/{len(items)}")
 
-        time.sleep(SLEEP_SEC)
+    manifest = {
+        "updated_at": fetched_at,
+        "source": "Space-Track class/gp format/tle",
+        "filter": {
+            "decay_date": "null-val",
+            "epoch": ">now-10",
+            "latest_per_norad": True,
+        },
+        "keep_days": KEEP_DAYS,
+        "count": ok,
+    }
 
-    print(f"done ok={ok} miss={miss}")
+    save_json(TLE_HISTORY_DIR / "index.json", manifest)
+    save_json(TLE_DIR / "index.json", manifest)
+
+    print(f"Done. saved={ok}")
 
 
 if __name__ == "__main__":
