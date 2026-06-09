@@ -1,26 +1,11 @@
 {
-  "updated_at": "2026-06-08T04:59:45.387112Z",
+  "updated_at": "2026-06-09T01:31:15.992158Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-08T04%3A59%3A45.387112Z&net__lte=2026-06-15T04%3A59%3A45.387112Z&ordering=net",
-  "window_start": "2026-06-08T04:59:45.387112Z",
-  "window_end": "2026-06-15T04:59:45.387112Z",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T01%3A31%3A15.992158Z&net__lte=2026-06-16T01%3A31%3A15.992158Z&ordering=net",
+  "window_start": "2026-06-09T01:31:15.992158Z",
+  "window_end": "2026-06-16T01:31:15.992158Z",
   "count": 8,
   "launches": [
-    {
-      "id": "114577dc-7617-461c-aaeb-9bd0f64b5a4b",
-      "name": "Falcon 9 Block 5 | Starlink Group 10-35",
-      "net": "2026-06-08T10:13:50Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 10-35",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/114577dc-7617-461c-aaeb-9bd0f64b5a4b/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
     {
       "id": "93cd9d2d-d8e2-49a1-8a85-a0eb8aef4804",
       "name": "Zhuque-2E Block 2 | Unknown Payload",
@@ -35,36 +20,6 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/93cd9d2d-d8e2-49a1-8a85-a0eb8aef4804/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhuque-2e_block_image_20260514152313.jpg"
-    },
-    {
-      "id": "e1a3b702-464f-435d-8c1f-ade9be196b77",
-      "name": "H3-30 | H3-30 Test Flight",
-      "net": "2026-06-10T00:53:59Z",
-      "status": "Go for Launch",
-      "country_group": "JPN",
-      "provider": "Mitsubishi Heavy Industries",
-      "mission": "H3-30 Test Flight",
-      "mission_type": "Test Flight",
-      "pad": "Yoshinobu Launch Complex LP-2",
-      "location": "Tanegashima Space Center, Japan",
-      "location_country_code": "JPN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1a3b702-464f-435d-8c1f-ade9be196b77/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-30_f6_cft_image_20251028183426.jpg"
-    },
-    {
-      "id": "2670e4f1-d58b-4787-9c3f-f9eb03349513",
-      "name": "Long March 5 | Unknown Payload",
-      "net": "2026-06-10T07:30:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "101",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/2670e4f1-d58b-4787-9c3f-f9eb03349513/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20201119165033.png"
     },
     {
       "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
@@ -97,6 +52,36 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
+      "id": "2670e4f1-d58b-4787-9c3f-f9eb03349513",
+      "name": "Long March 5 | Unknown Payload",
+      "net": "2026-06-11T07:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "101",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/2670e4f1-d58b-4787-9c3f-f9eb03349513/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20201119165033.png"
+    },
+    {
+      "id": "e1a3b702-464f-435d-8c1f-ade9be196b77",
+      "name": "H3-30 | H3-30 Test Flight",
+      "net": "2026-06-12T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "JPN",
+      "provider": "Mitsubishi Heavy Industries",
+      "mission": "H3-30 Test Flight",
+      "mission_type": "Test Flight",
+      "pad": "Yoshinobu Launch Complex LP-2",
+      "location": "Tanegashima Space Center, Japan",
+      "location_country_code": "JPN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1a3b702-464f-435d-8c1f-ade9be196b77/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-30_f6_cft_image_20251028183426.jpg"
+    },
+    {
       "id": "229267d8-74ca-4d0b-8711-b2efe621fc6b",
       "name": "Falcon 9 Block 5 | Starlink Group 10-54",
       "net": "2026-06-12T12:27:00Z",
@@ -125,6 +110,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/bad5ea8c-8b17-4cb3-a063-d427fb092275/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "ffc0aee1-fdd7-4638-b098-9d0c01b40663",
+      "name": "Kinetica 1 | Unknown Payload",
+      "net": "2026-06-15T03:40:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "CAS Space",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 130",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ffc0aee1-fdd7-4638-b098-9d0c01b40663/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
     }
   ]
 }
