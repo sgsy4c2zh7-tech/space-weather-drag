@@ -136,7 +136,7 @@
       background: #1a2740;
     }
 
-    #status, #searchStatus, #tleStatus, #geoStatus, #launchStatus {
+    #status, #searchStatus, #tleStatus, #geoStatus, #launchStatus, #selectedTimeStatus {
       margin-top: 10px;
       font-size: 14px;
       color: #d6e4ff;
@@ -458,6 +458,7 @@
               <option value="inclination">傾斜角</option>
               <option value="elements">6要素</option>
               <option value="meanmotion">平均運動</option>
+              <option value="driftrate">ドリフトレート deg/day</option>
             </select>
           </label>
 
@@ -466,6 +467,19 @@
           <button onclick="setRangeDays(7)">7日</button>
           <button onclick="setRangeDays(30)">30日</button>
         </div>
+
+        <div class="row" style="margin-top:12px;">
+          <label>
+            指定時刻 UTC
+            <input id="selectedTimeUtc" type="datetime-local" />
+          </label>
+          <button id="calcSelectedTimeBtn">指定時刻の相対距離</button>
+          <button id="setSelectedTimeNowBtn">現在UTC</button>
+        </div>
+        <div class="small-text" style="margin-top:6px;">
+          指定したUTC時刻で、主衛星から各対象衛星へのRICと相対距離をSGP4で計算します。TLE履歴がある場合は、その時刻に最も近いTLEを使います。
+        </div>
+        <div id="selectedTimeStatus">指定時刻解析は未実行</div>
 
         <div id="status">未読込</div>
       </div>
@@ -508,6 +522,14 @@
         <h2>SGP4 相対距離 / 再接近距離</h2>
         <div class="chart-wrap small">
           <canvas id="distanceChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>ドリフトレート</h2>
+        <div class="small-text">sat_history の longitude_deg 変化から deg/day を計算します。GEOの東西ドリフト確認用です。</div>
+        <div class="chart-wrap small">
+          <canvas id="driftChart"></canvas>
         </div>
       </div>
 
@@ -555,6 +577,27 @@
               </tr>
             </thead>
             <tbody id="closestBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>指定時刻の相対距離</h2>
+        <div class="selected-list">
+          <table>
+            <thead>
+              <tr>
+                <th>対象</th>
+                <th>解析時刻 UTC</th>
+                <th>距離 km</th>
+                <th>R</th>
+                <th>I</th>
+                <th>C</th>
+                <th>Drift deg/day</th>
+                <th>TLE source</th>
+              </tr>
+            </thead>
+            <tbody id="selectedTimeBody"></tbody>
           </table>
         </div>
       </div>
@@ -609,7 +652,11 @@ let latChart = null;
 let lonChart = null;
 let ricChart = null;
 let distanceChart = null;
+let driftChart = null;
 let tricChart = null;
+
+let lastTleMap = new Map();
+let lastPrimaryId = null;
 
 let geoMap = null;
 let geoLayer = null;
@@ -1192,6 +1239,73 @@ function makeHistoryDataset(source, timeKey, valueKey, label, bins) {
   };
 }
 
+function makeDriftRateDataset(hist, satName, bins) {
+  const arr = makeEmptySeries(bins.length);
+  const rows = [...hist]
+    .filter(x => x.epoch && x.longitude_deg !== undefined && x.longitude_deg !== null)
+    .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)));
+
+  for (let i = 1; i < rows.length; i++) {
+    const prev = rows[i - 1];
+    const cur = rows[i];
+    const t0 = new Date(prev.epoch).getTime();
+    const t1 = new Date(cur.epoch).getTime();
+    const dtDays = (t1 - t0) / 86400000;
+    if (!dtDays || dtDays <= 0) continue;
+
+    const dLon = longitudeDelta(cur.longitude_deg, prev.longitude_deg);
+    const drift = dLon / dtDays;
+    const idx = nearestBinIndex(cur.epoch, bins);
+    if (idx >= 0 && Number.isFinite(drift)) arr[idx] = drift;
+  }
+
+  return {
+    label: `${satName} - DriftRate`,
+    data: arr,
+    ...makeLineStyle()
+  };
+}
+
+async function estimateDriftRateAtTime(norad, date) {
+  try {
+    const sat = await loadSatelliteData(norad);
+    const rows = (sat.history || [])
+      .filter(x => x.epoch && x.longitude_deg !== undefined && x.longitude_deg !== null)
+      .sort((a, b) => String(a.epoch).localeCompare(String(b.epoch)));
+
+    if (rows.length < 2) return null;
+
+    const target = date.getTime();
+    let bestPair = null;
+    let bestGap = Infinity;
+
+    for (let i = 1; i < rows.length; i++) {
+      const t0 = new Date(rows[i - 1].epoch).getTime();
+      const t1 = new Date(rows[i].epoch).getTime();
+      if (!Number.isFinite(t0) || !Number.isFinite(t1) || t1 <= t0) continue;
+
+      const mid = (t0 + t1) / 2;
+      const gap = Math.abs(mid - target);
+      if (gap < bestGap) {
+        bestGap = gap;
+        bestPair = [rows[i - 1], rows[i]];
+      }
+    }
+
+    if (!bestPair) return null;
+
+    const [prev, cur] = bestPair;
+    const dtDays = (new Date(cur.epoch).getTime() - new Date(prev.epoch).getTime()) / 86400000;
+    if (!dtDays || dtDays <= 0) return null;
+
+    const dLon = longitudeDelta(cur.longitude_deg, prev.longitude_deg);
+    const drift = dLon / dtDays;
+    return Number.isFinite(drift) ? drift : null;
+  } catch {
+    return null;
+  }
+}
+
 function buildHistorySeriesForMetric(metric, satName, hist, bins) {
   if (metric === "height") {
     return [
@@ -1215,6 +1329,12 @@ function buildHistorySeriesForMetric(metric, satName, hist, bins) {
   if (metric === "meanmotion") {
     return [
       makeHistoryDataset(hist, "epoch", "mean_motion_rev_day", `${satName} - MeanMotion`, bins)
+    ];
+  }
+
+  if (metric === "driftrate") {
+    return [
+      makeDriftRateDataset(hist, satName, bins)
     ];
   }
 
@@ -1333,6 +1453,133 @@ function renderTleLoadTable(rows) {
   `).join("");
 }
 
+function renderSelectedTimeTable(rows) {
+  document.getElementById("selectedTimeBody").innerHTML = rows.map(r => `
+    <tr>
+      <td>${r.name}</td>
+      <td>${r.time}</td>
+      <td>${fmt(r.D, 3)}</td>
+      <td>${fmt(r.R, 3)}</td>
+      <td>${fmt(r.I, 3)}</td>
+      <td>${fmt(r.C, 3)}</td>
+      <td>${fmt(r.driftRate, 4)}</td>
+      <td>${r.source || "-"}</td>
+    </tr>
+  `).join("");
+}
+
+function formatDateTimeLocalUtc(date) {
+  const d = new Date(date);
+  if (Number.isNaN(d.getTime())) return "";
+  return d.toISOString().slice(0, 16);
+}
+
+function parseSelectedTimeUtc() {
+  const v = document.getElementById("selectedTimeUtc").value;
+  if (!v) return null;
+  const d = new Date(v + ":00Z");
+  return Number.isNaN(d.getTime()) ? null : d;
+}
+
+function setSelectedTimeNow() {
+  document.getElementById("selectedTimeUtc").value = formatDateTimeLocalUtc(new Date());
+}
+
+async function loadTleMapForSelected(ids, statusEl) {
+  const map = new Map(lastTleMap);
+
+  for (const id of ids) {
+    if (map.has(Number(id))) continue;
+    if (statusEl) statusEl.textContent = `指定時刻解析用TLEを取得中... NORAD ${id}`;
+    const tleObj = await loadTleForSatellite(id);
+    map.set(Number(id), tleObj);
+  }
+
+  lastTleMap = map;
+  return map;
+}
+
+async function calculateSelectedTimeRelativeDistance() {
+  const status = document.getElementById("selectedTimeStatus");
+  const ids = Array.from(selectedIds);
+  const primaryId = Number(document.getElementById("primarySelect").value);
+  const t = parseSelectedTimeUtc();
+
+  if (ids.length < 2) {
+    status.textContent = "指定時刻解析は2機以上選択してください。";
+    renderSelectedTimeTable([]);
+    return;
+  }
+
+  if (!primaryId || !selectedIds.has(primaryId)) {
+    status.textContent = "主衛星を選択してください。";
+    renderSelectedTimeTable([]);
+    return;
+  }
+
+  if (!t) {
+    status.textContent = "指定時刻 UTC を入力してください。";
+    renderSelectedTimeTable([]);
+    return;
+  }
+
+  try {
+    status.textContent = "指定時刻の相対距離を計算中...";
+    const tleMap = await loadTleMapForSelected(ids, status);
+
+    if (!tleMap.has(primaryId)) {
+      status.textContent = "主衛星のTLEが見つかりません。";
+      renderSelectedTimeTable([]);
+      return;
+    }
+
+    const primaryTleObj = tleMap.get(primaryId);
+    const chiefTle = pickNearestTle(primaryTleObj.tle_history, t);
+    if (!chiefTle) {
+      status.textContent = "主衛星の指定時刻に使えるTLEがありません。";
+      renderSelectedTimeTable([]);
+      return;
+    }
+
+    const chief = propagateOneSgp4(chiefTle, t);
+    if (!chief) {
+      status.textContent = "主衛星のSGP4伝搬に失敗しました。";
+      renderSelectedTimeTable([]);
+      return;
+    }
+
+    const rows = [];
+    for (const [id, targetTleObj] of tleMap.entries()) {
+      if (Number(id) === primaryId) continue;
+
+      const targetTle = pickNearestTle(targetTleObj.tle_history, t);
+      if (!targetTle) continue;
+
+      const deputy = propagateOneSgp4(targetTle, t);
+      if (!deputy) continue;
+
+      const ric = relativeRic(chief, deputy);
+      if (!ric) continue;
+
+      const driftRate = await estimateDriftRateAtTime(id, t);
+
+      rows.push({
+        name: targetTleObj.name,
+        time: t.toISOString(),
+        source: targetTleObj.source,
+        driftRate,
+        ...ric
+      });
+    }
+
+    rows.sort((a, b) => a.D - b.D);
+    renderSelectedTimeTable(rows);
+    status.textContent = `指定時刻解析完了: ${t.toISOString()} / ペア=${rows.length}`;
+  } catch (e) {
+    status.textContent = `指定時刻解析エラー: ${e.message}`;
+  }
+}
+
 async function runHybridAnalysis() {
   const start = document.getElementById("startDate").value;
   const end = document.getElementById("endDate").value;
@@ -1363,6 +1610,7 @@ async function runHybridAnalysis() {
     let historyDatasets = [];
     let latDatasets = [];
     let lonDatasets = [];
+    let driftDatasets = [];
 
     for (const id of ids) {
       let sat;
@@ -1403,6 +1651,10 @@ async function runHybridAnalysis() {
 
       lonDatasets.push(
         makeHistoryDataset(hist, "epoch", "longitude_deg", `${name} - Longitude`, historyBins)
+      );
+
+      driftDatasets.push(
+        makeDriftRateDataset(hist, name, historyBins)
       );
     }
 
@@ -1461,6 +1713,23 @@ async function runHybridAnalysis() {
       }
     });
 
+    driftChart = destroyChart(driftChart);
+    driftChart = new Chart(document.getElementById("driftChart"), {
+      type: "line",
+      data: {
+        labels: historyLabels,
+        datasets: driftDatasets
+      },
+      options: {
+        responsive: true,
+        maintainAspectRatio: false,
+        scales: {
+          x: { title: { display: true, text: "UTC" } },
+          y: { title: { display: true, text: "Drift rate deg/day" } }
+        }
+      }
+    });
+
     if (ids.length < 2) {
       ricChart = destroyChart(ricChart);
       distanceChart = destroyChart(distanceChart);
@@ -1504,6 +1773,8 @@ async function runHybridAnalysis() {
     }
 
     renderTleLoadTable(tleLoadRows);
+    lastTleMap = tleMap;
+    lastPrimaryId = primaryId;
 
     if (!tleMap.has(primaryId)) {
       status.textContent = "主衛星のTLEが見つかりません。履歴グラフのみ表示しました。";
@@ -2295,6 +2566,8 @@ document.getElementById("clearSelectionBtn").addEventListener("click", () => {
 
 document.getElementById("clearTleCacheBtn").addEventListener("click", clearCelestrakCache);
 document.getElementById("plotBtn").addEventListener("click", runHybridAnalysis);
+document.getElementById("calcSelectedTimeBtn").addEventListener("click", calculateSelectedTimeRelativeDistance);
+document.getElementById("setSelectedTimeNowBtn").addEventListener("click", setSelectedTimeNow);
 document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
 document.getElementById("showGeoBtn").addEventListener("click", () => showGeoSatellites(false));
@@ -2306,6 +2579,7 @@ document.getElementById("autoLaunchCalendarBtn").addEventListener("click", loadL
 
 async function init() {
   setDefaultDates();
+  setSelectedTimeNow();
   updateTleStatus();
   initGeoMap();
 
