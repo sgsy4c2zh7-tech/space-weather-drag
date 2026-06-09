@@ -1,7 +1,7 @@
 {
   "norad_id": 25544,
   "name": "ISS (ZARYA)",
-  "updated_at": "2026-06-09T08:54:46.412227+00:00",
+  "updated_at": "2026-06-09T11:17:11.442012+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T20:59:21.130368Z",
@@ -1422,8 +1422,8 @@
       "mean_anomaly_deg": 210.583,
       "mean_motion_rev_day": 15.4967825,
       "avg_altitude_km": 417.6665532805532,
-      "kp_nearest": 3.0,
-      "nrlmsis_density": 1.7790357945482449e-12
+      "kp_nearest": 1.67,
+      "nrlmsis_density": 1.5793944927941506e-12
     }
   ],
   "storm_events": [
@@ -1899,13 +1899,13 @@
     },
     {
       "time": "2026-06-09T04:35:05.112096Z",
-      "kp": 3.0,
+      "kp": 1.67,
       "delta_h_km": -0.01560586463619984,
       "rate_km_per_day": -0.04033338479817209
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": 0.007847261810328897,
-    "kp_vs_rate": -0.003368095884449112
+    "kp_vs_delta_h": -0.009819111834670012,
+    "kp_vs_rate": -0.007966308860827062
   }
 }

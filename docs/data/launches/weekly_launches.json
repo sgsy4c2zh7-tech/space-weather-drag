@@ -1,10 +1,11 @@
 {
-  "updated_at": "2026-06-09T08:45:58.307854Z",
+  "updated_at": "2026-06-09T11:08:58.808300Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T08%3A45%3A58.307854Z&net__lte=2026-06-16T08%3A45%3A58.307854Z&ordering=net",
-  "window_start": "2026-06-09T08:45:58.307854Z",
-  "window_end": "2026-06-16T08:45:58.307854Z",
-  "count": 7,
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-09T11%3A08%3A58.808300Z&net__lte=2026-06-23T11%3A08%3A58.808300Z&ordering=net",
+  "window_days": 14,
+  "window_start": "2026-06-09T11:08:58.808300Z",
+  "window_end": "2026-06-23T11:08:58.808300Z",
+  "count": 12,
   "launches": [
     {
       "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
@@ -110,6 +111,81 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ffc0aee1-fdd7-4638-b098-9d0c01b40663/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
+    },
+    {
+      "id": "0ff43072-5407-425b-8c8d-6bca068143b9",
+      "name": "Long March 3B/E | Unknown Payload",
+      "net": "2026-06-16T09:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 2 (LC-2)",
+      "location": "Xichang Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0ff43072-5407-425b-8c8d-6bca068143b9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
+    },
+    {
+      "id": "756a042f-3da8-4a21-bb42-5996fc148050",
+      "name": "Long March 12 | Unknown Payload",
+      "net": "2026-06-17T02:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/756a042f-3da8-4a21-bb42-5996fc148050/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
+      "name": "Electron | Ten Owl Of Ten (StriX Launch 10)",
+      "net": "2026-06-17T20:40:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "Ten Owl Of Ten (StriX Launch 10)",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/add0a5be-1cf0-49cb-975a-e8c8e18d37ec/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
+      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
+      "net": "2026-06-20T06:39:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Globalstar 2-R Mission 1 (x 9)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "f72c6ea1-dc44-4f0e-bb51-1c52eff9efe8",
+      "name": "Long March 7A | Unknown Payload",
+      "net": "2026-06-23T02:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "201",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/f72c6ea1-dc44-4f0e-bb51-1c52eff9efe8/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
     }
   ]
 }
