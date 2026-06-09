@@ -19,21 +19,41 @@ jobs:
     timeout-minutes: 60
 
     steps:
+
+      # -------------------------
+      # Checkout
+      # -------------------------
       - name: Checkout repository
         uses: actions/checkout@v4
         with:
           fetch-depth: 0
 
+      # -------------------------
+      # Python
+      # -------------------------
       - name: Setup Python
         uses: actions/setup-python@v5
         with:
           python-version: "3.11"
 
+      # -------------------------
+      # Install libs
+      # -------------------------
       - name: Install dependencies
         run: |
           python -m pip install --upgrade pip
-          pip install requests numpy scipy sgp4 skyfield pymsis
 
+          pip install \
+            requests \
+            numpy \
+            scipy \
+            sgp4 \
+            skyfield \
+            pymsis
+
+      # -------------------------
+      # Prepare dirs
+      # -------------------------
       - name: Prepare folders
         run: |
           mkdir -p docs/data
@@ -45,65 +65,147 @@ jobs:
           mkdir -p docs/data/tle
           mkdir -p docs/data/tle_history
 
-      - name: Fetch Space-Track TLE history
+      # -------------------------
+      # Space-Track TLE history
+      # -------------------------
+      - name: Build Space-Track TLE history
         env:
           SPACETRACK_USERNAME: ${{ secrets.SPACETRACK_USERNAME }}
           SPACETRACK_PASSWORD: ${{ secrets.SPACETRACK_PASSWORD }}
         run: python scripts/build_tle_history.py
 
+      # -------------------------
+      # CelesTrak catalog
+      # -------------------------
       - name: Fetch full CelesTrak catalog snapshot
         run: python scripts/fetch_catalog.py
 
+      # -------------------------
+      # NOAA
+      # -------------------------
       - name: Fetch NOAA data
         run: python scripts/fetch_noaa.py
 
+      # -------------------------
+      # Launch calendar
+      # -------------------------
       - name: Fetch launch calendar
         run: python scripts/fetch_launches.py
 
+      # -------------------------
+      # sat_history
+      # -------------------------
       - name: Rebuild satellite histories
         run: python scripts/build_sat_history.py
 
+      # -------------------------
+      # Search index
+      # -------------------------
       - name: Build satellite search index
         run: python scripts/build_satellite_index_full.py
 
+      # -------------------------
+      # Drag analysis
+      # -------------------------
       - name: Build drag analysis
         run: python scripts/build_drag_analysis.py
 
+      # -------------------------
+      # Debug
+      # -------------------------
       - name: Show generated files
         run: |
-          echo "===== TLE latest count ====="
+
+          echo "===== tle latest count ====="
           find docs/data/tle -name "*.json" | wc -l
 
-          echo "===== TLE history count ====="
+          echo ""
+          echo "===== tle_history count ====="
           find docs/data/tle_history -name "*.json" | wc -l
 
+          echo ""
+          echo "===== tle index ====="
+          ls -lh docs/data/tle/index.json || echo "tle index missing"
+
+          echo ""
+          echo "===== tle_history index ====="
+          ls -lh docs/data/tle_history/index.json || echo "tle_history index missing"
+
+          echo ""
           echo "===== sat_history count ====="
           find docs/data/sat_history -name "*.json" | wc -l
 
+          echo ""
+          echo "===== catalog ====="
+          ls -lh docs/data/catalog | tail -20
+
+          echo ""
+          echo "===== index ====="
+          ls -lh docs/data/satellite_index_full.json || echo "index missing"
+
+          echo ""
+          echo "===== NOAA ====="
+          ls -lh docs/data/noaa || echo "NOAA missing"
+
+          echo ""
+          echo "===== launches ====="
+          ls -lh docs/data/launches || echo "launches missing"
+
+          echo ""
           echo "===== analysis count ====="
           find docs/data/analysis -name "*.json" | wc -l
 
+      # -------------------------
+      # Git status
+      # -------------------------
+      - name: Git status
+        run: |
+          git status
+          git branch
+          git log --oneline -5
+
+      # -------------------------
+      # Commit & push
+      # -------------------------
       - name: Commit and push
         run: |
+
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
 
+          # 最新取得
           git fetch origin main
+
+          # 変更追加
           git add docs/data
 
+          # 変更なければ終了
           git diff --cached --quiet && echo "No changes" && exit 0
 
-          git commit -m "Update Space-Track TLE history + satellite data"
+          # commit
+          git commit -m "Update satellite data + Space-Track TLE history + NOAA + launches + index"
 
+          # rebase retry
           for i in 1 2 3
           do
+            echo "Rebase attempt $i"
+
             git pull --rebase origin main && break
+
+            echo "Retry in 5 sec..."
             sleep 5
           done
 
+          # push retry
           for i in 1 2 3
           do
+            echo "Push attempt $i"
+
             git push && break
+
+            echo "Push retry in 5 sec..."
+
             git pull --rebase origin main || true
+
             sleep 5
           done
