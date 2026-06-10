@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-10T09:08:23.937326Z",
+  "updated_at": "2026-06-10T17:04:03.479830Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-10T09%3A08%3A23.937326Z&net__lte=2026-06-24T09%3A08%3A23.937326Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-10T17%3A04%3A03.479830Z&net__lte=2026-06-24T17%3A04%3A03.479830Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-10T09:08:23.937326Z",
-  "window_end": "2026-06-24T09:08:23.937326Z",
-  "count": 14,
+  "window_start": "2026-06-10T17:04:03.479830Z",
+  "window_end": "2026-06-24T17:04:03.479830Z",
+  "count": 13,
   "launches": [
     {
       "id": "e6cefffc-19a6-4a4b-a7f0-ebe907d5a6aa",
@@ -40,7 +40,7 @@
     {
       "id": "c7b7e18f-1b42-467e-a8ed-181fb58080e8",
       "name": "Falcon 9 Block 5 | Starlink Group 17-44",
-      "net": "2026-06-11T14:00:00Z",
+      "net": "2026-06-11T14:42:10Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -128,21 +128,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
     },
     {
-      "id": "756a042f-3da8-4a21-bb42-5996fc148050",
-      "name": "Long March 12 | Unknown Payload",
-      "net": "2026-06-17T02:00:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Commercial LC-2",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/756a042f-3da8-4a21-bb42-5996fc148050/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
-    },
-    {
       "id": "c3f48f48-0e0a-4bca-917e-de494cfca35b",
       "name": "Falcon 9 Block 5 | BlueBird Block 2 #3-5",
       "net": "2026-06-17T06:39:00Z",
@@ -158,21 +143,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/f9_on_slc-40_2_image_20240919072420.jpg"
     },
     {
-      "id": "5d4099bf-a0be-4f54-b236-b6ab3aed4146",
-      "name": "Falcon 9 Block 5 | NROL-179",
-      "net": "2026-06-17T09:08:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "NROL-179",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/5d4099bf-a0be-4f54-b236-b6ab3aed4146/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
-    },
-    {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
       "name": "Electron | Ten Owl Of Ten (StriX Launch 10)",
       "net": "2026-06-17T20:40:00Z",
@@ -186,6 +156,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/add0a5be-1cf0-49cb-975a-e8c8e18d37ec/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "5d4099bf-a0be-4f54-b236-b6ab3aed4146",
+      "name": "Falcon 9 Block 5 | NROL-179",
+      "net": "2026-06-18T08:54:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-179",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5d4099bf-a0be-4f54-b236-b6ab3aed4146/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     },
     {
       "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
