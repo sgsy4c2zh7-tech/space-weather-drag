@@ -66,7 +66,7 @@
       "epoch": "2026-05-03T20:00:01.999008Z",
       "apogee_km": 328.5743657468174,
       "perigee_km": 326.923376645329,
-      "latitude_deg": 47.5368958374132,
+      "latitude_deg": 47.53689583741319,
       "longitude_deg": 159.73148907151682,
       "height_km": 334.74370269254496,
       "semi_major_axis_km": 6705.885871196073,
@@ -277,7 +277,7 @@
       "apogee_km": 344.5478492378661,
       "perigee_km": 342.8727648889462,
       "latitude_deg": -26.748611753119636,
-      "longitude_deg": -127.72796991671412,
+      "longitude_deg": -127.72796991671406,
       "height_km": 354.27070052546725,
       "semi_major_axis_km": 6721.847307063406,
       "eccentricity": 0.0001246,
@@ -411,7 +411,7 @@
       "epoch": "2026-05-26T00:00:02.000160Z",
       "apogee_km": 345.13302564911464,
       "perigee_km": 343.2296684323337,
-      "latitude_deg": 36.66481694840964,
+      "latitude_deg": 36.66481694840962,
       "longitude_deg": 103.6964297893287,
       "height_km": 348.8292174707889,
       "semi_major_axis_km": 6722.318347040724,
@@ -547,7 +547,7 @@
       "apogee_km": 403.0963115700688,
       "perigee_km": 401.2344405376043,
       "latitude_deg": 75.99391276207803,
-      "longitude_deg": 139.1074288554478,
+      "longitude_deg": 139.10742885544784,
       "height_km": 414.230765580964,
       "semi_major_axis_km": 6780.302376053836,
       "eccentricity": 0.0001373,
@@ -646,6 +646,21 @@
       "arg_perigee_deg": 84.132,
       "mean_anomaly_deg": 25.0625,
       "mean_motion_rev_day": 15.49168404
+    },
+    {
+      "epoch": "2026-06-10T00:22:58.523232Z",
+      "apogee_km": 419.486220635622,
+      "perigee_km": 418.45441974441746,
+      "latitude_deg": 3.817498204659081e-05,
+      "longitude_deg": 104.11692934371047,
+      "height_km": 422.2001292115279,
+      "semi_major_axis_km": 6797.10732019002,
+      "eccentricity": 7.59e-05,
+      "inclination_deg": 97.2871,
+      "raan_deg": 8.2411,
+      "arg_perigee_deg": 100.911,
+      "mean_anomaly_deg": 259.2227,
+      "mean_motion_rev_day": 15.49232401
     }
   ]
 }
