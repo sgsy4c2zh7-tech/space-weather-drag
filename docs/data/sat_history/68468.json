@@ -1,6 +1,6 @@
 {
   "norad_id": 68468,
-  "name": "DB BECON-2-VU",
+  "name": "ERMIS-1",
   "history": [
     {
       "epoch": "2026-04-14T03:34:25.213152Z",
@@ -841,6 +841,21 @@
       "arg_perigee_deg": 80.515,
       "mean_anomaly_deg": 279.7097,
       "mean_motion_rev_day": 15.17604185
+    },
+    {
+      "epoch": "2026-06-11T20:24:04.682016Z",
+      "apogee_km": 519.229935803789,
+      "perigee_km": 506.88601389314135,
+      "latitude_deg": 5.440220267986853e-06,
+      "longitude_deg": -84.91480304699928,
+      "height_km": 514.9875836160945,
+      "semi_major_axis_km": 6891.194974848465,
+      "eccentricity": 0.00089563,
+      "inclination_deg": 97.4539,
+      "raan_deg": 121.2928,
+      "arg_perigee_deg": 79.3799,
+      "mean_anomaly_deg": 280.8443,
+      "mean_motion_rev_day": 15.17612711
     }
   ]
 }
