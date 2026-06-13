@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-13T08:37:49.558778Z",
+  "updated_at": "2026-06-13T15:16:36.728128Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-13T08%3A37%3A49.558778Z&net__lte=2026-06-27T08%3A37%3A49.558778Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-13T15%3A16%3A36.728128Z&net__lte=2026-06-27T15%3A16%3A36.728128Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-13T08:37:49.558778Z",
-  "window_end": "2026-06-27T08:37:49.558778Z",
-  "count": 10,
+  "window_start": "2026-06-13T15:16:36.728128Z",
+  "window_end": "2026-06-27T15:16:36.728128Z",
+  "count": 12,
   "launches": [
     {
       "id": "ffc0aee1-fdd7-4638-b098-9d0c01b40663",
@@ -51,6 +51,36 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/0ff43072-5407-425b-8c8d-6bca068143b9/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
+    },
+    {
+      "id": "756a042f-3da8-4a21-bb42-5996fc148050",
+      "name": "Long March 12 | Unknown Payload",
+      "net": "2026-06-17T02:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/756a042f-3da8-4a21-bb42-5996fc148050/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "cf655887-1cc5-4ef5-b8be-2821d5af17c9",
+      "name": "Kuaizhou 11 | Unknown Payload",
+      "net": "2026-06-17T03:40:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "ExPace",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 95A",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/cf655887-1cc5-4ef5-b8be-2821d5af17c9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kuaizhou_11_lif_image_20240520155835.jpg"
     },
     {
       "id": "c3f48f48-0e0a-4bca-917e-de494cfca35b",
