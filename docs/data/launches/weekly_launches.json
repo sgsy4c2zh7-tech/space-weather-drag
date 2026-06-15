@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-15T18:08:00.149862Z",
+  "updated_at": "2026-06-15T23:16:46.039217Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-15T18%3A08%3A00.149862Z&net__lte=2026-06-29T18%3A08%3A00.149862Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-15T23%3A16%3A46.039217Z&net__lte=2026-06-29T23%3A16%3A46.039217Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-15T18:08:00.149862Z",
-  "window_end": "2026-06-29T18:08:00.149862Z",
+  "window_start": "2026-06-15T23:16:46.039217Z",
+  "window_end": "2026-06-29T23:16:46.039217Z",
   "count": 10,
   "launches": [
     {
@@ -98,21 +98,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     },
     {
-      "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
-      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
-      "net": "2026-06-20T06:39:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Globalstar 2-R Mission 1 (x 9)",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
       "id": "de5fbae3-66b9-4bbf-8938-4d55f3318c07",
       "name": "Falcon 9 Block 5 | Starlink Group 17-28",
       "net": "2026-06-20T14:00:00Z",
@@ -126,6 +111,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/de5fbae3-66b9-4bbf-8938-4d55f3318c07/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "74bf8472-9ba1-42d6-9245-b014f8e91de9",
+      "name": "Falcon 9 Block 5 | Project Starfall Demonstration Mission",
+      "net": "2026-06-21T10:43:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Project Starfall Demonstration Mission",
+      "mission_type": "Technology",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/74bf8472-9ba1-42d6-9245-b014f8e91de9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
     },
     {
       "id": "f72c6ea1-dc44-4f0e-bb51-1c52eff9efe8",
