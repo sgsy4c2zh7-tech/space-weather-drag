@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-16T12:55:01.051884Z",
+  "updated_at": "2026-06-16T18:18:02.617342Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-16T12%3A55%3A01.051884Z&net__lte=2026-06-30T12%3A55%3A01.051884Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-16T18%3A18%3A02.617342Z&net__lte=2026-06-30T18%3A18%3A02.617342Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-16T12:55:01.051884Z",
-  "window_end": "2026-06-30T12:55:01.051884Z",
+  "window_start": "2026-06-16T18:18:02.617342Z",
+  "window_end": "2026-06-30T18:18:02.617342Z",
   "count": 22,
   "launches": [
     {
@@ -143,34 +143,19 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
-      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
-      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
+      "id": "f596ad48-881e-47d6-806d-113c6dd97427",
+      "name": "Pegasus XL | Swift Boost Mission",
+      "net": "2026-06-27T09:00:00Z",
+      "status": "To Be Confirmed",
       "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
-      "id": "dca8749f-1552-485a-8061-f1ad79055b8d",
-      "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer C",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "SDA Tranche 1 Tracking Layer C",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/dca8749f-1552-485a-8061-f1ad79055b8d/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+      "provider": "Northrop Grumman Space Systems",
+      "mission": "Swift Boost Mission",
+      "mission_type": "Mission Extension",
+      "pad": "Kwajalein Atoll",
+      "location": "Air launch to orbit",
+      "location_country_code": "???",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/f596ad48-881e-47d6-806d-113c6dd97427/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/pegasus_xl_moun_image_20240307124328.jpeg"
     },
     {
       "id": "4541ce85-0e38-42ac-a9a0-20474bb5f2cd",
@@ -216,21 +201,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
-      "id": "f596ad48-881e-47d6-806d-113c6dd97427",
-      "name": "Pegasus XL | Swift Boost Mission",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Northrop Grumman Space Systems",
-      "mission": "Swift Boost Mission",
-      "mission_type": "Mission Extension",
-      "pad": "Kwajalein Atoll",
-      "location": "Air launch to orbit",
-      "location_country_code": "???",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/f596ad48-881e-47d6-806d-113c6dd97427/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/pegasus_xl_moun_image_20240307124328.jpeg"
     },
     {
       "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
@@ -336,6 +306,36 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a8d8d683-3ab0-40ab-beb0-e66bb55afd91/",
       "image": null
+    },
+    {
+      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
+      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "net": "2026-06-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "dca8749f-1552-485a-8061-f1ad79055b8d",
+      "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer C",
+      "net": "2026-06-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "SDA Tranche 1 Tracking Layer C",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/dca8749f-1552-485a-8061-f1ad79055b8d/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     }
   ]
 }
