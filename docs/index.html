@@ -398,6 +398,78 @@
     </div>
   </div>
 
+  <div class="card">
+    <h2>Space Activity Analytics</h2>
+
+    <div class="row">
+      <label>
+        国
+        <select id="analyticsCountry">
+          <option value="ALL">ALL</option>
+          <option value="US">US</option>
+          <option value="CHN">CHN</option>
+          <option value="RUS">RUS</option>
+          <option value="JPN">JPN</option>
+        </select>
+      </label>
+
+      <label>
+        シリーズ
+        <select id="analyticsSeries">
+          <option value="ALL">ALL</option>
+        </select>
+      </label>
+
+      <label>
+        軌道
+        <select id="analyticsOrbit">
+          <option value="ALL">ALL</option>
+          <option value="LEO">LEO</option>
+          <option value="MEO">MEO</option>
+          <option value="GEO">GEO</option>
+          <option value="HEO/GEO">HEO/GEO</option>
+          <option value="HEO/SSO">HEO/SSO</option>
+          <option value="UNKNOWN">UNKNOWN</option>
+        </select>
+      </label>
+
+      <label>
+        期間
+        <select id="analyticsYears">
+          <option value="1">1年</option>
+          <option value="5">5年</option>
+          <option value="10" selected>10年</option>
+          <option value="20">20年</option>
+        </select>
+      </label>
+
+      <button id="loadAnalyticsBtn">Analytics読込</button>
+      <button id="updateAnalyticsBtn">グラフ更新</button>
+    </div>
+
+    <div id="analyticsStatus" class="small-text" style="margin-top:10px;">
+      未読込
+    </div>
+
+    <div class="subgrid" style="margin-top:12px;">
+      <div class="card">
+        <h2>月別打上げ衛星数</h2>
+        <div class="small-text">SATCATの Launch Date を月単位で集計します。</div>
+        <div class="chart-wrap small">
+          <canvas id="launchStatsChart"></canvas>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>累積軌道上衛星数</h2>
+        <div class="small-text">Launch Date と Decay Date から、月末時点で軌道上に残っている衛星数を推定します。</div>
+        <div class="chart-wrap small">
+          <canvas id="activeCumulativeChart"></canvas>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <div class="grid">
     <div>
       <div class="card">
@@ -657,6 +729,10 @@ let tricChart = null;
 
 let lastTleMap = new Map();
 let lastPrimaryId = null;
+
+let satcatAnalytics = [];
+let launchStatsChart = null;
+let activeCumulativeChart = null;
 
 let geoMap = null;
 let geoLayer = null;
@@ -2476,6 +2552,200 @@ async function loadLaunchCalendar() {
 }
 
 
+async function loadSatcatAnalytics() {
+  const status = document.getElementById("analyticsStatus");
+
+  try {
+    status.textContent = "SATCAT Analytics読込中...";
+
+    const data = await getJson("data/catalog/satcat_analytics.json");
+    satcatAnalytics = Array.isArray(data.satellites) ? data.satellites : [];
+
+    populateAnalyticsSeriesOptions();
+
+    status.textContent =
+      `SATCAT Analytics読込完了: ${satcatAnalytics.length}件 / 更新: ${data.updated_at || "-"}`;
+
+    updateAnalyticsCharts();
+
+  } catch (e) {
+    status.textContent =
+      `SATCAT Analytics読込エラー: ${e.message}\n` +
+      `docs/data/catalog/satcat_analytics.json が存在するか確認してください。`;
+  }
+}
+
+function populateAnalyticsSeriesOptions() {
+  const sel = document.getElementById("analyticsSeries");
+  if (!sel) return;
+
+  const current = sel.value || "ALL";
+
+  const series = Array.from(
+    new Set(
+      satcatAnalytics
+        .map(x => x.series || "OTHER")
+        .filter(Boolean)
+    )
+  ).sort();
+
+  sel.innerHTML =
+    `<option value="ALL">ALL</option>` +
+    series.map(s => `<option value="${escapeHtml(s)}">${escapeHtml(s)}</option>`).join("");
+
+  if (series.includes(current)) {
+    sel.value = current;
+  }
+}
+
+function monthKeyFromDate(dateStr) {
+  if (!dateStr || String(dateStr).length < 7) return null;
+  return String(dateStr).slice(0, 7);
+}
+
+function addMonths(date, n) {
+  return new Date(Date.UTC(date.getUTCFullYear(), date.getUTCMonth() + n, 1));
+}
+
+function monthKeysForLastYears(years) {
+  const now = new Date();
+  const end = new Date(Date.UTC(now.getUTCFullYear(), now.getUTCMonth(), 1));
+  const start = new Date(Date.UTC(end.getUTCFullYear() - years, end.getUTCMonth() + 1, 1));
+
+  const keys = [];
+  let cur = new Date(start);
+
+  while (cur <= end) {
+    const y = cur.getUTCFullYear();
+    const m = String(cur.getUTCMonth() + 1).padStart(2, "0");
+    keys.push(`${y}-${m}`);
+    cur = addMonths(cur, 1);
+  }
+
+  return keys;
+}
+
+function monthEndDate(monthKey) {
+  const [y, m] = monthKey.split("-").map(Number);
+  return new Date(Date.UTC(y, m, 0, 23, 59, 59));
+}
+
+function filterAnalyticsSatellites() {
+  const country = document.getElementById("analyticsCountry").value;
+  const series = document.getElementById("analyticsSeries").value;
+  const orbit = document.getElementById("analyticsOrbit").value;
+
+  return satcatAnalytics.filter(s => {
+    if (!s.launch_date) return false;
+    if (country !== "ALL" && s.country !== country) return false;
+    if (series !== "ALL" && s.series !== series) return false;
+    if (orbit !== "ALL" && s.orbit !== orbit) return false;
+    return true;
+  });
+}
+
+function updateAnalyticsCharts() {
+  const status = document.getElementById("analyticsStatus");
+
+  if (!satcatAnalytics.length) {
+    status.textContent = "SATCAT Analyticsが未読込です。";
+    return;
+  }
+
+  const years = Number(document.getElementById("analyticsYears").value) || 10;
+  const months = monthKeysForLastYears(years);
+  const filtered = filterAnalyticsSatellites();
+
+  const launchCounts = {};
+  for (const m of months) launchCounts[m] = 0;
+
+  for (const s of filtered) {
+    const mk = monthKeyFromDate(s.launch_date);
+    if (mk && launchCounts[mk] !== undefined) {
+      launchCounts[mk]++;
+    }
+  }
+
+  const labels = months;
+  const launchData = months.map(m => launchCounts[m]);
+
+  launchStatsChart = destroyChart(launchStatsChart);
+  launchStatsChart = new Chart(document.getElementById("launchStatsChart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Launch count",
+          data: launchData,
+          ...makeLineStyle()
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { title: { display: true, text: "Month" } },
+        y: { title: { display: true, text: "Satellites launched" } }
+      }
+    }
+  });
+
+  const activeData = months.map(m => {
+    const end = monthEndDate(m).getTime();
+
+    let count = 0;
+
+    for (const s of filtered) {
+      if (!s.launch_date) continue;
+
+      const launch = new Date(s.launch_date + "T00:00:00Z").getTime();
+      if (!Number.isFinite(launch) || launch > end) continue;
+
+      if (s.decay_date) {
+        const decay = new Date(s.decay_date + "T00:00:00Z").getTime();
+        if (Number.isFinite(decay) && decay <= end) continue;
+      }
+
+      count++;
+    }
+
+    return count;
+  });
+
+  activeCumulativeChart = destroyChart(activeCumulativeChart);
+  activeCumulativeChart = new Chart(document.getElementById("activeCumulativeChart"), {
+    type: "line",
+    data: {
+      labels,
+      datasets: [
+        {
+          label: "Active cumulative count",
+          data: activeData,
+          ...makeLineStyle()
+        }
+      ]
+    },
+    options: {
+      responsive: true,
+      maintainAspectRatio: false,
+      scales: {
+        x: { title: { display: true, text: "Month" } },
+        y: { title: { display: true, text: "Satellites in orbit" } }
+      }
+    }
+  });
+
+  const country = document.getElementById("analyticsCountry").value;
+  const series = document.getElementById("analyticsSeries").value;
+  const orbit = document.getElementById("analyticsOrbit").value;
+
+  status.textContent =
+    `表示完了: 対象=${filtered.length}件 / 期間=${years}年 / 国=${country} / シリーズ=${series} / 軌道=${orbit}`;
+}
+
+
 function applyManualTleFromUi() {
   const norad = document.getElementById("manualNorad").value.trim();
   const name = document.getElementById("manualName").value.trim();
@@ -2576,6 +2846,12 @@ document.getElementById("showNearbyGeoBtn").addEventListener("click", showNearby
 document.getElementById("clearGeoBtn").addEventListener("click", clearGeoMap);
 document.getElementById("loadLaunchCalendarBtn").addEventListener("click", loadLaunchCalendar);
 document.getElementById("autoLaunchCalendarBtn").addEventListener("click", loadLaunchCalendar);
+document.getElementById("loadAnalyticsBtn").addEventListener("click", loadSatcatAnalytics);
+document.getElementById("updateAnalyticsBtn").addEventListener("click", updateAnalyticsCharts);
+document.getElementById("analyticsCountry").addEventListener("change", updateAnalyticsCharts);
+document.getElementById("analyticsSeries").addEventListener("change", updateAnalyticsCharts);
+document.getElementById("analyticsOrbit").addEventListener("change", updateAnalyticsCharts);
+document.getElementById("analyticsYears").addEventListener("change", updateAnalyticsCharts);
 
 async function init() {
   setDefaultDates();
