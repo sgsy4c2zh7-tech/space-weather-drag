@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-18T11:34:30.721921Z",
+  "updated_at": "2026-06-18T16:49:43.754638Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-18T11%3A34%3A30.721921Z&net__lte=2026-07-02T11%3A34%3A30.721921Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-18T16%3A49%3A43.754638Z&net__lte=2026-07-02T16%3A49%3A43.754638Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-18T11:34:30.721921Z",
-  "window_end": "2026-07-02T11:34:30.721921Z",
-  "count": 19,
+  "window_start": "2026-06-18T16:49:43.754638Z",
+  "window_end": "2026-07-02T16:49:43.754638Z",
+  "count": 20,
   "launches": [
     {
       "id": "5d4099bf-a0be-4f54-b236-b6ab3aed4146",
@@ -21,21 +21,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/5d4099bf-a0be-4f54-b236-b6ab3aed4146/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
-    },
-    {
-      "id": "74bf8472-9ba1-42d6-9245-b014f8e91de9",
-      "name": "Falcon 9 Block 5 | Project Starfall Demonstration Mission",
-      "net": "2026-06-21T10:43:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Project Starfall Demonstration Mission",
-      "mission_type": "Technology",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/74bf8472-9ba1-42d6-9245-b014f8e91de9/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
     },
     {
       "id": "de5fbae3-66b9-4bbf-8938-4d55f3318c07",
@@ -66,6 +51,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/f72c6ea1-dc44-4f0e-bb51-1c52eff9efe8/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
+    },
+    {
+      "id": "74bf8472-9ba1-42d6-9245-b014f8e91de9",
+      "name": "Falcon 9 Block 5 | Project Starfall Demonstration Mission",
+      "net": "2026-06-23T10:43:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Project Starfall Demonstration Mission",
+      "mission_type": "Technology",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/74bf8472-9ba1-42d6-9245-b014f8e91de9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
     },
     {
       "id": "a4fb0d1a-2655-4552-b950-f2f6340ef85a",
@@ -291,6 +291,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/2d0472b9-463d-49c8-afb1-7925e49a3368/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "9eb09815-c237-4fdd-9057-5b161131240c",
+      "name": "Atlas V 551 | Amazon Leo (LA-08)",
+      "net": "2026-07-02T04:24:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "United Launch Alliance",
+      "mission": "Amazon Leo (LA-08)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 41",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9eb09815-c237-4fdd-9057-5b161131240c/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/atlas2520v2520551_image_20190224012316.jpeg"
     }
   ]
 }
