@@ -3032,7 +3032,7 @@ function exportAnalyticsExcel() {
   }
 
   if (typeof XLSX === "undefined") {
-    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、<script src='https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js'></script> がHTMLに入っているか確認してください。");
+    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、head内に xlsx.full.min.js が入っているか確認してください。");
     return;
   }
 
