@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-06-18T23:16:39.942337Z",
+  "updated_at": "2026-06-19T10:03:17.982664Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-18T23%3A16%3A39.942337Z&net__lte=2026-07-02T23%3A16%3A39.942337Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-19T10%3A03%3A17.982664Z&net__lte=2026-07-03T10%3A03%3A17.982664Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-18T23:16:39.942337Z",
-  "window_end": "2026-07-02T23:16:39.942337Z",
-  "count": 20,
+  "window_start": "2026-06-19T10:03:17.982664Z",
+  "window_end": "2026-07-03T10:03:17.982664Z",
+  "count": 19,
   "launches": [
-    {
-      "id": "5d4099bf-a0be-4f54-b236-b6ab3aed4146",
-      "name": "Falcon 9 Block 5 | NROL-179",
-      "net": "2026-06-19T08:40:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "NROL-179",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/5d4099bf-a0be-4f54-b236-b6ab3aed4146/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
-    },
     {
       "id": "de5fbae3-66b9-4bbf-8938-4d55f3318c07",
       "name": "Falcon 9 Block 5 | Starlink Group 17-28",
@@ -56,7 +41,7 @@
       "id": "74bf8472-9ba1-42d6-9245-b014f8e91de9",
       "name": "Falcon 9 Block 5 | Project Starfall Demonstration Mission",
       "net": "2026-06-23T10:43:00Z",
-      "status": "To Be Confirmed",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "Project Starfall Demonstration Mission",
@@ -98,21 +83,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/pegasus_xl_moun_image_20240307124328.jpeg"
     },
     {
-      "id": "da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
-      "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "SDA Tranche 1 Transport Layer A",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
       "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
       "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
       "net": "2026-06-30T00:00:00Z",
@@ -125,6 +95,21 @@
       "location": "Cape Canaveral SFS, FL, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
+      "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
+      "net": "2026-06-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "SDA Tranche 1 Transport Layer A",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
@@ -188,6 +173,21 @@
       "image": null
     },
     {
+      "id": "fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5",
+      "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer E",
+      "net": "2026-06-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "SDA Tranche 1 Tracking Layer E",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
       "name": "Electron | Ten Owl Of Ten (StriX Launch 10)",
       "net": "2026-06-30T00:00:00Z",
@@ -215,21 +215,6 @@
       "location": "Vandenberg SFB, CA, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/c5783e2b-d458-4b99-9936-4043c236190b/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
-      "id": "fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5",
-      "name": "Falcon 9 Block 5 | SDA Tranche 1 Tracking Layer E",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "SDA Tranche 1 Tracking Layer E",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/fcbc4550-e69e-4458-a9e6-4a5b6b6b15a5/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
