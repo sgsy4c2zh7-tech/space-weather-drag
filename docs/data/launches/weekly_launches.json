@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-20T22:42:20.173413Z",
+  "updated_at": "2026-06-21T09:10:36.636005Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-20T22%3A42%3A20.173413Z&net__lte=2026-07-04T22%3A42%3A20.173413Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-21T09%3A10%3A36.636005Z&net__lte=2026-07-05T09%3A10%3A36.636005Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-20T22:42:20.173413Z",
-  "window_end": "2026-07-04T22:42:20.173413Z",
+  "window_start": "2026-06-21T09:10:36.636005Z",
+  "window_end": "2026-07-05T09:10:36.636005Z",
   "count": 13,
   "launches": [
     {
@@ -128,6 +128,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/smart_dragon_3__image_20240925074606.jpg"
     },
     {
+      "id": "a8d8d683-3ab0-40ab-beb0-e66bb55afd91",
+      "name": "Nebula-1 | Demo Flight",
+      "net": "2026-06-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Deep Blue Aerospace",
+      "mission": "Demo Flight",
+      "mission_type": "Test Flight",
+      "pad": "Land Launch Pad 1",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a8d8d683-3ab0-40ab-beb0-e66bb55afd91/",
+      "image": null
+    },
+    {
       "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
       "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
       "net": "2026-06-30T00:00:00Z",
@@ -156,21 +171,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ce3db8f7-ba9b-4a2a-953c-c6c6ee926541/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
-    },
-    {
-      "id": "a8d8d683-3ab0-40ab-beb0-e66bb55afd91",
-      "name": "Nebula-1 | Demo Flight",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Deep Blue Aerospace",
-      "mission": "Demo Flight",
-      "mission_type": "Test Flight",
-      "pad": "Land Launch Pad 1",
-      "location": "Haiyang Oriental Spaceport",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/a8d8d683-3ab0-40ab-beb0-e66bb55afd91/",
-      "image": null
     },
     {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
