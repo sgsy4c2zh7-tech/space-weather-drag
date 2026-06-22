@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-22T10:54:30.375600Z",
+  "updated_at": "2026-06-22T17:59:10.759510Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-22T10%3A54%3A30.375600Z&net__lte=2026-07-06T10%3A54%3A30.375600Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-22T17%3A59%3A10.759510Z&net__lte=2026-07-06T17%3A59%3A10.759510Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-22T10:54:30.375600Z",
-  "window_end": "2026-07-06T10:54:30.375600Z",
+  "window_start": "2026-06-22T17:59:10.759510Z",
+  "window_end": "2026-07-06T17:59:10.759510Z",
   "count": 12,
   "launches": [
     {
@@ -83,6 +83,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
+      "id": "ce3db8f7-ba9b-4a2a-953c-c6c6ee926541",
+      "name": "Falcon 9 Block 5 | Sirius SXM-11",
+      "net": "2026-06-29T02:25:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Sirius SXM-11",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ce3db8f7-ba9b-4a2a-953c-c6c6ee926541/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
+    },
+    {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
       "name": "Electron | Ten Owl Of Ten (StriX Launch 10)",
       "net": "2026-06-30T00:00:00Z",
@@ -126,21 +141,6 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d8eb4b68-5307-4b3b-b585-5598958defc2/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/smart_dragon_3__image_20240925074606.jpg"
-    },
-    {
-      "id": "ce3db8f7-ba9b-4a2a-953c-c6c6ee926541",
-      "name": "Falcon 9 Block 5 | Sirius SXM-11",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Sirius SXM-11",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ce3db8f7-ba9b-4a2a-953c-c6c6ee926541/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
     },
     {
       "id": "a8d8d683-3ab0-40ab-beb0-e66bb55afd91",
