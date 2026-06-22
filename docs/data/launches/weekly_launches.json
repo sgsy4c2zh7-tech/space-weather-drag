@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-06-22T17:59:10.759510Z",
+  "updated_at": "2026-06-22T23:04:14.863639Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-22T17%3A59%3A10.759510Z&net__lte=2026-07-06T17%3A59%3A10.759510Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-22T23%3A04%3A14.863639Z&net__lte=2026-07-06T23%3A04%3A14.863639Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-22T17:59:10.759510Z",
-  "window_end": "2026-07-06T17:59:10.759510Z",
+  "window_start": "2026-06-22T23:04:14.863639Z",
+  "window_end": "2026-07-06T23:04:14.863639Z",
   "count": 12,
   "launches": [
     {
@@ -113,21 +113,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
-      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
-      "net": "2026-06-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Globalstar 2-R Mission 1 (x 9)",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
       "id": "d8eb4b68-5307-4b3b-b585-5598958defc2",
       "name": "Smart Dragon 3 | Unknown Payload",
       "net": "2026-06-30T00:00:00Z",
@@ -171,6 +156,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "491122a3-3eff-42db-aff3-424b3431fc0b",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-46",
+      "net": "2026-07-02T02:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-46",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/491122a3-3eff-42db-aff3-424b3431fc0b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "9eb09815-c237-4fdd-9057-5b161131240c",
