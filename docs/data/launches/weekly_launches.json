@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-06-23T08:45:15.963954Z",
+  "updated_at": "2026-06-23T16:13:18.510963Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-23T08%3A45%3A15.963954Z&net__lte=2026-07-07T08%3A45%3A15.963954Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-23T16%3A13%3A18.510963Z&net__lte=2026-07-07T16%3A13%3A18.510963Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-23T08:45:15.963954Z",
-  "window_end": "2026-07-07T08:45:15.963954Z",
+  "window_start": "2026-06-23T16:13:18.510963Z",
+  "window_end": "2026-07-07T16:13:18.510963Z",
   "count": 11,
   "launches": [
-    {
-      "id": "74bf8472-9ba1-42d6-9245-b014f8e91de9",
-      "name": "Falcon 9 Block 5 | Project Starfall Demonstration Mission",
-      "net": "2026-06-23T10:53:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Project Starfall Demonstration Mission",
-      "mission_type": "Technology",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/74bf8472-9ba1-42d6-9245-b014f8e91de9/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20241206131356.jpg"
-    },
     {
       "id": "a4fb0d1a-2655-4552-b950-f2f6340ef85a",
       "name": "Falcon 9 Block 5 | Starlink Group 17-45",
@@ -171,6 +156,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/9eb09815-c237-4fdd-9057-5b161131240c/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/atlas2520v2520551_image_20190224012316.jpeg"
+    },
+    {
+      "id": "1ef27ca1-af91-48bb-b934-3da5abd9f711",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-50",
+      "net": "2026-07-03T11:20:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-50",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/1ef27ca1-af91-48bb-b934-3da5abd9f711/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
