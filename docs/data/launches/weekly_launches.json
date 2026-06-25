@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-25T15:53:00.372305Z",
+  "updated_at": "2026-06-25T22:56:46.710356Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-25T15%3A53%3A00.372305Z&net__lte=2026-07-09T15%3A53%3A00.372305Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-25T22%3A56%3A46.710356Z&net__lte=2026-07-09T22%3A56%3A46.710356Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-25T15:53:00.372305Z",
-  "window_end": "2026-07-09T15:53:00.372305Z",
-  "count": 10,
+  "window_start": "2026-06-25T22:56:46.710356Z",
+  "window_end": "2026-07-09T22:56:46.710356Z",
+  "count": 12,
   "launches": [
     {
       "id": "f596ad48-881e-47d6-806d-113c6dd97427",
@@ -155,6 +155,36 @@
       "location": "Cape Canaveral SFS, FL, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/1ef27ca1-af91-48bb-b934-3da5abd9f711/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-48",
+      "net": "2026-07-06T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-48",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/135fb199-a39e-48cc-ba27-0aecd96ba9f8/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "62d4cd48-ed28-418b-b58c-526781a50a39",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-42",
+      "net": "2026-07-09T09:05:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-42",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/62d4cd48-ed28-418b-b58c-526781a50a39/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
