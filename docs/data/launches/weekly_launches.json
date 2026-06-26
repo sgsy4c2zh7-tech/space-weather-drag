@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-26T08:42:30.211118Z",
+  "updated_at": "2026-06-26T15:37:56.413396Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-26T08%3A42%3A30.211118Z&net__lte=2026-07-10T08%3A42%3A30.211118Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-26T15%3A37%3A56.413396Z&net__lte=2026-07-10T15%3A37%3A56.413396Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-26T08:42:30.211118Z",
-  "window_end": "2026-07-10T08:42:30.211118Z",
-  "count": 10,
+  "window_start": "2026-06-26T15:37:56.413396Z",
+  "window_end": "2026-07-10T15:37:56.413396Z",
+  "count": 14,
   "launches": [
     {
       "id": "add0a5be-1cf0-49cb-975a-e8c8e18d37ec",
@@ -16,26 +16,11 @@
       "provider": "Rocket Lab",
       "mission": "Ten Owl Of Ten (StriX Launch 10)",
       "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
+      "pad": "Rocket Lab Launch Complex 1B",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/add0a5be-1cf0-49cb-975a-e8c8e18d37ec/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
-      "id": "f596ad48-881e-47d6-806d-113c6dd97427",
-      "name": "Pegasus XL | Swift Boost Mission",
-      "net": "2026-06-27T09:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "Northrop Grumman Space Systems",
-      "mission": "Swift Boost Mission",
-      "mission_type": "Mission Extension",
-      "pad": "Kwajalein Atoll",
-      "location": "Air launch to orbit",
-      "location_country_code": "???",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/f596ad48-881e-47d6-806d-113c6dd97427/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/pegasus_xl_moun_image_20240307124328.jpeg"
     },
     {
       "id": "0740c699-9877-4331-8aef-4e29ea6281c0",
@@ -83,6 +68,36 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
+      "id": "f596ad48-881e-47d6-806d-113c6dd97427",
+      "name": "Pegasus XL | Swift Boost Mission",
+      "net": "2026-06-30T07:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Northrop Grumman Space Systems",
+      "mission": "Swift Boost Mission",
+      "mission_type": "Mission Extension",
+      "pad": "Kwajalein Atoll",
+      "location": "Air launch to orbit",
+      "location_country_code": "???",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/f596ad48-881e-47d6-806d-113c6dd97427/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/pegasus_xl_moun_image_20240307124328.jpeg"
+    },
+    {
+      "id": "2bedbf8c-8df2-4e24-8397-8c2a08fab581",
+      "name": "Long March 4C | Unknown Payload",
+      "net": "2026-07-01T23:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 94 (SLS-2 / 603)",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/2bedbf8c-8df2-4e24-8397-8c2a08fab581/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_4c_image_20230801172338.jpeg"
+    },
+    {
       "id": "491122a3-3eff-42db-aff3-424b3431fc0b",
       "name": "Falcon 9 Block 5 | Starlink Group 17-46",
       "net": "2026-07-02T02:00:00Z",
@@ -113,6 +128,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/atlas2520v2520551_image_20190224012316.jpeg"
     },
     {
+      "id": "888e0de3-ce4d-4daf-8140-bb0d3a4c8245",
+      "name": "Long March 8 | Unknown Payload",
+      "net": "2026-07-02T12:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-1",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/888e0de3-ce4d-4daf-8140-bb0d3a4c8245/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8_liftoff_2_image_20240315183218.jpg"
+    },
+    {
       "id": "1ef27ca1-af91-48bb-b934-3da5abd9f711",
       "name": "Falcon 9 Block 5 | Starlink Group 10-50",
       "net": "2026-07-03T11:20:00Z",
@@ -126,6 +156,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/1ef27ca1-af91-48bb-b934-3da5abd9f711/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "9e0f6efb-4742-4ba3-9fd4-4ea218576c71",
+      "name": "Long March 6A | Unknown Payload",
+      "net": "2026-07-04T09:31:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9A",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e0f6efb-4742-4ba3-9fd4-4ea218576c71/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     },
     {
       "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
@@ -156,6 +201,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/62d4cd48-ed28-418b-b58c-526781a50a39/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "1e79a5e9-c02c-470f-882f-884120100fef",
+      "name": "Long March 10B | Demo Flight",
+      "net": "2026-07-10T05:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Demo Flight",
+      "mission_type": "Test Flight",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/1e79a5e9-c02c-470f-882f-884120100fef/",
+      "image": null
     }
   ]
 }
