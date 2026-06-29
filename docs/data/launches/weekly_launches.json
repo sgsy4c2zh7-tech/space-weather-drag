@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-06-29T16:53:04.286494Z",
+  "updated_at": "2026-06-29T22:40:45.102804Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-29T16%3A53%3A04.286494Z&net__lte=2026-07-13T16%3A53%3A04.286494Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-29T22%3A40%3A45.102804Z&net__lte=2026-07-13T22%3A40%3A45.102804Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-29T16:53:04.286494Z",
-  "window_end": "2026-07-13T16:53:04.286494Z",
-  "count": 11,
+  "window_start": "2026-06-29T22:40:45.102804Z",
+  "window_end": "2026-07-13T22:40:45.102804Z",
+  "count": 13,
   "launches": [
     {
       "id": "f596ad48-881e-47d6-806d-113c6dd97427",
@@ -128,6 +128,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     },
     {
+      "id": "a6db1e67-5860-47c9-a674-adc0f35b62e0",
+      "name": "Falcon 9 Block 5 | Transporter 17 (Dedicated SSO Rideshare)",
+      "net": "2026-07-07T06:51:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Transporter 17 (Dedicated SSO Rideshare)",
+      "mission_type": "Dedicated Rideshare",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a6db1e67-5860-47c9-a674-adc0f35b62e0/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
       "id": "62d4cd48-ed28-418b-b58c-526781a50a39",
       "name": "Falcon 9 Block 5 | Starlink Group 10-42",
       "net": "2026-07-09T09:05:00Z",
@@ -160,7 +175,7 @@
     {
       "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
       "name": "Falcon 9 Block 5 | Starlink Group 17-48",
-      "net": "2026-07-10T14:00:00Z",
+      "net": "2026-07-11T14:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -170,6 +185,21 @@
       "location": "Vandenberg SFB, CA, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/135fb199-a39e-48cc-ba27-0aecd96ba9f8/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "e09f254f-18bc-4985-963e-6075fa3d7a1c",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-14",
+      "net": "2026-07-12T08:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 15-14",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e09f254f-18bc-4985-963e-6075fa3d7a1c/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
