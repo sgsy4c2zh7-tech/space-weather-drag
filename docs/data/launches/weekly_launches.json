@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-06-30T08:47:58.819606Z",
+  "updated_at": "2026-06-30T15:52:58.562371Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-30T08%3A47%3A58.819606Z&net__lte=2026-07-14T08%3A47%3A58.819606Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-06-30T15%3A52%3A58.562371Z&net__lte=2026-07-14T15%3A52%3A58.562371Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-06-30T08:47:58.819606Z",
-  "window_end": "2026-07-14T08:47:58.819606Z",
-  "count": 13,
+  "window_start": "2026-06-30T15:52:58.562371Z",
+  "window_end": "2026-07-14T15:52:58.562371Z",
+  "count": 14,
   "launches": [
     {
       "id": "f596ad48-881e-47d6-806d-113c6dd97427",
       "name": "Pegasus XL | Swift Boost Mission",
-      "net": "2026-06-30T10:17:00Z",
+      "net": "2026-07-01T09:43:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "Northrop Grumman Space Systems",
@@ -201,6 +201,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e09f254f-18bc-4985-963e-6075fa3d7a1c/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "a556b963-0f36-4660-95a8-fdffdba653e2",
+      "name": "Soyuz 2.1a | Soyuz MS-29",
+      "net": "2026-07-14T14:43:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "Russian Federal Space Agency (ROSCOSMOS)",
+      "mission": "Soyuz MS-29",
+      "mission_type": "Human Exploration",
+      "pad": "31/6",
+      "location": "Baikonur Cosmodrome, Republic of Kazakhstan",
+      "location_country_code": "KAZ",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a556b963-0f36-4660-95a8-fdffdba653e2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1a_image_20230805184309.jpg"
     }
   ]
 }
