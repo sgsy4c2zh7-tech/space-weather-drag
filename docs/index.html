@@ -173,7 +173,7 @@
     <div class="row">
       <label>
         名前 / NORAD ID
-        <input id="qText" placeholder="ISS / 25544" />
+        <input id="qText" placeholder="ISS / 25544 / OBJECT A / 2024-083A / R/B" />
       </label>
 
       <label>
@@ -506,6 +506,10 @@
                 <th>選択</th>
                 <th>NORAD</th>
                 <th>名前</th>
+                <th>OBJECT_NAME</th>
+                <th>OBJECT_ID</th>
+                <th>TYPE</th>
+                <th>国</th>
                 <th>アポジ</th>
                 <th>ペリジ</th>
                 <th>傾斜角</th>
@@ -900,6 +904,47 @@ function passesRange(v, minV, maxV) {
   return true;
 }
 
+function satDisplayName(s) {
+  return s.name || s.object_name || s.OBJECT_NAME || String(s.norad_id || "-");
+}
+
+function getSearchableSatelliteText(s) {
+  return [
+    s.norad_id,
+    s.NORAD_CAT_ID,
+    s.name,
+    s.object_name,
+    s.OBJECT_NAME,
+    s.object_id,
+    s.OBJECT_ID,
+    s.international_designator,
+    s.INTLDES,
+    s.object_type,
+    s.OBJECT_TYPE,
+    s.country,
+    s.COUNTRY,
+    s.raw_country,
+    s.owner,
+    s.OWNER,
+    s.site,
+    s.SITE,
+    s.comment,
+    s.COMMENT
+  ]
+    .filter(v => v !== undefined && v !== null && String(v).trim() !== "")
+    .join(" ")
+    .toLowerCase();
+}
+
+function satMetaValue(s, keys) {
+  for (const key of keys) {
+    if (s[key] !== undefined && s[key] !== null && String(s[key]).trim() !== "") {
+      return s[key];
+    }
+  }
+  return "-";
+}
+
 async function loadSatelliteIndex() {
   satelliteIndex = await getJson("data/satellite_index_full.json");
 }
@@ -919,9 +964,8 @@ function filterSatellites() {
   const lonMax = numVal("lonMax");
 
   return satelliteIndex.filter(s => {
-    const textOk = q === "" ||
-      String(s.norad_id).includes(q) ||
-      String(s.name || "").toLowerCase().includes(q);
+    const searchableText = getSearchableSatelliteText(s);
+    const textOk = q === "" || searchableText.includes(q);
 
     return textOk &&
       passesRange(s.apogee_km, apogeeMin, apogeeMax) &&
@@ -942,7 +986,11 @@ function renderResults(rows) {
           onchange="toggleSelection(${Number(s.norad_id)}, this.checked)">
       </td>
       <td>${s.norad_id}</td>
-      <td>${s.name || "-"}</td>
+      <td>${satDisplayName(s)}</td>
+      <td>${satMetaValue(s, ["object_name", "OBJECT_NAME"])}</td>
+      <td>${satMetaValue(s, ["object_id", "OBJECT_ID", "international_designator", "INTLDES"])}</td>
+      <td>${satMetaValue(s, ["object_type", "OBJECT_TYPE"])}</td>
+      <td>${satMetaValue(s, ["country", "COUNTRY", "raw_country", "owner", "OWNER"])}</td>
       <td>${fmt(s.apogee_km)}</td>
       <td>${fmt(s.perigee_km)}</td>
       <td>${fmt(s.inclination_deg)}</td>
@@ -979,7 +1027,7 @@ function renderSelectedList() {
   document.getElementById("selectedBody").innerHTML = selected.map(s => `
     <tr>
       <td>${s.norad_id}</td>
-      <td>${s.name || "-"}</td>
+      <td>${satDisplayName(s)}</td>
       <td>${s.epoch || "-"}</td>
     </tr>
   `).join("");
@@ -988,7 +1036,7 @@ function renderSelectedList() {
   const current = primarySelect.value;
 
   primarySelect.innerHTML = selected.map(s => `
-    <option value="${s.norad_id}">${s.norad_id} / ${s.name || "-"}</option>
+    <option value="${s.norad_id}">${s.norad_id} / ${satDisplayName(s)}</option>
   `).join("");
 
   if (current && selectedIds.has(Number(current))) {
@@ -3032,7 +3080,7 @@ function exportAnalyticsExcel() {
   }
 
   if (typeof XLSX === "undefined") {
-    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、head内に xlsx.full.min.js が入っているか確認してください。");
+    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、<script src='https://cdn.jsdelivr.net/npm/xlsx/dist/xlsx.full.min.js'></script> がHTMLに入っているか確認してください。");
     return;
   }
 
