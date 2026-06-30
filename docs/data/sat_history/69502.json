@@ -1,6 +1,6 @@
 {
   "norad_id": 69502,
-  "name": "2026-132A",
+  "name": "STARS-X",
   "history": [
     {
       "epoch": "2026-06-12T03:35:06.959040Z",
@@ -526,6 +526,21 @@
       "arg_perigee_deg": 226.4996,
       "mean_anomaly_deg": 133.5121,
       "mean_motion_rev_day": 14.99065715
+    },
+    {
+      "epoch": "2026-06-30T04:06:52.314912Z",
+      "apogee_km": 579.0762946099558,
+      "perigee_km": 560.462297809906,
+      "latitude_deg": -9.703415826752958e-06,
+      "longitude_deg": -95.28944866325881,
+      "height_km": 579.8418700859525,
+      "semi_major_axis_km": 6947.906296209931,
+      "eccentricity": 0.00133954,
+      "inclination_deg": 97.6885,
+      "raan_deg": 244.6751,
+      "arg_perigee_deg": 221.1349,
+      "mean_anomaly_deg": 138.8865,
+      "mean_motion_rev_day": 14.99069724
     }
   ]
 }

@@ -96,7 +96,7 @@
       "epoch": "2026-03-31T20:00:01.999008Z",
       "apogee_km": 536.9694640493535,
       "perigee_km": 535.4953204949215,
-      "latitude_deg": -36.44098863956403,
+      "latitude_deg": -36.440988639564026,
       "longitude_deg": -141.88394568837435,
       "height_km": 546.1081948595673,
       "semi_major_axis_km": 6914.369392272137,
@@ -667,7 +667,7 @@
       "apogee_km": 483.87268941693674,
       "perigee_km": 482.2657949150225,
       "latitude_deg": -3.478511250477758e-05,
-      "longitude_deg": 127.70901100504932,
+      "longitude_deg": 127.70901100504926,
       "height_km": 482.8752601922212,
       "semi_major_axis_km": 6861.206242165979,
       "eccentricity": 0.0001171,
@@ -682,7 +682,7 @@
       "apogee_km": 483.92471340843986,
       "perigee_km": 482.2066682546556,
       "latitude_deg": 4.3503052406768276e-05,
-      "longitude_deg": 128.11967945163627,
+      "longitude_deg": 128.11967945163633,
       "height_km": 482.6910537854752,
       "semi_major_axis_km": 6861.202690831547,
       "eccentricity": 0.0001252,
@@ -1507,7 +1507,7 @@
       "apogee_km": 484.1859496193738,
       "perigee_km": 481.9775977448762,
       "latitude_deg": -2.245466135670092e-05,
-      "longitude_deg": -115.2025887312884,
+      "longitude_deg": -115.20258873128846,
       "height_km": 482.8827431110886,
       "semi_major_axis_km": 6861.218773682124,
       "eccentricity": 0.00016093,
@@ -1546,6 +1546,21 @@
       "arg_perigee_deg": 268.3646,
       "mean_anomaly_deg": 91.7046,
       "mean_motion_rev_day": 15.27574564
+    },
+    {
+      "epoch": "2026-06-30T02:50:40.809696Z",
+      "apogee_km": 483.9608802033981,
+      "perigee_km": 482.1517207539273,
+      "latitude_deg": 1.6107127482399505e-05,
+      "longitude_deg": 5.885257422833665,
+      "height_km": 482.8761001098749,
+      "semi_major_axis_km": 6861.193300478662,
+      "eccentricity": 0.00013184,
+      "inclination_deg": 43.0045,
+      "raan_deg": 326.7497,
+      "arg_perigee_deg": 267.2961,
+      "mean_anomaly_deg": 92.774,
+      "mean_motion_rev_day": 15.27577594
     }
   ]
 }
