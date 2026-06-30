@@ -75,6 +75,15 @@ jobs:
         run: python scripts/build_tle_history.py
 
       # -------------------------
+      # Space-Track SATCAT full
+      # -------------------------
+      - name: Build Space-Track SATCAT full
+        env:
+          SPACETRACK_USERNAME: ${{ secrets.SPACETRACK_USERNAME }}
+          SPACETRACK_PASSWORD: ${{ secrets.SPACETRACK_PASSWORD }}
+        run: python scripts/build_satcat_full.py
+
+      # -------------------------
       # Space-Track SATCAT analytics
       # -------------------------
       - name: Build Space-Track SATCAT analytics
@@ -127,6 +136,12 @@ jobs:
         run: python scripts/build_satellite_index_full.py
 
       # -------------------------
+      # Merge SATCAT into search index
+      # -------------------------
+      - name: Merge SATCAT into satellite search index
+        run: python scripts/merge_satcat_into_index.py
+
+      # -------------------------
       # Drag analysis
       # -------------------------
       - name: Build drag analysis
@@ -152,6 +167,10 @@ jobs:
           echo ""
           echo "===== tle_history index ====="
           ls -lh docs/data/tle_history/index.json || echo "tle_history index missing"
+
+          echo ""
+          echo "===== satcat full ====="
+          ls -lh docs/data/catalog/satcat_full.json || echo "satcat full missing"
 
           echo ""
           echo "===== satcat analytics ====="
@@ -209,7 +228,7 @@ jobs:
           git diff --cached --quiet && echo "No changes" && exit 0
 
           # commit
-          git commit -m "Update satellite data + Space-Track TLE history + SATCAT analytics + NOAA + launches + index"
+          git commit -m "Update satellite data + Space-Track TLE + SATCAT full + analytics"
 
           # rebase retry
           for i in 1 2 3
