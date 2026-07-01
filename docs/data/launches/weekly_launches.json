@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-07-01T00:04:02.964987Z",
+  "updated_at": "2026-07-01T08:06:05.918011Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-01T00%3A04%3A02.964987Z&net__lte=2026-07-15T00%3A04%3A02.964987Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-01T08%3A06%3A05.918011Z&net__lte=2026-07-15T08%3A06%3A05.918011Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-01T00:04:02.964987Z",
-  "window_end": "2026-07-15T00:04:02.964987Z",
-  "count": 14,
+  "window_start": "2026-07-01T08:06:05.918011Z",
+  "window_end": "2026-07-15T08:06:05.918011Z",
+  "count": 13,
   "launches": [
-    {
-      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
-      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
-      "net": "2026-07-01T01:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
-      "mission_type": "Earth Science",
-      "pad": "Rocket Lab Launch Complex 1A",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
     {
       "id": "f596ad48-881e-47d6-806d-113c6dd97427",
       "name": "Pegasus XL | Swift Boost Mission",
@@ -55,7 +40,7 @@
     {
       "id": "491122a3-3eff-42db-aff3-424b3431fc0b",
       "name": "Falcon 9 Block 5 | Starlink Group 17-46",
-      "net": "2026-07-02T02:00:00Z",
+      "net": "2026-07-02T02:57:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -130,8 +115,8 @@
     {
       "id": "a6db1e67-5860-47c9-a674-adc0f35b62e0",
       "name": "Falcon 9 Block 5 | Transporter 17 (Dedicated SSO Rideshare)",
-      "net": "2026-07-07T06:51:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-07-07T07:10:00Z",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "Transporter 17 (Dedicated SSO Rideshare)",
@@ -175,7 +160,7 @@
     {
       "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
       "name": "Falcon 9 Block 5 | Starlink Group 17-48",
-      "net": "2026-07-11T14:00:00Z",
+      "net": "2026-07-11T02:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
