@@ -100,7 +100,6 @@ def main():
 
     for x in raw:
         norad = safe_int(x.get("NORAD_CAT_ID"))
-
         if norad is None:
             continue
 
