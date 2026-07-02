@@ -30,6 +30,7 @@ def main():
     satcat = load_json(SATCAT_FILE, {})
 
     objects = satcat.get("objects", [])
+
     satcat_map = {
         int(x["norad_id"]): x
         for x in objects
@@ -42,10 +43,10 @@ def main():
         norad = s.get("norad_id") or s.get("NORAD_CAT_ID")
 
         try:
-          norad_int = int(norad)
+            norad_int = int(norad)
         except Exception:
-          merged.append(s)
-          continue
+            merged.append(s)
+            continue
 
         meta = satcat_map.get(norad_int)
 
@@ -59,6 +60,7 @@ def main():
             s["decay_date"] = meta.get("decay_date")
             s["site"] = meta.get("site")
             s["rcs"] = meta.get("rcs")
+            s["comment"] = meta.get("comment")
 
             if not s.get("name") and meta.get("object_name"):
                 s["name"] = meta.get("object_name")
