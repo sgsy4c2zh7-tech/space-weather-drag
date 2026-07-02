@@ -902,7 +902,99 @@ function passesRange(v, minV, maxV) {
 }
 
 async function loadSatelliteIndex() {
-  satelliteIndex = await getJson("data/satellite_index_full.json");
+  const baseIndex = await getJson("data/satellite_index_full.json");
+  satelliteIndex = Array.isArray(baseIndex) ? baseIndex : [];
+
+  // SATCAT full を追加読込して、OBJECT A / OBJECT B / R/B / DEB / OBJECT_ID も検索対象にする。
+  // satellite_index_full.json に存在しないNORADも、最低限の行として追加する。
+  try {
+    const satcat = await getJson("data/catalog/satcat_full.json");
+    const objects = Array.isArray(satcat.objects) ? satcat.objects : [];
+
+    const metaMap = new Map(
+      objects
+        .filter(x => x.norad_id !== undefined && x.norad_id !== null)
+        .map(x => [Number(x.norad_id), x])
+    );
+
+    const existingIds = new Set(
+      satelliteIndex
+        .map(s => Number(s.norad_id ?? s.NORAD_CAT_ID))
+        .filter(Number.isFinite)
+    );
+
+    satelliteIndex = satelliteIndex.map(s => {
+      const norad = Number(s.norad_id ?? s.NORAD_CAT_ID);
+      const meta = metaMap.get(norad);
+      if (!meta) return s;
+
+      return {
+        ...s,
+        norad_id: s.norad_id ?? meta.norad_id,
+        name: s.name || meta.object_name || String(meta.norad_id),
+        object_name: meta.object_name || s.object_name,
+        object_id: meta.object_id || s.object_id,
+        object_type: meta.object_type || s.object_type,
+        country: meta.country || s.country,
+        raw_country: meta.raw_country || s.raw_country,
+        launch_date: meta.launch_date || s.launch_date,
+        decay_date: meta.decay_date || s.decay_date,
+        site: meta.site || s.site,
+        rcs: meta.rcs || s.rcs
+      };
+    });
+
+    const extraRows = objects
+      .filter(x => Number.isFinite(Number(x.norad_id)) && !existingIds.has(Number(x.norad_id)))
+      .map(x => ({
+        norad_id: Number(x.norad_id),
+        name: x.object_name || String(x.norad_id),
+        object_name: x.object_name || null,
+        object_id: x.object_id || null,
+        object_type: x.object_type || null,
+        country: x.country || null,
+        raw_country: x.raw_country || null,
+        launch_date: x.launch_date || null,
+        decay_date: x.decay_date || null,
+        site: x.site || null,
+        rcs: x.rcs || null,
+        apogee_km: x.apogee_km ?? null,
+        perigee_km: x.perigee_km ?? null,
+        inclination_deg: x.inclination_deg ?? null,
+        latitude_deg: null,
+        longitude_deg: null,
+        epoch: null
+      }));
+
+    satelliteIndex.push(...extraRows);
+
+    console.log(`SATCAT full loaded: base=${baseIndex.length}, satcat=${objects.length}, added=${extraRows.length}, total=${satelliteIndex.length}`);
+
+  } catch (e) {
+    console.warn("satcat_full.json not loaded. OBJECT search is limited to satellite_index_full.json.", e);
+  }
+}
+
+function makeSearchText(s) {
+  return [
+    s.norad_id,
+    s.NORAD_CAT_ID,
+    s.name,
+    s.object_name,
+    s.OBJECT_NAME,
+    s.object_id,
+    s.OBJECT_ID,
+    s.object_type,
+    s.OBJECT_TYPE,
+    s.country,
+    s.raw_country,
+    s.owner,
+    s.site,
+    s.rcs
+  ]
+    .filter(v => v !== undefined && v !== null && String(v).trim() !== "")
+    .join(" ")
+    .toLowerCase();
 }
 
 function filterSatellites() {
@@ -920,9 +1012,7 @@ function filterSatellites() {
   const lonMax = numVal("lonMax");
 
   return satelliteIndex.filter(s => {
-    const textOk = q === "" ||
-      String(s.norad_id).includes(q) ||
-      String(s.name || "").toLowerCase().includes(q);
+    const textOk = q === "" || makeSearchText(s).includes(q);
 
     return textOk &&
       passesRange(s.apogee_km, apogeeMin, apogeeMax) &&
@@ -943,7 +1033,7 @@ function renderResults(rows) {
           onchange="toggleSelection(${Number(s.norad_id)}, this.checked)">
       </td>
       <td>${s.norad_id}</td>
-      <td>${s.name || "-"}</td>
+      <td>${s.name || s.object_name || "-"}</td>
       <td>${fmt(s.apogee_km)}</td>
       <td>${fmt(s.perigee_km)}</td>
       <td>${fmt(s.inclination_deg)}</td>
@@ -980,8 +1070,8 @@ function renderSelectedList() {
   document.getElementById("selectedBody").innerHTML = selected.map(s => `
     <tr>
       <td>${s.norad_id}</td>
-      <td>${s.name || "-"}</td>
-      <td>${s.epoch || "-"}</td>
+      <td>${s.name || s.object_name || "-"}</td>
+      <td>${s.epoch || s.launch_date || "-"}</td>
     </tr>
   `).join("");
 
@@ -989,7 +1079,7 @@ function renderSelectedList() {
   const current = primarySelect.value;
 
   primarySelect.innerHTML = selected.map(s => `
-    <option value="${s.norad_id}">${s.norad_id} / ${s.name || "-"}</option>
+    <option value="${s.norad_id}">${s.norad_id} / ${s.name || s.object_name || "-"}</option>
   `).join("");
 
   if (current && selectedIds.has(Number(current))) {
@@ -1007,7 +1097,7 @@ function updateGeoReferenceList() {
   const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
 
   sel.innerHTML = selected.map(s => `
-    <option value="${s.norad_id}">${s.norad_id} / ${s.name || "-"}</option>
+    <option value="${s.norad_id}">${s.norad_id} / ${s.name || s.object_name || "-"}</option>
   `).join("");
 
   if (current && selectedIds.has(Number(current))) {
