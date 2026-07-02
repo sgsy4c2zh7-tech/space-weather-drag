@@ -218,19 +218,14 @@ jobs:
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
 
-          # 最新取得
           git fetch origin main
 
-          # 変更追加
           git add docs/data
 
-          # 変更なければ終了
           git diff --cached --quiet && echo "No changes" && exit 0
 
-          # commit
           git commit -m "Update satellite data + Space-Track TLE + SATCAT full + analytics"
 
-          # rebase retry
           for i in 1 2 3
           do
             echo "Rebase attempt $i"
@@ -241,7 +236,6 @@ jobs:
             sleep 5
           done
 
-          # push retry
           for i in 1 2 3
           do
             echo "Push attempt $i"
