@@ -4,7 +4,6 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</title>
-  <!-- fixed-v2: escaped literal script tag in JS strings -->
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -138,7 +137,7 @@
       background: #1a2740;
     }
 
-    #status, #searchStatus, #tleStatus, #geoStatus, #launchStatus, #selectedTimeStatus {
+    #status, #searchStatus, #tleStatus, #geoStatus, #launchStatus, #selectedTimeStatus, #planeMatchStatus {
       margin-top: 10px;
       font-size: 14px;
       color: #d6e4ff;
@@ -349,6 +348,24 @@
         <input id="geoNearbyRange" type="number" value="10" step="1" />
       </label>
 
+      <label>
+        GEOシリーズ
+        <select id="geoSeriesSelect">
+          <option value="TJS">TJS</option>
+          <option value="CHINASAT">CHINASAT / 中星</option>
+          <option value="BEIDOU">BEIDOU</option>
+          <option value="QZSS">QZSS</option>
+          <option value="GPS">GPS</option>
+          <option value="WGS">WGS</option>
+          <option value="AEHF">AEHF</option>
+          <option value="SBIRS">SBIRS</option>
+          <option value="INTELSAT">INTELSAT</option>
+          <option value="EUTELSAT">EUTELSAT</option>
+          <option value="OTHER">OTHER</option>
+        </select>
+      </label>
+
+      <button id="showGeoSeriesBtn">シリーズ別GEO表示</button>
       <button id="showNearbyGeoBtn">周辺GEO表示</button>
       <button id="showGeoBtn">GEO表示</button>
       <button id="showAllGeoBtn">全GEO表示</button>
@@ -515,6 +532,56 @@
               </tr>
             </thead>
             <tbody id="resultsBody"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="card">
+        <h2>低軌道 軌道面一致検索</h2>
+
+        <div class="row">
+          <label>
+            基準衛星
+            <select id="planeReferenceSat"></select>
+          </label>
+
+          <label>
+            傾斜角差 ±deg
+            <input id="planeIncTol" type="number" value="0.5" step="0.1" />
+          </label>
+
+          <label>
+            RAAN差 ±deg
+            <input id="planeRaanTol" type="number" value="5" step="0.5" />
+          </label>
+
+          <label>
+            高度差 ±km
+            <input id="planeAltTol" type="number" value="50" step="10" />
+          </label>
+
+          <button id="searchPlaneMatchBtn">軌道面一致検索</button>
+        </div>
+
+        <div id="planeMatchStatus" class="small-text" style="margin-top:10px;">
+          未検索
+        </div>
+
+        <div class="selected-list" style="margin-top:10px;">
+          <table>
+            <thead>
+              <tr>
+                <th>選択</th>
+                <th>NORAD</th>
+                <th>名前</th>
+                <th>Inc差</th>
+                <th>RAAN差</th>
+                <th>高度差</th>
+                <th>高度</th>
+                <th>RAAN</th>
+              </tr>
+            </thead>
+            <tbody id="planeMatchBody"></tbody>
           </table>
         </div>
       </div>
@@ -902,11 +969,9 @@ function passesRange(v, minV, maxV) {
 }
 
 async function loadSatelliteIndex() {
-  const baseIndex = await getJson("data/satellite_index_full.json");
-  satelliteIndex = Array.isArray(baseIndex) ? baseIndex : [];
+  satelliteIndex = await getJson("data/satellite_index_full.json");
 
-  // SATCAT full を追加読込して、OBJECT A / OBJECT B / R/B / DEB / OBJECT_ID も検索対象にする。
-  // satellite_index_full.json に存在しないNORADも、最低限の行として追加する。
+  // SATCAT Full がある場合は、OBJECT A / OBJECT_ID / R/B / DEB などのメタデータを検索インデックスへ追加する。
   try {
     const satcat = await getJson("data/catalog/satcat_full.json");
     const objects = Array.isArray(satcat.objects) ? satcat.objects : [];
@@ -917,21 +982,15 @@ async function loadSatelliteIndex() {
         .map(x => [Number(x.norad_id), x])
     );
 
-    const existingIds = new Set(
-      satelliteIndex
-        .map(s => Number(s.norad_id ?? s.NORAD_CAT_ID))
-        .filter(Number.isFinite)
-    );
+    const existingIds = new Set(satelliteIndex.map(s => Number(s.norad_id)));
 
     satelliteIndex = satelliteIndex.map(s => {
-      const norad = Number(s.norad_id ?? s.NORAD_CAT_ID);
+      const norad = Number(s.norad_id);
       const meta = metaMap.get(norad);
       if (!meta) return s;
 
       return {
         ...s,
-        norad_id: s.norad_id ?? meta.norad_id,
-        name: s.name || meta.object_name || String(meta.norad_id),
         object_name: meta.object_name || s.object_name,
         object_id: meta.object_id || s.object_id,
         object_type: meta.object_type || s.object_type,
@@ -940,38 +999,40 @@ async function loadSatelliteIndex() {
         launch_date: meta.launch_date || s.launch_date,
         decay_date: meta.decay_date || s.decay_date,
         site: meta.site || s.site,
-        rcs: meta.rcs || s.rcs
+        rcs: meta.rcs || s.rcs,
+        comment: meta.comment || s.comment
       };
     });
 
-    const extraRows = objects
-      .filter(x => Number.isFinite(Number(x.norad_id)) && !existingIds.has(Number(x.norad_id)))
-      .map(x => ({
-        norad_id: Number(x.norad_id),
-        name: x.object_name || String(x.norad_id),
-        object_name: x.object_name || null,
-        object_id: x.object_id || null,
-        object_type: x.object_type || null,
-        country: x.country || null,
-        raw_country: x.raw_country || null,
-        launch_date: x.launch_date || null,
-        decay_date: x.decay_date || null,
-        site: x.site || null,
-        rcs: x.rcs || null,
-        apogee_km: x.apogee_km ?? null,
-        perigee_km: x.perigee_km ?? null,
-        inclination_deg: x.inclination_deg ?? null,
-        latitude_deg: null,
-        longitude_deg: null,
-        epoch: null
-      }));
+    // satellite_index_full.json に存在しないSATCAT物体も、検索できる最小レコードとして追加する。
+    for (const meta of objects) {
+      const norad = Number(meta.norad_id);
+      if (!Number.isFinite(norad) || existingIds.has(norad)) continue;
 
-    satelliteIndex.push(...extraRows);
+      satelliteIndex.push({
+        norad_id: norad,
+        name: meta.object_name || String(norad),
+        object_name: meta.object_name,
+        object_id: meta.object_id,
+        object_type: meta.object_type,
+        country: meta.country,
+        raw_country: meta.raw_country,
+        launch_date: meta.launch_date,
+        decay_date: meta.decay_date,
+        apogee_km: meta.apogee_km,
+        perigee_km: meta.perigee_km,
+        inclination_deg: meta.inclination_deg,
+        raan_deg: meta.raan_deg,
+        period_min: meta.period_min,
+        site: meta.site,
+        rcs: meta.rcs,
+        comment: meta.comment
+      });
+    }
 
-    console.log(`SATCAT full loaded: base=${baseIndex.length}, satcat=${objects.length}, added=${extraRows.length}, total=${satelliteIndex.length}`);
-
+    console.log(`SATCAT full merged: ${objects.length} objects / index=${satelliteIndex.length}`);
   } catch (e) {
-    console.warn("satcat_full.json not loaded. OBJECT search is limited to satellite_index_full.json.", e);
+    console.warn("satcat_full.json not loaded. OBJECT search may be limited.", e);
   }
 }
 
@@ -990,7 +1051,8 @@ function makeSearchText(s) {
     s.raw_country,
     s.owner,
     s.site,
-    s.rcs
+    s.rcs,
+    s.comment
   ]
     .filter(v => v !== undefined && v !== null && String(v).trim() !== "")
     .join(" ")
@@ -1071,7 +1133,7 @@ function renderSelectedList() {
     <tr>
       <td>${s.norad_id}</td>
       <td>${s.name || s.object_name || "-"}</td>
-      <td>${s.epoch || s.launch_date || "-"}</td>
+      <td>${s.epoch || "-"}</td>
     </tr>
   `).join("");
 
@@ -1087,6 +1149,7 @@ function renderSelectedList() {
   }
 
   updateGeoReferenceList();
+  updatePlaneReferenceList();
 }
 
 function updateGeoReferenceList() {
@@ -1103,6 +1166,132 @@ function updateGeoReferenceList() {
   if (current && selectedIds.has(Number(current))) {
     sel.value = current;
   }
+}
+
+function updatePlaneReferenceList() {
+  const sel = document.getElementById("planeReferenceSat");
+  if (!sel) return;
+
+  const current = sel.value;
+  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+
+  sel.innerHTML = selected.map(s => `
+    <option value="${s.norad_id}">${s.norad_id} / ${s.name || s.object_name || "-"}</option>
+  `).join("");
+
+  if (current && selectedIds.has(Number(current))) {
+    sel.value = current;
+  }
+}
+
+function angleDiffDeg(a, b) {
+  let d = Math.abs(Number(a) - Number(b));
+  while (d > 360) d -= 360;
+  if (d > 180) d = 360 - d;
+  return d;
+}
+
+function getSatHeightForPlane(s) {
+  const h = Number(s.height_km);
+  if (Number.isFinite(h)) return h;
+
+  const ap = Number(s.apogee_km);
+  const pe = Number(s.perigee_km);
+  if (Number.isFinite(ap) && Number.isFinite(pe)) return (ap + pe) / 2;
+
+  return null;
+}
+
+function isLeoForPlane(s) {
+  const h = getSatHeightForPlane(s);
+  return h !== null && h < 2000;
+}
+
+function searchPlaneMatchedSatellites() {
+  const status = document.getElementById("planeMatchStatus");
+  const body = document.getElementById("planeMatchBody");
+
+  const refId = Number(document.getElementById("planeReferenceSat").value);
+  const incTol = Number(document.getElementById("planeIncTol").value) || 0.5;
+  const raanTol = Number(document.getElementById("planeRaanTol").value) || 5;
+  const altTol = Number(document.getElementById("planeAltTol").value) || 50;
+
+  const ref = satelliteIndex.find(s => Number(s.norad_id) === refId);
+
+  if (!ref) {
+    status.textContent = "基準衛星を選択してください。";
+    body.innerHTML = "";
+    return;
+  }
+
+  const refInc = Number(ref.inclination_deg);
+  const refRaan = Number(ref.raan_deg);
+  const refH = getSatHeightForPlane(ref);
+
+  if (!Number.isFinite(refInc) || !Number.isFinite(refRaan) || refH === null) {
+    status.textContent = "基準衛星に inclination_deg / raan_deg / height_km がありません。";
+    body.innerHTML = "";
+    return;
+  }
+
+  const rows = satelliteIndex
+    .filter(s => Number(s.norad_id) !== refId)
+    .filter(s => isLeoForPlane(s))
+    .map(s => {
+      const inc = Number(s.inclination_deg);
+      const raan = Number(s.raan_deg);
+      const h = getSatHeightForPlane(s);
+
+      if (!Number.isFinite(inc) || !Number.isFinite(raan) || h === null) return null;
+
+      const incDiff = Math.abs(inc - refInc);
+      const raanDiff = angleDiffDeg(raan, refRaan);
+      const altDiff = Math.abs(h - refH);
+
+      return {
+        sat: s,
+        incDiff,
+        raanDiff,
+        altDiff,
+        height: h,
+        raan
+      };
+    })
+    .filter(x => x)
+    .filter(x =>
+      x.incDiff <= incTol &&
+      x.raanDiff <= raanTol &&
+      x.altDiff <= altTol
+    )
+    .sort((a, b) =>
+      (a.incDiff + a.raanDiff + a.altDiff / 100) -
+      (b.incDiff + b.raanDiff + b.altDiff / 100)
+    )
+    .slice(0, 100);
+
+  body.innerHTML = rows.map(x => {
+    const s = x.sat;
+    const norad = Number(s.norad_id);
+
+    return `
+      <tr>
+        <td>
+          <input type="checkbox" ${selectedIds.has(norad) ? "checked" : ""}
+            onchange="toggleSelection(${norad}, this.checked)">
+        </td>
+        <td>${norad}</td>
+        <td>${s.name || s.object_name || "-"}</td>
+        <td>${fmt(x.incDiff, 3)}</td>
+        <td>${fmt(x.raanDiff, 3)}</td>
+        <td>${fmt(x.altDiff, 2)}</td>
+        <td>${fmt(x.height, 2)}</td>
+        <td>${fmt(x.raan, 3)}</td>
+      </tr>
+    `;
+  }).join("");
+
+  status.textContent =
+    `軌道面一致候補: ${rows.length}件 / 基準=${ref.name || ref.object_name || refId} / Inc±${incTol}deg / RAAN±${raanTol}deg / 高度±${altTol}km`;
 }
 
 function runSearch(updateStatus = true) {
@@ -2187,6 +2376,107 @@ function normalizeCountryGroup(country) {
   return c;
 }
 
+function detectGeoSeries(s) {
+  const n = [
+    s.name,
+    s.object_name,
+    s.comment
+  ]
+    .filter(Boolean)
+    .join(" ")
+    .toUpperCase();
+
+  if (n.includes("TJS")) return "TJS";
+  if (n.includes("CHINASAT") || n.includes("ZHONGXING") || n.includes("ZX ")) return "CHINASAT";
+  if (n.includes("BEIDOU")) return "BEIDOU";
+  if (n.includes("QZS") || n.includes("MICHIBIKI")) return "QZSS";
+  if (n.includes("GPS") || n.includes("NAVSTAR")) return "GPS";
+  if (n.includes("WGS")) return "WGS";
+  if (n.includes("AEHF")) return "AEHF";
+  if (n.includes("SBIRS")) return "SBIRS";
+  if (n.includes("INTELSAT")) return "INTELSAT";
+  if (n.includes("EUTELSAT")) return "EUTELSAT";
+
+  return "OTHER";
+}
+
+async function showGeoBySeries() {
+  initGeoMap();
+  geoLayer.clearLayers();
+
+  const status = document.getElementById("geoStatus");
+  const series = document.getElementById("geoSeriesSelect").value;
+
+  const candidates = satelliteIndex.filter(s => {
+    if (!isGeoCandidate(s)) return false;
+    return detectGeoSeries(s) === series;
+  });
+
+  status.textContent = `${series} GEO候補 ${candidates.length}件を読込中...`;
+
+  let shown = 0;
+  let missing = 0;
+
+  for (const s of candidates) {
+    const norad = Number(s.norad_id);
+    const name = s.name || s.object_name || String(norad);
+    const country = getSatCountry(s);
+    const color = getGeoColorByCountry(country);
+
+    try {
+      const sat = await loadSatelliteData(norad);
+      const pos = getLatestLatLonFromHistory(sat.history || []);
+
+      if (!pos) {
+        missing++;
+        continue;
+      }
+
+      const marker = L.circleMarker([pos.lat, pos.lon], {
+        radius: 7,
+        color,
+        fillColor: color,
+        fillOpacity: 0.85,
+        weight: 1.5
+      });
+
+      marker.bindPopup(`
+        <b>${name}</b><br>
+        NORAD: ${norad}<br>
+        Series: ${series}<br>
+        Country: ${country}<br>
+        Object: ${s.object_name || "-"}<br>
+        Object ID: ${s.object_id || "-"}<br>
+        Type: ${s.object_type || "-"}<br>
+        Lat: ${fmt(pos.lat, 4)} deg<br>
+        Lon: ${fmt(pos.lon, 4)} deg<br>
+        Height: ${fmt(pos.latest.height_km, 2)} km<br>
+        Epoch: ${pos.latest.epoch || "-"}
+      `);
+
+      marker.addTo(geoLayer);
+      shown++;
+
+      if (shown % 20 === 0) {
+        status.textContent = `${series} GEO表示中... ${shown}/${candidates.length}`;
+        await new Promise(r => setTimeout(r, 1));
+      }
+
+    } catch {
+      missing++;
+    }
+  }
+
+  status.textContent =
+    `${series} GEO表示完了: ${shown}件 / 取得失敗・履歴なし: ${missing}件 / 候補: ${candidates.length}件`;
+
+  if (shown > 0) {
+    try {
+      geoMap.fitBounds(geoLayer.getBounds(), { padding: [20, 20] });
+    } catch {}
+  }
+}
+
 function getSelectedGeoCountries() {
   const sel = document.getElementById("geoCountriesSelect");
   return new Set(Array.from(sel.selectedOptions).map(o => o.value.toUpperCase()));
@@ -2856,7 +3146,7 @@ function makeSatelliteTooltipLines(sats) {
   const sorted = [...sats].sort((a, b) => satelliteSortKey(a).localeCompare(satelliteSortKey(b)));
   const maxShow = 20;
   const lines = sorted.slice(0, maxShow).map(s => {
-    return `${s.launch_date || "-"}  ${s.name || "-"}  NORAD:${s.norad ?? "-"}`;
+    return `${s.launch_date || "-"}  ${s.name || s.object_name || "-"}  NORAD:${s.norad ?? "-"}`;
   });
 
   if (sorted.length > maxShow) {
@@ -3123,7 +3413,7 @@ function exportAnalyticsExcel() {
   }
 
   if (typeof XLSX === "undefined") {
-    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、head内の xlsx.full.min.js 読み込み がHTMLに入っているか確認してください。");
+    alert("XLSXライブラリが読み込まれていません。ネットワーク接続を確認してください。CSV出力は利用できます。ほか、head内に xlsx.full.min.js が入っているか確認してください。");
     return;
   }
 
@@ -3233,6 +3523,8 @@ document.getElementById("calcSelectedTimeBtn").addEventListener("click", calcula
 document.getElementById("setSelectedTimeNowBtn").addEventListener("click", setSelectedTimeNow);
 document.getElementById("applyManualTleBtn").addEventListener("click", applyManualTleFromUi);
 document.getElementById("clearManualTleBtn").addEventListener("click", clearManualTleFromUi);
+document.getElementById("showGeoSeriesBtn").addEventListener("click", showGeoBySeries);
+document.getElementById("searchPlaneMatchBtn").addEventListener("click", searchPlaneMatchedSatellites);
 document.getElementById("showGeoBtn").addEventListener("click", () => showGeoSatellites(false));
 document.getElementById("showAllGeoBtn").addEventListener("click", () => showGeoSatellites(true));
 document.getElementById("showNearbyGeoBtn").addEventListener("click", showNearbyGeoSatellites);
