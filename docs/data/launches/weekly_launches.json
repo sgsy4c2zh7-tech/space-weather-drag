@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-02T22:37:02.686457Z",
+  "updated_at": "2026-07-03T08:39:23.617424Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-02T22%3A37%3A02.686457Z&net__lte=2026-07-16T22%3A37%3A02.686457Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-03T08%3A39%3A23.617424Z&net__lte=2026-07-17T08%3A39%3A23.617424Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-02T22:37:02.686457Z",
-  "window_end": "2026-07-16T22:37:02.686457Z",
-  "count": 9,
+  "window_start": "2026-07-03T08:39:23.617424Z",
+  "window_end": "2026-07-17T08:39:23.617424Z",
+  "count": 10,
   "launches": [
     {
       "id": "9e0f6efb-4742-4ba3-9fd4-4ea218576c71",
@@ -141,6 +141,21 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a556b963-0f36-4660-95a8-fdffdba653e2/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1a_image_20230805184309.jpg"
+    },
+    {
+      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
+      "name": "Electron | LOXSAT 1",
+      "net": "2026-07-17T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "LOXSAT 1",
+      "mission_type": "Technology",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     }
   ]
 }
