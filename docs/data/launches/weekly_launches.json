@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-03T08:39:23.617424Z",
+  "updated_at": "2026-07-03T15:35:12.876517Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-03T08%3A39%3A23.617424Z&net__lte=2026-07-17T08%3A39%3A23.617424Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-03T15%3A35%3A12.876517Z&net__lte=2026-07-17T15%3A35%3A12.876517Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-03T08:39:23.617424Z",
-  "window_end": "2026-07-17T08:39:23.617424Z",
-  "count": 10,
+  "window_start": "2026-07-03T15:35:12.876517Z",
+  "window_end": "2026-07-17T15:35:12.876517Z",
+  "count": 12,
   "launches": [
     {
       "id": "9e0f6efb-4742-4ba3-9fd4-4ea218576c71",
@@ -23,21 +23,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     },
     {
-      "id": "888e0de3-ce4d-4daf-8140-bb0d3a4c8245",
-      "name": "Long March 8A | SpaceSail Polar Group TBD",
-      "net": "2026-07-05T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "SpaceSail Polar Group TBD",
-      "mission_type": "Communications",
-      "pad": "Commercial LC-1",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/888e0de3-ce4d-4daf-8140-bb0d3a4c8245/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
-    },
-    {
       "id": "1ef27ca1-af91-48bb-b934-3da5abd9f711",
       "name": "Falcon 9 Block 5 | Starlink Group 10-50",
       "net": "2026-07-05T10:36:00Z",
@@ -51,6 +36,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/1ef27ca1-af91-48bb-b934-3da5abd9f711/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "888e0de3-ce4d-4daf-8140-bb0d3a4c8245",
+      "name": "Long March 8A | SpaceSail Polar Group TBD",
+      "net": "2026-07-05T13:40:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "SpaceSail Polar Group TBD",
+      "mission_type": "Communications",
+      "pad": "Commercial LC-1",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/888e0de3-ce4d-4daf-8140-bb0d3a4c8245/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
     },
     {
       "id": "a6db1e67-5860-47c9-a674-adc0f35b62e0",
@@ -85,8 +85,8 @@
     {
       "id": "1e79a5e9-c02c-470f-882f-884120100fef",
       "name": "Long March 10B | Demo Flight",
-      "net": "2026-07-10T05:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-07-10T05:20:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Demo Flight",
@@ -111,6 +111,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/135fb199-a39e-48cc-ba27-0aecd96ba9f8/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "d8eb4b68-5307-4b3b-b585-5598958defc2",
+      "name": "Gravity-1 | Unknown Payload",
+      "net": "2026-07-12T02:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "Orienspace Technology",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Haiyang offshore launch location",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d8eb4b68-5307-4b3b-b585-5598958defc2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/gravity-1_image_20240108105446.jpeg"
     },
     {
       "id": "e09f254f-18bc-4985-963e-6075fa3d7a1c",
@@ -156,6 +171,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e",
+      "name": "Long March 7A | Unknown Payload",
+      "net": "2026-07-17T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "201",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
     }
   ]
 }
