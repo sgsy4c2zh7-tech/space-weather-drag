@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-04T14:56:47Z",
+  "updated_at": "2026-07-04T22:20:42Z",
   "monthly_total": [
     {
       "month": "1957-10",
@@ -3243,7 +3243,7 @@
     },
     {
       "month": "2026-07",
-      "count": 2
+      "count": 4
     }
   ],
   "country": {
@@ -7952,7 +7952,7 @@
       },
       {
         "month": "2026-03",
-        "count": 1
+        "count": 2
       },
       {
         "month": "2026-05",
@@ -15064,7 +15064,7 @@
       },
       {
         "month": "2026-03",
-        "count": 14
+        "count": 13
       },
       {
         "month": "2026-05",
@@ -18795,6 +18795,10 @@
       {
         "month": "2026-06",
         "count": 307
+      },
+      {
+        "month": "2026-07",
+        "count": 2
       }
     ],
     "USBZ": [
@@ -30296,6 +30300,12 @@
     "ERBS": [
       {
         "month": "1984-10",
+        "count": 1
+      }
+    ],
+    "ERMIS3": [
+      {
+        "month": "2026-03",
         "count": 1
       }
     ],
@@ -45112,7 +45122,7 @@
       },
       {
         "month": "2026-03",
-        "count": 20
+        "count": 19
       },
       {
         "month": "2026-04",
@@ -45128,7 +45138,7 @@
       },
       {
         "month": "2026-07",
-        "count": 2
+        "count": 4
       }
     ],
     "OBSERVER-1A": [
@@ -72864,7 +72874,7 @@
       },
       {
         "month": "2026-07",
-        "count": 2
+        "count": 4
       }
     ],
     "MEO": [
@@ -692166,11 +692176,11 @@
     },
     {
       "norad_id": 68425,
-      "object_name": "OBJECT K",
-      "object_type": "UNKNOWN",
-      "country": "TBD",
+      "object_name": "ERMIS3",
+      "object_type": "PAYLOAD",
+      "country": "GREC",
       "launch_date": "2026-03-30",
-      "series": "OBJECT",
+      "series": "ERMIS3",
       "orbit": "LEO"
     },
     {
@@ -703969,6 +703979,24 @@
       "object_type": "UNKNOWN",
       "country": "CHN",
       "launch_date": "2026-07-01",
+      "series": "OBJECT",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 69792,
+      "object_name": "OBJECT A",
+      "object_type": "UNKNOWN",
+      "country": "US",
+      "launch_date": "2026-07-03",
+      "series": "OBJECT",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 69793,
+      "object_name": "OBJECT B",
+      "object_type": "UNKNOWN",
+      "country": "US",
+      "launch_date": "2026-07-03",
       "series": "OBJECT",
       "orbit": "LEO"
     }
