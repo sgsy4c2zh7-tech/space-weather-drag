@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-07T16:07:05.597974Z",
+  "updated_at": "2026-07-07T22:42:27.442191Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-07T16%3A07%3A05.597974Z&net__lte=2026-07-21T16%3A07%3A05.597974Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-07T22%3A42%3A27.442191Z&net__lte=2026-07-21T22%3A42%3A27.442191Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-07T16:07:05.597974Z",
-  "window_end": "2026-07-21T16:07:05.597974Z",
-  "count": 9,
+  "window_start": "2026-07-07T22:42:27.442191Z",
+  "window_end": "2026-07-21T22:42:27.442191Z",
+  "count": 10,
   "launches": [
     {
       "id": "62d4cd48-ed28-418b-b58c-526781a50a39",
@@ -111,6 +111,21 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a556b963-0f36-4660-95a8-fdffdba653e2/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1a_image_20230805184309.jpg"
+    },
+    {
+      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
+      "name": "Starship | Flight 13",
+      "net": "2026-07-14T22:45:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Flight 13",
+      "mission_type": "Test Flight",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
     },
     {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
