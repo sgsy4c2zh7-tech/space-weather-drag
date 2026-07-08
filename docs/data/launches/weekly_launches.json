@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-07-08T15:47:00.791571Z",
+  "updated_at": "2026-07-08T22:30:16.131728Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-08T15%3A47%3A00.791571Z&net__lte=2026-07-22T15%3A47%3A00.791571Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-08T22%3A30%3A16.131728Z&net__lte=2026-07-22T22%3A30%3A16.131728Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-08T15:47:00.791571Z",
-  "window_end": "2026-07-22T15:47:00.791571Z",
-  "count": 10,
+  "window_start": "2026-07-08T22:30:16.131728Z",
+  "window_end": "2026-07-22T22:30:16.131728Z",
+  "count": 11,
   "launches": [
     {
       "id": "62d4cd48-ed28-418b-b58c-526781a50a39",
       "name": "Falcon 9 Block 5 | Starlink Group 10-42",
-      "net": "2026-07-09T09:05:00Z",
+      "net": "2026-07-09T09:25:37Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -115,7 +115,7 @@
     {
       "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
       "name": "Starship | Flight 13",
-      "net": "2026-07-14T22:45:00Z",
+      "net": "2026-07-15T22:45:00Z",
       "status": "To Be Confirmed",
       "country_group": "US",
       "provider": "SpaceX",
@@ -126,6 +126,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
+    },
+    {
+      "id": "d9adedc4-8fa1-4a36-84f9-43b8893a6865",
+      "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer E",
+      "net": "2026-07-16T20:22:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "SDA Tranche 1 Transport Layer E",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d9adedc4-8fa1-4a36-84f9-43b8893a6865/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",

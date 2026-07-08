@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-08T15:46:51Z",
+  "updated_at": "2026-07-08T22:30:06Z",
   "monthly_total": [
     {
       "month": "1957-10",
@@ -5242,7 +5242,7 @@
       },
       {
         "month": "2024-02",
-        "count": 16
+        "count": 17
       },
       {
         "month": "2024-03",
@@ -15008,7 +15008,7 @@
       },
       {
         "month": "2024-02",
-        "count": 29
+        "count": 28
       },
       {
         "month": "2024-03",
@@ -45030,7 +45030,7 @@
       },
       {
         "month": "2024-02",
-        "count": 29
+        "count": 28
       },
       {
         "month": "2024-03",
@@ -65879,6 +65879,12 @@
         "count": 1
       }
     ],
+    "WEIHAI": [
+      {
+        "month": "2024-02",
+        "count": 1
+      }
+    ],
     "WEINA": [
       {
         "month": "2018-01",
@@ -69342,7 +69348,7 @@
       },
       {
         "month": "2026-06",
-        "count": 1
+        "count": 2
       }
     ],
     "HEO": [
@@ -75236,7 +75242,7 @@
       },
       {
         "month": "2026-06",
-        "count": 5
+        "count": 4
       }
     ],
     "Unknown": [
@@ -606741,11 +606747,11 @@
     },
     {
       "norad_id": 58919,
-      "object_name": "OBJECT C",
-      "object_type": "UNKNOWN",
-      "country": "TBD",
+      "object_name": "WEIHAI 1-01",
+      "object_type": "PAYLOAD",
+      "country": "CHN",
       "launch_date": "2024-02-03",
-      "series": "OBJECT",
+      "series": "WEIHAI",
       "orbit": "LEO"
     },
     {
@@ -703424,7 +703430,7 @@
       "country": "CHN",
       "launch_date": "2026-06-23",
       "series": "OBJECT",
-      "orbit": "MEO"
+      "orbit": "GEO"
     },
     {
       "norad_id": 69675,
