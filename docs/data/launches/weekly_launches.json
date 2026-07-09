@@ -1,31 +1,16 @@
 {
-  "updated_at": "2026-07-09T08:57:22.680095Z",
+  "updated_at": "2026-07-09T16:21:07.176166Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-09T08%3A57%3A22.680095Z&net__lte=2026-07-23T08%3A57%3A22.680095Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-09T16%3A21%3A07.176166Z&net__lte=2026-07-23T16%3A21%3A07.176166Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-09T08:57:22.680095Z",
-  "window_end": "2026-07-23T08:57:22.680095Z",
+  "window_start": "2026-07-09T16:21:07.176166Z",
+  "window_end": "2026-07-23T16:21:07.176166Z",
   "count": 11,
   "launches": [
     {
-      "id": "62d4cd48-ed28-418b-b58c-526781a50a39",
-      "name": "Falcon 9 Block 5 | Starlink Group 10-42",
-      "net": "2026-07-09T09:25:43Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 10-42",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/62d4cd48-ed28-418b-b58c-526781a50a39/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
       "id": "1e79a5e9-c02c-470f-882f-884120100fef",
       "name": "Long March 10B | Demo Flight",
-      "net": "2026-07-10T05:20:00Z",
+      "net": "2026-07-10T04:10:00Z",
       "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
@@ -35,7 +20,7 @@
       "location": "Wenchang Space Launch Site, People's Republic of China",
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/1e79a5e9-c02c-470f-882f-884120100fef/",
-      "image": null
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_10b__image_20260709125908.jpg"
     },
     {
       "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
@@ -171,6 +156,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
+    },
+    {
+      "id": "5421e43a-1623-40ac-9dac-201075064e24",
+      "name": "Long March 3B/E | Unknown Payload",
+      "net": "2026-07-23T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 2 (LC-2)",
+      "location": "Xichang Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5421e43a-1623-40ac-9dac-201075064e24/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
     }
   ]
 }
