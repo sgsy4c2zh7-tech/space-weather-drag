@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-07-10T15:53:04.901970Z",
+  "updated_at": "2026-07-10T22:29:17.284336Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-10T15%3A53%3A04.901970Z&net__lte=2026-07-24T15%3A53%3A04.901970Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-10T22%3A29%3A17.284336Z&net__lte=2026-07-24T22%3A29%3A17.284336Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-10T15:53:04.901970Z",
-  "window_end": "2026-07-24T15:53:04.901970Z",
-  "count": 10,
+  "window_start": "2026-07-10T22:29:17.284336Z",
+  "window_end": "2026-07-24T22:29:17.284336Z",
+  "count": 11,
   "launches": [
     {
       "id": "135fb199-a39e-48cc-ba27-0aecd96ba9f8",
       "name": "Falcon 9 Block 5 | Starlink Group 17-48",
-      "net": "2026-07-11T02:55:57Z",
+      "net": "2026-07-11T03:01:57Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -130,7 +130,7 @@
     {
       "id": "e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc",
       "name": "Falcon 9 Block 5 | Starlink Group 17-39",
-      "net": "2026-07-20T14:00:00Z",
+      "net": "2026-07-18T14:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -156,6 +156,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/5421e43a-1623-40ac-9dac-201075064e24/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
+    },
+    {
+      "id": "5b2f05d7-9052-49fb-9bd7-2a05d4910576",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-51",
+      "net": "2026-07-23T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-51",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5b2f05d7-9052-49fb-9bd7-2a05d4910576/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
