@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-11T14:46:15Z",
+  "updated_at": "2026-07-11T22:21:05Z",
   "monthly_total": [
     {
       "month": "1957-10",
@@ -3227,7 +3227,7 @@
     },
     {
       "month": "2026-03",
-      "count": 521
+      "count": 522
     },
     {
       "month": "2026-04",
@@ -3243,7 +3243,7 @@
     },
     {
       "month": "2026-07",
-      "count": 86
+      "count": 89
     }
   ],
   "country": {
@@ -5358,7 +5358,7 @@
       },
       {
         "month": "2026-07",
-        "count": 2
+        "count": 5
       }
     ],
     "COL": [
@@ -10930,7 +10930,7 @@
       },
       {
         "month": "2026-03",
-        "count": 3
+        "count": 4
       },
       {
         "month": "2026-05",
@@ -22981,6 +22981,10 @@
       {
         "month": "2023-12",
         "count": 1
+      },
+      {
+        "month": "2026-07",
+        "count": 1
       }
     ],
     "CICERO": [
@@ -28921,6 +28925,10 @@
       {
         "month": "2026-06",
         "count": 7
+      },
+      {
+        "month": "2026-07",
+        "count": 1
       }
     ],
     "DEEP": [
@@ -53655,6 +53663,10 @@
       {
         "month": "2026-06",
         "count": 10
+      },
+      {
+        "month": "2026-07",
+        "count": 1
       }
     ],
     "R2": [
@@ -54822,6 +54834,12 @@
     "SARAL": [
       {
         "month": "2013-02",
+        "count": 1
+      }
+    ],
+    "SARAMAGO": [
+      {
+        "month": "2026-03",
         "count": 1
       }
     ],
@@ -73058,7 +73076,7 @@
       },
       {
         "month": "2026-03",
-        "count": 520
+        "count": 521
       },
       {
         "month": "2026-04",
@@ -73074,7 +73092,7 @@
       },
       {
         "month": "2026-07",
-        "count": 86
+        "count": 89
       }
     ],
     "MEO": [
@@ -705503,6 +705521,42 @@
       "country": "US",
       "launch_date": "2026-07-05",
       "series": "STARLINK",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 69972,
+      "object_name": "CHUANG XIN 26 (CX-26)",
+      "object_type": "PAYLOAD",
+      "country": "CHN",
+      "launch_date": "2026-07-10",
+      "series": "CHUANG",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 69973,
+      "object_name": "CZ-10B DEB",
+      "object_type": "DEBRIS",
+      "country": "CHN",
+      "launch_date": "2026-07-10",
+      "series": "DEB",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 69974,
+      "object_name": "CZ-10B R/B",
+      "object_type": "ROCKET BODY",
+      "country": "CHN",
+      "launch_date": "2026-07-10",
+      "series": "R/B",
+      "orbit": "LEO"
+    },
+    {
+      "norad_id": 100000,
+      "object_name": "SARAMAGO",
+      "object_type": "PAYLOAD",
+      "country": "POR",
+      "launch_date": "2026-03-30",
+      "series": "SARAMAGO",
       "orbit": "LEO"
     }
   ]
