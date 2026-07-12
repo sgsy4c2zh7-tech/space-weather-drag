@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-07-11T22:21:12.634390Z",
+  "updated_at": "2026-07-12T07:49:16.457611Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-11T22%3A21%3A12.634390Z&net__lte=2026-07-25T22%3A21%3A12.634390Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-12T07%3A49%3A16.457611Z&net__lte=2026-07-26T07%3A49%3A16.457611Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-11T22:21:12.634390Z",
-  "window_end": "2026-07-25T22:21:12.634390Z",
+  "window_start": "2026-07-12T07:49:16.457611Z",
+  "window_end": "2026-07-26T07:49:16.457611Z",
   "count": 10,
   "launches": [
     {
@@ -53,21 +53,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1a_image_20230805184309.jpg"
     },
     {
-      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
-      "name": "Starship | Flight 13",
-      "net": "2026-07-15T22:45:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Flight 13",
-      "mission_type": "Test Flight",
-      "pad": "Orbital Launch Pad 2",
-      "location": "SpaceX Starbase, TX, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
-    },
-    {
       "id": "d9adedc4-8fa1-4a36-84f9-43b8893a6865",
       "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer E",
       "net": "2026-07-16T20:22:00Z",
@@ -81,6 +66,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d9adedc4-8fa1-4a36-84f9-43b8893a6865/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
+      "name": "Starship | Flight 13",
+      "net": "2026-07-16T22:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Flight 13",
+      "mission_type": "Test Flight",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
     },
     {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
