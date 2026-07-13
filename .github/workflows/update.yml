@@ -19,7 +19,6 @@ jobs:
     timeout-minutes: 60
 
     steps:
-
       # -------------------------
       # Checkout
       # -------------------------
@@ -130,16 +129,68 @@ jobs:
         run: python scripts/build_sat_history.py
 
       # -------------------------
-      # Search index
+      # Search indexes
+      # SATCATとsat_historyの更新後に実行する
       # -------------------------
-      - name: Build satellite search index
+      - name: Validate satellite index builder
+        run: python -m py_compile scripts/build_satellite_index_full.py
+
+      - name: Build split satellite search indexes
         run: python scripts/build_satellite_index_full.py
 
+      # merge_satcat_into_index.py は実行しない。
+      # build_satellite_index_full.py がSATCAT結合と分割を一括で行うため、
+      # 後から旧スクリプトを実行すると各インデックス間で不整合になる。
+
       # -------------------------
-      # Merge SATCAT into search index
+      # Validate generated indexes
       # -------------------------
-      - name: Merge SATCAT into satellite search index
-        run: python scripts/merge_satcat_into_index.py
+      - name: Validate generated satellite indexes
+        run: |
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          required = [
+              Path("docs/data/satellite_index_geo_payload.json"),
+              Path("docs/data/satellite_index_payload.json"),
+              Path("docs/data/satellite_index_non_geo_payload.json"),
+              Path("docs/data/satellite_index_other.json"),
+              Path("docs/data/satellite_index_full.json"),
+              Path("docs/data/satellite_index_manifest.json"),
+          ]
+
+          failed = False
+
+          for path in required:
+              if not path.exists():
+                  print(f"ERROR: missing {path}")
+                  failed = True
+                  continue
+
+              if path.stat().st_size == 0:
+                  print(f"ERROR: empty {path}")
+                  failed = True
+                  continue
+
+              try:
+                  with path.open("r", encoding="utf-8") as f:
+                      data = json.load(f)
+              except Exception as exc:
+                  print(f"ERROR: invalid JSON {path}: {exc}")
+                  failed = True
+                  continue
+
+              if path.name == "satellite_index_manifest.json":
+                  datasets = data.get("datasets", {}) if isinstance(data, dict) else {}
+                  print(f"OK: {path} datasets={list(datasets.keys())}")
+              else:
+                  count = len(data) if isinstance(data, list) else "not-list"
+                  print(f"OK: {path} count={count}")
+
+          if failed:
+              raise SystemExit(1)
+          PY
 
       # -------------------------
       # Drag analysis
@@ -152,7 +203,6 @@ jobs:
       # -------------------------
       - name: Show generated files
         run: |
-
           echo "===== tle latest count ====="
           find docs/data/tle -name "*.json" | wc -l
 
@@ -185,8 +235,28 @@ jobs:
           ls -lh docs/data/catalog | tail -20
 
           echo ""
-          echo "===== index ====="
-          ls -lh docs/data/satellite_index_full.json || echo "index missing"
+          echo "===== split satellite indexes ====="
+          ls -lh \
+            docs/data/satellite_index_geo_payload.json \
+            docs/data/satellite_index_payload.json \
+            docs/data/satellite_index_non_geo_payload.json \
+            docs/data/satellite_index_other.json \
+            docs/data/satellite_index_full.json \
+            docs/data/satellite_index_manifest.json
+
+          echo ""
+          echo "===== satellite index manifest ====="
+          python - <<'PY'
+          import json
+          from pathlib import Path
+
+          path = Path("docs/data/satellite_index_manifest.json")
+          with path.open("r", encoding="utf-8") as f:
+              manifest = json.load(f)
+
+          print(json.dumps(manifest.get("datasets", {}), ensure_ascii=False, indent=2))
+          print(json.dumps(manifest.get("source_counts", {}), ensure_ascii=False, indent=2))
+          PY
 
           echo ""
           echo "===== NOAA ====="
@@ -214,7 +284,6 @@ jobs:
       # -------------------------
       - name: Commit and push
         run: |
-
           git config user.name "github-actions[bot]"
           git config user.email "github-actions@github.com"
 
@@ -224,7 +293,7 @@ jobs:
 
           git diff --cached --quiet && echo "No changes" && exit 0
 
-          git commit -m "Update satellite data + Space-Track TLE + SATCAT full + analytics"
+          git commit -m "Update satellite data and split search indexes"
 
           for i in 1 2 3
           do
