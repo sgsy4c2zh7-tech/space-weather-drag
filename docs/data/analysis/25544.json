@@ -1,7 +1,7 @@
 {
   "norad_id": 25544,
   "name": "ISS (ZARYA)",
-  "updated_at": "2026-07-13T08:56:47.527183+00:00",
+  "updated_at": "2026-07-13T11:51:54.484825+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T20:59:21.130368Z",
@@ -2702,6 +2702,24 @@
       "avg_altitude_km": 419.66738364724597,
       "kp_nearest": 2.33,
       "nrlmsis_density": 3.2827154623077393e-12
+    },
+    {
+      "epoch": "2026-07-13T02:54:40.039200Z",
+      "apogee_km": 424.205875239586,
+      "perigee_km": 415.11721858236706,
+      "latitude_deg": -3.4541027891469496e-05,
+      "longitude_deg": -162.93276637699933,
+      "height_km": 418.8983741555249,
+      "semi_major_axis_km": 6797.798546910976,
+      "eccentricity": 0.0006685,
+      "inclination_deg": 51.6304,
+      "raan_deg": 171.7447,
+      "arg_perigee_deg": 289.3803,
+      "mean_anomaly_deg": 70.6462,
+      "mean_motion_rev_day": 15.48996109,
+      "avg_altitude_km": 419.66154691097654,
+      "kp_nearest": 2.0,
+      "nrlmsis_density": 3.2632312650660023e-12
     }
   ],
   "storm_events": [],
@@ -3599,10 +3617,16 @@
       "kp": 2.33,
       "delta_h_km": -0.012372752047212998,
       "rate_km_per_day": -0.03196325773326644
+    },
+    {
+      "time": "2026-07-13T02:54:40.039200Z",
+      "kp": 2.0,
+      "delta_h_km": -0.005836736269429821,
+      "rate_km_per_day": -0.018094081289185812
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": 0.004772391164494586,
-    "kp_vs_rate": -0.012736142047921837
+    "kp_vs_delta_h": 0.004620660044909891,
+    "kp_vs_rate": -0.0135975389968285
   }
 }
