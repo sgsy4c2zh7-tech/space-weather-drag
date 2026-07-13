@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</title>
+  <title>Hybrid Satellite Viewer v2 - Split Dataset + GEO Map + SGP4 RIC</title>
 
   <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css"/>
   <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
@@ -156,6 +156,58 @@
       gap: 10px;
     }
 
+    .dataset-panel {
+      padding: 12px;
+      margin-bottom: 12px;
+      border: 1px solid #31415f;
+      border-radius: 10px;
+      background: #0f1728;
+    }
+
+    .dataset-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 8px;
+    }
+
+    .dataset-btn {
+      min-width: 150px;
+    }
+
+    .dataset-btn.active {
+      border-color: #8bb8ff;
+      background: #244a7c;
+      box-shadow: 0 0 0 1px #8bb8ff inset;
+    }
+
+    .dataset-btn:disabled,
+    button:disabled {
+      cursor: not-allowed;
+      opacity: 0.55;
+    }
+
+    .pagination-row {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-wrap: wrap;
+      gap: 10px;
+      padding-top: 10px;
+    }
+
+    .pagination-row label {
+      flex-direction: row;
+      align-items: center;
+    }
+
+    #datasetStatus,
+    #resultPageStatus {
+      font-size: 13px;
+      color: #c8d8f7;
+      white-space: pre-wrap;
+    }
+
     @media (max-width: 1100px) {
       .grid, .subgrid, .manual-tle-box {
         grid-template-columns: 1fr;
@@ -165,10 +217,25 @@
 </head>
 
 <body>
-  <h1>Hybrid Satellite Viewer - GEO Map + SGP4 RIC</h1>
+  <h1>Hybrid Satellite Viewer v2 - Split Dataset + GEO Map + SGP4 RIC</h1>
 
   <div class="controls">
     <h2>衛星検索</h2>
+
+    <div class="dataset-panel">
+      <div><strong>検索データセット</strong></div>
+      <div class="dataset-buttons" id="datasetButtons">
+        <button type="button" class="dataset-btn active" data-dataset="geo_payload">GEO Payload</button>
+        <button type="button" class="dataset-btn" data-dataset="payload">Non-GEO Payload</button>
+        <button type="button" class="dataset-btn" data-dataset="other">Other Objects</button>
+        <button type="button" class="dataset-btn" data-dataset="all">ALL（高負荷）</button>
+      </div>
+      <div id="datasetStatus" style="margin-top:8px;">初期データを準備中...</div>
+      <div class="small-text" style="margin-top:6px;">
+        必要な分類だけを読み込みます。OBJECT、DEBRIS、ROCKET BODYは「Other Objects」です。
+        選択済み衛星はデータセットを切り替えても最大10機まで保持します。
+      </div>
+    </div>
 
     <div class="row">
       <label>
@@ -534,6 +601,19 @@
             <tbody id="resultsBody"></tbody>
           </table>
         </div>
+        <div class="pagination-row">
+          <button type="button" id="prevResultsBtn">前のページ</button>
+          <span id="resultPageStatus">0件</span>
+          <button type="button" id="nextResultsBtn">次のページ</button>
+          <label>
+            1ページ
+            <select id="resultPageSize">
+              <option value="100">100件</option>
+              <option value="200" selected>200件</option>
+              <option value="500">500件</option>
+            </select>
+          </label>
+        </div>
       </div>
 
       <div class="card">
@@ -811,6 +891,33 @@
 <script>
 let satelliteIndex = [];
 let selectedIds = new Set();
+let selectedSatelliteRecords = new Map();
+
+let currentDatasetKey = "geo_payload";
+let currentSearchRows = [];
+let resultPage = 1;
+let resultPageSize = 200;
+let datasetLoadToken = 0;
+let analyticsRenderToken = 0;
+
+const DATASET_CONFIG = {
+  geo_payload: {
+    label: "GEO Payload",
+    file: "data/satellite_index_geo_payload.json"
+  },
+  payload: {
+    label: "Non-GEO Payload",
+    file: "data/satellite_index_payload.json"
+  },
+  other: {
+    label: "Other Objects",
+    file: "data/satellite_index_other.json"
+  },
+  all: {
+    label: "ALL",
+    file: "data/satellite_index_full.json"
+  }
+};
 
 let historyChart = null;
 let latChart = null;
@@ -968,71 +1075,96 @@ function passesRange(v, minV, maxV) {
   return true;
 }
 
-async function loadSatelliteIndex() {
-  satelliteIndex = await getJson("data/satellite_index_full.json");
+function getDatasetConfig(datasetKey) {
+  return DATASET_CONFIG[datasetKey] || DATASET_CONFIG.geo_payload;
+}
 
-  // SATCAT Full がある場合は、OBJECT A / OBJECT_ID / R/B / DEB などのメタデータを検索インデックスへ追加する。
+function setDatasetButtonsLoading(loading) {
+  document.querySelectorAll(".dataset-btn").forEach(btn => {
+    btn.disabled = loading;
+  });
+}
+
+function updateDatasetButtonState() {
+  document.querySelectorAll(".dataset-btn").forEach(btn => {
+    btn.classList.toggle("active", btn.dataset.dataset === currentDatasetKey);
+  });
+}
+
+function normalizeSatelliteIndexRecord(row) {
+  const norad = Number(row?.norad_id ?? row?.NORAD_CAT_ID ?? row?.norad);
+  return {
+    ...row,
+    norad_id: Number.isFinite(norad) ? norad : row?.norad_id,
+    name: row?.name || row?.object_name || row?.OBJECT_NAME || (Number.isFinite(norad) ? `NORAD-${norad}` : "UNKNOWN"),
+    object_name: row?.object_name || row?.name || row?.OBJECT_NAME || null,
+    object_type: row?.object_type || row?.OBJECT_TYPE || "UNKNOWN",
+    country: row?.country || row?.country_code || row?.owner || "UNK",
+    owner: row?.owner || row?.country_code || row?.country || "UNK"
+  };
+}
+
+function getSatelliteById(noradId) {
+  const id = Number(noradId);
+  const current = satelliteIndex.find(s => Number(s.norad_id) === id);
+  return current || selectedSatelliteRecords.get(id) || null;
+}
+
+function getSelectedSatellites() {
+  return Array.from(selectedIds)
+    .map(id => getSatelliteById(id))
+    .filter(Boolean);
+}
+
+async function loadSatelliteIndex(datasetKey = currentDatasetKey) {
+  const config = getDatasetConfig(datasetKey);
+  const token = ++datasetLoadToken;
+  const status = document.getElementById("datasetStatus");
+
+  currentDatasetKey = datasetKey;
+  updateDatasetButtonState();
+  setDatasetButtonsLoading(true);
+
+  status.textContent = `${config.label} を読込中...`;
+  document.getElementById("searchStatus").textContent = "データ読込中...";
+
   try {
-    const satcat = await getJson("data/catalog/satcat_full.json");
-    const objects = Array.isArray(satcat.objects) ? satcat.objects : [];
+    const data = await getJson(config.file);
+    if (token !== datasetLoadToken) return;
 
-    const metaMap = new Map(
-      objects
-        .filter(x => x.norad_id !== undefined && x.norad_id !== null)
-        .map(x => [Number(x.norad_id), x])
-    );
-
-    const existingIds = new Set(satelliteIndex.map(s => Number(s.norad_id)));
-
-    satelliteIndex = satelliteIndex.map(s => {
-      const norad = Number(s.norad_id);
-      const meta = metaMap.get(norad);
-      if (!meta) return s;
-
-      return {
-        ...s,
-        object_name: meta.object_name || s.object_name,
-        object_id: meta.object_id || s.object_id,
-        object_type: meta.object_type || s.object_type,
-        country: meta.country || s.country,
-        raw_country: meta.raw_country || s.raw_country,
-        launch_date: meta.launch_date || s.launch_date,
-        decay_date: meta.decay_date || s.decay_date,
-        site: meta.site || s.site,
-        rcs: meta.rcs || s.rcs,
-        comment: meta.comment || s.comment
-      };
-    });
-
-    // satellite_index_full.json に存在しないSATCAT物体も、検索できる最小レコードとして追加する。
-    for (const meta of objects) {
-      const norad = Number(meta.norad_id);
-      if (!Number.isFinite(norad) || existingIds.has(norad)) continue;
-
-      satelliteIndex.push({
-        norad_id: norad,
-        name: meta.object_name || String(norad),
-        object_name: meta.object_name,
-        object_id: meta.object_id,
-        object_type: meta.object_type,
-        country: meta.country,
-        raw_country: meta.raw_country,
-        launch_date: meta.launch_date,
-        decay_date: meta.decay_date,
-        apogee_km: meta.apogee_km,
-        perigee_km: meta.perigee_km,
-        inclination_deg: meta.inclination_deg,
-        raan_deg: meta.raan_deg,
-        period_min: meta.period_min,
-        site: meta.site,
-        rcs: meta.rcs,
-        comment: meta.comment
-      });
+    if (!Array.isArray(data)) {
+      throw new Error(`${config.file} のルートが配列ではありません。`);
     }
 
-    console.log(`SATCAT full merged: ${objects.length} objects / index=${satelliteIndex.length}`);
+    satelliteIndex = data
+      .map(normalizeSatelliteIndexRecord)
+      .filter(s => Number.isFinite(Number(s.norad_id)));
+
+    // 同じ衛星が新しいデータセットに含まれる場合は、選択情報を最新値へ更新する。
+    for (const sat of satelliteIndex) {
+      const id = Number(sat.norad_id);
+      if (selectedIds.has(id)) {
+        selectedSatelliteRecords.set(id, sat);
+      }
+    }
+
+    resultPage = 1;
+    status.textContent = `${config.label}: ${satelliteIndex.length.toLocaleString()}件 読込完了`;
+    runSearch(false, true);
   } catch (e) {
-    console.warn("satcat_full.json not loaded. OBJECT search may be limited.", e);
+    satelliteIndex = [];
+    currentSearchRows = [];
+    renderResults([]);
+    status.textContent =
+      `${config.label} 読込エラー: ${e.message}
+` +
+      `Workflowを実行し、${config.file} が生成されているか確認してください。`;
+    throw e;
+  } finally {
+    if (token === datasetLoadToken) {
+      setDatasetButtonsLoading(false);
+      updateDatasetButtonState();
+    }
   }
 }
 
@@ -1085,17 +1217,41 @@ function filterSatellites() {
   });
 }
 
+function updateResultPagination(totalRows) {
+  const totalPages = Math.max(1, Math.ceil(totalRows / resultPageSize));
+  resultPage = Math.min(Math.max(1, resultPage), totalPages);
+
+  const start = totalRows === 0 ? 0 : (resultPage - 1) * resultPageSize + 1;
+  const end = Math.min(resultPage * resultPageSize, totalRows);
+
+  document.getElementById("resultPageStatus").textContent =
+    totalRows === 0
+      ? "0件"
+      : `${start.toLocaleString()}～${end.toLocaleString()} / ${totalRows.toLocaleString()}件（${resultPage}/${totalPages}ページ）`;
+
+  document.getElementById("prevResultsBtn").disabled = resultPage <= 1 || totalRows === 0;
+  document.getElementById("nextResultsBtn").disabled = resultPage >= totalPages || totalRows === 0;
+}
+
 function renderResults(rows) {
+  currentSearchRows = Array.isArray(rows) ? rows : [];
+
+  const totalRows = currentSearchRows.length;
+  const totalPages = Math.max(1, Math.ceil(totalRows / resultPageSize));
+  resultPage = Math.min(Math.max(1, resultPage), totalPages);
+
+  const offset = (resultPage - 1) * resultPageSize;
+  const pageRows = currentSearchRows.slice(offset, offset + resultPageSize);
   const body = document.getElementById("resultsBody");
 
-  body.innerHTML = rows.map(s => `
+  body.innerHTML = pageRows.map(s => `
     <tr>
       <td>
         <input type="checkbox" ${selectedIds.has(Number(s.norad_id)) ? "checked" : ""}
           onchange="toggleSelection(${Number(s.norad_id)}, this.checked)">
       </td>
       <td>${s.norad_id}</td>
-      <td>${s.name || s.object_name || "-"}</td>
+      <td>${escapeHtml(s.name || s.object_name || "-")}</td>
       <td>${fmt(s.apogee_km)}</td>
       <td>${fmt(s.perigee_km)}</td>
       <td>${fmt(s.inclination_deg)}</td>
@@ -1104,30 +1260,44 @@ function renderResults(rows) {
     </tr>
   `).join("");
 
+  const config = getDatasetConfig(currentDatasetKey);
   document.getElementById("searchStatus").textContent =
-    `検索結果: ${rows.length}件 / 選択中: ${selectedIds.size}件`;
+    `${config.label} / 検索結果: ${totalRows.toLocaleString()}件 / 選択中: ${selectedIds.size}件`;
 
+  updateResultPagination(totalRows);
   renderSelectedList();
 }
 
 function toggleSelection(noradId, checked) {
+  const id = Number(noradId);
+
   if (checked) {
-    if (selectedIds.size >= 10 && !selectedIds.has(noradId)) {
+    if (selectedIds.size >= 10 && !selectedIds.has(id)) {
       alert("同時解析は10機までにしてください。");
-      runSearch(false);
+      runSearch(false, false);
       return;
     }
-    selectedIds.add(noradId);
+
+    const sat = satelliteIndex.find(s => Number(s.norad_id) === id);
+    if (!sat) {
+      alert(`NORAD ${id} のデータが現在のデータセット内に見つかりません。`);
+      runSearch(false, false);
+      return;
+    }
+
+    selectedIds.add(id);
+    selectedSatelliteRecords.set(id, sat);
   } else {
-    selectedIds.delete(noradId);
+    selectedIds.delete(id);
+    selectedSatelliteRecords.delete(id);
   }
 
   renderSelectedList();
-  runSearch(false);
+  runSearch(false, false);
 }
 
 function renderSelectedList() {
-  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+  const selected = getSelectedSatellites();
 
   document.getElementById("selectedBody").innerHTML = selected.map(s => `
     <tr>
@@ -1157,7 +1327,7 @@ function updateGeoReferenceList() {
   if (!sel) return;
 
   const current = sel.value;
-  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+  const selected = getSelectedSatellites();
 
   sel.innerHTML = selected.map(s => `
     <option value="${s.norad_id}">${s.norad_id} / ${s.name || s.object_name || "-"}</option>
@@ -1173,7 +1343,7 @@ function updatePlaneReferenceList() {
   if (!sel) return;
 
   const current = sel.value;
-  const selected = satelliteIndex.filter(s => selectedIds.has(Number(s.norad_id)));
+  const selected = getSelectedSatellites();
 
   sel.innerHTML = selected.map(s => `
     <option value="${s.norad_id}">${s.norad_id} / ${s.name || s.object_name || "-"}</option>
@@ -1216,7 +1386,7 @@ function searchPlaneMatchedSatellites() {
   const raanTol = Number(document.getElementById("planeRaanTol").value) || 5;
   const altTol = Number(document.getElementById("planeAltTol").value) || 50;
 
-  const ref = satelliteIndex.find(s => Number(s.norad_id) === refId);
+  const ref = getSatelliteById(refId);
 
   if (!ref) {
     status.textContent = "基準衛星を選択してください。";
@@ -1294,12 +1464,14 @@ function searchPlaneMatchedSatellites() {
     `軌道面一致候補: ${rows.length}件 / 基準=${ref.name || ref.object_name || refId} / Inc±${incTol}deg / RAAN±${raanTol}deg / 高度±${altTol}km`;
 }
 
-function runSearch(updateStatus = true) {
+function runSearch(updateStatus = true, resetPage = updateStatus) {
+  if (resetPage) resultPage = 1;
+
   const rows = filterSatellites();
   renderResults(rows);
 
   if (updateStatus) {
-    document.getElementById("status").textContent = `検索完了: ${rows.length}件`;
+    document.getElementById("status").textContent = `検索完了: ${rows.length.toLocaleString()}件`;
   }
 }
 
@@ -2728,9 +2900,9 @@ async function showNearbyGeoSatellites() {
     return;
   }
 
-  const refSat = satelliteIndex.find(s => Number(s.norad_id) === refNorad);
+  const refSat = getSatelliteById(refNorad);
   if (!refSat) {
-    status.textContent = "基準衛星が satellite_index_full.json 内に見つかりません。";
+    status.textContent = "基準衛星の選択情報が見つかりません。";
     return;
   }
 
@@ -2961,26 +3133,80 @@ async function loadLaunchCalendar() {
 }
 
 
+function normalizeAnalyticsOrbit(value) {
+  const raw = String(value || "UNKNOWN").trim().toUpperCase();
+  const aliases = {
+    "UNKNOWN": "UNKNOWN",
+    "UNKNOWN/OTHER": "UNKNOWN",
+    "HEO": "HEO/GEO",
+    "HEO/GEO": "HEO/GEO",
+    "HEO/SSO": "HEO/SSO"
+  };
+  return aliases[raw] || raw;
+}
+
+function normalizeAnalyticsRecord(row) {
+  const norad = Number(row?.norad ?? row?.norad_id ?? row?.NORAD_CAT_ID);
+  return {
+    ...row,
+    norad: Number.isFinite(norad) ? norad : null,
+    norad_id: Number.isFinite(norad) ? norad : null,
+    name: row?.name || row?.object_name || row?.OBJECT_NAME || (Number.isFinite(norad) ? `NORAD-${norad}` : "UNKNOWN"),
+    object_name: row?.object_name || row?.name || row?.OBJECT_NAME || null,
+    launch_date: row?.launch_date || row?.LAUNCH || null,
+    decay_date: row?.decay_date || row?.DECAY || null,
+    country: String(row?.country || row?.owner || "UNK").toUpperCase(),
+    series: row?.series || "OTHER",
+    orbit: normalizeAnalyticsOrbit(row?.orbit || row?.orbit_current),
+    orbit_current: normalizeAnalyticsOrbit(row?.orbit_current || row?.orbit),
+    gp_epoch: row?.gp_epoch || row?.epoch || null,
+    apogee_km: row?.apogee_km ?? null,
+    perigee_km: row?.perigee_km ?? null,
+    inclination_deg: row?.inclination_deg ?? null
+  };
+}
+
 async function loadSatcatAnalytics() {
   const status = document.getElementById("analyticsStatus");
+  const button = document.getElementById("loadAnalyticsBtn");
 
   try {
+    button.disabled = true;
     status.textContent = "SATCAT Analytics読込中...";
 
+    const started = performance.now();
     const data = await getJson("data/catalog/satcat_analytics.json");
-    satcatAnalytics = Array.isArray(data.satellites) ? data.satellites : [];
+
+    // v2はsatellites。旧形式detailsにも一時的に対応する。
+    const sourceRows = Array.isArray(data.satellites)
+      ? data.satellites
+      : Array.isArray(data.details)
+        ? data.details
+        : [];
+
+    satcatAnalytics = sourceRows
+      .map(normalizeAnalyticsRecord)
+      .filter(s => s.norad !== null && s.launch_date);
+
+    if (!satcatAnalytics.length) {
+      throw new Error("satellites配列に有効な打上げ日付きデータがありません。WorkflowでAnalytics JSONを再生成してください。");
+    }
 
     populateAnalyticsSeriesOptions();
 
+    const seconds = (performance.now() - started) / 1000;
     status.textContent =
-      `SATCAT Analytics読込完了: ${satcatAnalytics.length}件 / 更新: ${data.updated_at || "-"}`;
+      `SATCAT Analytics読込完了: ${satcatAnalytics.length.toLocaleString()}件 / 更新: ${data.updated_at || "-"} / ${seconds.toFixed(2)}秒`;
 
-    updateAnalyticsCharts();
-
+    await updateAnalyticsCharts();
   } catch (e) {
+    satcatAnalytics = [];
     status.textContent =
-      `SATCAT Analytics読込エラー: ${e.message}\n` +
-      `docs/data/catalog/satcat_analytics.json が存在するか確認してください。`;
+      `SATCAT Analytics読込エラー: ${e.message}
+` +
+      `docs/data/catalog/satcat_analytics.json とWorkflowの生成ログを確認してください。`;
+  } finally {
+    button.disabled = false;
   }
 }
 
@@ -3165,26 +3391,46 @@ function buildAnalyticsSeriesData(filtered, buckets, groups, bucket, mode) {
   analyticsPointDetails = {};
   analyticsSummaryRows = [];
 
-  const datasets = [];
+  const bucketSet = new Set(buckets);
+  const groupedBuckets = new Map();
 
-  groups.forEach((group, groupIndex) => {
+  for (const group of groups) {
     const label = getSeriesLabel(group);
     analyticsPointDetails[label] = {};
+    groupedBuckets.set(group, new Map());
+  }
 
+  // 全衛星を1回だけ走査して、グループ・期間別にまとめる。
+  for (const sat of filtered) {
+    const bk = bucketKeyFromDate(sat.launch_date, bucket);
+    if (!bk || !bucketSet.has(bk)) continue;
+
+    const satSeries = sat.series || "OTHER";
+    const targetGroups = groups.includes("ALL")
+      ? ["ALL"]
+      : groups.includes(satSeries)
+        ? [satSeries]
+        : [];
+
+    for (const group of targetGroups) {
+      const bucketMap = groupedBuckets.get(group);
+      if (!bucketMap.has(bk)) bucketMap.set(bk, []);
+      bucketMap.get(bk).push(sat);
+    }
+  }
+
+  return groups.map((group, groupIndex) => {
+    const label = getSeriesLabel(group);
+    const bucketMap = groupedBuckets.get(group);
     const data = [];
     let cumulative = 0;
 
     for (const bk of buckets) {
-      const sats = filtered.filter(s => {
-        if (group !== "ALL" && (s.series || "OTHER") !== group) return false;
-        return bucketKeyFromDate(s.launch_date, bucket) === bk;
-      });
-
+      const sats = bucketMap.get(bk) || [];
       const launchCount = sats.length;
       cumulative += launchCount;
-      const value = mode === "cumulative_launch" ? cumulative : launchCount;
 
-      data.push(value);
+      data.push(mode === "cumulative_launch" ? cumulative : launchCount);
       analyticsPointDetails[label][bk] = sats;
 
       analyticsSummaryRows.push({
@@ -3196,67 +3442,86 @@ function buildAnalyticsSeriesData(filtered, buckets, groups, bucket, mode) {
     }
 
     const color = datasetColor(groupIndex);
-    datasets.push({
+    return {
       label,
       data,
       borderColor: color,
       backgroundColor: color,
       ...makeLineStyle()
-    });
+    };
   });
-
-  return datasets;
 }
 
 function buildActiveCumulativeDatasets(filtered, buckets, groups) {
-  const datasets = [];
+  const summaryMap = new Map(
+    analyticsSummaryRows.map(row => [`${row.series}__${row.period}`, row])
+  );
 
-  groups.forEach((group, groupIndex) => {
+  return groups.map((group, groupIndex) => {
+    const label = getSeriesLabel(group);
+    const groupRows = group === "ALL"
+      ? filtered
+      : filtered.filter(s => (s.series || "OTHER") === group);
+
+    const launchTimes = [];
+    const decayTimes = [];
+
+    for (const sat of groupRows) {
+      const launch = Date.parse(`${sat.launch_date}T00:00:00Z`);
+      if (Number.isFinite(launch)) launchTimes.push(launch);
+
+      if (sat.decay_date) {
+        const decay = Date.parse(`${sat.decay_date}T00:00:00Z`);
+        if (Number.isFinite(decay)) decayTimes.push(decay);
+      }
+    }
+
+    launchTimes.sort((a, b) => a - b);
+    decayTimes.sort((a, b) => a - b);
+
+    let launched = 0;
+    let decayed = 0;
+
     const data = buckets.map(bk => {
       const end = bucketEndDate(bk).getTime();
-      let count = 0;
 
-      for (const s of filtered) {
-        if (group !== "ALL" && (s.series || "OTHER") !== group) continue;
-        if (!s.launch_date) continue;
-
-        const launch = new Date(s.launch_date + "T00:00:00Z").getTime();
-        if (!Number.isFinite(launch) || launch > end) continue;
-
-        if (s.decay_date) {
-          const decay = new Date(s.decay_date + "T00:00:00Z").getTime();
-          if (Number.isFinite(decay) && decay <= end) continue;
-        }
-
-        count++;
+      while (launched < launchTimes.length && launchTimes[launched] <= end) {
+        launched++;
       }
 
-      const row = analyticsSummaryRows.find(r => r.period === bk && r.series === getSeriesLabel(group));
-      if (row) row.active_cumulative_count = count;
+      while (decayed < decayTimes.length && decayTimes[decayed] <= end) {
+        decayed++;
+      }
 
+      const count = Math.max(0, launched - decayed);
+      const row = summaryMap.get(`${label}__${bk}`);
+      if (row) row.active_cumulative_count = count;
       return count;
     });
 
     const color = datasetColor(groupIndex);
-    datasets.push({
-      label: getSeriesLabel(group),
+    return {
+      label,
       data,
       borderColor: color,
       backgroundColor: color,
       ...makeLineStyle()
-    });
+    };
   });
-
-  return datasets;
 }
 
-function updateAnalyticsCharts() {
+async function updateAnalyticsCharts() {
   const status = document.getElementById("analyticsStatus");
 
   if (!satcatAnalytics.length) {
     status.textContent = "SATCAT Analyticsが未読込です。";
     return;
   }
+
+  const token = ++analyticsRenderToken;
+  status.textContent = "Analytics集計・グラフ描画中...";
+  await new Promise(resolve => requestAnimationFrame(resolve));
+  if (token !== analyticsRenderToken) return;
 
   const years = Number(document.getElementById("analyticsYears").value) || 10;
   const bucket = document.getElementById("analyticsBucket").value || "month";
@@ -3348,8 +3613,10 @@ function updateAnalyticsCharts() {
   const series = getSelectedSeriesValues().join(", ");
   const orbit = document.getElementById("analyticsOrbit").value;
 
+  if (token !== analyticsRenderToken) return;
+
   status.textContent =
-    `表示完了: 対象=${filtered.length}件 / 期間=${years}年 / 国=${country} / シリーズ=${series} / 軌道=${orbit} / 集計=${bucket}`;
+    `表示完了: 対象=${filtered.length.toLocaleString()}件 / 期間=${years}年 / 国=${country} / シリーズ=${series} / 軌道=${orbit} / 集計=${bucket}`;
 }
 
 function csvEscape(value) {
@@ -3486,6 +3753,38 @@ function clearManualTleFromUi() {
     `手動TLEを削除しました: NORAD ${norad}`;
 }
 
+document.querySelectorAll(".dataset-btn").forEach(btn => {
+  btn.addEventListener("click", async () => {
+    const key = btn.dataset.dataset;
+    if (!DATASET_CONFIG[key]) return;
+
+    try {
+      await loadSatelliteIndex(key);
+    } catch (e) {
+      document.getElementById("status").textContent = `データセット切替エラー: ${e.message}`;
+    }
+  });
+});
+
+document.getElementById("prevResultsBtn").addEventListener("click", () => {
+  if (resultPage <= 1) return;
+  resultPage--;
+  renderResults(currentSearchRows);
+});
+
+document.getElementById("nextResultsBtn").addEventListener("click", () => {
+  const totalPages = Math.max(1, Math.ceil(currentSearchRows.length / resultPageSize));
+  if (resultPage >= totalPages) return;
+  resultPage++;
+  renderResults(currentSearchRows);
+});
+
+document.getElementById("resultPageSize").addEventListener("change", event => {
+  resultPageSize = Number(event.target.value) || 200;
+  resultPage = 1;
+  renderResults(currentSearchRows);
+});
+
 document.getElementById("searchBtn").addEventListener("click", () => runSearch());
 
 document.getElementById("clearSearchBtn").addEventListener("click", () => {
@@ -3508,13 +3807,23 @@ document.getElementById("clearSearchBtn").addEventListener("click", () => {
 
 document.getElementById("selectTopBtn").addEventListener("click", () => {
   const rows = filterSatellites().slice(0, 10);
-  selectedIds = new Set(rows.map(r => Number(r.norad_id)));
-  runSearch(false);
+
+  selectedIds = new Set();
+  selectedSatelliteRecords.clear();
+
+  for (const row of rows) {
+    const id = Number(row.norad_id);
+    selectedIds.add(id);
+    selectedSatelliteRecords.set(id, row);
+  }
+
+  runSearch(false, false);
 });
 
 document.getElementById("clearSelectionBtn").addEventListener("click", () => {
   selectedIds.clear();
-  runSearch(false);
+  selectedSatelliteRecords.clear();
+  runSearch(false, false);
 });
 
 document.getElementById("clearTleCacheBtn").addEventListener("click", clearCelestrakCache);
@@ -3547,10 +3856,11 @@ async function init() {
   setSelectedTimeNow();
   updateTleStatus();
   initGeoMap();
+  resultPageSize = Number(document.getElementById("resultPageSize").value) || 200;
 
   try {
-    await loadSatelliteIndex();
-    runSearch();
+    await loadSatelliteIndex("geo_payload");
+    document.getElementById("status").textContent = "初期化完了: GEO Payloadを読み込みました。";
   } catch (e) {
     document.getElementById("status").textContent =
       `初期化エラー: ${e.message}`;
