@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-07-13T11:31:57.165690Z",
+  "updated_at": "2026-07-13T16:14:04.508753Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-13T11%3A31%3A57.165690Z&net__lte=2026-07-27T11%3A31%3A57.165690Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-13T16%3A14%3A04.508753Z&net__lte=2026-07-27T16%3A14%3A04.508753Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-13T11:31:57.165690Z",
-  "window_end": "2026-07-27T11:31:57.165690Z",
-  "count": 9,
+  "window_start": "2026-07-13T16:14:04.508753Z",
+  "window_end": "2026-07-27T16:14:04.508753Z",
+  "count": 11,
   "launches": [
     {
       "id": "e09f254f-18bc-4985-963e-6075fa3d7a1c",
       "name": "Falcon 9 Block 5 | Starlink Group 15-14",
-      "net": "2026-07-14T01:16:00Z",
+      "net": "2026-07-14T01:17:14Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -25,7 +25,7 @@
     {
       "id": "9999a3a3-b15d-4ee3-b70f-acf00d10d912",
       "name": "Falcon 9 Block 5 | Starlink Group 10-45",
-      "net": "2026-07-14T07:15:00Z",
+      "net": "2026-07-14T08:21:37Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -55,8 +55,8 @@
     {
       "id": "d9adedc4-8fa1-4a36-84f9-43b8893a6865",
       "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer E",
-      "net": "2026-07-16T20:22:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-07-16T20:32:00Z",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "SDA Tranche 1 Transport Layer E",
@@ -85,8 +85,8 @@
     {
       "id": "beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e",
       "name": "Long March 7A | Unknown Payload",
-      "net": "2026-07-17T11:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-07-17T11:50:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Unknown Payload",
@@ -100,7 +100,7 @@
     {
       "id": "e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc",
       "name": "Falcon 9 Block 5 | Starlink Group 17-39",
-      "net": "2026-07-18T14:00:00Z",
+      "net": "2026-07-20T14:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -111,6 +111,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "0f6780cf-edae-4d7c-99d6-ce7de784d140",
+      "name": "Falcon 9 Block 5 | MRV-1",
+      "net": "2026-07-21T21:15:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "MRV-1",
+      "mission_type": "Mission Extension",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0f6780cf-edae-4d7c-99d6-ce7de784d140/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
       "id": "5421e43a-1623-40ac-9dac-201075064e24",
@@ -128,9 +143,24 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
     },
     {
+      "id": "12b9454b-d48b-4fd5-9c11-17c18f45dafe",
+      "name": "Long March 8A | Unknown Payload",
+      "net": "2026-07-24T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-1",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/12b9454b-d48b-4fd5-9c11-17c18f45dafe/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
       "id": "5b2f05d7-9052-49fb-9bd7-2a05d4910576",
       "name": "Falcon 9 Block 5 | Starlink Group 17-51",
-      "net": "2026-07-23T14:00:00Z",
+      "net": "2026-07-24T14:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
