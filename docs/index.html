@@ -164,6 +164,98 @@
       background: #0f1728;
     }
 
+
+    .advanced-filter-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(240px, 1fr));
+      gap: 10px;
+      margin-top: 12px;
+    }
+
+    .filter-card {
+      border: 1px solid #31415f;
+      border-radius: 10px;
+      background: #0f1728;
+      padding: 10px;
+      min-width: 0;
+    }
+
+    .filter-card-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 8px;
+      margin-bottom: 8px;
+    }
+
+    .filter-card-title {
+      font-weight: bold;
+      font-size: 14px;
+    }
+
+    .filter-count {
+      color: #b9c8ea;
+      font-size: 11px;
+      text-align: right;
+    }
+
+    .filter-options {
+      display: flex;
+      flex-wrap: wrap;
+      align-content: flex-start;
+      gap: 7px 12px;
+      max-height: 150px;
+      overflow: auto;
+      padding: 7px;
+      border: 1px solid #26324d;
+      border-radius: 8px;
+      background: #0b1220;
+    }
+
+    .filter-option {
+      display: inline-flex;
+      flex-direction: row;
+      align-items: center;
+      gap: 5px;
+      font-size: 12px;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .filter-option input[type="checkbox"] {
+      margin: 0;
+      padding: 0;
+      width: 15px;
+      height: 15px;
+      accent-color: #72a7ff;
+    }
+
+    .filter-option.disabled {
+      opacity: 0.45;
+      cursor: not-allowed;
+    }
+
+    .filter-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+      margin-top: 8px;
+    }
+
+    .filter-actions button {
+      padding: 5px 9px;
+      font-size: 11px;
+      font-weight: normal;
+    }
+
+    .advanced-filter-help {
+      margin-top: 8px;
+      padding: 8px 10px;
+      border-left: 3px solid #5d8fd8;
+      background: #0f1728;
+      border-radius: 6px;
+    }
+
     .dataset-buttons {
       display: flex;
       flex-wrap: wrap;
@@ -209,7 +301,8 @@
     }
 
     @media (max-width: 1100px) {
-      .grid, .subgrid, .manual-tle-box {
+      .grid, .subgrid, .manual-tle-box,
+      .advanced-filter-grid {
         grid-template-columns: 1fr;
       }
     }
@@ -217,7 +310,7 @@
 </head>
 
 <body>
-  <h1>Hybrid Satellite Viewer v2 - Split Dataset + GEO Map + SGP4 RIC</h1>
+  <h1>Hybrid Satellite Viewer v2 - Detailed Multi-Filter Search</h1>
 
   <div class="controls">
     <h2>衛星検索</h2>
@@ -294,6 +387,50 @@
         経度最大
         <input id="lonMax" type="number" placeholder="160" />
       </label>
+    </div>
+
+    <div class="advanced-filter-grid" id="advancedSearchFilters">
+      <div class="filter-card">
+        <div class="filter-card-header">
+          <div class="filter-card-title">国・所有国</div>
+          <div class="filter-count" id="countryFilterCount">未選択（すべて）</div>
+        </div>
+        <div class="filter-options" id="countryFilterOptions"></div>
+        <div class="filter-actions">
+          <button type="button" data-filter-group="country" data-filter-action="all">全選択</button>
+          <button type="button" data-filter-group="country" data-filter-action="clear">解除</button>
+        </div>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-card-header">
+          <div class="filter-card-title">物体種別</div>
+          <div class="filter-count" id="objectTypeFilterCount">未選択（すべて）</div>
+        </div>
+        <div class="filter-options" id="objectTypeFilterOptions"></div>
+        <div class="filter-actions">
+          <button type="button" data-filter-group="object_type" data-filter-action="all">全選択</button>
+          <button type="button" data-filter-group="object_type" data-filter-action="clear">解除</button>
+        </div>
+      </div>
+
+      <div class="filter-card">
+        <div class="filter-card-header">
+          <div class="filter-card-title">軌道</div>
+          <div class="filter-count" id="orbitFilterCount">未選択（すべて）</div>
+        </div>
+        <div class="filter-options" id="orbitFilterOptions"></div>
+        <div class="filter-actions">
+          <button type="button" data-filter-group="orbit" data-filter-action="all">全選択</button>
+          <button type="button" data-filter-group="orbit" data-filter-action="clear">解除</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="small-text advanced-filter-help">
+      同じ項目内はOR条件、異なる項目同士はAND条件です。何も選択していない項目は「すべて」を意味します。
+      例：国がUS・JPN、物体種別がPAYLOAD・ROCKET BODY、軌道がLEO・MEOの場合、
+      （USまたはJPN）かつ（PAYLOADまたはROCKET BODY）かつ（LEOまたはMEO）で検索します。
     </div>
 
     <div class="row" style="margin-top:10px;">
@@ -919,6 +1056,34 @@ const DATASET_CONFIG = {
   }
 };
 
+
+const SEARCH_FILTER_CONFIG = {
+  country: {
+    label: "国",
+    containerId: "countryFilterOptions",
+    countId: "countryFilterCount",
+    pinned: ["US", "CHN", "RUS", "JPN"]
+  },
+  object_type: {
+    label: "物体種別",
+    containerId: "objectTypeFilterOptions",
+    countId: "objectTypeFilterCount",
+    pinned: ["PAYLOAD", "ROCKET BODY", "DEBRIS", "UNKNOWN"]
+  },
+  orbit: {
+    label: "軌道",
+    containerId: "orbitFilterOptions",
+    countId: "orbitFilterCount",
+    pinned: ["LEO", "MEO", "GEO", "GTO", "HEO", "UNKNOWN"]
+  }
+};
+
+const searchFilterSelections = {
+  country: new Set(),
+  object_type: new Set(),
+  orbit: new Set()
+};
+
 let historyChart = null;
 let latChart = null;
 let lonChart = null;
@@ -1091,17 +1256,224 @@ function updateDatasetButtonState() {
   });
 }
 
+function normalizeObjectTypeForSearch(value, name = "") {
+  const raw = String(value || "").trim().toUpperCase();
+  const objectName = String(name || "").trim().toUpperCase();
+
+  if (["PAYLOAD", "PL"].includes(raw)) return "PAYLOAD";
+  if (["ROCKET BODY", "R/B", "ROCKETBODY", "RB"].includes(raw)) return "ROCKET BODY";
+  if (["DEBRIS", "DEB", "FRAGMENT", "FRAGMENTATION DEBRIS"].includes(raw)) return "DEBRIS";
+
+  if (/(^|\s)R\/B(\s|$)/.test(objectName)) return "ROCKET BODY";
+  if (/(^|\s)DEB(\s|$)/.test(objectName) || objectName.includes("DEBRIS")) return "DEBRIS";
+
+  return raw || "UNKNOWN";
+}
+
+function optionalFiniteNumber(value) {
+  if (value === null || value === undefined || value === "") return null;
+  const number = Number(value);
+  return Number.isFinite(number) ? number : null;
+}
+
+function normalizeOrbitForSearch(row) {
+  const raw = String(
+    row?.search_orbit ||
+    row?.orbit_class ||
+    row?.orbit_current ||
+    row?.orbit ||
+    ""
+  ).trim().toUpperCase();
+
+  if (raw === "LEO") return "LEO";
+  if (raw === "MEO") return "MEO";
+  if (raw === "GEO" || raw === "GEOSYNCHRONOUS") return "GEO";
+  if (raw === "GTO") return "GTO";
+  if (raw.startsWith("HEO")) return "HEO";
+  if (["UNKNOWN", "UNK", "N/A", "NONE", "-"].includes(raw)) return "UNKNOWN";
+
+  const ap = optionalFiniteNumber(row?.apogee_km);
+  const pe = optionalFiniteNumber(row?.perigee_km);
+  const h = optionalFiniteNumber(row?.height_km);
+  const mm = optionalFiniteNumber(row?.mean_motion_rev_day);
+  const sma = optionalFiniteNumber(row?.semi_major_axis_km);
+
+  const hasAp = ap !== null;
+  const hasPe = pe !== null;
+  const meanAlt = h !== null
+    ? h
+    : (hasAp && hasPe ? (ap + pe) / 2 : (sma !== null ? sma - 6378.137 : null));
+
+  if (
+    (hasAp && hasPe && pe >= 34000 && ap <= 38000) ||
+    (meanAlt !== null && meanAlt >= 34000 && meanAlt <= 38000) ||
+    (mm !== null && mm >= 0.85 && mm <= 1.15) ||
+    (sma !== null && sma >= 41000 && sma <= 44000)
+  ) return "GEO";
+
+  if (hasAp && hasPe && ap >= 30000 && pe < 10000) return "GTO";
+  if (hasAp && ap >= 30000) return "HEO";
+  if (meanAlt !== null && meanAlt < 2000) return "LEO";
+  if (meanAlt !== null && meanAlt < 30000) return "MEO";
+  if (meanAlt !== null) return "HEO";
+
+  return "UNKNOWN";
+}
+
 function normalizeSatelliteIndexRecord(row) {
   const norad = Number(row?.norad_id ?? row?.NORAD_CAT_ID ?? row?.norad);
+  const name = row?.name || row?.object_name || row?.OBJECT_NAME || (Number.isFinite(norad) ? `NORAD-${norad}` : "UNKNOWN");
+  const country = normalizeCountryGroup(getSatCountry(row));
+  const objectType = normalizeObjectTypeForSearch(row?.object_type || row?.OBJECT_TYPE, name);
+  const orbit = normalizeOrbitForSearch(row);
+
   return {
     ...row,
     norad_id: Number.isFinite(norad) ? norad : row?.norad_id,
-    name: row?.name || row?.object_name || row?.OBJECT_NAME || (Number.isFinite(norad) ? `NORAD-${norad}` : "UNKNOWN"),
+    name,
     object_name: row?.object_name || row?.name || row?.OBJECT_NAME || null,
-    object_type: row?.object_type || row?.OBJECT_TYPE || "UNKNOWN",
-    country: row?.country || row?.country_code || row?.owner || "UNK",
-    owner: row?.owner || row?.country_code || row?.country || "UNK"
+    object_type: objectType,
+    country: row?.country || row?.country_code || row?.owner || country || "UNK",
+    owner: row?.owner || row?.country_code || row?.country || country || "UNK",
+    search_country: country || "UNK",
+    search_object_type: objectType,
+    search_orbit: orbit
   };
+}
+
+function getSearchFilterValue(group, satellite) {
+  if (group === "country") {
+    return satellite?.search_country || normalizeCountryGroup(getSatCountry(satellite));
+  }
+
+  if (group === "object_type") {
+    return satellite?.search_object_type || normalizeObjectTypeForSearch(
+      satellite?.object_type || satellite?.OBJECT_TYPE,
+      satellite?.name || satellite?.object_name
+    );
+  }
+
+  if (group === "orbit") {
+    return satellite?.search_orbit || normalizeOrbitForSearch(satellite);
+  }
+
+  return "UNKNOWN";
+}
+
+function getAvailableFilterCounts(group) {
+  const counts = new Map();
+
+  for (const satellite of satelliteIndex) {
+    const value = String(getSearchFilterValue(group, satellite) || "UNKNOWN").trim().toUpperCase();
+    counts.set(value, (counts.get(value) || 0) + 1);
+  }
+
+  return counts;
+}
+
+function orderedFilterValues(group, counts) {
+  const config = SEARCH_FILTER_CONFIG[group];
+  const pinned = config.pinned || [];
+  const rest = Array.from(counts.keys())
+    .filter(value => !pinned.includes(value))
+    .sort((a, b) => a.localeCompare(b));
+
+  return [...pinned, ...rest];
+}
+
+function updateFilterCountLabel(group) {
+  const config = SEARCH_FILTER_CONFIG[group];
+  const selected = searchFilterSelections[group];
+  const label = document.getElementById(config.countId);
+  if (!label) return;
+
+  if (selected.size === 0) {
+    label.textContent = "未選択（すべて）";
+  } else {
+    label.textContent = `${selected.size}項目選択`;
+  }
+}
+
+function renderSearchFilterGroup(group) {
+  const config = SEARCH_FILTER_CONFIG[group];
+  const container = document.getElementById(config.containerId);
+  if (!container) return;
+
+  const counts = getAvailableFilterCounts(group);
+  const values = orderedFilterValues(group, counts);
+  const selected = searchFilterSelections[group];
+
+  // データセット切替後に存在しない選択値は解除する。
+  for (const value of Array.from(selected)) {
+    if (!counts.get(value)) selected.delete(value);
+  }
+
+  container.innerHTML = values.map(value => {
+    const count = counts.get(value) || 0;
+    const disabled = count === 0;
+    const checked = !disabled && selected.has(value);
+
+    return `
+      <label class="filter-option ${disabled ? "disabled" : ""}">
+        <input
+          type="checkbox"
+          data-search-filter-group="${escapeHtml(group)}"
+          value="${escapeHtml(value)}"
+          ${checked ? "checked" : ""}
+          ${disabled ? "disabled" : ""}
+        >
+        <span>${escapeHtml(value)} (${count.toLocaleString()})</span>
+      </label>
+    `;
+  }).join("");
+
+  updateFilterCountLabel(group);
+}
+
+function renderAllSearchFilters() {
+  Object.keys(SEARCH_FILTER_CONFIG).forEach(renderSearchFilterGroup);
+}
+
+function setAllFilterCheckboxes(group, checked) {
+  const config = SEARCH_FILTER_CONFIG[group];
+  const container = document.getElementById(config.containerId);
+  if (!container) return;
+
+  const selected = searchFilterSelections[group];
+  selected.clear();
+
+  container.querySelectorAll('input[type="checkbox"][data-search-filter-group]').forEach(input => {
+    if (input.disabled) return;
+    input.checked = checked;
+    if (checked) selected.add(String(input.value).toUpperCase());
+  });
+
+  updateFilterCountLabel(group);
+}
+
+function clearAllAdvancedSearchFilters() {
+  Object.keys(searchFilterSelections).forEach(group => {
+    searchFilterSelections[group].clear();
+  });
+
+  document.querySelectorAll('#advancedSearchFilters input[type="checkbox"]').forEach(input => {
+    input.checked = false;
+  });
+
+  Object.keys(SEARCH_FILTER_CONFIG).forEach(updateFilterCountLabel);
+}
+
+function activeSearchFilterSummary() {
+  const parts = [];
+
+  for (const [group, config] of Object.entries(SEARCH_FILTER_CONFIG)) {
+    const selected = Array.from(searchFilterSelections[group]);
+    if (selected.length > 0) {
+      parts.push(`${config.label}=${selected.join("|")}`);
+    }
+  }
+
+  return parts.join(" / ");
 }
 
 function getSatelliteById(noradId) {
@@ -1139,6 +1511,8 @@ async function loadSatelliteIndex(datasetKey = currentDatasetKey) {
     satelliteIndex = data
       .map(normalizeSatelliteIndexRecord)
       .filter(s => Number.isFinite(Number(s.norad_id)));
+
+    renderAllSearchFilters();
 
     // 同じ衛星が新しいデータセットに含まれる場合は、選択情報を最新値へ更新する。
     for (const sat of satelliteIndex) {
@@ -1205,10 +1579,24 @@ function filterSatellites() {
   const lonMin = numVal("lonMin");
   const lonMax = numVal("lonMax");
 
+  const selectedCountries = searchFilterSelections.country;
+  const selectedObjectTypes = searchFilterSelections.object_type;
+  const selectedOrbits = searchFilterSelections.orbit;
+
   return satelliteIndex.filter(s => {
     const textOk = q === "" || makeSearchText(s).includes(q);
+    const country = getSearchFilterValue("country", s);
+    const objectType = getSearchFilterValue("object_type", s);
+    const orbit = getSearchFilterValue("orbit", s);
+
+    const countryOk = selectedCountries.size === 0 || selectedCountries.has(country);
+    const objectTypeOk = selectedObjectTypes.size === 0 || selectedObjectTypes.has(objectType);
+    const orbitOk = selectedOrbits.size === 0 || selectedOrbits.has(orbit);
 
     return textOk &&
+      countryOk &&
+      objectTypeOk &&
+      orbitOk &&
       passesRange(s.apogee_km, apogeeMin, apogeeMax) &&
       passesRange(s.perigee_km, perigeeMin, perigeeMax) &&
       passesRange(s.inclination_deg, incMin, incMax) &&
@@ -1261,8 +1649,10 @@ function renderResults(rows) {
   `).join("");
 
   const config = getDatasetConfig(currentDatasetKey);
+  const filterSummary = activeSearchFilterSummary();
   document.getElementById("searchStatus").textContent =
-    `${config.label} / 検索結果: ${totalRows.toLocaleString()}件 / 選択中: ${selectedIds.size}件`;
+    `${config.label} / 検索結果: ${totalRows.toLocaleString()}件 / 選択中: ${selectedIds.size}件` +
+    (filterSummary ? ` / 条件: ${filterSummary}` : "");
 
   updateResultPagination(totalRows);
   renderSelectedList();
@@ -3785,6 +4175,36 @@ document.getElementById("resultPageSize").addEventListener("change", event => {
   renderResults(currentSearchRows);
 });
 
+document.getElementById("advancedSearchFilters").addEventListener("change", event => {
+  const input = event.target.closest('input[type="checkbox"][data-search-filter-group]');
+  if (!input) return;
+
+  const group = input.dataset.searchFilterGroup;
+  if (!searchFilterSelections[group]) return;
+
+  const value = String(input.value).toUpperCase();
+  if (input.checked) {
+    searchFilterSelections[group].add(value);
+  } else {
+    searchFilterSelections[group].delete(value);
+  }
+
+  updateFilterCountLabel(group);
+  runSearch(false, true);
+});
+
+document.getElementById("advancedSearchFilters").addEventListener("click", event => {
+  const button = event.target.closest('button[data-filter-group][data-filter-action]');
+  if (!button) return;
+
+  const group = button.dataset.filterGroup;
+  const action = button.dataset.filterAction;
+  if (!SEARCH_FILTER_CONFIG[group]) return;
+
+  setAllFilterCheckboxes(group, action === "all");
+  runSearch(false, true);
+});
+
 document.getElementById("searchBtn").addEventListener("click", () => runSearch());
 
 document.getElementById("clearSearchBtn").addEventListener("click", () => {
@@ -3802,6 +4222,7 @@ document.getElementById("clearSearchBtn").addEventListener("click", () => {
     "lonMax"
   ].forEach(id => document.getElementById(id).value = "");
 
+  clearAllAdvancedSearchFilters();
   runSearch();
 });
 
