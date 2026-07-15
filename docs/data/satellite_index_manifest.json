@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-14T22:47:36Z",
+  "updated_at": "2026-07-15T15:36:19Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -17,16 +17,17 @@
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15610
+      "count": 15664
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 34773
+      "count": 34827
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12522,
+    "PAY": 54,
     "PAYLOAD": 19163,
     "ROCKET BODY": 2408,
     "UNKNOWN": 680
@@ -35,7 +36,7 @@
     "GEO": 1856,
     "GTO": 38,
     "HEO": 110,
-    "LEO": 28681,
+    "LEO": 28735,
     "MEO": 3492,
     "UNKNOWN": 596
   },
@@ -116,7 +117,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6589,
+    "RUS": 6590,
     "RWA": 9,
     "SAFR": 3,
     "SAUD": 16,
@@ -139,16 +140,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18216,
+    "US": 18269,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 69871,
-    "metadata_only_added": 18428,
+    "catalog_metadata": 69925,
+    "metadata_only_added": 18427,
     "decayed_metadata_skipped": 35098,
-    "with_history": 16345,
-    "without_history": 18428
+    "with_history": 16400,
+    "without_history": 18427
   }
 }
