@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-15T22:27:39.763676Z",
+  "updated_at": "2026-07-16T07:48:15.034018Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-15T22%3A27%3A39.763676Z&net__lte=2026-07-29T22%3A27%3A39.763676Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-16T07%3A48%3A15.034018Z&net__lte=2026-07-30T07%3A48%3A15.034018Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-15T22:27:39.763676Z",
-  "window_end": "2026-07-29T22:27:39.763676Z",
-  "count": 8,
+  "window_start": "2026-07-16T07:48:15.034018Z",
+  "window_end": "2026-07-30T07:48:15.034018Z",
+  "count": 9,
   "launches": [
     {
       "id": "d9adedc4-8fa1-4a36-84f9-43b8893a6865",
@@ -81,6 +81,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/0f6780cf-edae-4d7c-99d6-ce7de784d140/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "d8eb4b68-5307-4b3b-b585-5598958defc2",
+      "name": "Gravity-1 | Unknown Payload",
+      "net": "2026-07-22T02:50:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "Orienspace Technology",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Yellow Sea (launch location 5)",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d8eb4b68-5307-4b3b-b585-5598958defc2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/gravity-1_image_20240108105446.jpeg"
     },
     {
       "id": "5421e43a-1623-40ac-9dac-201075064e24",
