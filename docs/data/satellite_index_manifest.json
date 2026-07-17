@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-16T15:51:19Z",
+  "updated_at": "2026-07-17T08:04:00Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,12 +12,12 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17757
+      "count": 17812
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15664
+      "count": 15609
     },
     "all": {
       "label": "ALL",
@@ -27,17 +27,16 @@
   },
   "counts_by_object_type": {
     "DEBRIS": 12522,
-    "PAY": 54,
-    "PAYLOAD": 19163,
+    "PAYLOAD": 19218,
     "ROCKET BODY": 2409,
-    "UNKNOWN": 679
+    "UNKNOWN": 678
   },
   "counts_by_orbit_class": {
     "GEO": 1856,
     "GTO": 38,
     "HEO": 110,
-    "LEO": 28735,
-    "MEO": 3492,
+    "LEO": 28736,
+    "MEO": 3491,
     "UNKNOWN": 596
   },
   "counts_by_country": {
@@ -69,7 +68,7 @@
     "DJI": 1,
     "ECU": 2,
     "EGYP": 12,
-    "ESA": 133,
+    "ESA": 132,
     "EST": 1,
     "EUME": 18,
     "EUTE": 62,
@@ -117,14 +116,14 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6591,
+    "RUS": 6590,
     "RWA": 9,
     "SAFR": 3,
     "SAUD": 16,
     "SEAL": 34,
     "SES": 78,
     "SING": 20,
-    "SKOR": 73,
+    "SKOR": 74,
     "SLB": 1,
     "SPN": 56,
     "STCT": 2,
@@ -140,7 +139,7 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18269,
+    "US": 18270,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
