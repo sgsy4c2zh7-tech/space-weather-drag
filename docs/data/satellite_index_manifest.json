@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-18T15:04:57Z",
+  "updated_at": "2026-07-18T22:43:23Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -26,10 +26,10 @@
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12522,
+    "DEBRIS": 12519,
     "PAYLOAD": 19218,
     "ROCKET BODY": 2408,
-    "UNKNOWN": 678
+    "UNKNOWN": 681
   },
   "counts_by_orbit_class": {
     "GEO": 1856,
@@ -82,7 +82,7 @@
     "HRV": 1,
     "HUN": 4,
     "IM": 20,
-    "IND": 193,
+    "IND": 196,
     "INDO": 20,
     "IRAN": 13,
     "IRAQ": 1,
@@ -116,7 +116,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6589,
+    "RUS": 6587,
     "RWA": 9,
     "SAFR": 3,
     "SAUD": 16,
@@ -139,16 +139,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18270,
+    "US": 18269,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 69926,
-    "metadata_only_added": 18425,
-    "decayed_metadata_skipped": 35100,
-    "with_history": 16401,
-    "without_history": 18425
+    "catalog_metadata": 69929,
+    "metadata_only_added": 18422,
+    "decayed_metadata_skipped": 35103,
+    "with_history": 16404,
+    "without_history": 18422
   }
 }
