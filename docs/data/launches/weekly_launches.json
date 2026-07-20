@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-07-19T22:22:28.790305Z",
+  "updated_at": "2026-07-20T08:33:17.339031Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-19T22%3A22%3A28.790305Z&net__lte=2026-08-02T22%3A22%3A28.790305Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-20T08%3A33%3A17.339031Z&net__lte=2026-08-03T08%3A33%3A17.339031Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-19T22:22:28.790305Z",
-  "window_end": "2026-08-02T22:22:28.790305Z",
+  "window_start": "2026-07-20T08:33:17.339031Z",
+  "window_end": "2026-08-03T08:33:17.339031Z",
   "count": 15,
   "launches": [
     {
       "id": "e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc",
       "name": "Falcon 9 Block 5 | Starlink Group 17-39",
-      "net": "2026-07-20T14:00:00Z",
+      "net": "2026-07-20T14:36:26Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -203,21 +203,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "458e2e52-87b0-4707-96d8-6899f92e53ee",
-      "name": "Soyuz 2.1b/Fregat | Glonass-K1 No. 19",
-      "net": "2026-07-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Russian Space Forces",
-      "mission": "Glonass-K1 No. 19",
-      "mission_type": "Navigation",
-      "pad": "Unknown Pad",
-      "location": "Plesetsk Cosmodrome, Russian Federation",
-      "location_country_code": "RUS",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/458e2e52-87b0-4707-96d8-6899f92e53ee/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
-    },
-    {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
       "name": "Electron | LOXSAT 1",
       "net": "2026-07-31T00:00:00Z",
@@ -231,6 +216,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "458e2e52-87b0-4707-96d8-6899f92e53ee",
+      "name": "Soyuz 2.1b/Fregat | Glonass-K1 No. 19",
+      "net": "2026-07-31T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Russian Space Forces",
+      "mission": "Glonass-K1 No. 19",
+      "mission_type": "Navigation",
+      "pad": "Unknown Pad",
+      "location": "Plesetsk Cosmodrome, Russian Federation",
+      "location_country_code": "RUS",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/458e2e52-87b0-4707-96d8-6899f92e53ee/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
     }
   ]
 }
