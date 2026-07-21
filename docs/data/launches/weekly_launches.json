@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-07-21T07:58:13.650138Z",
+  "updated_at": "2026-07-21T15:36:11.133996Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-21T07%3A58%3A13.650138Z&net__lte=2026-08-04T07%3A58%3A13.650138Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-21T15%3A36%3A11.133996Z&net__lte=2026-08-04T15%3A36%3A11.133996Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-21T07:58:13.650138Z",
-  "window_end": "2026-08-04T07:58:13.650138Z",
+  "window_start": "2026-07-21T15:36:11.133996Z",
+  "window_end": "2026-08-04T15:36:11.133996Z",
   "count": 15,
   "launches": [
-    {
-      "id": "e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc",
-      "name": "Falcon 9 Block 5 | Starlink Group 17-39",
-      "net": "2026-07-21T14:43:04Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 17-39",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
     {
       "id": "0f6780cf-edae-4d7c-99d6-ce7de784d140",
       "name": "Falcon 9 Block 5 | MRV-1",
@@ -231,6 +216,21 @@
       "location_country_code": "RUS",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/458e2e52-87b0-4707-96d8-6899f92e53ee/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
+      "id": "12b9454b-d48b-4fd5-9c11-17c18f45dafe",
+      "name": "Long March 8A | Unknown Payload",
+      "net": "2026-08-04T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-1",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/12b9454b-d48b-4fd5-9c11-17c18f45dafe/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
     }
   ]
 }
