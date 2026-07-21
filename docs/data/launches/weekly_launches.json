@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-07-20T22:29:06.908489Z",
+  "updated_at": "2026-07-21T07:58:13.650138Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-20T22%3A29%3A06.908489Z&net__lte=2026-08-03T22%3A29%3A06.908489Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-21T07%3A58%3A13.650138Z&net__lte=2026-08-04T07%3A58%3A13.650138Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-20T22:29:06.908489Z",
-  "window_end": "2026-08-03T22:29:06.908489Z",
+  "window_start": "2026-07-21T07:58:13.650138Z",
+  "window_end": "2026-08-04T07:58:13.650138Z",
   "count": 15,
   "launches": [
     {
       "id": "e1079d3a-c0a6-4b42-bc1d-92e48a5a78fc",
       "name": "Falcon 9 Block 5 | Starlink Group 17-39",
-      "net": "2026-07-21T14:00:00Z",
+      "net": "2026-07-21T14:43:04Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -188,21 +188,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
-      "name": "Electron | StriX Launch 11",
-      "net": "2026-07-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "StriX Launch 11",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
       "name": "Electron | LOXSAT 1",
       "net": "2026-07-31T00:00:00Z",
@@ -215,6 +200,21 @@
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
+      "name": "Electron | StriX Launch 11",
+      "net": "2026-07-31T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "StriX Launch 11",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
