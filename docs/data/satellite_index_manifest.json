@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-22T15:58:28Z",
+  "updated_at": "2026-07-22T22:55:29Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,30 +12,30 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17811
+      "count": 17871
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15681
+      "count": 15687
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 34898
+      "count": 34964
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12516,
-    "PAYLOAD": 19217,
-    "ROCKET BODY": 2409,
-    "UNKNOWN": 756
+    "PAYLOAD": 19277,
+    "ROCKET BODY": 2410,
+    "UNKNOWN": 761
   },
   "counts_by_orbit_class": {
     "GEO": 1858,
     "GTO": 38,
     "HEO": 110,
-    "LEO": 28807,
+    "LEO": 28873,
     "MEO": 3489,
     "UNKNOWN": 596
   },
@@ -60,7 +60,7 @@
     "CA": 81,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6056,
+    "CHN": 6066,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -74,7 +74,7 @@
     "EUTE": 62,
     "FGER": 2,
     "FIN": 30,
-    "FR": 650,
+    "FR": 651,
     "FRIT": 2,
     "GER": 92,
     "GLOB": 85,
@@ -123,14 +123,14 @@
     "SEAL": 34,
     "SES": 78,
     "SING": 20,
-    "SKOR": 74,
+    "SKOR": 75,
     "SLB": 1,
     "SPN": 56,
     "STCT": 2,
     "SVN": 2,
     "SWED": 15,
     "SWTZ": 10,
-    "TBD": 386,
+    "TBD": 382,
     "THAI": 14,
     "TMMC": 1,
     "TURK": 41,
@@ -139,16 +139,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18267,
+    "US": 18325,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70006,
-    "metadata_only_added": 18418,
+    "catalog_metadata": 70072,
+    "metadata_only_added": 18428,
     "decayed_metadata_skipped": 35108,
-    "with_history": 16480,
-    "without_history": 18418
+    "with_history": 16536,
+    "without_history": 18428
   }
 }
