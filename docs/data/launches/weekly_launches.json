@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-22T22:32:22.419872Z",
+  "updated_at": "2026-07-23T08:01:44.680257Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-22T22%3A32%3A22.419872Z&net__lte=2026-08-05T22%3A32%3A22.419872Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-23T08%3A01%3A44.680257Z&net__lte=2026-08-06T08%3A01%3A44.680257Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-22T22:32:22.419872Z",
-  "window_end": "2026-08-05T22:32:22.419872Z",
-  "count": 12,
+  "window_start": "2026-07-23T08:01:44.680257Z",
+  "window_end": "2026-08-06T08:01:44.680257Z",
+  "count": 11,
   "launches": [
     {
       "id": "5421e43a-1623-40ac-9dac-201075064e24",
@@ -128,21 +128,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
-      "name": "Electron | LOXSAT 1",
-      "net": "2026-07-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "LOXSAT 1",
-      "mission_type": "Technology",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
       "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
       "name": "Electron | StriX Launch 11",
       "net": "2026-07-31T00:00:00Z",
@@ -158,25 +143,25 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "458e2e52-87b0-4707-96d8-6899f92e53ee",
-      "name": "Soyuz 2.1b/Fregat | Glonass-K1 No. 19",
+      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
+      "name": "Electron | LOXSAT 1",
       "net": "2026-07-31T00:00:00Z",
       "status": "To Be Determined",
       "country_group": "US",
-      "provider": "Russian Space Forces",
-      "mission": "Glonass-K1 No. 19",
-      "mission_type": "Navigation",
+      "provider": "Rocket Lab",
+      "mission": "LOXSAT 1",
+      "mission_type": "Technology",
       "pad": "Unknown Pad",
-      "location": "Plesetsk Cosmodrome, Russian Federation",
-      "location_country_code": "RUS",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/458e2e52-87b0-4707-96d8-6899f92e53ee/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
       "id": "12b9454b-d48b-4fd5-9c11-17c18f45dafe",
       "name": "Long March 8A | Unknown Payload",
-      "net": "2026-08-04T11:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-08-04T08:50:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Unknown Payload",

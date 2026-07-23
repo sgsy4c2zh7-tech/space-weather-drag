@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-22T22:55:29Z",
+  "updated_at": "2026-07-23T08:22:11Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -34,9 +34,9 @@
   "counts_by_orbit_class": {
     "GEO": 1858,
     "GTO": 38,
-    "HEO": 110,
+    "HEO": 106,
     "LEO": 28873,
-    "MEO": 3489,
+    "MEO": 3493,
     "UNKNOWN": 596
   },
   "counts_by_country": {
@@ -146,9 +146,9 @@
   },
   "source_counts": {
     "catalog_metadata": 70072,
-    "metadata_only_added": 18428,
+    "metadata_only_added": 18419,
     "decayed_metadata_skipped": 35108,
-    "with_history": 16536,
-    "without_history": 18428
+    "with_history": 16545,
+    "without_history": 18419
   }
 }
