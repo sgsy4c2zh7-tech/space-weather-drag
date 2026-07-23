@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-23T08:22:11Z",
+  "updated_at": "2026-07-23T22:53:01Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,31 +12,31 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17871
+      "count": 17872
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15687
+      "count": 15690
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 34964
+      "count": 34968
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12516,
-    "PAYLOAD": 19277,
+    "DEBRIS": 12515,
+    "PAYLOAD": 19278,
     "ROCKET BODY": 2410,
-    "UNKNOWN": 761
+    "UNKNOWN": 765
   },
   "counts_by_orbit_class": {
     "GEO": 1858,
-    "GTO": 38,
-    "HEO": 106,
+    "GTO": 42,
+    "HEO": 110,
     "LEO": 28873,
-    "MEO": 3493,
+    "MEO": 3489,
     "UNKNOWN": 596
   },
   "counts_by_country": {
@@ -60,7 +60,7 @@
     "CA": 81,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6066,
+    "CHN": 6065,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -87,7 +87,7 @@
     "IRAN": 13,
     "IRAQ": 1,
     "ISRA": 15,
-    "IT": 95,
+    "IT": 96,
     "ITSO": 130,
     "JOR": 1,
     "JPN": 328,
@@ -139,16 +139,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18325,
+    "US": 18329,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70072,
-    "metadata_only_added": 18419,
-    "decayed_metadata_skipped": 35108,
-    "with_history": 16545,
-    "without_history": 18419
+    "catalog_metadata": 70077,
+    "metadata_only_added": 18418,
+    "decayed_metadata_skipped": 35109,
+    "with_history": 16550,
+    "without_history": 18418
   }
 }

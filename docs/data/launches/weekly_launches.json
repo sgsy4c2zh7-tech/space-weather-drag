@@ -1,42 +1,12 @@
 {
-  "updated_at": "2026-07-23T08:01:44.680257Z",
+  "updated_at": "2026-07-23T22:32:34.213099Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-23T08%3A01%3A44.680257Z&net__lte=2026-08-06T08%3A01%3A44.680257Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-23T22%3A32%3A34.213099Z&net__lte=2026-08-06T22%3A32%3A34.213099Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-23T08:01:44.680257Z",
-  "window_end": "2026-08-06T08:01:44.680257Z",
-  "count": 11,
+  "window_start": "2026-07-23T22:32:34.213099Z",
+  "window_end": "2026-08-06T22:32:34.213099Z",
+  "count": 13,
   "launches": [
-    {
-      "id": "5421e43a-1623-40ac-9dac-201075064e24",
-      "name": "Long March 3B/E | Unknown Payload",
-      "net": "2026-07-23T12:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Complex 2 (LC-2)",
-      "location": "Xichang Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/5421e43a-1623-40ac-9dac-201075064e24/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march_image_20230907120240.jpeg"
-    },
-    {
-      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
-      "name": "Starship | Flight 13",
-      "net": "2026-07-23T22:45:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Flight 13",
-      "mission_type": "Test Flight",
-      "pad": "Orbital Launch Pad 2",
-      "location": "SpaceX Starbase, TX, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
-    },
     {
       "id": "fa42624c-1e30-4b4b-a06b-59b6153bc4e5",
       "name": "Kinetica 1 | Unknown Payload",
@@ -51,6 +21,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/fa42624c-1e30-4b4b-a06b-59b6153bc4e5/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
+    },
+    {
+      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
+      "name": "Starship | Flight 13",
+      "net": "2026-07-24T22:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Flight 13",
+      "mission_type": "Test Flight",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20250111100520.jpg"
     },
     {
       "id": "5b2f05d7-9052-49fb-9bd7-2a05d4910576",
@@ -98,10 +83,25 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
     },
     {
+      "id": "394d2745-610b-409e-b4ea-2071a35f8668",
+      "name": "Long March 6A | Unknown Payload",
+      "net": "2026-07-30T01:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9A",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/394d2745-610b-409e-b4ea-2071a35f8668/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
+    },
+    {
       "id": "24675e3d-2458-48a3-8c70-5196e44d4dc3",
       "name": "Falcon 9 Block 5 | NROL-95",
-      "net": "2026-07-30T06:37:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-07-30T07:09:00Z",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "NROL-95",
@@ -113,18 +113,18 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
-      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
-      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
+      "name": "Electron | LOXSAT 1",
       "net": "2026-07-31T00:00:00Z",
       "status": "To Be Determined",
       "country_group": "US",
       "provider": "Rocket Lab",
-      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
-      "mission_type": "Earth Science",
-      "pad": "Rocket Lab Launch Complex 1A",
+      "mission": "LOXSAT 1",
+      "mission_type": "Technology",
+      "pad": "Unknown Pad",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
@@ -143,19 +143,34 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
-      "name": "Electron | LOXSAT 1",
+      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
+      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
       "net": "2026-07-31T00:00:00Z",
       "status": "To Be Determined",
       "country_group": "US",
       "provider": "Rocket Lab",
-      "mission": "LOXSAT 1",
-      "mission_type": "Technology",
-      "pad": "Unknown Pad",
+      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
+      "mission_type": "Earth Science",
+      "pad": "Rocket Lab Launch Complex 1A",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "0448d030-5175-4c1f-bd0b-4f3f87072921",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-53",
+      "net": "2026-08-01T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-53",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0448d030-5175-4c1f-bd0b-4f3f87072921/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "12b9454b-d48b-4fd5-9c11-17c18f45dafe",
@@ -171,6 +186,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/12b9454b-d48b-4fd5-9c11-17c18f45dafe/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "b89ab080-66c3-4831-85a9-38d85da71d30",
+      "name": "H3-22 | Michibiki 7 (QZS-7)",
+      "net": "2026-08-06T19:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "JPN",
+      "provider": "Mitsubishi Heavy Industries",
+      "mission": "Michibiki 7 (QZS-7)",
+      "mission_type": "Navigation",
+      "pad": "Yoshinobu Launch Complex LP-2",
+      "location": "Tanegashima Space Center, Japan",
+      "location_country_code": "JPN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/b89ab080-66c3-4831-85a9-38d85da71d30/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-22_liftoff__image_20251028183835.jpg"
     }
   ]
 }
