@@ -1,31 +1,16 @@
 {
-  "updated_at": "2026-07-24T22:44:41.827757Z",
+  "updated_at": "2026-07-25T07:44:38.259255Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-24T22%3A44%3A41.827757Z&net__lte=2026-08-07T22%3A44%3A41.827757Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-25T07%3A44%3A38.259255Z&net__lte=2026-08-08T07%3A44%3A38.259255Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-24T22:44:41.827757Z",
-  "window_end": "2026-08-07T22:44:41.827757Z",
-  "count": 12,
+  "window_start": "2026-07-25T07:44:38.259255Z",
+  "window_end": "2026-08-08T07:44:38.259255Z",
+  "count": 11,
   "launches": [
-    {
-      "id": "ac897b9f-44d2-4ff4-8416-1a0a076e98a2",
-      "name": "Starship | Flight 13",
-      "net": "2026-07-24T22:51:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Flight 13",
-      "mission_type": "Test Flight",
-      "pad": "Orbital Launch Pad 2",
-      "location": "SpaceX Starbase, TX, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ac897b9f-44d2-4ff4-8416-1a0a076e98a2/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
-    },
     {
       "id": "5b2f05d7-9052-49fb-9bd7-2a05d4910576",
       "name": "Falcon 9 Block 5 | Starlink Group 17-51",
-      "net": "2026-07-25T14:00:00Z",
+      "net": "2026-07-25T15:51:21Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -98,21 +83,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
-      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
-      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
-      "net": "2026-07-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
-      "mission_type": "Earth Science",
-      "pad": "Rocket Lab Launch Complex 1A",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
       "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
       "name": "Electron | StriX Launch 11",
       "net": "2026-07-31T00:00:00Z",
@@ -125,6 +95,21 @@
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
+      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "net": "2026-07-31T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
+      "mission_type": "Earth Science",
+      "pad": "Rocket Lab Launch Complex 1A",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
