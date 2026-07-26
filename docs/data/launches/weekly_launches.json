@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-07-26T08:01:47.228929Z",
+  "updated_at": "2026-07-26T15:05:38.579996Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-26T08%3A01%3A47.228929Z&net__lte=2026-08-09T08%3A01%3A47.228929Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-26T15%3A05%3A38.579996Z&net__lte=2026-08-09T15%3A05%3A38.579996Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-26T08:01:47.228929Z",
-  "window_end": "2026-08-09T08:01:47.228929Z",
-  "count": 10,
+  "window_start": "2026-07-26T15:05:38.579996Z",
+  "window_end": "2026-08-09T15:05:38.579996Z",
+  "count": 11,
   "launches": [
     {
       "id": "e7e55b53-6f69-4c22-9fc5-df00df653a3f",
@@ -68,18 +68,18 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     },
     {
-      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
-      "name": "Electron | LOXSAT 1",
+      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
+      "name": "Electron | StriX Launch 11",
       "net": "2026-07-31T00:00:00Z",
       "status": "To Be Determined",
       "country_group": "US",
       "provider": "Rocket Lab",
-      "mission": "LOXSAT 1",
-      "mission_type": "Technology",
+      "mission": "StriX Launch 11",
+      "mission_type": "Earth Science",
       "pad": "Unknown Pad",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
@@ -98,18 +98,18 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
-      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
-      "name": "Electron | StriX Launch 11",
+      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
+      "name": "Electron | LOXSAT 1",
       "net": "2026-07-31T00:00:00Z",
       "status": "To Be Determined",
       "country_group": "US",
       "provider": "Rocket Lab",
-      "mission": "StriX Launch 11",
-      "mission_type": "Earth Science",
+      "mission": "LOXSAT 1",
+      "mission_type": "Technology",
       "pad": "Unknown Pad",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
@@ -156,6 +156,21 @@
       "location_country_code": "JPN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/b89ab080-66c3-4831-85a9-38d85da71d30/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-22_liftoff__image_20251028183835.jpg"
+    },
+    {
+      "id": "cff704ab-8098-4f65-899e-50adaf908e59",
+      "name": "Long March 7A | Unknown Payload",
+      "net": "2026-08-09T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "201",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/cff704ab-8098-4f65-899e-50adaf908e59/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
     }
   ]
 }
