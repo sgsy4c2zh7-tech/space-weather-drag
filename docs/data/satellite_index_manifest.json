@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-28T16:12:18Z",
+  "updated_at": "2026-07-28T22:59:15Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,30 +12,30 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17908
+      "count": 17915
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15696
+      "count": 15685
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35010
+      "count": 35006
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12513,
-    "PAYLOAD": 19314,
+    "DEBRIS": 12509,
+    "PAYLOAD": 19321,
     "ROCKET BODY": 2410,
-    "UNKNOWN": 773
+    "UNKNOWN": 766
   },
   "counts_by_orbit_class": {
     "GEO": 1859,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 28914,
+    "LEO": 28910,
     "MEO": 3489,
     "UNKNOWN": 596
   },
@@ -47,7 +47,7 @@
     "ALG": 7,
     "ARGN": 37,
     "ASRA": 3,
-    "AUS": 44,
+    "AUS": 45,
     "AZER": 3,
     "BEL": 10,
     "BELA": 1,
@@ -60,7 +60,7 @@
     "CA": 81,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6069,
+    "CHN": 6068,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -76,7 +76,7 @@
     "FIN": 30,
     "FR": 651,
     "FRIT": 2,
-    "GER": 96,
+    "GER": 97,
     "GLOB": 85,
     "GREC": 12,
     "HRV": 1,
@@ -87,7 +87,7 @@
     "IRAN": 13,
     "IRAQ": 1,
     "ISRA": 15,
-    "IT": 97,
+    "IT": 96,
     "ITSO": 130,
     "JOR": 1,
     "JPN": 334,
@@ -100,7 +100,7 @@
     "MALA": 9,
     "MEX": 10,
     "NATO": 8,
-    "NETH": 7,
+    "NETH": 10,
     "NICO": 1,
     "NIG": 5,
     "NKOR": 2,
@@ -111,12 +111,12 @@
     "PAKI": 9,
     "PER": 2,
     "POL": 12,
-    "POR": 8,
+    "POR": 9,
     "QAT": 2,
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6605,
+    "RUS": 6603,
     "RWA": 9,
     "SAFR": 3,
     "SAUD": 16,
@@ -127,10 +127,11 @@
     "SLB": 1,
     "SPN": 58,
     "STCT": 2,
+    "SVK": 1,
     "SVN": 2,
     "SWED": 15,
     "SWTZ": 10,
-    "TBD": 366,
+    "TBD": 359,
     "THAI": 14,
     "TMMC": 1,
     "TURK": 41,
@@ -146,9 +147,9 @@
   },
   "source_counts": {
     "catalog_metadata": 70122,
-    "metadata_only_added": 18417,
-    "decayed_metadata_skipped": 35112,
+    "metadata_only_added": 18413,
+    "decayed_metadata_skipped": 35116,
     "with_history": 16593,
-    "without_history": 18417
+    "without_history": 18413
   }
 }
