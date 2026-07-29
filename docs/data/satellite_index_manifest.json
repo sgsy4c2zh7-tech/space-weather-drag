@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-07-29T16:02:40Z",
+  "updated_at": "2026-07-29T22:51:17Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,30 +12,30 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17915
+      "count": 17945
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15684
+      "count": 15672
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35005
+      "count": 35023
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12508,
-    "PAYLOAD": 19321,
-    "ROCKET BODY": 2410,
-    "UNKNOWN": 766
+    "DEBRIS": 12502,
+    "PAYLOAD": 19351,
+    "ROCKET BODY": 2412,
+    "UNKNOWN": 758
   },
   "counts_by_orbit_class": {
     "GEO": 1859,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 28909,
+    "LEO": 28927,
     "MEO": 3489,
     "UNKNOWN": 596
   },
@@ -52,7 +52,7 @@
     "BEL": 10,
     "BELA": 1,
     "BGD": 1,
-    "BGR": 6,
+    "BGR": 7,
     "BHR": 1,
     "BOL": 1,
     "BRAZ": 31,
@@ -60,7 +60,7 @@
     "CA": 81,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6067,
+    "CHN": 6066,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -74,7 +74,7 @@
     "EUTE": 62,
     "FGER": 2,
     "FIN": 30,
-    "FR": 651,
+    "FR": 652,
     "FRIT": 2,
     "GER": 97,
     "GLOB": 85,
@@ -90,7 +90,7 @@
     "IT": 96,
     "ITSO": 130,
     "JOR": 1,
-    "JPN": 334,
+    "JPN": 335,
     "KAZ": 6,
     "KWT": 1,
     "LAOS": 1,
@@ -110,13 +110,13 @@
     "ORB": 65,
     "PAKI": 9,
     "PER": 2,
-    "POL": 12,
+    "POL": 13,
     "POR": 9,
     "QAT": 2,
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6603,
+    "RUS": 6601,
     "RWA": 9,
     "SAFR": 3,
     "SAUD": 16,
@@ -131,7 +131,7 @@
     "SVN": 2,
     "SWED": 15,
     "SWTZ": 10,
-    "TBD": 359,
+    "TBD": 352,
     "THAI": 14,
     "TMMC": 1,
     "TURK": 41,
@@ -140,16 +140,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18350,
+    "US": 18374,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70122,
-    "metadata_only_added": 18412,
-    "decayed_metadata_skipped": 35117,
-    "with_history": 16593,
-    "without_history": 18412
+    "catalog_metadata": 70146,
+    "metadata_only_added": 18406,
+    "decayed_metadata_skipped": 35123,
+    "with_history": 16617,
+    "without_history": 18406
   }
 }
