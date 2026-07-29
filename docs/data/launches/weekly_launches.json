@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-07-29T08:20:53.256348Z",
+  "updated_at": "2026-07-29T15:37:48.526724Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-29T08%3A20%3A53.256348Z&net__lte=2026-08-12T08%3A20%3A53.256348Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-07-29T15%3A37%3A48.526724Z&net__lte=2026-08-12T15%3A37%3A48.526724Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-07-29T08:20:53.256348Z",
-  "window_end": "2026-08-12T08:20:53.256348Z",
-  "count": 13,
+  "window_start": "2026-07-29T15:37:48.526724Z",
+  "window_end": "2026-08-12T15:37:48.526724Z",
+  "count": 12,
   "launches": [
-    {
-      "id": "beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e",
-      "name": "Long March 7A | Unknown Payload",
-      "net": "2026-07-29T11:50:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "201",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/beac6ac1-97dd-4eb2-912c-8b4d4d15cd4e/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-7a_launch_2_image_20251206093324.jpeg"
-    },
     {
       "id": "394d2745-610b-409e-b4ea-2071a35f8668",
       "name": "Long March 6A | Unknown Payload",
@@ -50,12 +35,12 @@
       "location": "Cape Canaveral SFS, FL, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/24675e3d-2458-48a3-8c70-5196e44d4dc3/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_at_slc_image_20260729112529.jpeg"
     },
     {
       "id": "e7e55b53-6f69-4c22-9fc5-df00df653a3f",
       "name": "Falcon 9 Block 5 | Starlink Group 17-52",
-      "net": "2026-07-31T02:00:00Z",
+      "net": "2026-08-01T02:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -65,21 +50,6 @@
       "location": "Vandenberg SFB, CA, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e7e55b53-6f69-4c22-9fc5-df00df653a3f/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
-      "id": "0448d030-5175-4c1f-bd0b-4f3f87072921",
-      "name": "Falcon 9 Block 5 | Starlink Group 17-53",
-      "net": "2026-08-03T14:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 17-53",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/0448d030-5175-4c1f-bd0b-4f3f87072921/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
@@ -111,6 +81,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/12b9454b-d48b-4fd5-9c11-17c18f45dafe/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "0448d030-5175-4c1f-bd0b-4f3f87072921",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-53",
+      "net": "2026-08-04T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-53",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0448d030-5175-4c1f-bd0b-4f3f87072921/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "56a85c82-ea71-449b-828c-b583f6f4a18b",
@@ -145,7 +130,7 @@
     {
       "id": "e4316d4c-9eb8-4a18-9b0d-4307c3970ef6",
       "name": "Falcon 9 Block 5 | Starlink Group 17-38",
-      "net": "2026-08-07T14:00:00Z",
+      "net": "2026-08-08T14:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -190,7 +175,7 @@
     {
       "id": "6f94dbe4-1318-4ffb-a53d-351bbdcba733",
       "name": "Falcon 9 Block 5 | Starlink Group 17-49",
-      "net": "2026-08-11T02:00:00Z",
+      "net": "2026-08-12T02:00:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
