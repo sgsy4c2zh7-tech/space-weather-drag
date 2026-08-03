@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-02T22:31:00.178519Z",
+  "updated_at": "2026-08-03T16:15:34.483736Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-02T22%3A31%3A00.178519Z&net__lte=2026-08-16T22%3A31%3A00.178519Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-03T16%3A15%3A34.483736Z&net__lte=2026-08-17T16%3A15%3A34.483736Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-02T22:31:00.178519Z",
-  "window_end": "2026-08-16T22:31:00.178519Z",
-  "count": 9,
+  "window_start": "2026-08-03T16:15:34.483736Z",
+  "window_end": "2026-08-17T16:15:34.483736Z",
+  "count": 10,
   "launches": [
     {
       "id": "12b9454b-d48b-4fd5-9c11-17c18f45dafe",
@@ -68,21 +68,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/f9_on_slc-40_2_image_20240919072420.jpg"
     },
     {
-      "id": "b89ab080-66c3-4831-85a9-38d85da71d30",
-      "name": "H3-22 | Michibiki 7 (QZS-7)",
-      "net": "2026-08-06T19:30:00Z",
-      "status": "Go for Launch",
-      "country_group": "JPN",
-      "provider": "Mitsubishi Heavy Industries",
-      "mission": "Michibiki 7 (QZS-7)",
-      "mission_type": "Navigation",
-      "pad": "Yoshinobu Launch Complex LP-2",
-      "location": "Tanegashima Space Center, Japan",
-      "location_country_code": "JPN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/b89ab080-66c3-4831-85a9-38d85da71d30/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-22_liftoff__image_20251028183835.jpg"
-    },
-    {
       "id": "e4316d4c-9eb8-4a18-9b0d-4307c3970ef6",
       "name": "Falcon 9 Block 5 | Starlink Group 17-38",
       "net": "2026-08-08T14:00:00Z",
@@ -141,6 +126,36 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/6f94dbe4-1318-4ffb-a53d-351bbdcba733/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
+      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
+      "net": "2026-08-16T01:12:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Globalstar 2-R Mission 1 (x 9)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "b0e7d1cc-24dd-4da4-bb60-b15b6791d08e",
+      "name": "Long March 12 | Unknown Payload",
+      "net": "2026-08-17T02:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/b0e7d1cc-24dd-4da4-bb60-b15b6791d08e/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
     }
   ]
 }

@@ -1,7 +1,7 @@
 {
   "norad_id": 39084,
   "name": "LANDSAT 8",
-  "updated_at": "2026-08-02T22:58:00.134057+00:00",
+  "updated_at": "2026-08-03T16:39:16.452120+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T21:18:19.777824Z",
@@ -3366,8 +3366,8 @@
       "mean_anomaly_deg": 268.5389,
       "mean_motion_rev_day": 14.57100487,
       "avg_altitude_km": 702.5517743142495,
-      "kp_nearest": 2.0,
-      "nrlmsis_density": 1.7929483513644782e-14
+      "kp_nearest": 1.67,
+      "nrlmsis_density": 1.7064313896923873e-14
     },
     {
       "epoch": "2026-07-26T13:53:14.586720Z",
@@ -3384,8 +3384,8 @@
       "mean_anomaly_deg": 268.6544,
       "mean_motion_rev_day": 14.57100759,
       "avg_altitude_km": 702.550893136382,
-      "kp_nearest": 0.67,
-      "nrlmsis_density": 1.4289682989405278e-14
+      "kp_nearest": 1.67,
+      "nrlmsis_density": 1.7460151027900647e-14
     },
     {
       "epoch": "2026-07-27T11:18:44.762688Z",
@@ -3674,6 +3674,24 @@
       "avg_altitude_km": 702.5365027631124,
       "kp_nearest": 5.67,
       "nrlmsis_density": 2.4903171836959323e-14
+    },
+    {
+      "epoch": "2026-08-02T22:13:54.279552Z",
+      "apogee_km": 703.4440552134765,
+      "perigee_km": 701.6270130277699,
+      "latitude_deg": 7.665867163777726e-05,
+      "longitude_deg": -0.4935836283984879,
+      "height_km": 705.5564746440567,
+      "semi_major_axis_km": 7080.672534120623,
+      "eccentricity": 0.00012831,
+      "inclination_deg": 98.2275,
+      "raan_deg": 284.4997,
+      "arg_perigee_deg": 92.6899,
+      "mean_anomaly_deg": 267.4447,
+      "mean_motion_rev_day": 14.571055,
+      "avg_altitude_km": 702.5355341206232,
+      "kp_nearest": 2.0,
+      "nrlmsis_density": 1.8094743029785886e-14
     }
   ],
   "storm_events": [
@@ -4797,13 +4815,13 @@
     },
     {
       "time": "2026-07-26T05:38:49.125120Z",
-      "kp": 2.0,
+      "kp": 1.67,
       "delta_h_km": -0.001976171945898386,
       "rate_km_per_day": -0.00319753090849933
     },
     {
       "time": "2026-07-26T13:53:14.586720Z",
-      "kp": 0.67,
+      "kp": 1.67,
       "delta_h_km": -0.0008811778675408277,
       "rate_km_per_day": -0.0025664110264688247
     },
@@ -4902,10 +4920,16 @@
       "kp": 5.67,
       "delta_h_km": -0.0009783616483218793,
       "rate_km_per_day": -0.0028494653499174585
+    },
+    {
+      "time": "2026-08-02T22:13:54.279552Z",
+      "kp": 2.0,
+      "delta_h_km": -0.0009686424891697243,
+      "rate_km_per_day": -0.0028211608103538882
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": -0.0010325382900220762,
-    "kp_vs_rate": -0.0008560073440273745
+    "kp_vs_delta_h": -0.001980876552464212,
+    "kp_vs_rate": -0.002894812853570275
   }
 }
