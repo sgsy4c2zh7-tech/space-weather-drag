@@ -1,12 +1,27 @@
 {
-  "updated_at": "2026-08-05T08:09:54.081976Z",
+  "updated_at": "2026-08-05T22:52:18.792462Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-05T08%3A09%3A54.081976Z&net__lte=2026-08-19T08%3A09%3A54.081976Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-05T22%3A52%3A18.792462Z&net__lte=2026-08-19T22%3A52%3A18.792462Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-05T08:09:54.081976Z",
-  "window_end": "2026-08-19T08:09:54.081976Z",
-  "count": 6,
+  "window_start": "2026-08-05T22:52:18.792462Z",
+  "window_end": "2026-08-19T22:52:18.792462Z",
+  "count": 8,
   "launches": [
+    {
+      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
+      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
+      "net": "2026-08-06T09:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
+      "mission_type": "Earth Science",
+      "pad": "Rocket Lab Launch Complex 1A",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
     {
       "id": "e4316d4c-9eb8-4a18-9b0d-4307c3970ef6",
       "name": "Falcon 9 Block 5 | Starlink Group 17-38",
@@ -51,6 +66,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/36ab6924-bb36-416a-b71d-cda9e88004be/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "ef02e2cf-e617-4b38-a526-951ac9204b0a",
+      "name": "Zhuque-3 | Flight 2",
+      "net": "2026-08-10T23:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "LandSpace",
+      "mission": "Flight 2",
+      "mission_type": "Test Flight",
+      "pad": "Launch Area 96B",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ef02e2cf-e617-4b38-a526-951ac9204b0a/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zq-3_flight_1_l_image_20251203064230.jpg"
     },
     {
       "id": "6f94dbe4-1318-4ffb-a53d-351bbdcba733",

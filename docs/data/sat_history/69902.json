@@ -1,6 +1,6 @@
 {
   "norad_id": 69902,
-  "name": "TRANSPORTER-17 OBJECT AK",
+  "name": "CUBY-1",
   "history": [
     {
       "epoch": "2026-07-20T13:30:17.481312Z",
@@ -436,6 +436,21 @@
       "arg_perigee_deg": 49.8992,
       "mean_anomaly_deg": 310.2701,
       "mean_motion_rev_day": 14.9105501
+    },
+    {
+      "epoch": "2026-08-05T06:23:23.070336Z",
+      "apogee_km": 598.3414078429005,
+      "perigee_km": 590.9202910207505,
+      "latitude_deg": -4.968110904076756e-05,
+      "longitude_deg": 67.52813924022259,
+      "height_km": 595.08250531935,
+      "semi_major_axis_km": 6972.767849431825,
+      "eccentricity": 0.00053215,
+      "inclination_deg": 97.7472,
+      "raan_deg": 117.1977,
+      "arg_perigee_deg": 45.9004,
+      "mean_anomaly_deg": 314.2651,
+      "mean_motion_rev_day": 14.91059427
     }
   ]
 }
