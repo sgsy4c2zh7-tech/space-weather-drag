@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-08-06T08:09:55.259653Z",
+  "updated_at": "2026-08-07T01:22:51.911468Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-06T08%3A09%3A55.259653Z&net__lte=2026-08-20T08%3A09%3A55.259653Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-07T01%3A22%3A51.911468Z&net__lte=2026-08-21T01%3A22%3A51.911468Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-06T08:09:55.259653Z",
-  "window_end": "2026-08-20T08:09:55.259653Z",
-  "count": 8,
+  "window_start": "2026-08-07T01:22:51.911468Z",
+  "window_end": "2026-08-21T01:22:51.911468Z",
+  "count": 9,
   "launches": [
-    {
-      "id": "8b7e748c-6ed5-4681-a898-827b4a23b8d7",
-      "name": "Electron | The Grain Goddess Provides (iQPS Launch 7)",
-      "net": "2026-08-06T09:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "The Grain Goddess Provides (iQPS Launch 7)",
-      "mission_type": "Earth Science",
-      "pad": "Rocket Lab Launch Complex 1A",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b7e748c-6ed5-4681-a898-827b4a23b8d7/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
     {
       "id": "e4316d4c-9eb8-4a18-9b0d-4307c3970ef6",
       "name": "Falcon 9 Block 5 | Starlink Group 17-38",
@@ -98,6 +83,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
+      "id": "55b79515-ddbf-4198-8a59-29a12ed21330",
+      "name": "Falcon 9 Block 5 | R-1",
+      "net": "2026-08-15T21:52:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "R-1",
+      "mission_type": "Unknown",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/55b79515-ddbf-4198-8a59-29a12ed21330/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
       "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
       "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
       "net": "2026-08-16T01:12:00Z",
@@ -126,6 +126,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/b0e7d1cc-24dd-4da4-bb60-b15b6791d08e/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "f6958a77-37bb-4559-a108-40ba0ff9e34a",
+      "name": "Falcon 9 Block 5 | Starlink Group 17-50",
+      "net": "2026-08-19T02:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 17-50",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/f6958a77-37bb-4559-a108-40ba0ff9e34a/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
