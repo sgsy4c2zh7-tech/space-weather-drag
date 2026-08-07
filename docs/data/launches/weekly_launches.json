@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-07T06:58:02.636962Z",
+  "updated_at": "2026-08-07T14:39:42.089590Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-07T06%3A58%3A02.636962Z&net__lte=2026-08-21T06%3A58%3A02.636962Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-07T14%3A39%3A42.089590Z&net__lte=2026-08-21T14%3A39%3A42.089590Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-07T06:58:02.636962Z",
-  "window_end": "2026-08-21T06:58:02.636962Z",
-  "count": 9,
+  "window_start": "2026-08-07T14:39:42.089590Z",
+  "window_end": "2026-08-21T14:39:42.089590Z",
+  "count": 10,
   "launches": [
     {
       "id": "e4316d4c-9eb8-4a18-9b0d-4307c3970ef6",
@@ -21,6 +21,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e4316d4c-9eb8-4a18-9b0d-4307c3970ef6/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "b89ab080-66c3-4831-85a9-38d85da71d30",
+      "name": "H3-22 | Michibiki 7 (QZS-7)",
+      "net": "2026-08-09T19:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "JPN",
+      "provider": "Mitsubishi Heavy Industries",
+      "mission": "Michibiki 7 (QZS-7)",
+      "mission_type": "Navigation",
+      "pad": "Yoshinobu Launch Complex LP-2",
+      "location": "Tanegashima Space Center, Japan",
+      "location_country_code": "JPN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/b89ab080-66c3-4831-85a9-38d85da71d30/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-22_liftoff__image_20251028183835.jpg"
     },
     {
       "id": "cff704ab-8098-4f65-899e-50adaf908e59",
