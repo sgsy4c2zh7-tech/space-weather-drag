@@ -1,6 +1,6 @@
 {
   "norad_id": 100241,
-  "name": "SPACEMOBILE OBJECT B",
+  "name": "SPACEMOBILE-012",
   "history": [
     {
       "epoch": "2026-08-05T09:18:14.167872Z",
@@ -91,6 +91,21 @@
       "arg_perigee_deg": 359.0775,
       "mean_anomaly_deg": 1.0205,
       "mean_motion_rev_day": 15.13183862
+    },
+    {
+      "epoch": "2026-08-08T22:54:12.256992Z",
+      "apogee_km": 530.476677955955,
+      "perigee_km": 522.5157739391007,
+      "latitude_deg": 1.1265798562745753e-05,
+      "longitude_deg": 10.542150271380939,
+      "height_km": 523.391535884949,
+      "semi_major_axis_km": 6904.6332259475275,
+      "eccentricity": 0.00057649,
+      "inclination_deg": 52.9965,
+      "raan_deg": 311.5518,
+      "arg_perigee_deg": 0.4917,
+      "mean_anomaly_deg": 359.6079,
+      "mean_motion_rev_day": 15.13184351
     }
   ]
 }
