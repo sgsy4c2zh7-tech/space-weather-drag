@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-09T22:14:27.873339Z",
+  "updated_at": "2026-08-10T07:04:53.357545Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-09T22%3A14%3A27.873339Z&net__lte=2026-08-23T22%3A14%3A27.873339Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-10T07%3A04%3A53.357545Z&net__lte=2026-08-24T07%3A04%3A53.357545Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-09T22:14:27.873339Z",
-  "window_end": "2026-08-23T22:14:27.873339Z",
-  "count": 9,
+  "window_start": "2026-08-10T07:04:53.357545Z",
+  "window_end": "2026-08-24T07:04:53.357545Z",
+  "count": 10,
   "launches": [
     {
       "id": "cff704ab-8098-4f65-899e-50adaf908e59",
@@ -25,7 +25,7 @@
     {
       "id": "36ab6924-bb36-416a-b71d-cda9e88004be",
       "name": "Falcon 9 Block 5 | Starlink Group 10-19",
-      "net": "2026-08-10T14:49:00Z",
+      "net": "2026-08-10T15:07:28Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -141,6 +141,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/f6958a77-37bb-4559-a108-40ba0ff9e34a/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "9d402fb6-9115-424d-b6f0-bd3b13ee310e",
+      "name": "Long March 5 | Chang'e 7",
+      "net": "2026-08-24T00:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Chang'e 7",
+      "mission_type": "Planetary Science",
+      "pad": "101",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_5_tj_image_20260612043435.jpg"
     }
   ]
 }
