@@ -486,7 +486,7 @@
       "epoch": "2026-07-11T22:00:03.000096Z",
       "apogee_km": 418.9973733516863,
       "perigee_km": 417.1364367983988,
-      "latitude_deg": 70.75145528160138,
+      "latitude_deg": 70.7514552816014,
       "longitude_deg": -44.21925507263303,
       "height_km": 429.38930612946945,
       "semi_major_axis_km": 6796.203905075043,
@@ -801,7 +801,7 @@
       "epoch": "2026-07-24T14:00:03.000384Z",
       "apogee_km": 466.436662680655,
       "perigee_km": 464.7858137306357,
-      "latitude_deg": -67.17899599646607,
+      "latitude_deg": -67.17899599646606,
       "longitude_deg": 114.79144378481581,
       "height_km": 491.8440601793528,
       "semi_major_axis_km": 6843.748238205645,
@@ -1231,6 +1231,21 @@
       "arg_perigee_deg": 94.3882,
       "mean_anomaly_deg": 265.7472,
       "mean_motion_rev_day": 15.33448022
+    },
+    {
+      "epoch": "2026-08-11T02:01:12.955008Z",
+      "apogee_km": 466.15482466941194,
+      "perigee_km": 465.01342885989106,
+      "latitude_deg": 1.5840769052661212e-05,
+      "longitude_deg": -83.08647699286391,
+      "height_km": 468.8846938778115,
+      "semi_major_axis_km": 6843.721126764652,
+      "eccentricity": 8.339e-05,
+      "inclination_deg": 97.2839,
+      "raan_deg": 266.7754,
+      "arg_perigee_deg": 109.4174,
+      "mean_anomaly_deg": 250.7159,
+      "mean_motion_rev_day": 15.33431236
     }
   ]
 }
