@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-12T14:54:51.731304Z",
+  "updated_at": "2026-08-12T22:30:33.777947Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-12T14%3A54%3A51.731304Z&net__lte=2026-08-26T14%3A54%3A51.731304Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-12T22%3A30%3A33.777947Z&net__lte=2026-08-26T22%3A30%3A33.777947Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-12T14:54:51.731304Z",
-  "window_end": "2026-08-26T14:54:51.731304Z",
-  "count": 6,
+  "window_start": "2026-08-12T22:30:33.777947Z",
+  "window_end": "2026-08-26T22:30:33.777947Z",
+  "count": 8,
   "launches": [
     {
       "id": "55b79515-ddbf-4198-8a59-29a12ed21330",
@@ -40,8 +40,8 @@
     {
       "id": "b0e7d1cc-24dd-4da4-bb60-b15b6791d08e",
       "name": "Long March 12 | Unknown Payload",
-      "net": "2026-08-17T02:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-08-16T04:10:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Unknown Payload",
@@ -51,6 +51,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/b0e7d1cc-24dd-4da4-bb60-b15b6791d08e/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "cb6f4df1-c045-423b-904c-e63bf1ee5168",
+      "name": "Long March 2C | Unknown Payload",
+      "net": "2026-08-17T03:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/cb6f4df1-c045-423b-904c-e63bf1ee5168/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_2_image_20230803100234.jpeg"
     },
     {
       "id": "f6958a77-37bb-4559-a108-40ba0ff9e34a",
@@ -96,6 +111,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_5_tj_image_20260612043435.jpg"
+    },
+    {
+      "id": "ad501ebd-a357-4305-90c1-c46c6feb2ecf",
+      "name": "Falcon 9 Block 5 | Starlink Group 10-49",
+      "net": "2026-08-25T11:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 10-49",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ad501ebd-a357-4305-90c1-c46c6feb2ecf/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
