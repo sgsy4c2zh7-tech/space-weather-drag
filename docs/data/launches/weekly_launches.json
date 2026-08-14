@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-14T07:17:28.511530Z",
+  "updated_at": "2026-08-14T14:54:23.517432Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-14T07%3A17%3A28.511530Z&net__lte=2026-08-28T07%3A17%3A28.511530Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-14T14%3A54%3A23.517432Z&net__lte=2026-08-28T14%3A54%3A23.517432Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-14T07:17:28.511530Z",
-  "window_end": "2026-08-28T07:17:28.511530Z",
-  "count": 10,
+  "window_start": "2026-08-14T14:54:23.517432Z",
+  "window_end": "2026-08-28T14:54:23.517432Z",
+  "count": 11,
   "launches": [
     {
       "id": "55b79515-ddbf-4198-8a59-29a12ed21330",
@@ -66,6 +66,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/cb6f4df1-c045-423b-904c-e63bf1ee5168/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_2_image_20230803100234.jpeg"
+    },
+    {
+      "id": "ef02e2cf-e617-4b38-a526-951ac9204b0a",
+      "name": "Zhuque-3 | Flight 2",
+      "net": "2026-08-18T23:35:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "LandSpace",
+      "mission": "Flight 2",
+      "mission_type": "Test Flight",
+      "pad": "Launch Area 96B",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ef02e2cf-e617-4b38-a526-951ac9204b0a/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zq-3_flight_1_l_image_20251203064230.jpg"
     },
     {
       "id": "f6958a77-37bb-4559-a108-40ba0ff9e34a",
