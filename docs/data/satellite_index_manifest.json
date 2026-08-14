@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-14T15:20:47Z",
+  "updated_at": "2026-08-14T22:32:51Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,12 +12,12 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18053
+      "count": 18099
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15667
+      "count": 15621
     },
     "all": {
       "label": "ALL",
@@ -27,17 +27,16 @@
   },
   "counts_by_object_type": {
     "DEBRIS": 12493,
-    "PAY": 24,
-    "PAYLOAD": 19463,
+    "PAYLOAD": 19509,
     "ROCKET BODY": 2417,
-    "UNKNOWN": 733
+    "UNKNOWN": 711
   },
   "counts_by_orbit_class": {
     "GEO": 1861,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 29030,
-    "MEO": 3490,
+    "LEO": 29031,
+    "MEO": 3489,
     "UNKNOWN": 597
   },
   "counts_by_country": {
@@ -58,8 +57,7 @@
     "BOL": 1,
     "BRAZ": 31,
     "BWA": 1,
-    "CA": 81,
-    "CAN": 1,
+    "CA": 82,
     "CHBZ": 11,
     "CHLE": 3,
     "CHN": 6078,

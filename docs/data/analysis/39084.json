@@ -1,7 +1,7 @@
 {
   "norad_id": 39084,
   "name": "LANDSAT 8",
-  "updated_at": "2026-08-14T15:20:48.034516+00:00",
+  "updated_at": "2026-08-14T22:32:52.702681+00:00",
   "history_enriched": [
     {
       "epoch": "2026-03-28T21:18:19.777824Z",
@@ -4070,6 +4070,24 @@
       "avg_altitude_km": 702.5546316649493,
       "kp_nearest": 2.67,
       "nrlmsis_density": 2.1335929849047516e-14
+    },
+    {
+      "epoch": "2026-08-14T14:24:15.886368Z",
+      "apogee_km": 703.4627151145869,
+      "perigee_km": 701.6468009063274,
+      "latitude_deg": -1.55245679945634e-05,
+      "longitude_deg": 116.93986555295389,
+      "height_km": 705.5733578113229,
+      "semi_major_axis_km": 7080.691758010456,
+      "eccentricity": 0.00012823,
+      "inclination_deg": 98.2263,
+      "raan_deg": 296.0295,
+      "arg_perigee_deg": 92.541,
+      "mean_anomaly_deg": 267.5935,
+      "mean_motion_rev_day": 14.57099566,
+      "avg_altitude_km": 702.5547580104571,
+      "kp_nearest": 1.67,
+      "nrlmsis_density": 1.9183227800852708e-14
     }
   ],
   "storm_events": [],
@@ -5423,10 +5441,16 @@
       "kp": 2.67,
       "delta_h_km": -0.00031424396138390875,
       "rate_km_per_day": -0.000915228072472861
+    },
+    {
+      "time": "2026-08-14T14:24:15.886368Z",
+      "kp": 1.67,
+      "delta_h_km": 0.00012634550785151077,
+      "rate_km_per_day": 0.0003679782687680418
     }
   ],
   "pearson": {
-    "kp_vs_delta_h": 0.018404794828414835,
-    "kp_vs_rate": 0.01260052113618366
+    "kp_vs_delta_h": 0.01795301934680673,
+    "kp_vs_rate": 0.01207957345933753
   }
 }
