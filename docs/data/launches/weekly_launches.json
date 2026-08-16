@@ -1,57 +1,12 @@
 {
-  "updated_at": "2026-08-14T22:06:32.811001Z",
+  "updated_at": "2026-08-16T14:19:19.067085Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-14T22%3A06%3A32.811001Z&net__lte=2026-08-28T22%3A06%3A32.811001Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-16T14%3A19%3A19.067085Z&net__lte=2026-08-30T14%3A19%3A19.067085Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-14T22:06:32.811001Z",
-  "window_end": "2026-08-28T22:06:32.811001Z",
-  "count": 11,
+  "window_start": "2026-08-16T14:19:19.067085Z",
+  "window_end": "2026-08-30T14:19:19.067085Z",
+  "count": 9,
   "launches": [
-    {
-      "id": "55b79515-ddbf-4198-8a59-29a12ed21330",
-      "name": "Falcon 9 Block 5 | USSF-366",
-      "net": "2026-08-15T21:52:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "USSF-366",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/55b79515-ddbf-4198-8a59-29a12ed21330/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
-      "id": "be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3",
-      "name": "Falcon 9 Block 5 | Globalstar 2-R Mission 1 (x 9)",
-      "net": "2026-08-16T01:12:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Globalstar 2-R Mission 1 (x 9)",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/be8b4b0d-1989-48a5-a96d-e8e4d59ed8b3/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
-      "id": "b0e7d1cc-24dd-4da4-bb60-b15b6791d08e",
-      "name": "Long March 12 | Unknown Payload",
-      "net": "2026-08-16T04:10:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Commercial LC-2",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/b0e7d1cc-24dd-4da4-bb60-b15b6791d08e/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
-    },
     {
       "id": "cb6f4df1-c045-423b-904c-e63bf1ee5168",
       "name": "Long March 2C | Unknown Payload",
@@ -145,7 +100,7 @@
     {
       "id": "ad501ebd-a357-4305-90c1-c46c6feb2ecf",
       "name": "Falcon 9 Block 5 | Starlink Group 10-49",
-      "net": "2026-08-25T11:00:00Z",
+      "net": "2026-08-25T05:49:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -161,7 +116,7 @@
       "id": "95653d52-bb77-4860-a815-dd7141778d17",
       "name": "Falcon 9 Block 5 | Starlink Group 15-22",
       "net": "2026-08-25T16:44:00Z",
-      "status": "To Be Confirmed",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "Starlink Group 15-22",
@@ -171,6 +126,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/95653d52-bb77-4860-a815-dd7141778d17/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "521f3a1c-f977-4306-9b7f-495858719adf",
+      "name": "Falcon Heavy | Nancy Grace Roman Space Telescope",
+      "net": "2026-08-30T11:26:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Nancy Grace Roman Space Telescope",
+      "mission_type": "Astrophysics",
+      "pad": "Launch Complex 39A",
+      "location": "Kennedy Space Center, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/521f3a1c-f977-4306-9b7f-495858719adf/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg"
     }
   ]
 }
