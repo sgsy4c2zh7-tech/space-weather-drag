@@ -1,6 +1,6 @@
 {
   "norad_id": 67482,
-  "name": "2025-313BE",
+  "name": "TRISAT-4",
   "history": [
     {
       "epoch": "2026-03-28T17:06:03.689280Z",
@@ -2476,6 +2476,21 @@
       "arg_perigee_deg": 239.649,
       "mean_anomaly_deg": 120.3733,
       "mean_motion_rev_day": 15.92112553
+    },
+    {
+      "epoch": "2026-08-19T04:10:57.547488Z",
+      "apogee_km": 282.1288734925838,
+      "perigee_km": 267.77842308784693,
+      "latitude_deg": -4.8325709672401196e-05,
+      "longitude_deg": -78.46136897116433,
+      "height_km": 278.87670297014677,
+      "semi_major_axis_km": 6653.090648290215,
+      "eccentricity": 0.00107848,
+      "inclination_deg": 97.367,
+      "raan_deg": 311.8103,
+      "arg_perigee_deg": 264.2748,
+      "mean_anomaly_deg": 95.73,
+      "mean_motion_rev_day": 15.9980703
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-19T06:14:27.351132Z",
+  "updated_at": "2026-08-20T14:28:57.779041Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-19T06%3A14%3A27.351132Z&net__lte=2026-09-02T06%3A14%3A27.351132Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-20T14%3A28%3A57.779041Z&net__lte=2026-09-03T14%3A28%3A57.779041Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-19T06:14:27.351132Z",
-  "window_end": "2026-09-02T06:14:27.351132Z",
+  "window_start": "2026-08-20T14:28:57.779041Z",
+  "window_end": "2026-09-03T14:28:57.779041Z",
   "count": 13,
   "launches": [
     {
       "id": "bbdc4d47-1de3-428e-9fe1-bbf45d9b1e04",
       "name": "Falcon 9 Block 5 | Starlink Group 10-39",
-      "net": "2026-08-20T15:19:00Z",
+      "net": "2026-08-20T15:38:44Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -40,8 +40,8 @@
     {
       "id": "9d402fb6-9115-424d-b6f0-bd3b13ee310e",
       "name": "Long March 5 | Chang'e 7",
-      "net": "2026-08-24T00:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-08-24T00:05:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "Chang'e 7",
@@ -51,6 +51,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/9d402fb6-9115-424d-b6f0-bd3b13ee310e/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_5_tj_image_20260612043435.jpg"
+    },
+    {
+      "id": "48c449c2-3c09-4d36-9c2a-d853b3a39289",
+      "name": "Long March 6C | Unknown Payload",
+      "net": "2026-08-25T03:20:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9A",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/48c449c2-3c09-4d36-9c2a-d853b3a39289/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-6c_on_the_la_image_20240507065151.jpg"
     },
     {
       "id": "ad501ebd-a357-4305-90c1-c46c6feb2ecf",
@@ -141,21 +156,6 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
       "image": null
-    },
-    {
-      "id": "57280454-470e-4c5d-8de1-1bbd0ea41b49",
-      "name": "Electron | The Lightning God Defends (iQPS Launch 8)",
-      "net": "2026-08-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "The Lightning God Defends (iQPS Launch 8)",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/57280454-470e-4c5d-8de1-1bbd0ea41b49/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
       "id": "458e2e52-87b0-4707-96d8-6899f92e53ee",
