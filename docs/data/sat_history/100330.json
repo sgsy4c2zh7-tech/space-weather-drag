@@ -1,6 +1,6 @@
 {
   "norad_id": 100330,
-  "name": "GLOBALSTAR 2-R OBJECT F",
+  "name": "GLOBALSTAR M101",
   "history": [
     {
       "epoch": "2026-08-16T12:32:25.651104Z",
@@ -151,6 +151,21 @@
       "arg_perigee_deg": 245.8278,
       "mean_anomaly_deg": 114.1742,
       "mean_motion_rev_day": 14.63903643
+    },
+    {
+      "epoch": "2026-08-21T10:30:40.253760Z",
+      "apogee_km": 686.9135978673066,
+      "perigee_km": 674.2807225154966,
+      "latitude_deg": -4.8812889183321895e-05,
+      "longitude_deg": 87.43213508480481,
+      "height_km": 683.8446389443116,
+      "semi_major_axis_km": 7058.734160191401,
+      "eccentricity": 0.00089484,
+      "inclination_deg": 51.9951,
+      "raan_deg": 214.863,
+      "arg_perigee_deg": 246.771,
+      "mean_anomaly_deg": 113.2304,
+      "mean_motion_rev_day": 14.63903748
     }
   ]
 }

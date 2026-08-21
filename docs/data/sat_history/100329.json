@@ -1,6 +1,6 @@
 {
   "norad_id": 100329,
-  "name": "GLOBALSTAR 2-R OBJECT E",
+  "name": "GLOBALSTAR M106",
   "history": [
     {
       "epoch": "2026-08-16T12:32:26.786400Z",
@@ -166,6 +166,21 @@
       "arg_perigee_deg": 246.4877,
       "mean_anomaly_deg": 113.5116,
       "mean_motion_rev_day": 14.63856746
+    },
+    {
+      "epoch": "2026-08-21T15:25:51.189312Z",
+      "apogee_km": 687.1959993829269,
+      "perigee_km": 674.2988528256801,
+      "latitude_deg": 3.3842566994535032e-06,
+      "longitude_deg": 12.554664246294548,
+      "height_km": 683.8995127851485,
+      "semi_major_axis_km": 7058.884426104303,
+      "eccentricity": 0.00091354,
+      "inclination_deg": 51.9951,
+      "raan_deg": 213.9831,
+      "arg_perigee_deg": 248.1897,
+      "mean_anomaly_deg": 111.8088,
+      "mean_motion_rev_day": 14.63857004
     }
   ]
 }
