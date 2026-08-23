@@ -1,6 +1,6 @@
 {
   "norad_id": 68481,
-  "name": "TORO3",
+  "name": "TORO-3",
   "history": [
     {
       "epoch": "2026-04-13T22:05:00.088224Z",
@@ -2731,6 +2731,21 @@
       "arg_perigee_deg": 94.1803,
       "mean_anomaly_deg": 265.9922,
       "mean_motion_rev_day": 14.92210097
+    },
+    {
+      "epoch": "2026-08-23T03:46:17.678784Z",
+      "apogee_km": 594.122524264465,
+      "perigee_km": 587.9581475273171,
+      "latitude_deg": -5.83213329993771e-05,
+      "longitude_deg": 164.56862630366288,
+      "height_km": 594.143076554847,
+      "semi_major_axis_km": 6969.177335895891,
+      "eccentricity": 0.00044226,
+      "inclination_deg": 97.7733,
+      "raan_deg": 192.5999,
+      "arg_perigee_deg": 91.2781,
+      "mean_anomaly_deg": 268.8944,
+      "mean_motion_rev_day": 14.92211864
     }
   ]
 }
