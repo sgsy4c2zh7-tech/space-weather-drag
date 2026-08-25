@@ -187,12 +187,6 @@ jobs:
           PY
 
       # -------------------------
-      # Drag analysis
-      # -------------------------
-      - name: Build drag analysis
-        run: python scripts/build_drag_analysis.py
-
-      # -------------------------
       # Debug
       # -------------------------
       - name: Show generated files
