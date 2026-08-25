@@ -1,233 +1,584 @@
+import csv
 import json
-import math
 import os
-from collections import defaultdict
+import re
 from datetime import datetime, timezone, timedelta
-
-from skyfield.api import EarthSatellite, load, wgs84
+from urllib.request import Request, urlopen
 
 CATALOG_DIR = "docs/data/catalog"
-HISTORY_DIR = "docs/data/sat_history"
-SATELLITES_INDEX = "docs/data/satellites.json"
+LATEST_INDEX = "docs/data/satellites.json"
 
-MU = 398600.4418
-EARTH_RADIUS_KM = 6378.137
+CELESTRAK_ACTIVE_JSON = (
+    "https://celestrak.org/NORAD/elements/"
+    "gp.php?GROUP=active&FORMAT=json"
+)
+
+SATCAT_CSV_URLS = [
+    "https://celestrak.org/pub/satcat.csv",
+    "https://www.celestrak.org/pub/satcat.csv",
+]
+
 KEEP_DAYS = 30
 
-os.makedirs(HISTORY_DIR, exist_ok=True)
+ACTIVE_GP_PATTERN = re.compile(
+    r"^active_gp_(\d{4}-\d{2}-\d{2}T\d{4}Z)\.json$"
+)
 
-TS = load.timescale()
+LEGACY_SATCAT_PATTERN = re.compile(
+    r"^satcat_(\d{4}-\d{2}-\d{2}T\d{4}Z)\.json$"
+)
 
-
-def calc_sma_from_mean_motion(mean_motion_rev_day: float) -> float:
-    n = mean_motion_rev_day * 2.0 * math.pi / 86400.0
-    return (MU / (n * n)) ** (1.0 / 3.0)
-
-
-def parse_epoch(epoch_str: str):
-    if not epoch_str:
-        return None
-    try:
-        dt = datetime.fromisoformat(str(epoch_str).replace("Z", "+00:00"))
-        if dt.tzinfo is None:
-            dt = dt.replace(tzinfo=timezone.utc)
-        return dt.astimezone(timezone.utc)
-    except Exception:
-        return None
+os.makedirs(CATALOG_DIR, exist_ok=True)
 
 
-def safe_float(value, default=None):
-    try:
-        if value is None or value == "":
-            return default
-        return float(value)
-    except Exception:
-        return default
-
-
-def snapshot_files_in_range():
-    now = datetime.now(timezone.utc)
-    cutoff = now - timedelta(days=KEEP_DAYS)
-    files = []
-
-    for name in os.listdir(CATALOG_DIR):
-        if not name.endswith(".json"):
-            continue
-        path = os.path.join(CATALOG_DIR, name)
-        try:
-            mtime = datetime.fromtimestamp(os.path.getmtime(path), tz=timezone.utc)
-            if mtime >= cutoff:
-                files.append(path)
-        except Exception:
-            continue
-
-    files.sort()
-    return files
-
-
-def skyfield_true_lat_lon_height(row: dict, epoch_dt: datetime):
-    """
-    OMM(JSON) -> Skyfield EarthSatellite.from_omm() -> true lat/lon/height
-    """
-    sat = EarthSatellite.from_omm(TS, row)
-    t = TS.from_datetime(epoch_dt)
-    geocentric = sat.at(t)
-    gp = wgs84.geographic_position_of(geocentric)
-
-    lat_deg = gp.latitude.degrees
-    lon_deg = gp.longitude.degrees
-    height_km = gp.elevation.km
-    return lat_deg, lon_deg, height_km
-
-
-def build_entry(row: dict):
-    norad_id = row.get("NORAD_CAT_ID")
-    name = row.get("OBJECT_NAME") or row.get("OBJECT_ID") or f"NORAD-{norad_id}"
-    epoch_str = row.get("EPOCH")
-
-    if norad_id is None or epoch_str is None:
-        return None
-
-    epoch_dt = parse_epoch(epoch_str)
-    if epoch_dt is None:
-        return None
-
-    mean_motion = safe_float(row.get("MEAN_MOTION"))
-    eccentricity = safe_float(row.get("ECCENTRICITY"), 0.0)
-    inclination = safe_float(row.get("INCLINATION"), 0.0)
-    raan = safe_float(row.get("RA_OF_ASC_NODE"), 0.0)
-    arg_perigee = safe_float(row.get("ARG_OF_PERICENTER"), 0.0)
-    mean_anomaly = safe_float(row.get("MEAN_ANOMALY"), 0.0)
-
-    if mean_motion is None or mean_motion <= 0:
-        return None
-
-    semi_major_axis = calc_sma_from_mean_motion(mean_motion)
-    rp = semi_major_axis * (1.0 - eccentricity)
-    ra = semi_major_axis * (1.0 + eccentricity)
-
-    apogee_km = ra - EARTH_RADIUS_KM
-    perigee_km = rp - EARTH_RADIUS_KM
-
-    try:
-        latitude_deg, longitude_deg, height_km = skyfield_true_lat_lon_height(row, epoch_dt)
-    except Exception as e:
-        print(f"Skyfield propagation failed for {norad_id}: {e}")
-        return None
-
-    return {
-        "norad_id": int(norad_id),
-        "name": str(name),
-        "entry": {
-            "epoch": epoch_dt.isoformat().replace("+00:00", "Z"),
-            "apogee_km": apogee_km,
-            "perigee_km": perigee_km,
-            "latitude_deg": latitude_deg,
-            "longitude_deg": longitude_deg,
-            "height_km": height_km,
-            "semi_major_axis_km": semi_major_axis,
-            "eccentricity": eccentricity,
-            "inclination_deg": inclination,
-            "raan_deg": raan,
-            "arg_perigee_deg": arg_perigee,
-            "mean_anomaly_deg": mean_anomaly,
-            "mean_motion_rev_day": mean_motion,
+def fetch_text(url: str):
+    req = Request(
+        url,
+        headers={
+            "User-Agent": "Mozilla/5.0",
         },
-    }
+    )
+
+    with urlopen(req, timeout=180) as resp:
+        return resp.read().decode(
+            "utf-8",
+            errors="replace",
+        )
 
 
-def rebuild_histories_from_snapshots(files):
-    by_sat = defaultdict(lambda: {"name": None, "history_by_epoch": {}})
-    total_rows = 0
-    valid_rows = 0
+def fetch_json(url: str):
+    return json.loads(fetch_text(url))
 
-    for path in files:
-        with open(path, "r", encoding="utf-8") as f:
-            rows = json.load(f)
 
-        if not isinstance(rows, list):
+def fetch_satcat_csv():
+    last_error = None
+
+    for url in SATCAT_CSV_URLS:
+        try:
+            text = fetch_text(url)
+
+            rows = list(
+                csv.DictReader(
+                    text.splitlines()
+                )
+            )
+
+            if rows:
+                print(
+                    f"Fetched SATCAT CSV: {url}"
+                )
+
+                return rows
+
+        except Exception as e:
+            last_error = e
+
+            print(
+                f"SATCAT CSV failed: "
+                f"{url} / {e}"
+            )
+
+    print(
+        "warning: SATCAT CSV unavailable. "
+        f"last_error={last_error}"
+    )
+
+    return []
+
+
+def parse_snapshot_datetime(
+    filename: str,
+    pattern: re.Pattern,
+):
+    match = pattern.match(filename)
+
+    if not match:
+        return None
+
+    try:
+        return datetime.strptime(
+            match.group(1),
+            "%Y-%m-%dT%H%MZ",
+        ).replace(
+            tzinfo=timezone.utc
+        )
+
+    except Exception:
+        return None
+
+
+def cleanup_old_active_gp_files(
+    folder: str,
+    days: int = KEEP_DAYS,
+):
+    """
+    active_gp_YYYY-MM-DDTHHMMZ.json の
+    ファイル名の日付を使って削除する。
+
+    GitHub Actions checkout後のmtimeには依存しない。
+    """
+
+    cutoff = (
+        datetime.now(timezone.utc)
+        - timedelta(days=days)
+    )
+
+    removed = 0
+
+    for name in os.listdir(folder):
+        snapshot_time = parse_snapshot_datetime(
+            name,
+            ACTIVE_GP_PATTERN,
+        )
+
+        if snapshot_time is None:
             continue
 
-        total_rows += len(rows)
-
-        for row in rows:
-            built = build_entry(row)
-            if not built:
-                continue
-
-            valid_rows += 1
-            norad_id = built["norad_id"]
-            name = built["name"]
-            entry = built["entry"]
-
-            by_sat[norad_id]["name"] = name
-            by_sat[norad_id]["history_by_epoch"][entry["epoch"]] = entry
-
-    return by_sat, total_rows, valid_rows
-
-
-def write_sat_history_files(by_sat):
-    for name in os.listdir(HISTORY_DIR):
-        if name.endswith(".json"):
-            os.remove(os.path.join(HISTORY_DIR, name))
-
-    written = 0
-
-    for norad_id, payload in by_sat.items():
-        history = list(payload["history_by_epoch"].values())
-        history.sort(key=lambda x: x["epoch"])
-
-        if not history:
+        if snapshot_time >= cutoff:
             continue
 
-        data = {
-            "norad_id": norad_id,
-            "name": payload["name"] or f"NORAD-{norad_id}",
-            "history": history,
+        path = os.path.join(
+            folder,
+            name,
+        )
+
+        try:
+            os.remove(path)
+
+            removed += 1
+
+            print(
+                f"Deleted old GP snapshot: "
+                f"{path}"
+            )
+
+        except Exception as e:
+            print(
+                f"Failed to delete "
+                f"{path}: {e}"
+            )
+
+    return removed
+
+
+def cleanup_legacy_satcat_snapshots(
+    folder: str,
+):
+    """
+    旧形式:
+      satcat_YYYY-MM-DDTHHMMZ.json
+
+    はすべて削除する。
+
+    今後はsatcat_latest.jsonだけ保存する。
+    """
+
+    removed = 0
+
+    for name in os.listdir(folder):
+        if not LEGACY_SATCAT_PATTERN.match(name):
+            continue
+
+        path = os.path.join(
+            folder,
+            name,
+        )
+
+        try:
+            os.remove(path)
+
+            removed += 1
+
+            print(
+                "Deleted obsolete SATCAT "
+                f"snapshot: {path}"
+            )
+
+        except Exception as e:
+            print(
+                f"Failed to delete "
+                f"{path}: {e}"
+            )
+
+    return removed
+
+
+def safe_int(v):
+    try:
+        return int(str(v).strip())
+
+    except Exception:
+        return None
+
+
+def pick_first(
+    row,
+    keys,
+    default=None,
+):
+    for k in keys:
+        if (
+            k in row
+            and row[k] not in [None, ""]
+        ):
+            return row[k]
+
+    return default
+
+
+def build_satcat_map(
+    satcat_rows,
+):
+    out = {}
+
+    for r in satcat_rows:
+        norad = safe_int(
+            pick_first(
+                r,
+                [
+                    "NORAD_CAT_ID",
+                    "NORAD",
+                    "CATNR",
+                    "OBJECT_NUMBER",
+                ],
+            )
+        )
+
+        if norad is None:
+            continue
+
+        country = pick_first(
+            r,
+            [
+                "COUNTRY",
+                "OWNER",
+                "COUNTRY_CODE",
+                "LAUNCHING_STATE",
+            ],
+            "UNK",
+        )
+
+        out[norad] = {
+            "country_code": (
+                str(country).strip().upper()
+                if country
+                else "UNK"
+            ),
+            "object_type": pick_first(
+                r,
+                [
+                    "OBJECT_TYPE",
+                    "TYPE",
+                ],
+            ),
+            "launch_site": pick_first(
+                r,
+                [
+                    "LAUNCH_SITE",
+                    "SITE",
+                ],
+            ),
+            "launch_date": pick_first(
+                r,
+                ["LAUNCH_DATE"],
+            ),
+            "decay_date": pick_first(
+                r,
+                ["DECAY_DATE"],
+            ),
         }
 
-        out_path = os.path.join(HISTORY_DIR, f"{norad_id}.json")
-        with open(out_path, "w", encoding="utf-8") as f:
-            json.dump(data, f, ensure_ascii=False, indent=2)
-
-        written += 1
-
-    return written
+    return out
 
 
-def write_satellites_index(by_sat):
-    sats = []
-    for norad_id, payload in by_sat.items():
-        sats.append({
-            "norad_id": int(norad_id),
-            "name": payload["name"] or f"NORAD-{norad_id}",
-        })
+def build_satellite_index(
+    gp_rows,
+    satcat_map,
+):
+    out = []
 
-    sats.sort(key=lambda x: x["norad_id"])
+    for r in gp_rows:
+        norad = safe_int(
+            r.get("NORAD_CAT_ID")
+        )
 
-    with open(SATELLITES_INDEX, "w", encoding="utf-8") as f:
-        json.dump(sats, f, ensure_ascii=False, indent=2)
+        name = r.get(
+            "OBJECT_NAME"
+        )
+
+        if norad is None:
+            continue
+
+        satcat = satcat_map.get(
+            norad,
+            {},
+        )
+
+        out.append(
+            {
+                "norad_id": norad,
+                "name": (
+                    name
+                    or f"NORAD-{norad}"
+                ),
+                "country_code": (
+                    satcat.get(
+                        "country_code",
+                        "UNK",
+                    )
+                ),
+                "object_type": (
+                    satcat.get(
+                        "object_type"
+                    )
+                ),
+                "launch_site": (
+                    satcat.get(
+                        "launch_site"
+                    )
+                ),
+                "launch_date": (
+                    satcat.get(
+                        "launch_date"
+                    )
+                ),
+                "decay_date": (
+                    satcat.get(
+                        "decay_date"
+                    )
+                ),
+            }
+        )
+
+    out.sort(
+        key=lambda x: x["norad_id"]
+    )
+
+    return out
 
 
 def main():
-    if not os.path.isdir(CATALOG_DIR):
-        raise SystemExit("docs/data/catalog does not exist")
 
-    files = snapshot_files_in_range()
-    if not files:
-        raise SystemExit("No catalog snapshots found in the last 30 days.")
+    # -------------------------
+    # GP
+    # -------------------------
 
-    by_sat, total_rows, valid_rows = rebuild_histories_from_snapshots(files)
-    written = write_sat_history_files(by_sat)
-    write_satellites_index(by_sat)
+    gp_rows = fetch_json(
+        CELESTRAK_ACTIVE_JSON
+    )
 
-    print(f"Catalog snapshots used: {len(files)}")
-    print(f"Total input rows: {total_rows}")
-    print(f"Valid rows converted: {valid_rows}")
-    print(f"sat_history files written: {written}")
+    if (
+        not isinstance(gp_rows, list)
+        or len(gp_rows) == 0
+    ):
+        raise SystemExit(
+            "CelesTrak GP catalog "
+            "fetch returned no rows."
+        )
 
-    if written < 100:
-        raise SystemExit(f"Too few sat_history files written: {written}")
+    # -------------------------
+    # SATCAT
+    # -------------------------
+
+    satcat_rows = fetch_satcat_csv()
+
+    satcat_map = build_satcat_map(
+        satcat_rows
+    )
+
+    # -------------------------
+    # Timestamp
+    # -------------------------
+
+    now = datetime.now(
+        timezone.utc
+    )
+
+    stamp = now.strftime(
+        "%Y-%m-%dT%H%MZ"
+    )
+
+    # -------------------------
+    # Save GP history snapshot
+    # -------------------------
+
+    gp_snap_path = os.path.join(
+        CATALOG_DIR,
+        f"active_gp_{stamp}.json",
+    )
+
+    with open(
+        gp_snap_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            gp_rows,
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+    # -------------------------
+    # SATCAT latest only
+    # -------------------------
+
+    satcat_latest_path = os.path.join(
+        CATALOG_DIR,
+        "satcat_latest.json",
+    )
+
+    with open(
+        satcat_latest_path,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            satcat_rows,
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+    # -------------------------
+    # Satellite index
+    # -------------------------
+
+    sat_index = build_satellite_index(
+        gp_rows,
+        satcat_map,
+    )
+
+    with open(
+        LATEST_INDEX,
+        "w",
+        encoding="utf-8",
+    ) as f:
+
+        json.dump(
+            sat_index,
+            f,
+            ensure_ascii=False,
+            indent=2,
+        )
+
+    # -------------------------
+    # Cleanup
+    # -------------------------
+
+    removed_gp = (
+        cleanup_old_active_gp_files(
+            CATALOG_DIR,
+            days=KEEP_DAYS,
+        )
+    )
+
+    removed_satcat = (
+        cleanup_legacy_satcat_snapshots(
+            CATALOG_DIR
+        )
+    )
+
+    # -------------------------
+    # Stats
+    # -------------------------
+
+    with_country = sum(
+        1
+        for x in sat_index
+        if x.get("country_code")
+        != "UNK"
+    )
+
+    active_gp_count = sum(
+        1
+        for name in os.listdir(
+            CATALOG_DIR
+        )
+        if ACTIVE_GP_PATTERN.match(
+            name
+        )
+    )
+
+    print("")
+    print(
+        "=============================="
+    )
+
+    print(
+        "CATALOG UPDATE COMPLETE"
+    )
+
+    print(
+        "=============================="
+    )
+
+    print(
+        f"GP rows: "
+        f"{len(gp_rows)}"
+    )
+
+    print(
+        f"SATCAT rows: "
+        f"{len(satcat_rows)}"
+    )
+
+    print(
+        f"Satellite index rows: "
+        f"{len(sat_index)}"
+    )
+
+    print(
+        f"With country_code: "
+        f"{with_country}"
+    )
+
+    print(
+        f"Without country_code: "
+        f"{len(sat_index) - with_country}"
+    )
+
+    print(
+        f"GP snapshots retained: "
+        f"{active_gp_count}"
+    )
+
+    print(
+        f"GP retention: "
+        f"{KEEP_DAYS} days"
+    )
+
+    print(
+        f"Old GP snapshots removed: "
+        f"{removed_gp}"
+    )
+
+    print(
+        "SATCAT storage: "
+        "latest only"
+    )
+
+    print(
+        f"Legacy SATCAT snapshots "
+        f"removed: {removed_satcat}"
+    )
+
+    print(
+        f"Wrote GP snapshot: "
+        f"{gp_snap_path}"
+    )
+
+    print(
+        f"Wrote SATCAT latest: "
+        f"{satcat_latest_path}"
+    )
+
+    print(
+        f"Wrote satellite index: "
+        f"{LATEST_INDEX}"
+    )
 
 
 if __name__ == "__main__":
