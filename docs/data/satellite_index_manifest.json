@@ -1,43 +1,43 @@
 {
-  "updated_at": "2026-08-24T06:52:50Z",
+  "updated_at": "2026-08-25T05:03:10Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
     "geo_payload": {
       "label": "GEO Payload",
       "file": "satellite_index_geo_payload.json",
-      "count": 1410
+      "count": 1408
     },
     "payload": {
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18186
+      "count": 17923
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15609
+      "count": 15570
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35205
+      "count": 34901
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12489,
-    "PAYLOAD": 19596,
+    "DEBRIS": 12484,
+    "PAYLOAD": 19331,
     "ROCKET BODY": 2416,
-    "UNKNOWN": 704
+    "UNKNOWN": 670
   },
   "counts_by_orbit_class": {
-    "GEO": 1865,
+    "GEO": 1863,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 29103,
+    "LEO": 28790,
     "MEO": 3488,
-    "UNKNOWN": 597
+    "UNKNOWN": 608
   },
   "counts_by_country": {
     "AB": 15,
@@ -45,7 +45,7 @@
     "AC": 8,
     "AGO": 2,
     "ALG": 7,
-    "ARGN": 37,
+    "ARGN": 34,
     "ASRA": 3,
     "AUS": 45,
     "AZER": 3,
@@ -57,10 +57,10 @@
     "BOL": 1,
     "BRAZ": 31,
     "BWA": 1,
-    "CA": 82,
+    "CA": 80,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6087,
+    "CHN": 6056,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -73,24 +73,24 @@
     "EUME": 18,
     "EUTE": 62,
     "FGER": 2,
-    "FIN": 30,
-    "FR": 652,
+    "FIN": 28,
+    "FR": 649,
     "FRIT": 2,
-    "GER": 105,
+    "GER": 104,
     "GLOB": 85,
     "GREC": 13,
     "HRV": 1,
     "HUN": 4,
     "IM": 20,
-    "IND": 195,
+    "IND": 194,
     "INDO": 20,
     "IRAN": 13,
     "IRAQ": 1,
     "ISRA": 15,
-    "IT": 96,
+    "IT": 95,
     "ITSO": 134,
     "JOR": 1,
-    "JPN": 339,
+    "JPN": 333,
     "KAZ": 6,
     "KWT": 1,
     "LAOS": 1,
@@ -116,40 +116,40 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6599,
-    "RWA": 9,
+    "RUS": 6592,
+    "RWA": 7,
     "SAFR": 3,
     "SAUD": 16,
     "SEAL": 34,
     "SES": 78,
     "SING": 20,
-    "SKOR": 76,
+    "SKOR": 75,
     "SLB": 1,
-    "SPN": 58,
+    "SPN": 56,
     "STCT": 2,
     "SVK": 1,
     "SVN": 2,
     "SWED": 15,
-    "SWTZ": 10,
-    "TBD": 316,
-    "THAI": 14,
+    "SWTZ": 7,
+    "TBD": 306,
+    "THAI": 12,
     "TMMC": 1,
     "TURK": 44,
-    "TWN": 33,
+    "TWN": 32,
     "UAE": 23,
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18549,
+    "US": 18323,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
     "catalog_metadata": 70355,
-    "metadata_only_added": 18399,
-    "decayed_metadata_skipped": 35150,
-    "with_history": 16806,
-    "without_history": 18399
+    "metadata_only_added": 18444,
+    "decayed_metadata_skipped": 35454,
+    "with_history": 16457,
+    "without_history": 18444
   }
 }
