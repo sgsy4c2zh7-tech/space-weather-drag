@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-25T14:45:03Z",
+  "updated_at": "2026-08-25T22:22:09Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,33 +12,31 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17923
+      "count": 17947
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15597
+      "count": 15572
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 34928
+      "count": 34927
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12484,
-    "PAY": 24,
-    "PAYLOAD": 19331,
-    "ROCKET BODY": 2416,
-    "UNK": 3,
-    "UNKNOWN": 670
+    "PAYLOAD": 19355,
+    "ROCKET BODY": 2417,
+    "UNKNOWN": 671
   },
   "counts_by_orbit_class": {
     "GEO": 1863,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 28817,
-    "MEO": 3488,
+    "LEO": 28814,
+    "MEO": 3490,
     "UNKNOWN": 608
   },
   "counts_by_country": {
@@ -62,7 +60,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6059,
+    "CHN": 6061,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -118,7 +116,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6592,
+    "RUS": 6593,
     "RWA": 7,
     "SAFR": 3,
     "SAUD": 16,
@@ -133,7 +131,7 @@
     "SVN": 2,
     "SWED": 15,
     "SWTZ": 7,
-    "TBD": 306,
+    "TBD": 304,
     "THAI": 12,
     "TMMC": 1,
     "TURK": 44,
@@ -142,16 +140,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18347,
+    "US": 18345,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70382,
-    "metadata_only_added": 18471,
-    "decayed_metadata_skipped": 35454,
-    "with_history": 16457,
-    "without_history": 18471
+    "catalog_metadata": 70384,
+    "metadata_only_added": 18473,
+    "decayed_metadata_skipped": 35457,
+    "with_history": 16454,
+    "without_history": 18473
   }
 }
