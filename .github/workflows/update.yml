@@ -111,12 +111,6 @@ jobs:
           exit 0
 
       # -------------------------
-      # NOAA
-      # -------------------------
-      - name: Fetch NOAA data
-        run: python scripts/fetch_noaa.py
-
-      # -------------------------
       # Launch calendar
       # -------------------------
       - name: Fetch launch calendar
