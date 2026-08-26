@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-08-26T06:14:47.073339Z",
+  "updated_at": "2026-08-26T14:28:33.293618Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-26T06%3A14%3A47.073339Z&net__lte=2026-09-09T06%3A14%3A47.073339Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-26T14%3A28%3A33.293618Z&net__lte=2026-09-09T14%3A28%3A33.293618Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-26T06:14:47.073339Z",
-  "window_end": "2026-09-09T06:14:47.073339Z",
-  "count": 8,
+  "window_start": "2026-08-26T14:28:33.293618Z",
+  "window_end": "2026-09-09T14:28:33.293618Z",
+  "count": 7,
   "launches": [
-    {
-      "id": "95653d52-bb77-4860-a815-dd7141778d17",
-      "name": "Falcon 9 Block 5 | Starlink Group 15-22",
-      "net": "2026-08-26T09:35:11Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 15-22",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/95653d52-bb77-4860-a815-dd7141778d17/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
     {
       "id": "521f3a1c-f977-4306-9b7f-495858719adf",
       "name": "Falcon Heavy | Nancy Grace Roman Space Telescope",
@@ -36,6 +21,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/521f3a1c-f977-4306-9b7f-495858719adf/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg"
+    },
+    {
+      "id": "a927b2f9-f9a5-4196-9abb-2e275e4a6b96",
+      "name": "Pallas-1 | Demo Flight",
+      "net": "2026-08-31T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "CHN",
+      "provider": "Galactic Energy",
+      "mission": "Demo Flight",
+      "mission_type": "Test Flight",
+      "pad": "Pallas-1 Launch Pad",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
+      "image": null
     },
     {
       "id": "dc570565-4dcf-4ab9-8174-bf88efef477f",
@@ -66,21 +66,6 @@
       "location_country_code": "RUS",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/angara25201.2_image_20190224012254.jpeg"
-    },
-    {
-      "id": "a927b2f9-f9a5-4196-9abb-2e275e4a6b96",
-      "name": "Pallas-1 | Demo Flight",
-      "net": "2026-08-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "CHN",
-      "provider": "Galactic Energy",
-      "mission": "Demo Flight",
-      "mission_type": "Test Flight",
-      "pad": "Pallas-1 Launch Pad",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
-      "image": null
     },
     {
       "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
