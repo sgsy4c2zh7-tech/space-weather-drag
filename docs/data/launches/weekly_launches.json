@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-26T14:28:33.293618Z",
+  "updated_at": "2026-08-27T01:13:48.705408Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-26T14%3A28%3A33.293618Z&net__lte=2026-09-09T14%3A28%3A33.293618Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-27T01%3A13%3A48.705408Z&net__lte=2026-09-10T01%3A13%3A48.705408Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-26T14:28:33.293618Z",
-  "window_end": "2026-09-09T14:28:33.293618Z",
-  "count": 7,
+  "window_start": "2026-08-27T01:13:48.705408Z",
+  "window_end": "2026-09-10T01:13:48.705408Z",
+  "count": 8,
   "launches": [
     {
       "id": "521f3a1c-f977-4306-9b7f-495858719adf",
@@ -85,7 +85,7 @@
     {
       "id": "63181269-b125-4c36-951c-c9bd9bbc4b55",
       "name": "Falcon 9 Block 5 | Starlink Group 15-23",
-      "net": "2026-09-01T08:01:00Z",
+      "net": "2026-09-02T07:46:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -100,7 +100,7 @@
     {
       "id": "153ef8ef-b12b-43f4-a4bf-05b225c0cd37",
       "name": "Falcon 9 Block 5 | Starlink Group 15-24",
-      "net": "2026-09-04T11:28:00Z",
+      "net": "2026-09-05T11:13:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -111,6 +111,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/153ef8ef-b12b-43f4-a4bf-05b225c0cd37/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "d793ba47-faf5-4bab-a386-39a9ccc49c90",
+      "name": "Soyuz 2.1b | Progress MS-35 (96P)",
+      "net": "2026-09-09T16:15:03Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Russian Federal Space Agency (ROSCOSMOS)",
+      "mission": "Progress MS-35 (96P)",
+      "mission_type": "Resupply",
+      "pad": "31/6",
+      "location": "Baikonur Cosmodrome, Republic of Kazakhstan",
+      "location_country_code": "KAZ",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
     }
   ]
 }
