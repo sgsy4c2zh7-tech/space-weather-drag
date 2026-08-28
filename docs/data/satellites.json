@@ -15246,15 +15246,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 46743,
-    "name": "STARLINK-1892",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-10-24",
-    "decay_date": null
-  },
-  {
     "norad_id": 46782,
     "name": "STARLINK-1835",
     "country_code": "US",
@@ -58674,15 +58665,6 @@
     "norad_id": 58302,
     "name": "ICEYE-X35",
     "country_code": "FIN",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2023-11-11",
-    "decay_date": null
-  },
-  {
-    "norad_id": 58318,
-    "name": "FLOCK 4Q-7",
-    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2023-11-11",
@@ -116641,7 +116623,7 @@
   },
   {
     "norad_id": 66695,
-    "name": "IRIDE FM1",
+    "name": "IRIDE-MS1-EAGLET 2-1",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116650,7 +116632,7 @@
   },
   {
     "norad_id": 66696,
-    "name": "IRIDE FM2",
+    "name": "IRIDE-MS1-EAGLET 2-2",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116659,7 +116641,7 @@
   },
   {
     "norad_id": 66697,
-    "name": "IRIDE FM3",
+    "name": "IRIDE-MS1-EAGLET 2-3",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116668,7 +116650,7 @@
   },
   {
     "norad_id": 66698,
-    "name": "IRIDE FM4",
+    "name": "IRIDE-MS1-EAGLET 2-4",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116677,7 +116659,7 @@
   },
   {
     "norad_id": 66699,
-    "name": "IRIDE FM5",
+    "name": "IRIDE-MS1-EAGLET 2-5",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116686,7 +116668,7 @@
   },
   {
     "norad_id": 66700,
-    "name": "IRIDE FM6",
+    "name": "IRIDE-MS1-EAGLET 2-6",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116695,7 +116677,7 @@
   },
   {
     "norad_id": 66701,
-    "name": "IRIDE FM7",
+    "name": "IRIDE-MS1-EAGLET 2-7",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116704,7 +116686,7 @@
   },
   {
     "norad_id": 66702,
-    "name": "IRIDE FM8",
+    "name": "IRIDE-MS1-EAGLET 2-8",
     "country_code": "IT",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -116804,15 +116786,6 @@
   {
     "norad_id": 66713,
     "name": "FLOCK 4H-10",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2025-11-28",
-    "decay_date": null
-  },
-  {
-    "norad_id": 66714,
-    "name": "FLOCK 4H-11",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -136423,7 +136396,7 @@
   },
   {
     "norad_id": 69017,
-    "name": "PELICAN-7",
+    "name": "EDDA-1",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -136432,7 +136405,7 @@
   },
   {
     "norad_id": 69018,
-    "name": "EDDA-1",
+    "name": "PELICAN-8",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -147687,6 +147660,510 @@
     "object_type": "PAY",
     "launch_site": "RLLB",
     "launch_date": "2026-08-20",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100404,
+    "name": "STARLINK-37821",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100405,
+    "name": "STARLINK-37829",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100406,
+    "name": "STARLINK-38016",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100407,
+    "name": "STARLINK-37983",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100408,
+    "name": "STARLINK-38026",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100409,
+    "name": "STARLINK-38022",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100410,
+    "name": "STARLINK-37996",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100411,
+    "name": "STARLINK-37397",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100412,
+    "name": "STARLINK-38011",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100413,
+    "name": "STARLINK-38012",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100414,
+    "name": "STARLINK-37764",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100415,
+    "name": "STARLINK-37762",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100416,
+    "name": "STARLINK-37748",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100417,
+    "name": "STARLINK-37774",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100418,
+    "name": "STARLINK-37703",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100419,
+    "name": "STARLINK-37626",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100420,
+    "name": "STARLINK-37692",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100421,
+    "name": "STARLINK-38018",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100422,
+    "name": "STARLINK-37625",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100423,
+    "name": "STARLINK-37698",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100424,
+    "name": "STARLINK-37702",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100425,
+    "name": "STARLINK-37681",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100426,
+    "name": "STARLINK-37684",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100427,
+    "name": "STARLINK-38025",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100428,
+    "name": "STARLINK-38000",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100429,
+    "name": "STARLINK-38027",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100430,
+    "name": "STARLINK-38013",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100431,
+    "name": "STARLINK-37911",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100432,
+    "name": "STARLINK-37668",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-08-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100433,
+    "name": "STARLINK-38290",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100434,
+    "name": "STARLINK-38300",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100435,
+    "name": "STARLINK-38248",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100436,
+    "name": "STARLINK-38258",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100437,
+    "name": "STARLINK-38194",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100438,
+    "name": "STARLINK-38326",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100439,
+    "name": "STARLINK-38193",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100440,
+    "name": "STARLINK-38204",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100441,
+    "name": "STARLINK-38319",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100442,
+    "name": "STARLINK-38297",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100443,
+    "name": "STARLINK-38318",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100444,
+    "name": "STARLINK-38332",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100445,
+    "name": "STARLINK-38325",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100446,
+    "name": "STARLINK-38105",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100447,
+    "name": "STARLINK-37825",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100448,
+    "name": "STARLINK-38285",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100449,
+    "name": "STARLINK-38306",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100450,
+    "name": "STARLINK-38207",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100451,
+    "name": "STARLINK-38303",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100452,
+    "name": "STARLINK-38330",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100453,
+    "name": "STARLINK-38333",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100454,
+    "name": "STARLINK-38334",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100455,
+    "name": "STARLINK-38324",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100456,
+    "name": "STARLINK-38205",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100457,
+    "name": "STARLINK-37883",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100458,
+    "name": "STARLINK-38317",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100459,
+    "name": "STARLINK-38331",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-08-22",
     "decay_date": null
   },
   {

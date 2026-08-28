@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-27T01:13:48.705408Z",
+  "updated_at": "2026-08-28T05:48:01.998649Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-27T01%3A13%3A48.705408Z&net__lte=2026-09-10T01%3A13%3A48.705408Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-28T05%3A48%3A01.998649Z&net__lte=2026-09-11T05%3A48%3A01.998649Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-27T01:13:48.705408Z",
-  "window_end": "2026-09-10T01:13:48.705408Z",
-  "count": 8,
+  "window_start": "2026-08-28T05:48:01.998649Z",
+  "window_end": "2026-09-11T05:48:01.998649Z",
+  "count": 7,
   "launches": [
     {
       "id": "521f3a1c-f977-4306-9b7f-495858719adf",
@@ -21,36 +21,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/521f3a1c-f977-4306-9b7f-495858719adf/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg"
-    },
-    {
-      "id": "a927b2f9-f9a5-4196-9abb-2e275e4a6b96",
-      "name": "Pallas-1 | Demo Flight",
-      "net": "2026-08-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "CHN",
-      "provider": "Galactic Energy",
-      "mission": "Demo Flight",
-      "mission_type": "Test Flight",
-      "pad": "Pallas-1 Launch Pad",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
-      "image": null
-    },
-    {
-      "id": "dc570565-4dcf-4ab9-8174-bf88efef477f",
-      "name": "Long March 12A | Flight 2",
-      "net": "2026-08-31T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Flight 2",
-      "mission_type": "Test Flight",
-      "pad": "Long March 12 series Pad",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/dc570565-4dcf-4ab9-8174-bf88efef477f/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_12a__image_20251224005749.jpg"
     },
     {
       "id": "ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb",
@@ -81,6 +51,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "a927b2f9-f9a5-4196-9abb-2e275e4a6b96",
+      "name": "Pallas-1 | Demo Flight",
+      "net": "2026-09-01T02:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "Galactic Energy",
+      "mission": "Demo Flight",
+      "mission_type": "Test Flight",
+      "pad": "Pallas-1 Launch Pad",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
+      "image": null
     },
     {
       "id": "63181269-b125-4c36-951c-c9bd9bbc4b55",
