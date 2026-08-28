@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-08-28T05:54:31Z",
+  "updated_at": "2026-08-28T23:35:37Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,7 +12,7 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 17997
+      "count": 18019
     },
     "other": {
       "label": "Other Objects",
@@ -22,12 +22,12 @@
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 34984
+      "count": 35006
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12483,
-    "PAYLOAD": 19405,
+    "PAYLOAD": 19427,
     "ROCKET BODY": 2418,
     "UNKNOWN": 678
   },
@@ -35,9 +35,9 @@
     "GEO": 1863,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 28871,
+    "LEO": 28892,
     "MEO": 3490,
-    "UNKNOWN": 608
+    "UNKNOWN": 609
   },
   "counts_by_country": {
     "AB": 15,
@@ -87,7 +87,7 @@
     "IRAN": 13,
     "IRAQ": 1,
     "ISRA": 15,
-    "IT": 95,
+    "IT": 96,
     "ITSO": 134,
     "JOR": 1,
     "JPN": 333,
@@ -140,16 +140,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18395,
+    "US": 18416,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70448,
-    "metadata_only_added": 18445,
-    "decayed_metadata_skipped": 35464,
-    "with_history": 16539,
-    "without_history": 18445
+    "catalog_metadata": 70472,
+    "metadata_only_added": 18469,
+    "decayed_metadata_skipped": 35466,
+    "with_history": 16537,
+    "without_history": 18469
   }
 }
