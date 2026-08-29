@@ -3600,15 +3600,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 37779,
-    "name": "PAKSAT-1R",
-    "country_code": "PAKI",
-    "object_type": "PAY",
-    "launch_site": "XICLF",
-    "launch_date": "2011-08-11",
-    "decay_date": null
-  },
-  {
     "norad_id": 37781,
     "name": "HAIYANG-2A",
     "country_code": "PRC",
@@ -47241,15 +47232,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 56352,
-    "name": "STARLINK-5885",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2023-04-27",
-    "decay_date": null
-  },
-  {
     "norad_id": 56353,
     "name": "STARLINK-5874",
     "country_code": "US",
@@ -55638,6 +55620,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 57890,
+    "name": "YAOGAN-39 02C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "XICLF",
+    "launch_date": "2023-09-17",
+    "decay_date": null
+  },
+  {
     "norad_id": 57891,
     "name": "STARLINK-30465",
     "country_code": "US",
@@ -57620,6 +57611,15 @@
   {
     "norad_id": 58143,
     "name": "YAOGAN-39 04B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "XICLF",
+    "launch_date": "2023-10-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 58145,
+    "name": "YAOGAN-39 04C",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "XICLF",
@@ -148159,7 +148159,7 @@
   },
   {
     "norad_id": 100465,
-    "name": "2026-195A",
+    "name": "JAMX01 (JING'AN DREAM STAR)",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "TAISC",
@@ -148218,6 +148218,15 @@
     "object_type": "PAY",
     "launch_site": "TAISC",
     "launch_date": "2026-08-25",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100529,
+    "name": "FLORBELA",
+    "country_code": "IT",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-07-07",
     "decay_date": null
   }
 ]
