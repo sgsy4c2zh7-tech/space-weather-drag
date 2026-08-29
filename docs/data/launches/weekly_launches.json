@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-08-29T17:33:15.990303Z",
+  "updated_at": "2026-08-29T23:45:36.225753Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-29T17%3A33%3A15.990303Z&net__lte=2026-09-12T17%3A33%3A15.990303Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-29T23%3A45%3A36.225753Z&net__lte=2026-09-12T23%3A45%3A36.225753Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-29T17:33:15.990303Z",
-  "window_end": "2026-09-12T17:33:15.990303Z",
-  "count": 6,
+  "window_start": "2026-08-29T23:45:36.225753Z",
+  "window_end": "2026-09-12T23:45:36.225753Z",
+  "count": 7,
   "launches": [
     {
       "id": "521f3a1c-f977-4306-9b7f-495858719adf",
@@ -96,6 +96,21 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
+      "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
+      "name": "Falcon 9 Block 5 | Crew-13",
+      "net": "2026-09-12T22:34:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Crew-13",
+      "mission_type": "Human Exploration",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/18441371-8b2e-457c-afb5-1ec1b11ab630/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20220301072106.jpeg"
     }
   ]
 }
