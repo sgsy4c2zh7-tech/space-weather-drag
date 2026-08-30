@@ -3834,6 +3834,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 37948,
+    "name": "BEIDOU-2 IGSO-5",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "XICLF",
+    "launch_date": "2011-12-01",
+    "decay_date": null
+  },
+  {
     "norad_id": 37951,
     "name": "LUCH-5A",
     "country_code": "CIS",
@@ -47250,15 +47259,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 56355,
-    "name": "STARLINK-5533",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2023-04-27",
-    "decay_date": "2026-08-28"
-  },
-  {
     "norad_id": 56356,
     "name": "STARLINK-5535",
     "country_code": "US",
@@ -58547,15 +58547,6 @@
   {
     "norad_id": 58280,
     "name": "FLOCK 4Q-28",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2023-11-11",
-    "decay_date": null
-  },
-  {
-    "norad_id": 58282,
-    "name": "FLOCK 4Q-27",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -143803,7 +143794,7 @@
   },
   {
     "norad_id": 69925,
-    "name": "TRANSPORTER-17 OBJECT BJ",
+    "name": "ET-001A",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -143956,7 +143947,7 @@
   },
   {
     "norad_id": 69942,
-    "name": "TRANSPORTER-17 OBJECT CB",
+    "name": "ET-001C",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -145333,7 +145324,7 @@
   },
   {
     "norad_id": 100100,
-    "name": "TRANSPORTER-17 OBJECT CC",
+    "name": "ET-001D",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -148227,6 +148218,15 @@
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-07-07",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100530,
+    "name": "MTG-I2",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2026-08-27",
     "decay_date": null
   }
 ]

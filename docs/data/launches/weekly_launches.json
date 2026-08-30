@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-08-30T17:55:19.390905Z",
+  "updated_at": "2026-08-30T23:53:14.830652Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-30T17%3A55%3A19.390905Z&net__lte=2026-09-13T17%3A55%3A19.390905Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-30T23%3A53%3A14.830652Z&net__lte=2026-09-13T23%3A53%3A14.830652Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-30T17:55:19.390905Z",
-  "window_end": "2026-09-13T17:55:19.390905Z",
+  "window_start": "2026-08-30T23:53:14.830652Z",
+  "window_end": "2026-09-13T23:53:14.830652Z",
   "count": 6,
   "launches": [
-    {
-      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
-      "name": "Electron | Owl Around The World (StriX Launch 11)",
-      "net": "2026-08-31T12:05:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "Owl Around The World (StriX Launch 11)",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
     {
       "id": "a927b2f9-f9a5-4196-9abb-2e275e4a6b96",
       "name": "Pallas-1 | Demo Flight",
@@ -36,6 +21,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a927b2f9-f9a5-4196-9abb-2e275e4a6b96/",
       "image": null
+    },
+    {
+      "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
+      "name": "Electron | Owl Around The World (StriX Launch 11)",
+      "net": "2026-09-01T11:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "Owl Around The World (StriX Launch 11)",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9f5a4cb6-63f9-47e1-9512-b468bae2a8e6/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
       "id": "63181269-b125-4c36-951c-c9bd9bbc4b55",
