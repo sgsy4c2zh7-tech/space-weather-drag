@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-08-29T23:45:36.225753Z",
+  "updated_at": "2026-08-30T10:59:16.884002Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-29T23%3A45%3A36.225753Z&net__lte=2026-09-12T23%3A45%3A36.225753Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-08-30T10%3A59%3A16.884002Z&net__lte=2026-09-13T10%3A59%3A16.884002Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-08-29T23:45:36.225753Z",
-  "window_end": "2026-09-12T23:45:36.225753Z",
-  "count": 7,
+  "window_start": "2026-08-30T10:59:16.884002Z",
+  "window_end": "2026-09-13T10:59:16.884002Z",
+  "count": 6,
   "launches": [
     {
       "id": "521f3a1c-f977-4306-9b7f-495858719adf",
       "name": "Falcon Heavy | Nancy Grace Roman Space Telescope",
-      "net": "2026-08-30T11:25:49Z",
+      "net": "2026-08-30T11:26:04Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -20,7 +20,7 @@
       "location": "Kennedy Space Center, FL, USA",
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/521f3a1c-f977-4306-9b7f-495858719adf/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg"
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_on_image_20260830094309.jpg"
     },
     {
       "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
@@ -96,21 +96,6 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
-    },
-    {
-      "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
-      "name": "Falcon 9 Block 5 | Crew-13",
-      "net": "2026-09-12T22:34:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Crew-13",
-      "mission_type": "Human Exploration",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/18441371-8b2e-457c-afb5-1ec1b11ab630/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20220301072106.jpeg"
     }
   ]
 }
