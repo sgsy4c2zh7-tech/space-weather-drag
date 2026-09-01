@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-01T10:32:41.329811Z",
+  "updated_at": "2026-09-01T17:48:15.889054Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-01T10%3A32%3A41.329811Z&net__lte=2026-09-15T10%3A32%3A41.329811Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-01T17%3A48%3A15.889054Z&net__lte=2026-09-15T17%3A48%3A15.889054Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-01T10:32:41.329811Z",
-  "window_end": "2026-09-15T10:32:41.329811Z",
-  "count": 5,
+  "window_start": "2026-09-01T17:48:15.889054Z",
+  "window_end": "2026-09-15T17:48:15.889054Z",
+  "count": 6,
   "launches": [
     {
       "id": "63181269-b125-4c36-951c-c9bd9bbc4b55",
@@ -25,7 +25,7 @@
     {
       "id": "9f5a4cb6-63f9-47e1-9512-b468bae2a8e6",
       "name": "Electron | Owl Around The World (StriX Launch 11)",
-      "net": "2026-09-02T11:00:00Z",
+      "net": "2026-09-02T11:11:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "Rocket Lab",
@@ -66,6 +66,21 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
+      "id": "3e0456da-14b1-4ac3-b59e-35fefb1d1530",
+      "name": "Falcon 9 Block 5 | USSF-xxx (\"R-2\")",
+      "net": "2026-09-10T15:37:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-xxx (\"R-2\")",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/3e0456da-14b1-4ac3-b59e-35fefb1d1530/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
       "id": "63063b9d-ade9-4448-8717-6f910aa81188",
