@@ -630,15 +630,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 26410,
-    "name": "CLUSTER II-FM7 (SAMBA)",
-    "country_code": "ESA",
-    "object_type": "PAY",
-    "launch_site": "TYMSC",
-    "launch_date": "2000-07-16",
-    "decay_date": null
-  },
-  {
     "norad_id": 26464,
     "name": "CLUSTER II-FM8 (TANGO)",
     "country_code": "ESA",
@@ -16670,15 +16661,6 @@
   {
     "norad_id": 47773,
     "name": "STARLINK-2196",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2021-03-04",
-    "decay_date": null
-  },
-  {
-    "norad_id": 47776,
-    "name": "STARLINK-2209",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -47162,6 +47144,15 @@
   {
     "norad_id": 56351,
     "name": "STARLINK-5891",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2023-04-27",
+    "decay_date": null
+  },
+  {
+    "norad_id": 56352,
+    "name": "STARLINK-5885",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -143848,8 +143839,8 @@
   },
   {
     "norad_id": 69941,
-    "name": "TRANSPORTER-17 OBJECT CA",
-    "country_code": "TBD",
+    "name": "BOHR",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-07-07",
@@ -148641,15 +148632,6 @@
     "object_type": "PAY",
     "launch_site": "FRGUI",
     "launch_date": "2026-08-27",
-    "decay_date": null
-  },
-  {
-    "norad_id": 100532,
-    "name": "NGRST",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2026-08-30",
     "decay_date": null
   }
 ]
