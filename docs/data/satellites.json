@@ -3015,15 +3015,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 36744,
-    "name": "COMS 1",
-    "country_code": "SKOR",
-    "object_type": "PAY",
-    "launch_site": "FRGUI",
-    "launch_date": "2010-06-26",
-    "decay_date": null
-  },
-  {
     "norad_id": 36745,
     "name": "ARABSAT-5A",
     "country_code": "AB",
@@ -6858,6 +6849,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 40938,
+    "name": "BEIDOU-3S IGSO-2S",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "XICLF",
+    "launch_date": "2015-09-29",
+    "decay_date": null
+  },
+  {
     "norad_id": 40940,
     "name": "SKY MUSTER 1 (NBN1A)",
     "country_code": "AUS",
@@ -9074,6 +9074,24 @@
   {
     "norad_id": 43055,
     "name": "GSAT0215 (GALILEO 19)",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2017-12-12",
+    "decay_date": null
+  },
+  {
+    "norad_id": 43056,
+    "name": "GSAT0216 (GALILEO 20)",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2017-12-12",
+    "decay_date": null
+  },
+  {
+    "norad_id": 43057,
+    "name": "GSAT0217 (GALILEO 21)",
     "country_code": "ESA",
     "object_type": "PAY",
     "launch_site": "FRGUI",
