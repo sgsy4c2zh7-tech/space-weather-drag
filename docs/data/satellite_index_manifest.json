@@ -1,42 +1,42 @@
 {
-  "updated_at": "2026-09-02T17:43:15Z",
+  "updated_at": "2026-09-02T23:47:27Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
     "geo_payload": {
       "label": "GEO Payload",
       "file": "satellite_index_geo_payload.json",
-      "count": 1408
+      "count": 1409
     },
     "payload": {
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18074
+      "count": 18073
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15570
+      "count": 15568
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35052
+      "count": 35050
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12479,
+    "DEBRIS": 12478,
     "PAYLOAD": 19482,
-    "ROCKET BODY": 2419,
+    "ROCKET BODY": 2418,
     "UNKNOWN": 672
   },
   "counts_by_orbit_class": {
-    "GEO": 1865,
+    "GEO": 1866,
     "GTO": 40,
     "HEO": 110,
-    "LEO": 28938,
-    "MEO": 3491,
+    "LEO": 28937,
+    "MEO": 3489,
     "UNKNOWN": 608
   },
   "counts_by_country": {
@@ -60,7 +60,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 4,
-    "CHN": 6065,
+    "CHN": 6064,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -116,7 +116,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6590,
+    "RUS": 6589,
     "RWA": 7,
     "SAFR": 3,
     "SAUD": 16,
@@ -147,9 +147,9 @@
   },
   "source_counts": {
     "catalog_metadata": 70532,
-    "metadata_only_added": 18463,
-    "decayed_metadata_skipped": 35480,
+    "metadata_only_added": 18461,
+    "decayed_metadata_skipped": 35482,
     "with_history": 16589,
-    "without_history": 18463
+    "without_history": 18461
   }
 }
