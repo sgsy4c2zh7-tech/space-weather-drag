@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-04T17:17:42.553412Z",
+  "updated_at": "2026-09-04T23:25:00.997149Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-04T17%3A17%3A42.553412Z&net__lte=2026-09-18T17%3A17%3A42.553412Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-04T23%3A25%3A00.997149Z&net__lte=2026-09-18T23%3A25%3A00.997149Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-04T17:17:42.553412Z",
-  "window_end": "2026-09-18T17:17:42.553412Z",
-  "count": 5,
+  "window_start": "2026-09-04T23:25:00.997149Z",
+  "window_end": "2026-09-18T23:25:00.997149Z",
+  "count": 6,
   "launches": [
     {
       "id": "153ef8ef-b12b-43f4-a4bf-05b225c0cd37",
@@ -81,6 +81,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/63063b9d-ade9-4448-8717-6f910aa81188/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "ad358a4d-c541-409b-9366-9c2f2da4aeb9",
+      "name": "Falcon 9 Block 5 | O3b mPower 11-13",
+      "net": "2026-09-13T18:50:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "O3b mPower 11-13",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ad358a4d-c541-409b-9366-9c2f2da4aeb9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     }
   ]
 }
