@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-09-07T10:46:13.938893Z",
+  "updated_at": "2026-09-07T18:55:10.476765Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-07T10%3A46%3A13.938893Z&net__lte=2026-09-21T10%3A46%3A13.938893Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-07T18%3A55%3A10.476765Z&net__lte=2026-09-21T18%3A55%3A10.476765Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-07T10:46:13.938893Z",
-  "window_end": "2026-09-21T10:46:13.938893Z",
+  "window_start": "2026-09-07T18:55:10.476765Z",
+  "window_end": "2026-09-21T18:55:10.476765Z",
   "count": 5,
   "launches": [
-    {
-      "id": "95eb9265-bdbe-43ad-b08c-6be7eb4e58f4",
-      "name": "Long March 2D/YZ-3 | Unknown Payload",
-      "net": "2026-09-09T09:00:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Area 94 (SLS-2 / 603)",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/95eb9265-bdbe-43ad-b08c-6be7eb4e58f4/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_2d2_image_20231123203521.jpeg"
-    },
     {
       "id": "d793ba47-faf5-4bab-a386-39a9ccc49c90",
       "name": "Soyuz 2.1b | Progress MS-35 (96P)",
@@ -36,6 +21,21 @@
       "location_country_code": "KAZ",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d793ba47-faf5-4bab-a386-39a9ccc49c90/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
+      "id": "95eb9265-bdbe-43ad-b08c-6be7eb4e58f4",
+      "name": "Long March 2D/YZ-3 | Unknown Payload",
+      "net": "2026-09-10T09:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 94 (SLS-2 / 603)",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/95eb9265-bdbe-43ad-b08c-6be7eb4e58f4/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_2d2_image_20231123203521.jpeg"
     },
     {
       "id": "3e0456da-14b1-4ac3-b59e-35fefb1d1530",
