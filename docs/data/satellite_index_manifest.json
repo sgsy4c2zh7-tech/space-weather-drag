@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-09T10:18:45Z",
+  "updated_at": "2026-09-09T17:40:27Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,24 +12,23 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18063
+      "count": 18065
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15616
+      "count": 15615
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35088
+      "count": 35089
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12520,
-    "PAYLOAD": 19472,
+    "PAYLOAD": 19474,
     "ROCKET BODY": 2420,
-    "UNK": 1,
     "UNKNOWN": 675
   },
   "counts_by_orbit_class": {
@@ -38,7 +37,7 @@
     "HEO": 110,
     "LEO": 28972,
     "MEO": 3491,
-    "UNKNOWN": 608
+    "UNKNOWN": 609
   },
   "counts_by_country": {
     "AB": 15,
@@ -61,7 +60,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 4,
-    "CHN": 6105,
+    "CHN": 6103,
     "COL": 1,
     "CZCH": 2,
     "CZE": 4,
@@ -91,7 +90,7 @@
     "IT": 93,
     "ITSO": 134,
     "JOR": 1,
-    "JPN": 335,
+    "JPN": 333,
     "KAZ": 6,
     "KWT": 1,
     "LAOS": 1,
@@ -112,7 +111,7 @@
     "PAKI": 9,
     "PER": 2,
     "POL": 13,
-    "POR": 10,
+    "POR": 11,
     "QAT": 2,
     "RASC": 2,
     "ROM": 1,
@@ -132,7 +131,7 @@
     "SVN": 2,
     "SWED": 14,
     "SWTZ": 7,
-    "TBD": 304,
+    "TBD": 305,
     "THAI": 12,
     "TMMC": 1,
     "TURK": 44,
@@ -141,16 +140,16 @@
     "UK": 727,
     "UKR": 6,
     "URY": 1,
-    "US": 18460,
+    "US": 18463,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70587,
-    "metadata_only_added": 18506,
+    "catalog_metadata": 70588,
+    "metadata_only_added": 18507,
     "decayed_metadata_skipped": 35499,
     "with_history": 16582,
-    "without_history": 18506
+    "without_history": 18507
   }
 }
