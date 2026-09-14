@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-09-14T11:05:44.662461Z",
+  "updated_at": "2026-09-14T19:02:31.778503Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-14T11%3A05%3A44.662461Z&net__lte=2026-09-28T11%3A05%3A44.662461Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-14T19%3A02%3A31.778503Z&net__lte=2026-09-28T19%3A02%3A31.778503Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-14T11:05:44.662461Z",
-  "window_end": "2026-09-28T11:05:44.662461Z",
+  "window_start": "2026-09-14T19:02:31.778503Z",
+  "window_end": "2026-09-28T19:02:31.778503Z",
   "count": 9,
   "launches": [
     {
@@ -98,21 +98,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kuaizhou_11_lif_image_20240520155835.jpg"
     },
     {
-      "id": "7d1afb26-6f9c-429b-9ccf-29012fd1e519",
-      "name": "Starship | Flight 14",
-      "net": "2026-09-18T12:15:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Flight 14",
-      "mission_type": "Test Flight",
-      "pad": "Orbital Launch Pad 2",
-      "location": "SpaceX Starbase, TX, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/7d1afb26-6f9c-429b-9ccf-29012fd1e519/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
-    },
-    {
       "id": "a527b585-f01f-4ecc-9230-711dcef72ef1",
       "name": "Long March 2D | Unknown Payload",
       "net": "2026-09-19T10:50:00Z",
@@ -141,6 +126,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d1471f9d-e9d0-4146-8e97-90863e48bfc8/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "7d1afb26-6f9c-429b-9ccf-29012fd1e519",
+      "name": "Starship | Flight 14",
+      "net": "2026-09-22T12:15:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Flight 14",
+      "mission_type": "Test Flight",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/7d1afb26-6f9c-429b-9ccf-29012fd1e519/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
     }
   ]
 }

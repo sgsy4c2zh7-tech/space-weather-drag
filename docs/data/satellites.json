@@ -14859,15 +14859,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 46383,
-    "name": "STARLINK-1770",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-09-03",
-    "decay_date": null
-  },
-  {
     "norad_id": 46384,
     "name": "STARLINK-1771",
     "country_code": "US",
@@ -148690,8 +148681,8 @@
   },
   {
     "norad_id": 100610,
-    "name": "2026-203B",
-    "country_code": "TBD",
+    "name": "FRAMSAT-1",
+    "country_code": "NOR",
     "object_type": "PAY",
     "launch_site": "ANDSP",
     "launch_date": "2026-09-05",
@@ -149046,6 +149037,33 @@
     "object_type": "PAY",
     "launch_site": "RLLB",
     "launch_date": "2026-09-11",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100686,
+    "name": "03B MPOWER OBJECT A",
+    "country_code": "O3B",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-09-13",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100687,
+    "name": "03B MPOWER OBJECT B",
+    "country_code": "O3B",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-09-13",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100688,
+    "name": "03B MPOWER OBJECT C",
+    "country_code": "O3B",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-09-13",
     "decay_date": null
   }
 ]
