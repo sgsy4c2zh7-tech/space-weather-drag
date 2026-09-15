@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-15T10:30:14.316047Z",
+  "updated_at": "2026-09-15T18:04:59.826863Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-15T10%3A30%3A14.316047Z&net__lte=2026-09-29T10%3A30%3A14.316047Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-15T18%3A04%3A59.826863Z&net__lte=2026-09-29T18%3A04%3A59.826863Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-15T10:30:14.316047Z",
-  "window_end": "2026-09-29T10:30:14.316047Z",
-  "count": 8,
+  "window_start": "2026-09-15T18:04:59.826863Z",
+  "window_end": "2026-09-29T18:04:59.826863Z",
+  "count": 9,
   "launches": [
     {
       "id": "767f7827-53d8-4621-803b-f456a1e6b512",
@@ -25,7 +25,7 @@
     {
       "id": "17c71937-dd80-406f-bb47-0c9ee9a24276",
       "name": "Falcon 9 Block 5 | USSF-259",
-      "net": "2026-09-16T01:00:00Z",
+      "net": "2026-09-16T01:29:18Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -116,7 +116,7 @@
       "id": "7d1afb26-6f9c-429b-9ccf-29012fd1e519",
       "name": "Starship | Flight 14",
       "net": "2026-09-22T12:15:00Z",
-      "status": "To Be Confirmed",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "Flight 14",
@@ -126,6 +126,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/7d1afb26-6f9c-429b-9ccf-29012fd1e519/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
+    },
+    {
+      "id": "7330d83b-c478-426c-8859-f9e3a335876d",
+      "name": "Falcon 9 Block 5 | USSF-xxx (\"R-3\")",
+      "net": "2026-09-27T11:42:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-xxx (\"R-3\")",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/7330d83b-c478-426c-8859-f9e3a335876d/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     }
   ]
 }
