@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-16T00:01:45Z",
+  "updated_at": "2026-09-16T10:29:16Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,22 +12,23 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18121
+      "count": 18120
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15614
+      "count": 15616
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35144
+      "count": 35145
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12521,
-    "PAYLOAD": 19530,
+    "PAY": 2,
+    "PAYLOAD": 19529,
     "ROCKET BODY": 2421,
     "UNKNOWN": 672
   },
@@ -35,7 +36,7 @@
     "GEO": 1875,
     "GTO": 39,
     "HEO": 110,
-    "LEO": 29016,
+    "LEO": 29017,
     "MEO": 3493,
     "UNKNOWN": 611
   },
@@ -60,7 +61,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 4,
-    "CHN": 6105,
+    "CHN": 6104,
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
@@ -68,7 +69,7 @@
     "DJI": 1,
     "ECU": 2,
     "EGYP": 12,
-    "ESA": 135,
+    "ESA": 138,
     "EST": 1,
     "EUME": 18,
     "EUTE": 62,
@@ -76,7 +77,7 @@
     "FIN": 28,
     "FR": 649,
     "FRIT": 2,
-    "GER": 104,
+    "GER": 103,
     "GLOB": 85,
     "GREC": 14,
     "HRV": 1,
@@ -146,10 +147,10 @@
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70664,
+    "catalog_metadata": 70667,
     "metadata_only_added": 18508,
-    "decayed_metadata_skipped": 35520,
-    "with_history": 16636,
+    "decayed_metadata_skipped": 35522,
+    "with_history": 16637,
     "without_history": 18508
   }
 }

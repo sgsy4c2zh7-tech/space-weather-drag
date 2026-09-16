@@ -14724,15 +14724,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 46160,
-    "name": "STARLINK-1598",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-08-18",
-    "decay_date": null
-  },
-  {
     "norad_id": 46174,
     "name": "STARLINK-1641",
     "country_code": "US",
@@ -15086,15 +15077,6 @@
   {
     "norad_id": 46702,
     "name": "STARLINK-1802",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-10-18",
-    "decay_date": null
-  },
-  {
-    "norad_id": 46705,
-    "name": "STARLINK-1805",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -149028,6 +149010,24 @@
     "object_type": "PAY",
     "launch_site": "AFETR",
     "launch_date": "2026-09-13",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100689,
+    "name": "2026-209A",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100690,
+    "name": "2026-209B",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2026-09-15",
     "decay_date": null
   }
 ]
