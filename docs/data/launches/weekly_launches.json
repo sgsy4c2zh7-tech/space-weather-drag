@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-16T17:59:13.545962Z",
+  "updated_at": "2026-09-17T00:01:12.361616Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-16T17%3A59%3A13.545962Z&net__lte=2026-09-30T17%3A59%3A13.545962Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-17T00%3A01%3A12.361616Z&net__lte=2026-10-01T00%3A01%3A12.361616Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-16T17:59:13.545962Z",
-  "window_end": "2026-09-30T17:59:13.545962Z",
-  "count": 16,
+  "window_start": "2026-09-17T00:01:12.361616Z",
+  "window_end": "2026-10-01T00:01:12.361616Z",
+  "count": 17,
   "launches": [
     {
       "id": "898f7df0-b6ce-4a5c-80b4-67e81842124e",
@@ -114,12 +114,12 @@
     },
     {
       "id": "7d1afb26-6f9c-429b-9ccf-29012fd1e519",
-      "name": "Starship | Flight 14",
+      "name": "Starship | Starlink Group 31-1 (Starship Flight 14)",
       "net": "2026-09-22T12:15:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
-      "mission": "Flight 14",
+      "mission": "Starlink Group 31-1 (Starship Flight 14)",
       "mission_type": "Communications",
       "pad": "Orbital Launch Pad 2",
       "location": "SpaceX Starbase, TX, USA",
@@ -129,9 +129,9 @@
     },
     {
       "id": "7330d83b-c478-426c-8859-f9e3a335876d",
-      "name": "Falcon 9 Block 5 | USSF-xxx (\"R-3\")",
+      "name": "Falcon 9 Block 5 | USSF-385",
       "net": "2026-09-26T11:56:00Z",
-      "status": "To Be Confirmed",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
       "mission": "USSF-385",
@@ -216,6 +216,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/dc570565-4dcf-4ab9-8174-bf88efef477f/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_12a__image_20251224005749.jpg"
+    },
+    {
+      "id": "ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb",
+      "name": "Soyuz 2.1b/Fregat | Kosmos (Unknown Payload)",
+      "net": "2026-09-30T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Russian Space Forces",
+      "mission": "Kosmos (Unknown Payload)",
+      "mission_type": "Government/Top Secret",
+      "pad": "Unknown Pad",
+      "location": "Plesetsk Cosmodrome, Russian Federation",
+      "location_country_code": "RUS",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
     },
     {
       "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
