@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-17T23:57:24.548403Z",
+  "updated_at": "2026-09-18T10:12:00.472820Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-17T23%3A57%3A24.548403Z&net__lte=2026-10-01T23%3A57%3A24.548403Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-18T10%3A12%3A00.472820Z&net__lte=2026-10-02T10%3A12%3A00.472820Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-17T23:57:24.548403Z",
-  "window_end": "2026-10-01T23:57:24.548403Z",
-  "count": 14,
+  "window_start": "2026-09-18T10:12:00.472820Z",
+  "window_end": "2026-10-02T10:12:00.472820Z",
+  "count": 12,
   "launches": [
     {
       "id": "f4c720ce-0cfd-43e6-b8dd-00273073bc01",
@@ -16,7 +16,7 @@
       "provider": "Rocket Lab",
       "mission": "Owl By The Dozen (StriX Launch 12)",
       "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
+      "pad": "Rocket Lab Launch Complex 1B",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/f4c720ce-0cfd-43e6-b8dd-00273073bc01/",
@@ -111,36 +111,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ef9850ad-1096-425b-9d27-f7bbd186e61a/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg"
-    },
-    {
-      "id": "da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
-      "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
-      "net": "2026-09-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "SDA Tranche 1 Transport Layer A",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
-    {
-      "id": "ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb",
-      "name": "Soyuz 2.1b/Fregat | Kosmos (Unknown Payload)",
-      "net": "2026-09-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Russian Space Forces",
-      "mission": "Kosmos (Unknown Payload)",
-      "mission_type": "Government/Top Secret",
-      "pad": "Unknown Pad",
-      "location": "Plesetsk Cosmodrome, Russian Federation",
-      "location_country_code": "RUS",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/ab3c1e6c-03fe-48a7-b6ce-30c79569bdfb/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
     },
     {
       "id": "63063b9d-ade9-4448-8717-6f910aa81188",

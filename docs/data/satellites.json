@@ -5715,15 +5715,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 40021,
-    "name": "DUCHIFAT-1",
-    "country_code": "ISRA",
-    "object_type": "PAY",
-    "launch_site": "DLS",
-    "launch_date": "2014-06-19",
-    "decay_date": null
-  },
-  {
     "norad_id": 40024,
     "name": "NANOSATC-BR1",
     "country_code": "BRAZ",
@@ -11952,15 +11943,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 44771,
-    "name": "STARLINK-1067",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2019-11-11",
-    "decay_date": null
-  },
-  {
     "norad_id": 44772,
     "name": "STARLINK-1068",
     "country_code": "US",
@@ -15099,15 +15081,6 @@
     "object_type": "PAY",
     "launch_site": "AFETR",
     "launch_date": "2020-10-18",
-    "decay_date": null
-  },
-  {
-    "norad_id": 46786,
-    "name": "STARLINK-1893",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-10-24",
     "decay_date": null
   },
   {
@@ -148995,8 +148968,35 @@
     "decay_date": null
   },
   {
+    "norad_id": 100693,
+    "name": "QIANFAN 15 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100694,
+    "name": "QIANFAN 15 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
     "norad_id": 100695,
     "name": "QIANFAN 15 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100696,
+    "name": "QIANFAN 15 OBJECT E",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "JSC",
@@ -149022,6 +149022,24 @@
     "decay_date": null
   },
   {
+    "norad_id": 100699,
+    "name": "QIANFAN 15 OBJECT H",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100700,
+    "name": "QIANFAN 15 OBJECT J",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-15",
+    "decay_date": null
+  },
+  {
     "norad_id": 100701,
     "name": "QIANFAN 15 OBJECT K",
     "country_code": "PRC",
@@ -149031,11 +149049,173 @@
     "decay_date": null
   },
   {
+    "norad_id": 100702,
+    "name": "QIANFAN 16 OBJECT A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100703,
+    "name": "QIANFAN 16 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100704,
+    "name": "QIANFAN 16 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100705,
+    "name": "QIANFAN 16 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100706,
+    "name": "QIANFAN 16 OBJECT E",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100707,
+    "name": "QIANFAN 16 OBJECT F",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100709,
+    "name": "QIANFAN 16 OBJECT H",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
     "norad_id": 100712,
     "name": "PROGRESS-MS 35",
     "country_code": "CIS",
     "object_type": "PAY",
     "launch_site": "TYMSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100714,
+    "name": "GUOWANG 25 OBJECT A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100715,
+    "name": "GUOWANG 25 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100716,
+    "name": "GUOWANG 25 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100717,
+    "name": "GUOWANG 25 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100718,
+    "name": "GUOWANG 25 OBJECT E",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100719,
+    "name": "GUOWANG 25 OBJECT F",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100720,
+    "name": "GUOWANG 25 OBJECT G",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100721,
+    "name": "GUOWANG 25 OBJECT H",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100722,
+    "name": "GUOWANG 25 OBJECT J",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100741,
+    "name": "TIANYI OBJECT A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100742,
+    "name": "TIANYI OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
     "launch_date": "2026-09-17",
     "decay_date": null
   }
