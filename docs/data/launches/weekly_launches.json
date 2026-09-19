@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-19T16:55:02.295574Z",
+  "updated_at": "2026-09-19T23:39:48.674246Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-19T16%3A55%3A02.295574Z&net__lte=2026-10-03T16%3A55%3A02.295574Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-19T23%3A39%3A48.674246Z&net__lte=2026-10-03T23%3A39%3A48.674246Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-19T16:55:02.295574Z",
-  "window_end": "2026-10-03T16:55:02.295574Z",
-  "count": 10,
+  "window_start": "2026-09-19T23:39:48.674246Z",
+  "window_end": "2026-10-03T23:39:48.674246Z",
+  "count": 11,
   "launches": [
     {
       "id": "d1471f9d-e9d0-4146-8e97-90863e48bfc8",
@@ -141,6 +141,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/dc570565-4dcf-4ab9-8174-bf88efef477f/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_12a__image_20251224005749.jpg"
+    },
+    {
+      "id": "97c6f5e1-299e-4652-b72d-9618ac047076",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-25",
+      "net": "2026-09-30T14:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 15-25",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/97c6f5e1-299e-4652-b72d-9618ac047076/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
