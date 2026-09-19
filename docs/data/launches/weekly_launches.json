@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-09-18T23:42:37.252306Z",
+  "updated_at": "2026-09-19T09:54:42.301315Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-18T23%3A42%3A37.252306Z&net__lte=2026-10-02T23%3A42%3A37.252306Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-19T09%3A54%3A42.301315Z&net__lte=2026-10-03T09%3A54%3A42.301315Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-18T23:42:37.252306Z",
-  "window_end": "2026-10-02T23:42:37.252306Z",
-  "count": 14,
+  "window_start": "2026-09-19T09:54:42.301315Z",
+  "window_end": "2026-10-03T09:54:42.301315Z",
+  "count": 11,
   "launches": [
-    {
-      "id": "f4c720ce-0cfd-43e6-b8dd-00273073bc01",
-      "name": "Electron | Owl By The Dozen (StriX Launch 12)",
-      "net": "2026-09-19T03:15:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "Owl By The Dozen (StriX Launch 12)",
-      "mission_type": "Earth Science",
-      "pad": "Rocket Lab Launch Complex 1B",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/f4c720ce-0cfd-43e6-b8dd-00273073bc01/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
     {
       "id": "a527b585-f01f-4ecc-9230-711dcef72ef1",
       "name": "Long March 2D | Unknown Payload",
@@ -98,6 +83,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     },
     {
+      "id": "9e24bef7-c44b-4fdc-ba52-68545ce9457e",
+      "name": "Electron | Owlright, Owlright, Owlright (StriX Launch 13)",
+      "net": "2026-09-26T00:15:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "Owlright, Owlright, Owlright (StriX Launch 13)",
+      "mission_type": "Earth Science",
+      "pad": "Rocket Lab Launch Complex 1B",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/9e24bef7-c44b-4fdc-ba52-68545ce9457e/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
       "id": "7330d83b-c478-426c-8859-f9e3a335876d",
       "name": "Falcon 9 Block 5 | USSF-385",
       "net": "2026-09-26T11:56:00Z",
@@ -143,21 +143,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg"
     },
     {
-      "id": "548df42c-ae26-4cc9-921a-f0042941911a",
-      "name": "Electron | BlackSky Gen-3 6",
-      "net": "2026-09-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "BlackSky Gen-3 6",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/548df42c-ae26-4cc9-921a-f0042941911a/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
       "id": "dc570565-4dcf-4ab9-8174-bf88efef477f",
       "name": "Long March 12A | Flight 2",
       "net": "2026-09-30T00:00:00Z",
@@ -171,36 +156,6 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/dc570565-4dcf-4ab9-8174-bf88efef477f/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_12a__image_20251224005749.jpg"
-    },
-    {
-      "id": "7766f3bb-674c-4c71-b986-963bd633fcfe",
-      "name": "Electron | 6x HawkEye 360",
-      "net": "2026-09-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "6x HawkEye 360",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/7766f3bb-674c-4c71-b986-963bd633fcfe/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
-    },
-    {
-      "id": "599ba2df-7483-4b2f-a083-2b5ddc06e069",
-      "name": "Electron | LOXSAT 1",
-      "net": "2026-09-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "LOXSAT 1",
-      "mission_type": "Technology",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/599ba2df-7483-4b2f-a083-2b5ddc06e069/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
       "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
