@@ -1917,15 +1917,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 32276,
-    "name": "COSMOS 2432 [GLONASS-M]",
-    "country_code": "CIS",
-    "object_type": "PAY",
-    "launch_site": "TYMSC",
-    "launch_date": "2007-10-26",
-    "decay_date": null
-  },
-  {
     "norad_id": 32289,
     "name": "YAOGAN-3",
     "country_code": "PRC",
@@ -5283,15 +5274,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 39474,
-    "name": "SMDC ONE 2.3",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2013-12-06",
-    "decay_date": null
-  },
-  {
     "norad_id": 39476,
     "name": "INMARSAT 5-F1",
     "country_code": "IM",
@@ -6923,15 +6905,6 @@
   {
     "norad_id": 40968,
     "name": "SINOD-D 1",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2015-10-08",
-    "decay_date": null
-  },
-  {
-    "norad_id": 40970,
-    "name": "SNAP-3 ALICE",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -13122,15 +13095,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 45379,
-    "name": "STARLINK-1319",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-03-18",
-    "decay_date": null
-  },
-  {
     "norad_id": 45383,
     "name": "STARLINK-1266",
     "country_code": "US",
@@ -15084,15 +15048,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 46794,
-    "name": "STARLINK-1942",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-10-24",
-    "decay_date": null
-  },
-  {
     "norad_id": 46805,
     "name": "COSMOS 2547 [GLONASS-K]",
     "country_code": "CIS",
@@ -15239,15 +15194,6 @@
   {
     "norad_id": 47126,
     "name": "STARLINK-1812",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-11-25",
-    "decay_date": null
-  },
-  {
-    "norad_id": 47135,
-    "name": "STARLINK-1845",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -29612,15 +29558,6 @@
   {
     "norad_id": 52578,
     "name": "STARLINK-3833",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2022-05-13",
-    "decay_date": null
-  },
-  {
-    "norad_id": 52579,
-    "name": "STARLINK-3893",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -149248,11 +149185,56 @@
   },
   {
     "norad_id": 100744,
-    "name": "COSMOS 2620",
+    "name": "COSMOS 2620 [GLONASS-K1]",
     "country_code": "CIS",
     "object_type": "PAY",
     "launch_site": "PLMSC",
     "launch_date": "2026-09-17",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100746,
+    "name": "STRIX-10",
+    "country_code": "JPN",
+    "object_type": "PAY",
+    "launch_site": "RLLB",
+    "launch_date": "2026-09-19",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100749,
+    "name": "PIESAT-2 OBJECT A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "TAISC",
+    "launch_date": "2026-09-19",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100750,
+    "name": "PIESAT-2 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "TAISC",
+    "launch_date": "2026-09-19",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100751,
+    "name": "PIESAT-2 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "TAISC",
+    "launch_date": "2026-09-19",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100752,
+    "name": "PIESAT-2 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "TAISC",
+    "launch_date": "2026-09-19",
     "decay_date": null
   }
 ]

@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-09-19T23:47:04Z",
+  "updated_at": "2026-09-20T10:20:07Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -17,18 +17,19 @@
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15638
+      "count": 15644
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35169
+      "count": 35175
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12520,
+    "PAY": 5,
     "PAYLOAD": 19531,
-    "ROCKET BODY": 2423,
+    "ROCKET BODY": 2424,
     "UNK": 1,
     "UNKNOWN": 694
   },
@@ -36,7 +37,7 @@
     "GEO": 1875,
     "GTO": 39,
     "HEO": 110,
-    "LEO": 29039,
+    "LEO": 29045,
     "MEO": 3494,
     "UNKNOWN": 612
   },
@@ -61,7 +62,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 4,
-    "CHN": 6135,
+    "CHN": 6139,
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
@@ -91,7 +92,7 @@
     "IT": 93,
     "ITSO": 141,
     "JOR": 1,
-    "JPN": 333,
+    "JPN": 334,
     "KAZ": 6,
     "KWT": 1,
     "LAOS": 1,
@@ -117,7 +118,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6588,
+    "RUS": 6587,
     "RWA": 7,
     "SAFR": 3,
     "SAUD": 16,
@@ -141,16 +142,16 @@
     "UK": 726,
     "UKR": 6,
     "URY": 1,
-    "US": 18508,
+    "US": 18510,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70704,
-    "metadata_only_added": 18509,
-    "decayed_metadata_skipped": 35535,
-    "with_history": 16660,
-    "without_history": 18509
+    "catalog_metadata": 70711,
+    "metadata_only_added": 18510,
+    "decayed_metadata_skipped": 35536,
+    "with_history": 16665,
+    "without_history": 18510
   }
 }
