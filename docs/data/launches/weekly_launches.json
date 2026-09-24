@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-24T10:29:36.638077Z",
+  "updated_at": "2026-09-24T18:16:13.736089Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-24T10%3A29%3A36.638077Z&net__lte=2026-10-08T10%3A29%3A36.638077Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-24T18%3A16%3A13.736089Z&net__lte=2026-10-08T18%3A16%3A13.736089Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-24T10:29:36.638077Z",
-  "window_end": "2026-10-08T10:29:36.638077Z",
-  "count": 5,
+  "window_start": "2026-09-24T18:16:13.736089Z",
+  "window_end": "2026-10-08T18:16:13.736089Z",
+  "count": 6,
   "launches": [
     {
       "id": "9e24bef7-c44b-4fdc-ba52-68545ce9457e",
@@ -81,6 +81,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/67213393-7983-4c06-8b44-b8c785a5ed79/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "4651fd8a-43de-4166-bf8f-c168b3bd1d2c",
+      "name": "Falcon Heavy | NROL-97",
+      "net": "2026-10-02T03:53:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-97",
+      "mission_type": "Government/Top Secret",
+      "pad": "Launch Complex 39A",
+      "location": "Kennedy Space Center, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/4651fd8a-43de-4166-bf8f-c168b3bd1d2c/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_heavy_image_20220129192819.jpeg"
     }
   ]
 }
