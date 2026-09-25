@@ -20763,15 +20763,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 48909,
-    "name": "PACE-1",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2021-06-30",
-    "decay_date": null
-  },
-  {
     "norad_id": 48915,
     "name": "YAM-3",
     "country_code": "US",
@@ -83502,27 +83493,9 @@
     "decay_date": null
   },
   {
-    "norad_id": 62618,
-    "name": "AE1D",
-    "country_code": "JPN",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2025-01-14",
-    "decay_date": null
-  },
-  {
     "norad_id": 62619,
     "name": "IRIS-F3",
     "country_code": "ROC",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2025-01-14",
-    "decay_date": null
-  },
-  {
-    "norad_id": 62620,
-    "name": "TRANSPORTER-12 OBJECT M",
-    "country_code": "TBD",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2025-01-14",
@@ -148816,7 +148789,7 @@
   },
   {
     "norad_id": 100689,
-    "name": "SENTINEL-3C",
+    "name": "FLEX",
     "country_code": "ESA",
     "object_type": "PAY",
     "launch_site": "FRGUI",
@@ -148825,7 +148798,7 @@
   },
   {
     "norad_id": 100690,
-    "name": "FLEX",
+    "name": "SENTINEL-3C",
     "country_code": "ESA",
     "object_type": "PAY",
     "launch_site": "FRGUI",
@@ -149496,6 +149469,105 @@
     "object_type": "PAY",
     "launch_site": "JSC",
     "launch_date": "2026-09-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100791,
+    "name": "GUOWANG 26 OBJECT A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100792,
+    "name": "GUOWANG 26 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100793,
+    "name": "GUOWANG 26 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100794,
+    "name": "GUOWANG 26 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100795,
+    "name": "GUOWANG 26 OBJECT E",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100796,
+    "name": "GUOWANG 26 OBJECT F",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100797,
+    "name": "GUOWANG 26 OBJECT G",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100798,
+    "name": "GUOWANG 26 OBJECT H",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100799,
+    "name": "GUOWANG 26 OBJECT J",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-09-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100801,
+    "name": "R5-S10",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-03-30",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100802,
+    "name": "TORGA",
+    "country_code": "POR",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-07-07",
     "decay_date": null
   }
 ]
