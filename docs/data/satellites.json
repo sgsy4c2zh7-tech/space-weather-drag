@@ -14787,15 +14787,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 46459,
-    "name": "JILIN-1 GAOFEN 3G",
-    "country_code": "PRC",
-    "object_type": "PAY",
-    "launch_site": "SEAL",
-    "launch_date": "2020-09-15",
-    "decay_date": null
-  },
-  {
     "norad_id": 46460,
     "name": "JILIN-1 GAOFEN 3H",
     "country_code": "PRC",
@@ -48683,15 +48674,6 @@
   {
     "norad_id": 56745,
     "name": "SNIPE 2",
-    "country_code": "SKOR",
-    "object_type": "PAY",
-    "launch_site": "NSC",
-    "launch_date": "2023-05-25",
-    "decay_date": null
-  },
-  {
-    "norad_id": 56746,
-    "name": "2023-072D",
     "country_code": "SKOR",
     "object_type": "PAY",
     "launch_site": "NSC",
@@ -115795,8 +115777,8 @@
   },
   {
     "norad_id": 66673,
-    "name": "TRANSPORTER-15 OBJECT H",
-    "country_code": "TBD",
+    "name": "PHASMA-LAMARR",
+    "country_code": "GREC",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2025-11-28",
@@ -115867,8 +115849,8 @@
   },
   {
     "norad_id": 66681,
-    "name": "TRANSPORTER-15 OBJECT R",
-    "country_code": "TBD",
+    "name": "PHASMA-DIRAC",
+    "country_code": "GREC",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2025-11-28",
@@ -142021,15 +142003,6 @@
   },
   {
     "norad_id": 69796,
-    "name": "ISS OBJECT YL",
-    "country_code": "TBD",
-    "object_type": "PAY",
-    "launch_site": "TYMSC",
-    "launch_date": "1998-11-20",
-    "decay_date": null
-  },
-  {
-    "norad_id": 69797,
     "name": "ISS OBJECT YM",
     "country_code": "TBD",
     "object_type": "PAY",
@@ -142038,7 +142011,7 @@
     "decay_date": null
   },
   {
-    "norad_id": 69798,
+    "norad_id": 69797,
     "name": "ISS OBJECT YN",
     "country_code": "TBD",
     "object_type": "PAY",
@@ -142047,8 +142020,17 @@
     "decay_date": null
   },
   {
-    "norad_id": 69799,
+    "norad_id": 69798,
     "name": "ISS OBJECT YP",
+    "country_code": "TBD",
+    "object_type": "PAY",
+    "launch_site": "TYMSC",
+    "launch_date": "1998-11-20",
+    "decay_date": null
+  },
+  {
+    "norad_id": 69799,
+    "name": "ISS OBJECT YQ",
     "country_code": "TBD",
     "object_type": "PAY",
     "launch_site": "TYMSC",
@@ -142831,8 +142813,8 @@
   },
   {
     "norad_id": 69888,
-    "name": "TRANSPORTER-17 OBJECT V",
-    "country_code": "TBD",
+    "name": "SPEAR-1B",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-07-07",
@@ -142939,8 +142921,8 @@
   },
   {
     "norad_id": 69900,
-    "name": "TRANSPORTER-17 OBJECT AH",
-    "country_code": "TBD",
+    "name": "SPEAR-1A",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-07-07",
@@ -149586,6 +149568,24 @@
     "object_type": "PAY",
     "launch_site": "TAISC",
     "launch_date": "2026-09-24",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100829,
+    "name": "STRIX-11",
+    "country_code": "JPN",
+    "object_type": "PAY",
+    "launch_site": "RLLB",
+    "launch_date": "2026-09-26",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100830,
+    "name": "ELECTRON R/B",
+    "country_code": "US",
+    "object_type": "R/B",
+    "launch_site": "RLLB",
+    "launch_date": "2026-09-26",
     "decay_date": null
   }
 ]
