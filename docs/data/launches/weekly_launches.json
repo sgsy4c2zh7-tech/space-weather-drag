@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-09-30T00:55:47.228686Z",
+  "updated_at": "2026-09-30T11:28:36.893161Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-30T00%3A55%3A47.228686Z&net__lte=2026-10-14T00%3A55%3A47.228686Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-09-30T11%3A28%3A36.893161Z&net__lte=2026-10-14T11%3A28%3A36.893161Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-09-30T00:55:47.228686Z",
-  "window_end": "2026-10-14T00:55:47.228686Z",
-  "count": 5,
+  "window_start": "2026-09-30T11:28:36.893161Z",
+  "window_end": "2026-10-14T11:28:36.893161Z",
+  "count": 6,
   "launches": [
     {
       "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
@@ -66,6 +66,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "a1bb0984-19d4-4b47-9bba-706d225573e2",
+      "name": "Long March 12 | Unknown Payload",
+      "net": "2026-10-09T19:25:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a1bb0984-19d4-4b47-9bba-706d225573e2/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
     },
     {
       "id": "97c6f5e1-299e-4652-b72d-9618ac047076",
