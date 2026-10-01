@@ -1,42 +1,12 @@
 {
-  "updated_at": "2026-10-01T12:20:36.449870Z",
+  "updated_at": "2026-10-01T19:33:15.413343Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-01T12%3A20%3A36.449870Z&net__lte=2026-10-15T12%3A20%3A36.449870Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-01T19%3A33%3A15.413343Z&net__lte=2026-10-15T19%3A33%3A15.413343Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-01T12:20:36.449870Z",
-  "window_end": "2026-10-15T12:20:36.449870Z",
-  "count": 6,
+  "window_start": "2026-10-01T19:33:15.413343Z",
+  "window_end": "2026-10-15T19:33:15.413343Z",
+  "count": 5,
   "launches": [
-    {
-      "id": "18441371-8b2e-457c-afb5-1ec1b11ab630",
-      "name": "Falcon 9 Block 5 | Crew-13",
-      "net": "2026-10-01T15:10:06Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Crew-13",
-      "mission_type": "Human Exploration",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/18441371-8b2e-457c-afb5-1ec1b11ab630/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20220301072106.jpeg"
-    },
-    {
-      "id": "67213393-7983-4c06-8b44-b8c785a5ed79",
-      "name": "Falcon 9 Block 5 | Transporter 18 (Dedicated SSO Rideshare)",
-      "net": "2026-10-01T18:18:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Transporter 18 (Dedicated SSO Rideshare)",
-      "mission_type": "Dedicated Rideshare",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/67213393-7983-4c06-8b44-b8c785a5ed79/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
-    },
     {
       "id": "4651fd8a-43de-4166-bf8f-c168b3bd1d2c",
       "name": "Falcon Heavy | NROL-97",
@@ -55,7 +25,7 @@
     {
       "id": "da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
       "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
-      "net": "2026-10-05T08:16:00Z",
+      "net": "2026-10-05T08:17:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -96,6 +66,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/97c6f5e1-299e-4652-b72d-9618ac047076/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "bf2c3027-a314-403e-a416-2bfd5d165ad1",
+      "name": "Falcon 9 Block 5 | Dragon CRS-2 SpX-35",
+      "net": "2026-10-13T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Dragon CRS-2 SpX-35",
+      "mission_type": "Resupply",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/bf2c3027-a314-403e-a416-2bfd5d165ad1/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20210520085648.jpeg"
     }
   ]
 }
