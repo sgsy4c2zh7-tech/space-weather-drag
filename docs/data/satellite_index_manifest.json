@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-02T11:39:56Z",
+  "updated_at": "2026-10-02T18:59:14Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,32 +12,32 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18205
+      "count": 18226
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15654
+      "count": 15652
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35268
+      "count": 35287
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12524,
-    "PAYLOAD": 19614,
+    "DEBRIS": 12523,
+    "PAYLOAD": 19635,
     "ROCKET BODY": 2425,
-    "UNKNOWN": 705
+    "UNKNOWN": 704
   },
   "counts_by_orbit_class": {
     "GEO": 1871,
     "GTO": 42,
     "HEO": 109,
-    "LEO": 29124,
-    "MEO": 3492,
-    "UNKNOWN": 630
+    "LEO": 29160,
+    "MEO": 3491,
+    "UNKNOWN": 614
   },
   "counts_by_country": {
     "AB": 15,
@@ -52,7 +52,7 @@
     "BEL": 10,
     "BELA": 1,
     "BGD": 1,
-    "BGR": 8,
+    "BGR": 9,
     "BHR": 1,
     "BOL": 1,
     "BRAZ": 31,
@@ -60,7 +60,7 @@
     "CA": 80,
     "CHBZ": 11,
     "CHLE": 4,
-    "CHN": 6174,
+    "CHN": 6172,
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
@@ -68,7 +68,7 @@
     "DJI": 1,
     "ECU": 2,
     "EGYP": 12,
-    "ESA": 137,
+    "ESA": 136,
     "EST": 1,
     "EUME": 18,
     "EUTE": 62,
@@ -131,7 +131,7 @@
     "SVN": 3,
     "SWED": 14,
     "SWTZ": 7,
-    "TBD": 284,
+    "TBD": 282,
     "THAI": 12,
     "TMMC": 1,
     "TURK": 44,
@@ -140,16 +140,16 @@
     "UK": 726,
     "UKR": 6,
     "URY": 1,
-    "US": 18583,
+    "US": 18606,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 70857,
-    "metadata_only_added": 18554,
-    "decayed_metadata_skipped": 35589,
-    "with_history": 16714,
-    "without_history": 18554
+    "catalog_metadata": 70882,
+    "metadata_only_added": 18578,
+    "decayed_metadata_skipped": 35595,
+    "with_history": 16709,
+    "without_history": 18578
   }
 }
