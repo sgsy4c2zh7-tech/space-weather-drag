@@ -33669,15 +33669,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 53444,
-    "name": "DONGPO 07",
-    "country_code": "PRC",
-    "object_type": "PAY",
-    "launch_site": "TAISC",
-    "launch_date": "2022-08-10",
-    "decay_date": "2026-10-01"
-  },
-  {
     "norad_id": 53445,
     "name": "JILIN-1 GAOFEN 03D09",
     "country_code": "PRC",
@@ -130879,8 +130870,8 @@
   },
   {
     "norad_id": 68467,
-    "name": "TRANSPORTER-16 OBJECT BD",
-    "country_code": "TBD",
+    "name": "PHOBOS",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-03-30",
@@ -149721,6 +149712,15 @@
     "object_type": "PAY",
     "launch_site": "STARB",
     "launch_date": "2026-09-28",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100882,
+    "name": "CREW DRAGON 13",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2026-10-02",
     "decay_date": null
   }
 ]
