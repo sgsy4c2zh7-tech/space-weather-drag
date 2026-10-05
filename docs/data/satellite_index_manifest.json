@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-10-05T00:29:02Z",
+  "updated_at": "2026-10-05T12:51:11Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
     "geo_payload": {
       "label": "GEO Payload",
       "file": "satellite_index_geo_payload.json",
-      "count": 1409
+      "count": 1413
     },
     "payload": {
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18224
+      "count": 18220
     },
     "other": {
       "label": "Other Objects",
@@ -32,9 +32,9 @@
     "UNKNOWN": 702
   },
   "counts_by_orbit_class": {
-    "GEO": 1871,
+    "GEO": 1875,
     "GTO": 42,
-    "HEO": 109,
+    "HEO": 105,
     "LEO": 29158,
     "MEO": 3491,
     "UNKNOWN": 614
