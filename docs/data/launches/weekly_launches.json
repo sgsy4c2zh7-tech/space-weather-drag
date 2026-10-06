@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-10-05T21:34:38.659581Z",
+  "updated_at": "2026-10-06T02:03:08.343383Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-05T21%3A34%3A38.659581Z&net__lte=2026-10-19T21%3A34%3A38.659581Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-06T02%3A03%3A08.343383Z&net__lte=2026-10-20T02%3A03%3A08.343383Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-05T21:34:38.659581Z",
-  "window_end": "2026-10-19T21:34:38.659581Z",
-  "count": 5,
+  "window_start": "2026-10-06T02:03:08.343383Z",
+  "window_end": "2026-10-20T02:03:08.343383Z",
+  "count": 6,
   "launches": [
     {
       "id": "da43dc2c-00af-4cc1-8ef1-90a60b2eb9e5",
       "name": "Falcon 9 Block 5 | SDA Tranche 1 Transport Layer A",
-      "net": "2026-10-06T08:17:44Z",
+      "net": "2026-10-08T07:54:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -66,6 +66,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/bf2c3027-a314-403e-a416-2bfd5d165ad1/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20210520085648.jpeg"
+    },
+    {
+      "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
+      "name": "Falcon 9 Block 5 | USSF-xxx (\"TH-2\")",
+      "net": "2026-10-15T23:44:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-xxx (\"TH-2\")",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/df88cfbf-f504-4e11-8370-e33dd6280b5b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
       "id": "69ebbcd2-b257-4070-9ef9-21e7d1f8a883",

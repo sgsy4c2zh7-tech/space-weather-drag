@@ -1,18 +1,18 @@
 {
-  "updated_at": "2026-10-05T21:38:39Z",
+  "updated_at": "2026-10-06T02:07:14Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
     "geo_payload": {
       "label": "GEO Payload",
       "file": "satellite_index_geo_payload.json",
-      "count": 1413
+      "count": 1409
     },
     "payload": {
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18220
+      "count": 18224
     },
     "other": {
       "label": "Other Objects",
@@ -32,9 +32,9 @@
     "UNKNOWN": 702
   },
   "counts_by_orbit_class": {
-    "GEO": 1875,
+    "GEO": 1871,
     "GTO": 42,
-    "HEO": 105,
+    "HEO": 109,
     "LEO": 29157,
     "MEO": 3491,
     "UNKNOWN": 614
@@ -147,9 +147,9 @@
   },
   "source_counts": {
     "catalog_metadata": 70882,
-    "metadata_only_added": 18577,
+    "metadata_only_added": 18576,
     "decayed_metadata_skipped": 35598,
-    "with_history": 16707,
-    "without_history": 18577
+    "with_history": 16708,
+    "without_history": 18576
   }
 }
