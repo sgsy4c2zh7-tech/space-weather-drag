@@ -1,41 +1,26 @@
 {
-  "updated_at": "2026-10-12T22:09:44.503286Z",
+  "updated_at": "2026-10-13T13:08:32.281654Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-12T22%3A09%3A44.503286Z&net__lte=2026-10-26T22%3A09%3A44.503286Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-13T13%3A08%3A32.281654Z&net__lte=2026-10-27T13%3A08%3A32.281654Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-12T22:09:44.503286Z",
-  "window_end": "2026-10-26T22:09:44.503286Z",
-  "count": 5,
+  "window_start": "2026-10-13T13:08:32.281654Z",
+  "window_end": "2026-10-27T13:08:32.281654Z",
+  "count": 6,
   "launches": [
     {
-      "id": "97c6f5e1-299e-4652-b72d-9618ac047076",
-      "name": "Falcon 9 Block 5 | Starlink Group 15-25",
-      "net": "2026-10-13T00:28:11Z",
+      "id": "dfcabb3c-078b-4f5b-a47c-0161f248cee9",
+      "name": "Zhuque-2E | Unknown Payload",
+      "net": "2026-10-14T11:40:00Z",
       "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 15-25",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/97c6f5e1-299e-4652-b72d-9618ac047076/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
-      "id": "bf2c3027-a314-403e-a416-2bfd5d165ad1",
-      "name": "Falcon 9 Block 5 | Dragon CRS-2 SpX-35",
-      "net": "2026-10-13T10:33:44Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Dragon CRS-2 SpX-35",
-      "mission_type": "Resupply",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/bf2c3027-a314-403e-a416-2bfd5d165ad1/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20210520085648.jpeg"
+      "country_group": "CHN",
+      "provider": "LandSpace",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 96A",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/dfcabb3c-078b-4f5b-a47c-0161f248cee9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhunque_2e_on_t_image_20241216101643.jpg"
     },
     {
       "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
@@ -51,6 +36,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/df88cfbf-f504-4e11-8370-e33dd6280b5b/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
+    },
+    {
+      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
+      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "net": "2026-10-19T10:30:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "mission_type": "Dedicated Rideshare",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20251102082912.jpg"
     },
     {
       "id": "69ebbcd2-b257-4070-9ef9-21e7d1f8a883",
@@ -81,6 +81,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/f6af629d-39b5-4f86-bc0c-f8776444a858/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "7766f3bb-674c-4c71-b986-963bd633fcfe",
+      "name": "Electron | We're Not Hawking Around (3x HawkEye 360)",
+      "net": "2026-10-21T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "We're Not Hawking Around (3x HawkEye 360)",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/7766f3bb-674c-4c71-b986-963bd633fcfe/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     }
   ]
 }
