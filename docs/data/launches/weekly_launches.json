@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-10-14T10:40:29.135913Z",
+  "updated_at": "2026-10-15T00:24:37.715895Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-14T10%3A40%3A29.135913Z&net__lte=2026-10-28T10%3A40%3A29.135913Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-15T00%3A24%3A37.715895Z&net__lte=2026-10-29T00%3A24%3A37.715895Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-14T10:40:29.135913Z",
-  "window_end": "2026-10-28T10:40:29.135913Z",
+  "window_start": "2026-10-15T00:24:37.715895Z",
+  "window_end": "2026-10-29T00:24:37.715895Z",
   "count": 7,
   "launches": [
-    {
-      "id": "dfcabb3c-078b-4f5b-a47c-0161f248cee9",
-      "name": "Zhuque-2E | Unknown Payload",
-      "net": "2026-10-14T11:40:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "LandSpace",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Area 96A",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/dfcabb3c-078b-4f5b-a47c-0161f248cee9/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhunque_2e_on_t_image_20241216101643.jpg"
-    },
     {
       "id": "df88cfbf-f504-4e11-8370-e33dd6280b5b",
       "name": "Falcon 9 Block 5 | USSF-481",
@@ -111,6 +96,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e2886a96-5ce9-4f45-872f-4e25a00be837/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "net": "2026-10-29T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "United Launch Alliance",
+      "mission": "Amazon Leo (LV-01)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 41",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ef9850ad-1096-425b-9d27-f7bbd186e61a/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg"
     }
   ]
 }
