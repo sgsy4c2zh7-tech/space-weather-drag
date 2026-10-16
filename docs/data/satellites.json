@@ -1413,6 +1413,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 28885,
+    "name": "SYRACUSE 3A",
+    "country_code": "FR",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2005-10-13",
+    "decay_date": null
+  },
+  {
     "norad_id": 28890,
     "name": "BEIJING 1",
     "country_code": "PRC",
@@ -9920,15 +9929,6 @@
   {
     "norad_id": 43566,
     "name": "GSAT0219 (GALILEO 23)",
-    "country_code": "ESA",
-    "object_type": "PAY",
-    "launch_site": "FRGUI",
-    "launch_date": "2018-07-25",
-    "decay_date": null
-  },
-  {
-    "norad_id": 43567,
-    "name": "GSAT0220 (GALILEO 24)",
     "country_code": "ESA",
     "object_type": "PAY",
     "launch_site": "FRGUI",
@@ -149356,8 +149356,8 @@
   },
   {
     "norad_id": 100883,
-    "name": "TRANSPORTER-18 OBJECT A",
-    "country_code": "TBD",
+    "name": "W-SERIES 8",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149365,8 +149365,8 @@
   },
   {
     "norad_id": 100884,
-    "name": "TRANSPORTER-18 OBJECT B",
-    "country_code": "TBD",
+    "name": "W-SERIES 9",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149446,8 +149446,8 @@
   },
   {
     "norad_id": 100893,
-    "name": "TRANSPORTER-18 OBJECT L",
-    "country_code": "TBD",
+    "name": "BABY BIRD",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149806,8 +149806,8 @@
   },
   {
     "norad_id": 100933,
-    "name": "TRANSPORTER-18 OBJECT BC",
-    "country_code": "TBD",
+    "name": "OSSIE D",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150129,6 +150129,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 100970,
+    "name": "FLOCK 4J-1",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-10-01",
+    "decay_date": null
+  },
+  {
     "norad_id": 100973,
     "name": "GUOWANG 27 OBJECT A",
     "country_code": "PRC",
@@ -150193,7 +150202,7 @@
   },
   {
     "norad_id": 100983,
-    "name": "SDA-NG-T1TL-301",
+    "name": "SDA-NG-T1TL-401",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150202,7 +150211,7 @@
   },
   {
     "norad_id": 100984,
-    "name": "SDA-NG-T1TL-302",
+    "name": "SDA-NG-T1TL-402",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150211,7 +150220,7 @@
   },
   {
     "norad_id": 100985,
-    "name": "SDA-NG-T1TL-303",
+    "name": "SDA-NG-T1TL-403",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150220,7 +150229,7 @@
   },
   {
     "norad_id": 100986,
-    "name": "SDA-NG-T1TL-304",
+    "name": "SDA-NG-T1TL-404",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150229,7 +150238,7 @@
   },
   {
     "norad_id": 100987,
-    "name": "SDA-NG-T1TL-305",
+    "name": "SDA-NG-T1TL-405",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150238,7 +150247,7 @@
   },
   {
     "norad_id": 100988,
-    "name": "SDA-NG-T1TL-306",
+    "name": "SDA-NG-T1TL-406",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150247,7 +150256,7 @@
   },
   {
     "norad_id": 100989,
-    "name": "SDA-NG-T1TL-307",
+    "name": "SDA-NG-T1TL-407",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150256,7 +150265,7 @@
   },
   {
     "norad_id": 100990,
-    "name": "SDA-NG-T1TL-308",
+    "name": "SDA-NG-T1TL-408",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150265,7 +150274,7 @@
   },
   {
     "norad_id": 100991,
-    "name": "SDA-NG-T1TL-309",
+    "name": "SDA-NG-T1TL-409",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150274,7 +150283,7 @@
   },
   {
     "norad_id": 100992,
-    "name": "SDA-NG-T1TL-310",
+    "name": "SDA-NG-T1TL-410",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150283,7 +150292,7 @@
   },
   {
     "norad_id": 100993,
-    "name": "SDA-NG-T1TL-311",
+    "name": "SDA-NG-T1TL-411",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150292,7 +150301,7 @@
   },
   {
     "norad_id": 100994,
-    "name": "SDA-NG-T1TL-312",
+    "name": "SDA-NG-T1TL-412",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150301,7 +150310,7 @@
   },
   {
     "norad_id": 100995,
-    "name": "SDA-NG-T1TL-313",
+    "name": "SDA-NG-T1TL-413",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150310,7 +150319,7 @@
   },
   {
     "norad_id": 100996,
-    "name": "SDA-NG-T1TL-314",
+    "name": "SDA-NG-T1TL-414",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150319,7 +150328,7 @@
   },
   {
     "norad_id": 100997,
-    "name": "SDA-NG-T1TL-315",
+    "name": "SDA-NG-T1TL-415",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150328,7 +150337,7 @@
   },
   {
     "norad_id": 100998,
-    "name": "SDA-NG-T1TL-316",
+    "name": "SDA-NG-T1TL-416",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150337,7 +150346,7 @@
   },
   {
     "norad_id": 100999,
-    "name": "SDA-NG-T1TL-317",
+    "name": "SDA-NG-T1TL-417",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150346,7 +150355,7 @@
   },
   {
     "norad_id": 101000,
-    "name": "SDA-NG-T1TL-318",
+    "name": "SDA-NG-T1TL-418",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150355,7 +150364,7 @@
   },
   {
     "norad_id": 101001,
-    "name": "SDA-NG-T1TL-319",
+    "name": "SDA-NG-T1TL-419",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150364,7 +150373,7 @@
   },
   {
     "norad_id": 101002,
-    "name": "SDA-NG-T1TL-320",
+    "name": "SDA-NG-T1TL-420",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150373,7 +150382,7 @@
   },
   {
     "norad_id": 101003,
-    "name": "SDA-NG-T1TL-321",
+    "name": "SDA-NG-T1TL-421",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150720,6 +150729,42 @@
     "object_type": "PAY",
     "launch_site": "JSC",
     "launch_date": "2026-10-14",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101071,
+    "name": "FLOCK 4J-2",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-10-01",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101072,
+    "name": "FLOCK 4J-3",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-10-01",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101073,
+    "name": "FLOCK 4J-4",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-10-01",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101074,
+    "name": "FLOCK 4J-5",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFWTR",
+    "launch_date": "2026-10-01",
     "decay_date": null
   }
 ]
