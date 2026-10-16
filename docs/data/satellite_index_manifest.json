@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-16T10:25:45Z",
+  "updated_at": "2026-10-16T18:04:14Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,30 +12,30 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18318
+      "count": 18330
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15699
+      "count": 15681
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35426
+      "count": 35420
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12543,
-    "PAYLOAD": 19727,
-    "ROCKET BODY": 2428,
-    "UNKNOWN": 728
+    "DEBRIS": 12541,
+    "PAYLOAD": 19739,
+    "ROCKET BODY": 2427,
+    "UNKNOWN": 713
   },
   "counts_by_orbit_class": {
     "GEO": 1870,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 29298,
+    "LEO": 29292,
     "MEO": 3492,
     "UNKNOWN": 614
   },
@@ -64,7 +64,7 @@
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
-    "DEN": 9,
+    "DEN": 10,
     "DJI": 1,
     "ECU": 2,
     "EGYP": 12,
@@ -82,7 +82,7 @@
     "HRV": 1,
     "HUN": 4,
     "IM": 20,
-    "IND": 195,
+    "IND": 194,
     "INDO": 20,
     "IRAN": 13,
     "IRAQ": 1,
@@ -116,7 +116,7 @@
     "RASC": 2,
     "ROM": 1,
     "RP": 2,
-    "RUS": 6575,
+    "RUS": 6573,
     "RWA": 7,
     "SAFR": 3,
     "SAUD": 16,
@@ -125,31 +125,31 @@
     "SING": 21,
     "SKOR": 93,
     "SLB": 1,
-    "SPN": 57,
+    "SPN": 62,
     "STCT": 2,
     "SVK": 1,
     "SVN": 3,
     "SWED": 15,
     "SWTZ": 7,
-    "TBD": 328,
+    "TBD": 313,
     "THAI": 12,
     "TMMC": 1,
     "TURK": 44,
     "TWN": 34,
     "UAE": 24,
-    "UK": 727,
-    "UKR": 6,
+    "UK": 728,
+    "UKR": 7,
     "URY": 1,
-    "US": 18654,
+    "US": 18658,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
     "catalog_metadata": 71073,
-    "metadata_only_added": 18584,
-    "decayed_metadata_skipped": 35647,
-    "with_history": 16842,
-    "without_history": 18584
+    "metadata_only_added": 18581,
+    "decayed_metadata_skipped": 35653,
+    "with_history": 16839,
+    "without_history": 18581
   }
 }
