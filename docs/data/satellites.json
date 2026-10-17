@@ -3042,6 +3042,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 36828,
+    "name": "BEIDOU-2 IGSO-1",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "XICLF",
+    "launch_date": "2010-07-31",
+    "decay_date": null
+  },
+  {
     "norad_id": 36830,
     "name": "NILESAT 201",
     "country_code": "EGYP",
@@ -7740,6 +7749,15 @@
     "decay_date": null
   },
   {
+    "norad_id": 41861,
+    "name": "GSAT0213 (GALILEO 17)",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2016-11-17",
+    "decay_date": null
+  },
+  {
     "norad_id": 41862,
     "name": "GSAT0214 (GALILEO 18)",
     "country_code": "ESA",
@@ -9929,6 +9947,15 @@
   {
     "norad_id": 43566,
     "name": "GSAT0219 (GALILEO 23)",
+    "country_code": "ESA",
+    "object_type": "PAY",
+    "launch_site": "FRGUI",
+    "launch_date": "2018-07-25",
+    "decay_date": null
+  },
+  {
+    "norad_id": 43567,
+    "name": "GSAT0220 (GALILEO 24)",
     "country_code": "ESA",
     "object_type": "PAY",
     "launch_site": "FRGUI",
@@ -39114,15 +39141,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 54776,
-    "name": "STARLINK-5470",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2022-12-17",
-    "decay_date": null
-  },
-  {
     "norad_id": 54777,
     "name": "STARLINK-5468",
     "country_code": "US",
@@ -50915,15 +50933,6 @@
   {
     "norad_id": 57204,
     "name": "SITRO-AIS 12 (SMIRENNIY)",
-    "country_code": "CIS",
-    "object_type": "PAY",
-    "launch_site": "VOSTO",
-    "launch_date": "2023-06-27",
-    "decay_date": null
-  },
-  {
-    "norad_id": 57206,
-    "name": "2023-091AS",
     "country_code": "CIS",
     "object_type": "PAY",
     "launch_site": "VOSTO",
@@ -81497,15 +81506,6 @@
   {
     "norad_id": 62404,
     "name": "BANDWAGON-2 OBJECT AD",
-    "country_code": "TBD",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2024-12-21",
-    "decay_date": null
-  },
-  {
-    "norad_id": 62405,
-    "name": "BANDWAGON-2 OBJECT AE",
     "country_code": "TBD",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -149401,8 +149401,8 @@
   },
   {
     "norad_id": 100888,
-    "name": "TRANSPORTER-18 OBJECT F",
-    "country_code": "TBD",
+    "name": "SATELIOT_6",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149419,8 +149419,8 @@
   },
   {
     "norad_id": 100890,
-    "name": "TRANSPORTER-18 OBJECT H",
-    "country_code": "TBD",
+    "name": "TOMORROW-S13",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149428,8 +149428,8 @@
   },
   {
     "norad_id": 100891,
-    "name": "TRANSPORTER-18 OBJECT J",
-    "country_code": "TBD",
+    "name": "TOMORROW-S12",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149509,8 +149509,8 @@
   },
   {
     "norad_id": 100900,
-    "name": "TRANSPORTER-18 OBJECT T",
-    "country_code": "TBD",
+    "name": "TITANIA",
+    "country_code": "UK",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149554,8 +149554,8 @@
   },
   {
     "norad_id": 100905,
-    "name": "TRANSPORTER-18 OBJECT Y",
-    "country_code": "TBD",
+    "name": "GNOMES-10",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149743,8 +149743,8 @@
   },
   {
     "norad_id": 100926,
-    "name": "TRANSPORTER-18 OBJECT AV",
-    "country_code": "TBD",
+    "name": "SATELIOT_9",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149851,8 +149851,8 @@
   },
   {
     "norad_id": 100938,
-    "name": "TRANSPORTER-18 OBJECT BH",
-    "country_code": "TBD",
+    "name": "FLOCK 4J-17",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149905,8 +149905,8 @@
   },
   {
     "norad_id": 100944,
-    "name": "TRANSPORTER-18 OBJECT BP",
-    "country_code": "TBD",
+    "name": "SATELIOT_5",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149914,8 +149914,8 @@
   },
   {
     "norad_id": 100945,
-    "name": "TRANSPORTER-18 OBJECT BQ",
-    "country_code": "TBD",
+    "name": "SATELIOT_7",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149923,8 +149923,8 @@
   },
   {
     "norad_id": 100946,
-    "name": "TRANSPORTER-18 OBJECT BR",
-    "country_code": "TBD",
+    "name": "GOMX-5",
+    "country_code": "DEN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149941,8 +149941,8 @@
   },
   {
     "norad_id": 100948,
-    "name": "TRANSPORTER-18 OBJECT BT",
-    "country_code": "TBD",
+    "name": "FLOCK 4J-18",
+    "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149968,8 +149968,8 @@
   },
   {
     "norad_id": 100951,
-    "name": "TRANSPORTER-18 OBJECT BW",
-    "country_code": "TBD",
+    "name": "UASAT-NANO",
+    "country_code": "UKR",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -149977,8 +149977,8 @@
   },
   {
     "norad_id": 100952,
-    "name": "TRANSPORTER-18 OBJECT BX",
-    "country_code": "TBD",
+    "name": "SATELIOT_8",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150149,6 +150149,24 @@
   {
     "norad_id": 100974,
     "name": "GUOWANG 27 OBJECT B",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-09",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100975,
+    "name": "GUOWANG 27 OBJECT C",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-09",
+    "decay_date": null
+  },
+  {
+    "norad_id": 100976,
+    "name": "GUOWANG 27 OBJECT D",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
