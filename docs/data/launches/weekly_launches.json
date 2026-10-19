@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-10-18T23:42:13.858591Z",
+  "updated_at": "2026-10-19T11:14:40.382044Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-18T23%3A42%3A13.858591Z&net__lte=2026-11-01T23%3A42%3A13.858591Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-19T11%3A14%3A40.382044Z&net__lte=2026-11-02T11%3A14%3A40.382044Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-18T23:42:13.858591Z",
-  "window_end": "2026-11-01T23:42:13.858591Z",
+  "window_start": "2026-10-19T11:14:40.382044Z",
+  "window_end": "2026-11-02T11:14:40.382044Z",
   "count": 11,
   "launches": [
-    {
-      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
-      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
-      "net": "2026-10-19T10:30:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
-      "mission_type": "Dedicated Rideshare",
-      "pad": "Space Launch Complex 40",
-      "location": "Cape Canaveral SFS, FL, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20251102082912.jpg"
-    },
     {
       "id": "69ebbcd2-b257-4070-9ef9-21e7d1f8a883",
       "name": "H3-24 | Martian Moons eXploration (MMX)",
@@ -36,6 +21,21 @@
       "location_country_code": "JPN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/69ebbcd2-b257-4070-9ef9-21e7d1f8a883/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/h3-24_liftoff__image_20251028184029.jpeg"
+    },
+    {
+      "id": "3b430f81-0ff1-4d85-8a1a-cef0de326198",
+      "name": "Falcon 9 Block 5 | Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "net": "2026-10-20T10:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Bandwagon 5 (Dedicated Mid-Inclination Rideshare)",
+      "mission_type": "Dedicated Rideshare",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/3b430f81-0ff1-4d85-8a1a-cef0de326198/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20251102082912.jpg"
     },
     {
       "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
