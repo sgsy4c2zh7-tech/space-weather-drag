@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-10-20T10:35:45Z",
+  "updated_at": "2026-10-20T18:41:37Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,31 +12,31 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18325
+      "count": 18329
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15686
+      "count": 15685
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35420
+      "count": 35423
     }
   },
   "counts_by_object_type": {
-    "DEBRIS": 12540,
-    "PAYLOAD": 19734,
-    "ROCKET BODY": 2426,
-    "UNKNOWN": 720
+    "DEBRIS": 12539,
+    "PAYLOAD": 19738,
+    "ROCKET BODY": 2427,
+    "UNKNOWN": 719
   },
   "counts_by_orbit_class": {
     "GEO": 1870,
     "GTO": 42,
     "HEO": 110,
-    "LEO": 29292,
-    "MEO": 3492,
+    "LEO": 29296,
+    "MEO": 3491,
     "UNKNOWN": 614
   },
   "counts_by_country": {
@@ -60,7 +60,7 @@
     "CA": 81,
     "CHBZ": 11,
     "CHLE": 3,
-    "CHN": 6191,
+    "CHN": 6190,
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
@@ -82,7 +82,7 @@
     "HRV": 1,
     "HUN": 4,
     "IM": 20,
-    "IND": 194,
+    "IND": 195,
     "INDO": 20,
     "IRAN": 13,
     "IRAQ": 1,
@@ -90,7 +90,7 @@
     "IT": 96,
     "ITSO": 141,
     "JOR": 1,
-    "JPN": 334,
+    "JPN": 336,
     "KAZ": 6,
     "KWT": 1,
     "LAOS": 1,
@@ -140,16 +140,16 @@
     "UK": 728,
     "UKR": 7,
     "URY": 1,
-    "US": 18650,
+    "US": 18651,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 71088,
-    "metadata_only_added": 18591,
-    "decayed_metadata_skipped": 35668,
-    "with_history": 16829,
-    "without_history": 18591
+    "catalog_metadata": 71092,
+    "metadata_only_added": 18577,
+    "decayed_metadata_skipped": 35669,
+    "with_history": 16846,
+    "without_history": 18577
   }
 }

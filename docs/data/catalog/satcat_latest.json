@@ -862148,11 +862148,11 @@
     "OBJECT_ID": "2020-019T",
     "NORAD_CAT_ID": "45377",
     "OBJECT_TYPE": "PAY",
-    "OPS_STATUS_CODE": "P",
+    "OPS_STATUS_CODE": "D",
     "OWNER": "US",
     "LAUNCH_DATE": "2020-03-18",
     "LAUNCH_SITE": "AFETR",
-    "DECAY_DATE": "",
+    "DECAY_DATE": "2026-10-20",
     "PERIOD": "88.04",
     "INCLINATION": "53.02",
     "APOGEE": "183",
@@ -862160,7 +862160,7 @@
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
-    "ORBIT_TYPE": "ORB"
+    "ORBIT_TYPE": "IMP"
   },
   {
     "OBJECT_NAME": "STARLINK-1310",
@@ -882725,11 +882725,11 @@
     "OBJECT_ID": "2020-065G",
     "NORAD_CAT_ID": "46460",
     "OBJECT_TYPE": "PAY",
-    "OPS_STATUS_CODE": "+",
+    "OPS_STATUS_CODE": "D",
     "OWNER": "PRC",
     "LAUNCH_DATE": "2020-09-15",
     "LAUNCH_SITE": "SEAL",
-    "DECAY_DATE": "",
+    "DECAY_DATE": "2026-10-19",
     "PERIOD": "88.11",
     "INCLINATION": "97.17",
     "APOGEE": "185",
@@ -882737,7 +882737,7 @@
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
-    "ORBIT_TYPE": "ORB"
+    "ORBIT_TYPE": "IMP"
   },
   {
     "OBJECT_NAME": "JILIN-1 GAOFEN 3I",
@@ -1015497,11 +1015497,11 @@
     "OBJECT_ID": "2022-098E",
     "NORAD_CAT_ID": "53448",
     "OBJECT_TYPE": "PAY",
-    "OPS_STATUS_CODE": "+",
+    "OPS_STATUS_CODE": "D",
     "OWNER": "PRC",
     "LAUNCH_DATE": "2022-08-10",
     "LAUNCH_SITE": "TAISC",
-    "DECAY_DATE": "",
+    "DECAY_DATE": "2026-10-19",
     "PERIOD": "88.16",
     "INCLINATION": "97.55",
     "APOGEE": "188",
@@ -1015509,7 +1015509,7 @@
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
-    "ORBIT_TYPE": "ORB"
+    "ORBIT_TYPE": "IMP"
   },
   {
     "OBJECT_NAME": "DONGPO 05",
@@ -1348126,7 +1348126,7 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "OBJECT B",
+    "OBJECT_NAME": "CPSAT",
     "OBJECT_ID": "2026-229B",
     "NORAD_CAT_ID": "100956",
     "OBJECT_TYPE": "PAY",
@@ -1348145,7 +1348145,7 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "OBJECT C",
+    "OBJECT_NAME": "GBSAT",
     "OBJECT_ID": "2026-229C",
     "NORAD_CAT_ID": "100957",
     "OBJECT_TYPE": "PAY",
@@ -1350666,6 +1350666,44 @@
     "INCLINATION": "97.44",
     "APOGEE": "516",
     "PERIGEE": "509",
+    "RCS": "",
+    "DATA_STATUS_CODE": "",
+    "ORBIT_CENTER": "EA",
+    "ORBIT_TYPE": "ORB"
+  },
+  {
+    "OBJECT_NAME": "TRANSPORTER-18 OBJECT OBJECT CV",
+    "OBJECT_ID": "2026-227CV",
+    "NORAD_CAT_ID": "101107",
+    "OBJECT_TYPE": "PAY",
+    "OPS_STATUS_CODE": "+",
+    "OWNER": "TBD",
+    "LAUNCH_DATE": "2026-10-01",
+    "LAUNCH_SITE": "AFWTR",
+    "DECAY_DATE": "",
+    "PERIOD": "94.95",
+    "INCLINATION": "97.44",
+    "APOGEE": "520",
+    "PERIGEE": "513",
+    "RCS": "",
+    "DATA_STATUS_CODE": "",
+    "ORBIT_CENTER": "EA",
+    "ORBIT_TYPE": "ORB"
+  },
+  {
+    "OBJECT_NAME": "TRANSPORTER-18 OBJECT OBJECT CW",
+    "OBJECT_ID": "2026-227CW",
+    "NORAD_CAT_ID": "101108",
+    "OBJECT_TYPE": "PAY",
+    "OPS_STATUS_CODE": "+",
+    "OWNER": "TBD",
+    "LAUNCH_DATE": "2026-10-01",
+    "LAUNCH_SITE": "AFWTR",
+    "DECAY_DATE": "",
+    "PERIOD": "94.95",
+    "INCLINATION": "97.44",
+    "APOGEE": "516",
+    "PERIGEE": "516",
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
