@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-10-22T10:41:28.661804Z",
+  "updated_at": "2026-10-22T18:24:40.539426Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-22T10%3A41%3A28.661804Z&net__lte=2026-11-05T10%3A41%3A28.661804Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-22T18%3A24%3A40.539426Z&net__lte=2026-11-05T18%3A24%3A40.539426Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-22T10:41:28.661804Z",
-  "window_end": "2026-11-05T10:41:28.661804Z",
-  "count": 10,
+  "window_start": "2026-10-22T18:24:40.539426Z",
+  "window_end": "2026-11-05T18:24:40.539426Z",
+  "count": 11,
   "launches": [
     {
       "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
       "name": "Falcon 9 Block 5 | Starlink Group 15-15",
-      "net": "2026-10-22T22:40:24Z",
+      "net": "2026-10-22T22:51:18Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -156,6 +156,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/426bd2a5-02dd-4fbd-9f4d-2b8439c3a1ff/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "3cdb9dee-b5cb-406c-bbd1-06a219930fb7",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-21",
+      "net": "2026-11-05T05:14:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 15-21",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/3cdb9dee-b5cb-406c-bbd1-06a219930fb7/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     }
   ]
 }
