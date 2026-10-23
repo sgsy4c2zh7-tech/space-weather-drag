@@ -2844,15 +2844,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 36402,
-    "name": "COSMOS 2460 [GLONASS-M]",
-    "country_code": "CIS",
-    "object_type": "PAY",
-    "launch_site": "TYMSC",
-    "launch_date": "2010-03-01",
-    "decay_date": null
-  },
-  {
     "norad_id": 36411,
     "name": "EWS-G2 (GOES 15)",
     "country_code": "US",
@@ -11682,15 +11673,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 44542,
-    "name": "BEIDOU-3 M24",
-    "country_code": "PRC",
-    "object_type": "PAY",
-    "launch_site": "XICLF",
-    "launch_date": "2019-09-22",
-    "decay_date": null
-  },
-  {
     "norad_id": 44543,
     "name": "BEIDOU-3 M23",
     "country_code": "PRC",
@@ -13079,15 +13061,6 @@
   {
     "norad_id": 45390,
     "name": "STARLINK-1284",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-03-18",
-    "decay_date": null
-  },
-  {
-    "norad_id": 45395,
-    "name": "STARLINK-1297",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -15939,15 +15912,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 47627,
-    "name": "STARLINK-1972",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2021-02-16",
-    "decay_date": null
-  },
-  {
     "norad_id": 47628,
     "name": "STARLINK-1973",
     "country_code": "US",
@@ -16076,15 +16040,6 @@
   {
     "norad_id": 47723,
     "name": "STARLINK-2107",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2021-03-04",
-    "decay_date": null
-  },
-  {
-    "norad_id": 47728,
-    "name": "STARLINK-2131",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -25148,6 +25103,15 @@
   {
     "norad_id": 51280,
     "name": "USA 324",
+    "country_code": "US",
+    "object_type": "PAY",
+    "launch_site": "AFETR",
+    "launch_date": "2022-01-21",
+    "decay_date": null
+  },
+  {
+    "norad_id": 51281,
+    "name": "USA 325",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -36119,15 +36083,6 @@
   {
     "norad_id": 53890,
     "name": "STARLINK-5050",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2022-09-24",
-    "decay_date": null
-  },
-  {
-    "norad_id": 53891,
-    "name": "STARLINK-5041",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -58349,15 +58304,6 @@
   {
     "norad_id": 58411,
     "name": "STARLINK-30919",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2023-11-22",
-    "decay_date": null
-  },
-  {
-    "norad_id": 58412,
-    "name": "STARLINK-30924",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -115471,7 +115417,7 @@
   },
   {
     "norad_id": 66692,
-    "name": "NUSAT-52",
+    "name": "NUSAT-52 (MELINA FURMAN)",
     "country_code": "ARGN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -115903,7 +115849,7 @@
   },
   {
     "norad_id": 66743,
-    "name": "NUSAT-47",
+    "name": "NUSAT-47 (BEA. TINSLEY)",
     "country_code": "ARGN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -149032,7 +148978,7 @@
   },
   {
     "norad_id": 100824,
-    "name": "YAOGAN-40 O4B",
+    "name": "YAOGAN-40 04B",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "TAISC",
@@ -149041,7 +148987,7 @@
   },
   {
     "norad_id": 100825,
-    "name": "YAOGAN-40 O4C",
+    "name": "YAOGAN-40 04C",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "TAISC",
@@ -149968,7 +149914,7 @@
   },
   {
     "norad_id": 100958,
-    "name": "2026-229D",
+    "name": "E3TESTER-2",
     "country_code": "SKOR",
     "object_type": "PAY",
     "launch_site": "NSC",
@@ -150076,7 +150022,7 @@
   },
   {
     "norad_id": 100970,
-    "name": "FLOCK 4J-1",
+    "name": "FLOCK 4J-7",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150085,7 +150031,7 @@
   },
   {
     "norad_id": 100973,
-    "name": "GUOWANG 27 OBJECT A",
+    "name": "HULIANWANG DIGUI-214",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150094,7 +150040,7 @@
   },
   {
     "norad_id": 100974,
-    "name": "GUOWANG 27 OBJECT B",
+    "name": "HULIANWANG DIGUI-215",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150103,7 +150049,7 @@
   },
   {
     "norad_id": 100975,
-    "name": "GUOWANG 27 OBJECT C",
+    "name": "HULIANWANG DIGUI-216",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150112,7 +150058,7 @@
   },
   {
     "norad_id": 100976,
-    "name": "GUOWANG 27 OBJECT D",
+    "name": "HULIANWANG DIGUI-217",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150121,7 +150067,7 @@
   },
   {
     "norad_id": 100977,
-    "name": "GUOWANG 27 OBJECT E",
+    "name": "HULIANWANG DIGUI-218",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150130,7 +150076,7 @@
   },
   {
     "norad_id": 100978,
-    "name": "GUOWANG 27 OBJECT F",
+    "name": "HULIANWANG DIGUI-219",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150139,7 +150085,7 @@
   },
   {
     "norad_id": 100979,
-    "name": "GUOWANG 27 OBJECT G",
+    "name": "HULIANWANG DIGUI-220",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150148,7 +150094,7 @@
   },
   {
     "norad_id": 100980,
-    "name": "GUOWANG 27 OBJECT H",
+    "name": "HULIANWANG DIGUI-221",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150157,7 +150103,7 @@
   },
   {
     "norad_id": 100981,
-    "name": "GUOWANG 27 OBJECT J",
+    "name": "HULIANWANG DIGUI-222",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "WSC",
@@ -150697,7 +150643,7 @@
   },
   {
     "norad_id": 101071,
-    "name": "FLOCK 4J-2",
+    "name": "FLOCK 4J-1",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150706,7 +150652,7 @@
   },
   {
     "norad_id": 101072,
-    "name": "FLOCK 4J-3",
+    "name": "FLOCK 4J-2",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150715,7 +150661,7 @@
   },
   {
     "norad_id": 101073,
-    "name": "FLOCK 4J-4",
+    "name": "FLOCK 4J-3",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150724,7 +150670,7 @@
   },
   {
     "norad_id": 101074,
-    "name": "FLOCK 4J-5",
+    "name": "FLOCK 4J-4",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150742,8 +150688,8 @@
   },
   {
     "norad_id": 101093,
-    "name": "TRANSPORTER-18 OBJECT CF",
-    "country_code": "TBD",
+    "name": "NIS-PQ",
+    "country_code": "KAZ",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150787,8 +150733,8 @@
   },
   {
     "norad_id": 101098,
-    "name": "TRANSPORTER-18 OBJECT CL",
-    "country_code": "TBD",
+    "name": "ERMINAZ-2U",
+    "country_code": "GER",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150814,8 +150760,8 @@
   },
   {
     "norad_id": 101101,
-    "name": "TRANSPORTER-18 OBJECT CP",
-    "country_code": "TBD",
+    "name": "UNNE-1B (HADES-E2)",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150823,8 +150769,8 @@
   },
   {
     "norad_id": 101102,
-    "name": "TRANSPORTER-18 OBJECT CQ",
-    "country_code": "TBD",
+    "name": "HADES-L",
+    "country_code": "SPN",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150841,7 +150787,7 @@
   },
   {
     "norad_id": 101104,
-    "name": "FLOCK 4J-6",
+    "name": "FLOCK 4J-5",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150850,7 +150796,7 @@
   },
   {
     "norad_id": 101105,
-    "name": "FLOCK 4J-7",
+    "name": "FLOCK 4J-6",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -150868,8 +150814,8 @@
   },
   {
     "norad_id": 101107,
-    "name": "TRANSPORTER-18 OBJECT OBJECT CV",
-    "country_code": "TBD",
+    "name": "MOI-1A",
+    "country_code": "IND",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
@@ -150877,11 +150823,20 @@
   },
   {
     "norad_id": 101108,
-    "name": "TRANSPORTER-18 OBJECT OBJECT CW",
-    "country_code": "TBD",
+    "name": "OSIRIS-E",
+    "country_code": "GER",
     "object_type": "PAY",
     "launch_site": "AFWTR",
     "launch_date": "2026-10-01",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101142,
+    "name": "XIGUANG-4 01",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "YSLA",
+    "launch_date": "2026-10-21",
     "decay_date": null
   }
 ]
