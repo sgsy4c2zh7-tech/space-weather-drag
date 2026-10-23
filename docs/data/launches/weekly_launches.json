@@ -1,32 +1,17 @@
 {
-  "updated_at": "2026-10-22T18:24:40.539426Z",
+  "updated_at": "2026-10-23T00:20:01.499525Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-22T18%3A24%3A40.539426Z&net__lte=2026-11-05T18%3A24%3A40.539426Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-23T00%3A20%3A01.499525Z&net__lte=2026-11-06T00%3A20%3A01.499525Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-22T18:24:40.539426Z",
-  "window_end": "2026-11-05T18:24:40.539426Z",
-  "count": 11,
+  "window_start": "2026-10-23T00:20:01.499525Z",
+  "window_end": "2026-11-06T00:20:01.499525Z",
+  "count": 12,
   "launches": [
-    {
-      "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
-      "name": "Falcon 9 Block 5 | Starlink Group 15-15",
-      "net": "2026-10-22T22:51:18Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Starlink Group 15-15",
-      "mission_type": "Communications",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/f6af629d-39b5-4f86-bc0c-f8776444a858/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
     {
       "id": "7766f3bb-674c-4c71-b986-963bd633fcfe",
       "name": "Electron | We're Not Hawking Around (3x HawkEye 360)",
       "net": "2026-10-23T07:00:00Z",
-      "status": "To Be Confirmed",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "Rocket Lab",
       "mission": "We're Not Hawking Around (3x HawkEye 360)",
@@ -66,6 +51,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/3621085f-deae-4f89-bd54-c0f96ee44421/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_4b_l_image_20251209044050.jpeg"
+    },
+    {
+      "id": "f6af629d-39b5-4f86-bc0c-f8776444a858",
+      "name": "Falcon 9 Block 5 | Starlink Group 15-15",
+      "net": "2026-10-23T21:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 15-15",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/f6af629d-39b5-4f86-bc0c-f8776444a858/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
     },
     {
       "id": "6b95bcc8-1f88-4539-84fe-f63630138766",
@@ -171,6 +171,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/3cdb9dee-b5cb-406c-bbd1-06a219930fb7/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
+    },
+    {
+      "id": "56ca6058-7ccc-4ec0-b1b0-fb49f3bfee49",
+      "name": "Falcon 9 Block 5 | NROL-195",
+      "net": "2026-11-05T22:34:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-195",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/56ca6058-7ccc-4ec0-b1b0-fb49f3bfee49/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     }
   ]
 }
