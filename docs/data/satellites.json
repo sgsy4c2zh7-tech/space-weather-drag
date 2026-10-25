@@ -15894,15 +15894,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 47625,
-    "name": "STARLINK-1704",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2021-02-16",
-    "decay_date": null
-  },
-  {
     "norad_id": 47628,
     "name": "STARLINK-1973",
     "country_code": "US",
@@ -30872,15 +30863,6 @@
   {
     "norad_id": 52907,
     "name": "YAOGAN-35 02A",
-    "country_code": "PRC",
-    "object_type": "PAY",
-    "launch_site": "XICLF",
-    "launch_date": "2022-06-23",
-    "decay_date": null
-  },
-  {
-    "norad_id": 52908,
-    "name": "YAOGAN-35 02B",
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "XICLF",
@@ -151093,7 +151075,7 @@
   },
   {
     "norad_id": 101144,
-    "name": "HAWKEYE 360 CLUSTER 16 OBJECT A",
+    "name": "HAWK-16A",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "RLLB",
@@ -151102,7 +151084,7 @@
   },
   {
     "norad_id": 101145,
-    "name": "HAWKEYE 360 CLUSTER 16 OBJECT B",
+    "name": "HAWK-16B",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "RLLB",
@@ -151111,7 +151093,7 @@
   },
   {
     "norad_id": 101146,
-    "name": "HAWKEYE 360 CLUSTER 16 OBJECT C",
+    "name": "HAWK-16C",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "RLLB",
@@ -151124,6 +151106,24 @@
     "country_code": "PRC",
     "object_type": "PAY",
     "launch_site": "TAISC",
+    "launch_date": "2026-10-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101151,
+    "name": "2026-241A",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
+    "launch_date": "2026-10-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101157,
+    "name": "2026-241G",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "JSC",
     "launch_date": "2026-10-23",
     "decay_date": null
   }
