@@ -13734,15 +13734,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 45671,
-    "name": "STARLINK-1454",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-06-04",
-    "decay_date": null
-  },
-  {
     "norad_id": 45673,
     "name": "STARLINK-1456",
     "country_code": "US",
@@ -14348,15 +14339,6 @@
   {
     "norad_id": 46064,
     "name": "STARLINK-1583",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2020-08-07",
-    "decay_date": null
-  },
-  {
-    "norad_id": 46066,
-    "name": "STARLINK-1525",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFETR",
@@ -51291,15 +51273,6 @@
     "decay_date": null
   },
   {
-    "norad_id": 57300,
-    "name": "STARLINK-30236",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFETR",
-    "launch_date": "2023-07-10",
-    "decay_date": null
-  },
-  {
     "norad_id": 57301,
     "name": "STARLINK-30201",
     "country_code": "US",
@@ -51977,15 +51950,6 @@
   {
     "norad_id": 57415,
     "name": "STARLINK-30208",
-    "country_code": "US",
-    "object_type": "PAY",
-    "launch_site": "AFWTR",
-    "launch_date": "2023-07-20",
-    "decay_date": null
-  },
-  {
-    "norad_id": 57416,
-    "name": "STARLINK-30224",
     "country_code": "US",
     "object_type": "PAY",
     "launch_site": "AFWTR",
@@ -151125,6 +151089,42 @@
     "object_type": "PAY",
     "launch_site": "JSC",
     "launch_date": "2026-10-23",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101188,
+    "name": "GUOWANG 28 OBJECT D",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-25",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101189,
+    "name": "GUOWANG 28 OBJECT E",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-25",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101191,
+    "name": "GUOWANG 28 OBJECT G",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-25",
+    "decay_date": null
+  },
+  {
+    "norad_id": 101193,
+    "name": "GUOWANG 28 OBJECT J",
+    "country_code": "PRC",
+    "object_type": "PAY",
+    "launch_site": "WSC",
+    "launch_date": "2026-10-25",
     "decay_date": null
   }
 ]
