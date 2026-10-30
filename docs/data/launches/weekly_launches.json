@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-10-29T19:22:50.498224Z",
+  "updated_at": "2026-10-30T01:32:13.574432Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-29T19%3A22%3A50.498224Z&net__lte=2026-11-12T19%3A22%3A50.498224Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-10-30T01%3A32%3A13.574432Z&net__lte=2026-11-13T01%3A32%3A13.574432Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-10-29T19:22:50.498224Z",
-  "window_end": "2026-11-12T19:22:50.498224Z",
-  "count": 9,
+  "window_start": "2026-10-30T01:32:13.574432Z",
+  "window_end": "2026-11-13T01:32:13.574432Z",
+  "count": 10,
   "launches": [
     {
       "id": "57ce0a39-d035-4f16-a418-bd6108f78199",
@@ -141,6 +141,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/6aa7b90b-e5ed-45d8-a52e-04fbf399d178/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
+    },
+    {
+      "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
+      "name": "Vulcan VC6L | Amazon Leo (LV-01)",
+      "net": "2026-11-13T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "United Launch Alliance",
+      "mission": "Amazon Leo (LV-01)",
+      "mission_type": "Communications",
+      "pad": "Space Launch Complex 41",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/ef9850ad-1096-425b-9d27-f7bbd186e61a/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg"
     }
   ]
 }

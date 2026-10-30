@@ -1088723,11 +1088723,11 @@
     "OBJECT_ID": "2023-096N",
     "NORAD_CAT_ID": "57302",
     "OBJECT_TYPE": "PAY",
-    "OPS_STATUS_CODE": "P",
+    "OPS_STATUS_CODE": "D",
     "OWNER": "US",
     "LAUNCH_DATE": "2023-07-10",
     "LAUNCH_SITE": "AFETR",
-    "DECAY_DATE": "",
+    "DECAY_DATE": "2026-10-29",
     "PERIOD": "89.51",
     "INCLINATION": "43.00",
     "APOGEE": "250",
@@ -1088735,7 +1088735,7 @@
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
-    "ORBIT_TYPE": "ORB"
+    "ORBIT_TYPE": "IMP"
   },
   {
     "OBJECT_NAME": "STARLINK-30232",
@@ -1159712,10 +1159712,10 @@
     "LAUNCH_DATE": "2024-09-06",
     "LAUNCH_SITE": "AFWTR",
     "DECAY_DATE": "",
-    "PERIOD": "94.84",
+    "PERIOD": "94.32",
     "INCLINATION": "70.00",
-    "APOGEE": "516",
-    "PERIGEE": "505",
+    "APOGEE": "487",
+    "PERIGEE": "484",
     "RCS": "",
     "DATA_STATUS_CODE": "NEA",
     "ORBIT_CENTER": "EA",
@@ -1190069,11 +1190069,11 @@
     "OBJECT_ID": "2025-009AD",
     "NORAD_CAT_ID": "62636",
     "OBJECT_TYPE": "PAY",
-    "OPS_STATUS_CODE": "-",
+    "OPS_STATUS_CODE": "D",
     "OWNER": "US",
     "LAUNCH_DATE": "2025-01-14",
     "LAUNCH_SITE": "AFWTR",
-    "DECAY_DATE": "",
+    "DECAY_DATE": "2026-10-28",
     "PERIOD": "88.39",
     "INCLINATION": "97.35",
     "APOGEE": "203",
@@ -1190081,7 +1190081,7 @@
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
-    "ORBIT_TYPE": "ORB"
+    "ORBIT_TYPE": "IMP"
   },
   {
     "OBJECT_NAME": "FLOCK 4G-24",
@@ -1351185,12 +1351185,12 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "BANDWAGON-5 OBJECT G",
+    "OBJECT_NAME": "FRG-100D4",
     "OBJECT_ID": "2026-237G",
     "NORAD_CAT_ID": "101117",
     "OBJECT_TYPE": "PAY",
     "OPS_STATUS_CODE": "+",
-    "OWNER": "TBD",
+    "OWNER": "TURK",
     "LAUNCH_DATE": "2026-10-19",
     "LAUNCH_SITE": "AFETR",
     "DECAY_DATE": "",
@@ -1351565,12 +1351565,12 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "BANDWAGON-5 OBJECT AC",
+    "OBJECT_NAME": "PTS-1",
     "OBJECT_ID": "2026-237AC",
     "NORAD_CAT_ID": "101137",
     "OBJECT_TYPE": "PAY",
     "OPS_STATUS_CODE": "+",
-    "OWNER": "TBD",
+    "OWNER": "US",
     "LAUNCH_DATE": "2026-10-19",
     "LAUNCH_SITE": "AFETR",
     "DECAY_DATE": "",
@@ -1351584,12 +1351584,12 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "BANDWAGON-5 OBJECT AD",
+    "OBJECT_NAME": "W-SERIES 7",
     "OBJECT_ID": "2026-237AD",
     "NORAD_CAT_ID": "101138",
     "OBJECT_TYPE": "PAY",
     "OPS_STATUS_CODE": "+",
-    "OWNER": "TBD",
+    "OWNER": "US",
     "LAUNCH_DATE": "2026-10-19",
     "LAUNCH_SITE": "AFETR",
     "DECAY_DATE": "",
@@ -1351698,7 +1351698,7 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "HAWK-16A",
+    "OBJECT_NAME": "HAWK-16C",
     "OBJECT_ID": "2026-239A",
     "NORAD_CAT_ID": "101144",
     "OBJECT_TYPE": "PAY",
@@ -1351736,7 +1351736,7 @@
     "ORBIT_TYPE": "ORB"
   },
   {
-    "OBJECT_NAME": "HAWK-16C",
+    "OBJECT_NAME": "HAWK-16A",
     "OBJECT_ID": "2026-239C",
     "NORAD_CAT_ID": "101146",
     "OBJECT_TYPE": "PAY",
@@ -1352756,6 +1352756,25 @@
     "INCLINATION": "84.98",
     "APOGEE": "795",
     "PERIGEE": "772",
+    "RCS": "",
+    "DATA_STATUS_CODE": "",
+    "ORBIT_CENTER": "EA",
+    "ORBIT_TYPE": "ORB"
+  },
+  {
+    "OBJECT_NAME": "TRANSPORTER-18 OBJECT CZ",
+    "OBJECT_ID": "2026-227CZ",
+    "NORAD_CAT_ID": "101227",
+    "OBJECT_TYPE": "PAY",
+    "OPS_STATUS_CODE": "+",
+    "OWNER": "TBD",
+    "LAUNCH_DATE": "2026-10-01",
+    "LAUNCH_SITE": "AFWTR",
+    "DECAY_DATE": "",
+    "PERIOD": "94.91",
+    "INCLINATION": "97.44",
+    "APOGEE": "517",
+    "PERIGEE": "511",
     "RCS": "",
     "DATA_STATUS_CODE": "",
     "ORBIT_CENTER": "EA",
