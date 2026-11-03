@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-03T03:18:58.048707Z",
+  "updated_at": "2026-11-03T13:13:01.031171Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-03T03%3A18%3A58.048707Z&net__lte=2026-11-17T03%3A18%3A58.048707Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-03T13%3A13%3A01.031171Z&net__lte=2026-11-17T13%3A13%3A01.031171Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-03T03:18:58.048707Z",
-  "window_end": "2026-11-17T03:18:58.048707Z",
+  "window_start": "2026-11-03T13:13:01.031171Z",
+  "window_end": "2026-11-17T13:13:01.031171Z",
   "count": 7,
   "launches": [
     {
@@ -21,21 +21,6 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/711de6bc-f755-475b-a12f-ec5240da3a11/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_2_image_20230803100234.jpeg"
-    },
-    {
-      "id": "a2423132-f965-423f-8b03-6891b775dc54",
-      "name": "Long March 12 | SatNet LEO Group TBD?",
-      "net": "2026-11-05T21:15:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "SatNet LEO Group TBD?",
-      "mission_type": "Communications",
-      "pad": "Commercial LC-2",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/a2423132-f965-423f-8b03-6891b775dc54/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
     },
     {
       "id": "e91d1da2-819b-4523-95bf-39ac7daa871d",
@@ -68,9 +53,24 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
+      "id": "a2423132-f965-423f-8b03-6891b775dc54",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "net": "2026-11-08T20:25:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "SatNet LEO Group TBD?",
+      "mission_type": "Communications",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a2423132-f965-423f-8b03-6891b775dc54/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
       "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
       "name": "Falcon 9 Block 5 | USSF-xxx (\"R-5\")",
-      "net": "2026-11-09T03:17:00Z",
+      "net": "2026-11-10T03:03:00Z",
       "status": "To Be Confirmed",
       "country_group": "US",
       "provider": "SpaceX",
