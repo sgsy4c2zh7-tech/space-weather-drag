@@ -1,23 +1,23 @@
 {
-  "updated_at": "2026-11-04T13:31:42Z",
+  "updated_at": "2026-11-04T20:46:57Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
     "geo_payload": {
       "label": "GEO Payload",
       "file": "satellite_index_geo_payload.json",
-      "count": 1411
+      "count": 1412
     },
     "payload": {
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18423
+      "count": 18451
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15708
+      "count": 15679
     },
     "all": {
       "label": "ALL",
@@ -27,10 +27,9 @@
   },
   "counts_by_object_type": {
     "DEBRIS": 12536,
-    "PAY": 27,
-    "PAYLOAD": 20521,
+    "PAYLOAD": 20569,
     "ROCKET BODY": 2432,
-    "UNKNOWN": 26
+    "UNKNOWN": 5
   },
   "counts_by_orbit_class": {
     "GEO": 1873,
