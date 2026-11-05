@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-05T01:45:34.465667Z",
+  "updated_at": "2026-11-05T13:45:30.539716Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-05T01%3A45%3A34.465667Z&net__lte=2026-11-19T01%3A45%3A34.465667Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-05T13%3A45%3A30.539716Z&net__lte=2026-11-19T13%3A45%3A30.539716Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-05T01:45:34.465667Z",
-  "window_end": "2026-11-19T01:45:34.465667Z",
-  "count": 8,
+  "window_start": "2026-11-05T13:45:30.539716Z",
+  "window_end": "2026-11-19T13:45:30.539716Z",
+  "count": 9,
   "launches": [
     {
       "id": "711de6bc-f755-475b-a12f-ec5240da3a11",
@@ -81,6 +81,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/6aa7b90b-e5ed-45d8-a52e-04fbf399d178/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
+    },
+    {
+      "id": "d66590ab-b273-47ff-b85a-608b62851b4b",
+      "name": "Long March 2D | Unknown Payload",
+      "net": "2026-11-11T11:40:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Area 94 (SLS-2 / 603)",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/d66590ab-b273-47ff-b85a-608b62851b4b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
     },
     {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
