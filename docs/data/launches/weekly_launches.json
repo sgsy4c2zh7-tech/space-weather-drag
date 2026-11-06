@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-05T20:58:17.836251Z",
+  "updated_at": "2026-11-06T01:54:14.975246Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-05T20%3A58%3A17.836251Z&net__lte=2026-11-19T20%3A58%3A17.836251Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-06T01%3A54%3A14.975246Z&net__lte=2026-11-20T01%3A54%3A14.975246Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-05T20:58:17.836251Z",
-  "window_end": "2026-11-19T20:58:17.836251Z",
-  "count": 8,
+  "window_start": "2026-11-06T01:54:14.975246Z",
+  "window_end": "2026-11-20T01:54:14.975246Z",
+  "count": 9,
   "launches": [
     {
       "id": "e91d1da2-819b-4523-95bf-39ac7daa871d",
@@ -81,6 +81,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d66590ab-b273-47ff-b85a-608b62851b4b/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
+    },
+    {
+      "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
+      "name": "Starship | Flight 15",
+      "net": "2026-11-13T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Flight 15",
+      "mission_type": "Test Flight",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
     },
     {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
