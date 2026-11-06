@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-06T01:54:14.975246Z",
+  "updated_at": "2026-11-06T13:25:23.570441Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-06T01%3A54%3A14.975246Z&net__lte=2026-11-20T01%3A54%3A14.975246Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-06T13%3A25%3A23.570441Z&net__lte=2026-11-20T13%3A25%3A23.570441Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-06T01:54:14.975246Z",
-  "window_end": "2026-11-20T01:54:14.975246Z",
-  "count": 9,
+  "window_start": "2026-11-06T13:25:23.570441Z",
+  "window_end": "2026-11-20T13:25:23.570441Z",
+  "count": 10,
   "launches": [
     {
       "id": "e91d1da2-819b-4523-95bf-39ac7daa871d",
@@ -25,7 +25,7 @@
     {
       "id": "54d471e8-695c-4fa7-a3cf-dbd8b389e8ae",
       "name": "Falcon 9 Block 5 | USSF-432",
-      "net": "2026-11-07T00:46:00Z",
+      "net": "2026-11-07T00:48:42Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -130,8 +130,8 @@
     {
       "id": "db3500ac-965b-4ad8-b417-cb8d8d005586",
       "name": "Electron | The Mountain God Rises (iQPS Launch 10)",
-      "net": "2026-11-14T00:00:00Z",
-      "status": "To Be Determined",
+      "net": "2026-11-14T05:30:00Z",
+      "status": "Go for Launch",
       "country_group": "US",
       "provider": "Rocket Lab",
       "mission": "The Mountain God Rises (iQPS Launch 10)",
@@ -141,6 +141,21 @@
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/db3500ac-965b-4ad8-b417-cb8d8d005586/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
+      "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
+      "name": "Long March 8A | SatNet LEO Group TBD?",
+      "net": "2026-11-20T11:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "SatNet LEO Group TBD?",
+      "mission_type": "Communications",
+      "pad": "Commercial LC-1",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/a2975167-7c6f-4403-99e1-b40df17c8140/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
     }
   ]
 }
