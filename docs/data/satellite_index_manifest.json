@@ -1,5 +1,5 @@
 {
-  "updated_at": "2026-11-06T13:32:16Z",
+  "updated_at": "2026-11-06T20:28:41Z",
   "include_decayed_objects": false,
   "pretty_json": false,
   "datasets": {
@@ -12,30 +12,30 @@
       "label": "Non-GEO Payload",
       "file": "satellite_index_payload.json",
       "alias_file": "satellite_index_non_geo_payload.json",
-      "count": 18465
+      "count": 18474
     },
     "other": {
       "label": "Other Objects",
       "file": "satellite_index_other.json",
-      "count": 15653
+      "count": 15648
     },
     "all": {
       "label": "ALL",
       "file": "satellite_index_full.json",
-      "count": 35530
+      "count": 35534
     }
   },
   "counts_by_object_type": {
     "DEBRIS": 12534,
     "PAYLOAD": 20559,
     "ROCKET BODY": 2432,
-    "UNKNOWN": 5
+    "UNKNOWN": 9
   },
   "counts_by_orbit_class": {
     "GEO": 1873,
     "GTO": 36,
     "HEO": 110,
-    "LEO": 29404,
+    "LEO": 29408,
     "MEO": 3493,
     "UNKNOWN": 614
   },
@@ -49,7 +49,7 @@
     "ASRA": 4,
     "AUS": 43,
     "AZER": 3,
-    "BEL": 10,
+    "BEL": 14,
     "BELA": 1,
     "BGD": 1,
     "BGR": 7,
@@ -59,8 +59,8 @@
     "BWA": 1,
     "CA": 83,
     "CHBZ": 11,
-    "CHLE": 3,
-    "CHN": 6204,
+    "CHLE": 4,
+    "CHN": 6208,
     "COL": 1,
     "CZCH": 3,
     "CZE": 4,
@@ -131,7 +131,7 @@
     "SVN": 3,
     "SWED": 15,
     "SWTZ": 7,
-    "TBD": 297,
+    "TBD": 288,
     "THAI": 12,
     "TMMC": 1,
     "TURK": 45,
@@ -140,16 +140,16 @@
     "UK": 728,
     "UKR": 7,
     "URY": 1,
-    "US": 18743,
+    "US": 18747,
     "USBZ": 1,
     "VENZ": 3,
     "VTNM": 3
   },
   "source_counts": {
-    "catalog_metadata": 71262,
-    "metadata_only_added": 18591,
+    "catalog_metadata": 71266,
+    "metadata_only_added": 18594,
     "decayed_metadata_skipped": 35732,
-    "with_history": 16939,
-    "without_history": 18591
+    "with_history": 16940,
+    "without_history": 18594
   }
 }
