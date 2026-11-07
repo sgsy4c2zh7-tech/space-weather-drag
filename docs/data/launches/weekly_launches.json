@@ -1,10 +1,10 @@
 {
-  "updated_at": "2026-11-07T12:07:11.319476Z",
+  "updated_at": "2026-11-07T18:24:40.229660Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-07T12%3A07%3A11.319476Z&net__lte=2026-11-21T12%3A07%3A11.319476Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-07T18%3A24%3A40.229660Z&net__lte=2026-11-21T18%3A24%3A40.229660Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-07T12:07:11.319476Z",
-  "window_end": "2026-11-21T12:07:11.319476Z",
+  "window_start": "2026-11-07T18:24:40.229660Z",
+  "window_end": "2026-11-21T18:24:40.229660Z",
   "count": 8,
   "launches": [
     {
@@ -53,21 +53,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
     },
     {
-      "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
-      "name": "Starship | Flight 15",
-      "net": "2026-11-13T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "Flight 15",
-      "mission_type": "Test Flight",
-      "pad": "Orbital Launch Pad 2",
-      "location": "SpaceX Starbase, TX, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
-    },
-    {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
       "name": "Falcon 9 Block 5 | USSF-317",
       "net": "2026-11-13T04:23:00Z",
@@ -96,6 +81,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/ef9850ad-1096-425b-9d27-f7bbd186e61a/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/vulcan_vc6l_image_20220406123130.jpg"
+    },
+    {
+      "id": "0f867f0c-5422-4d44-93b8-d7faaae7019b",
+      "name": "Starship | Starlink Group 31-2 (Starship Flight 15)",
+      "net": "2026-11-13T22:45:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "Starlink Group 31-2 (Starship Flight 15)",
+      "mission_type": "Communications",
+      "pad": "Orbital Launch Pad 2",
+      "location": "SpaceX Starbase, TX, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/0f867f0c-5422-4d44-93b8-d7faaae7019b/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
     },
     {
       "id": "db3500ac-965b-4ad8-b417-cb8d8d005586",
