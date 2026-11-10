@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-10T03:54:26.492986Z",
+  "updated_at": "2026-11-10T13:54:57.316874Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-10T03%3A54%3A26.492986Z&net__lte=2026-11-24T03%3A54%3A26.492986Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-10T13%3A54%3A57.316874Z&net__lte=2026-11-24T13%3A54%3A57.316874Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-10T03:54:26.492986Z",
-  "window_end": "2026-11-24T03:54:26.492986Z",
-  "count": 9,
+  "window_start": "2026-11-10T13:54:57.316874Z",
+  "window_end": "2026-11-24T13:54:57.316874Z",
+  "count": 11,
   "launches": [
     {
       "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
@@ -141,6 +141,36 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a2975167-7c6f-4403-99e1-b40df17c8140/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "8dd5de11-831b-445f-86f0-bffefe0550d9",
+      "name": "Soyuz 2.1b | Progress MS-36 (97P)",
+      "net": "2026-11-24T05:03:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "Russian Federal Space Agency (ROSCOSMOS)",
+      "mission": "Progress MS-36 (97P)",
+      "mission_type": "Resupply",
+      "pad": "31/6",
+      "location": "Baikonur Cosmodrome, Republic of Kazakhstan",
+      "location_country_code": "KAZ",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8dd5de11-831b-445f-86f0-bffefe0550d9/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
+      "id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "net": "2026-11-24T07:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "SatNet LEO Group TBD?",
+      "mission_type": "Communications",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5ce59e3a-c343-430f-ae4e-e608ba536754/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
     }
   ]
 }
