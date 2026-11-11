@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-11-10T13:54:57.316874Z",
+  "updated_at": "2026-11-11T01:40:59.865434Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-10T13%3A54%3A57.316874Z&net__lte=2026-11-24T13%3A54%3A57.316874Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-11T01%3A40%3A59.865434Z&net__lte=2026-11-25T01%3A40%3A59.865434Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-10T13:54:57.316874Z",
-  "window_end": "2026-11-24T13:54:57.316874Z",
-  "count": 11,
+  "window_start": "2026-11-11T01:40:59.865434Z",
+  "window_end": "2026-11-25T01:40:59.865434Z",
+  "count": 12,
   "launches": [
-    {
-      "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
-      "name": "Falcon 9 Block 5 | USSF-627",
-      "net": "2026-11-11T02:49:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "USSF-627",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/6aa7b90b-e5ed-45d8-a52e-04fbf399d178/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
-    },
     {
       "id": "d66590ab-b273-47ff-b85a-608b62851b4b",
       "name": "Long March 2D | Unknown Payload",
@@ -36,6 +21,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/d66590ab-b273-47ff-b85a-608b62851b4b/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
+    },
+    {
+      "id": "6aa7b90b-e5ed-45d8-a52e-04fbf399d178",
+      "name": "Falcon 9 Block 5 | USSF-627",
+      "net": "2026-11-12T02:35:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-627",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/6aa7b90b-e5ed-45d8-a52e-04fbf399d178/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
       "id": "e2523821-9760-4cb4-ad1f-7ce2e30419bd",
@@ -83,21 +83,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
     },
     {
-      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
-      "name": "Falcon 9 Block 5 | USSF-317",
-      "net": "2026-11-14T04:09:00Z",
-      "status": "Go for Launch",
-      "country_group": "US",
-      "provider": "SpaceX",
-      "mission": "USSF-317",
-      "mission_type": "Government/Top Secret",
-      "pad": "Space Launch Complex 4E",
-      "location": "Vandenberg SFB, CA, USA",
-      "location_country_code": "USA",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/76617033-4dc0-4448-b50c-e5b0d5a18539/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
-    },
-    {
       "id": "db3500ac-965b-4ad8-b417-cb8d8d005586",
       "name": "Electron | The Mountain God Rises (iQPS Launch 10)",
       "net": "2026-11-14T05:30:00Z",
@@ -113,9 +98,24 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     },
     {
+      "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
+      "name": "Falcon 9 Block 5 | USSF-317",
+      "net": "2026-11-15T03:55:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-317",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/76617033-4dc0-4448-b50c-e5b0d5a18539/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
+    },
+    {
       "id": "460d9db7-eaf6-4cd9-b095-cff433534c09",
       "name": "Falcon 9 Block 5 | USSF-266",
-      "net": "2026-11-17T16:58:00Z",
+      "net": "2026-11-18T16:49:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -171,6 +171,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/5ce59e3a-c343-430f-ae4e-e608ba536754/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
+    },
+    {
+      "id": "c9605b67-8a53-4239-a8ae-577fe3b79799",
+      "name": "Long March 2F/G | Shenzhou 24",
+      "net": "2026-11-25T00:00:00Z",
+      "status": "To Be Determined",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Shenzhou 24",
+      "mission_type": "Human Exploration",
+      "pad": "Launch Area 91 (SLS-1 / 921)",
+      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/c9605b67-8a53-4239-a8ae-577fe3b79799/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/shenzhou_22_lau_image_20251129175823.jpg"
     }
   ]
 }
