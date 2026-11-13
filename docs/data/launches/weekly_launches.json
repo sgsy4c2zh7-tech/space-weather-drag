@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-11-12T14:12:39.477467Z",
+  "updated_at": "2026-11-13T02:16:50.904111Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-12T14%3A12%3A39.477467Z&net__lte=2026-11-26T14%3A12%3A39.477467Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-13T02%3A16%3A50.904111Z&net__lte=2026-11-27T02%3A16%3A50.904111Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-12T14:12:39.477467Z",
-  "window_end": "2026-11-26T14:12:39.477467Z",
-  "count": 10,
+  "window_start": "2026-11-13T02:16:50.904111Z",
+  "window_end": "2026-11-27T02:16:50.904111Z",
+  "count": 12,
   "launches": [
-    {
-      "id": "e2523821-9760-4cb4-ad1f-7ce2e30419bd",
-      "name": "Kuaizhou 11 | Unknown Payload",
-      "net": "2026-11-12T19:50:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "ExPace",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Area 95A",
-      "location": "Jiuquan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/e2523821-9760-4cb4-ad1f-7ce2e30419bd/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kuaizhou_11_lif_image_20240520155835.jpg"
-    },
     {
       "id": "ef9850ad-1096-425b-9d27-f7bbd186e61a",
       "name": "Vulcan VC6L | Amazon Leo (LV-01)",
@@ -53,6 +38,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/starship_on_the_image_20260724044615.jpg"
     },
     {
+      "id": "bff2fc91-eddd-4dfc-af26-ac0674cfab4d",
+      "name": "Soyuz 2.1b/Fregat-M | MKA Kinosputnik, KOEN and others",
+      "net": "2026-11-14T00:50:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Russian Federal Space Agency (ROSCOSMOS)",
+      "mission": "MKA Kinosputnik, KOEN and others",
+      "mission_type": "Technology",
+      "pad": "Cosmodrome Site 1S",
+      "location": "Vostochny Cosmodrome, Siberia, Russian Federation",
+      "location_country_code": "RUS",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/bff2fc91-eddd-4dfc-af26-ac0674cfab4d/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
+    },
+    {
       "id": "db3500ac-965b-4ad8-b417-cb8d8d005586",
       "name": "Electron | The Mountain God Rises (iQPS Launch 10)",
       "net": "2026-11-14T05:30:00Z",
@@ -61,7 +61,7 @@
       "provider": "Rocket Lab",
       "mission": "The Mountain God Rises (iQPS Launch 10)",
       "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
+      "pad": "Rocket Lab Launch Complex 1A",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/db3500ac-965b-4ad8-b417-cb8d8d005586/",
@@ -70,7 +70,7 @@
     {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
       "name": "Falcon 9 Block 5 | USSF-317",
-      "net": "2026-11-15T03:55:00Z",
+      "net": "2026-11-18T03:14:00Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -98,6 +98,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
+      "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
+      "name": "Long March 2D | Unknown Payload",
+      "net": "2026-11-18T22:50:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/e0a11eb1-0bda-4872-b36b-140247fd5c60/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
+    },
+    {
       "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
       "name": "Long March 8A | SatNet LEO Group TBD?",
       "net": "2026-11-20T11:00:00Z",
@@ -111,6 +126,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a2975167-7c6f-4403-99e1-b40df17c8140/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "951a341f-236b-42fe-a667-4ab2fcf36eac",
+      "name": "Falcon 9 Block 5 | NROL-136",
+      "net": "2026-11-21T12:30:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-136",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/951a341f-236b-42fe-a667-4ab2fcf36eac/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     },
     {
       "id": "8dd5de11-831b-445f-86f0-bffefe0550d9",
