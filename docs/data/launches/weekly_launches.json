@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-18T03:23:37.268637Z",
+  "updated_at": "2026-11-18T14:25:29.050785Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-18T03%3A23%3A37.268637Z&net__lte=2026-12-02T03%3A23%3A37.268637Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-18T14%3A25%3A29.050785Z&net__lte=2026-12-02T14%3A25%3A29.050785Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-18T03:23:37.268637Z",
-  "window_end": "2026-12-02T03:23:37.268637Z",
-  "count": 14,
+  "window_start": "2026-11-18T14:25:29.050785Z",
+  "window_end": "2026-12-02T14:25:29.050785Z",
+  "count": 15,
   "launches": [
     {
       "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
@@ -40,8 +40,8 @@
     {
       "id": "a2975167-7c6f-4403-99e1-b40df17c8140",
       "name": "Long March 8A | SatNet LEO Group TBD?",
-      "net": "2026-11-20T11:00:00Z",
-      "status": "To Be Confirmed",
+      "net": "2026-11-20T11:59:00Z",
+      "status": "Go for Launch",
       "country_group": "CHN",
       "provider": "China Aerospace Science and Technology Corporation",
       "mission": "SatNet LEO Group TBD?",
@@ -51,6 +51,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/a2975167-7c6f-4403-99e1-b40df17c8140/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-8a_launch_2_image_20251206093107.jpeg"
+    },
+    {
+      "id": "13270554-4bdb-42ae-916f-1bb54492204f",
+      "name": "Long March 6C | Unknown Payload",
+      "net": "2026-11-21T03:50:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "Launch Complex 9A",
+      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/13270554-4bdb-42ae-916f-1bb54492204f/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-6c_on_the_la_image_20240507065151.jpg"
     },
     {
       "id": "951a341f-236b-42fe-a667-4ab2fcf36eac",
