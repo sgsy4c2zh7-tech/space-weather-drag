@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-11-18T14:25:29.050785Z",
+  "updated_at": "2026-11-19T03:08:35.151736Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-18T14%3A25%3A29.050785Z&net__lte=2026-12-02T14%3A25%3A29.050785Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-19T03%3A08%3A35.151736Z&net__lte=2026-12-03T03%3A08%3A35.151736Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-18T14:25:29.050785Z",
-  "window_end": "2026-12-02T14:25:29.050785Z",
+  "window_start": "2026-11-19T03:08:35.151736Z",
+  "window_end": "2026-12-03T03:08:35.151736Z",
   "count": 15,
   "launches": [
-    {
-      "id": "e0a11eb1-0bda-4872-b36b-140247fd5c60",
-      "name": "Long March 2D | Unknown Payload",
-      "net": "2026-11-18T22:50:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Complex 9",
-      "location": "Taiyuan Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/e0a11eb1-0bda-4872-b36b-140247fd5c60/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
-    },
     {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
       "name": "Falcon 9 Block 5 | USSF-317",
@@ -141,6 +126,21 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/c9605b67-8a53-4239-a8ae-577fe3b79799/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/shenzhou_22_lau_image_20251129175823.jpg"
+    },
+    {
+      "id": "b0d27def-0a88-44c3-a947-1fd5b8503e2c",
+      "name": "Falcon 9 Block 5 | USSF-380",
+      "net": "2026-11-28T04:53:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "USSF-380",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/b0d27def-0a88-44c3-a947-1fd5b8503e2c/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
     },
     {
       "id": "d74afbc7-0de5-491c-be05-4e9c31f736ac",
