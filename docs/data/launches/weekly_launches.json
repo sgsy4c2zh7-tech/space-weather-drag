@@ -1,16 +1,16 @@
 {
-  "updated_at": "2026-11-19T14:54:38.550937Z",
+  "updated_at": "2026-11-20T02:39:07.025576Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-19T14%3A54%3A38.550937Z&net__lte=2026-12-03T14%3A54%3A38.550937Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-20T02%3A39%3A07.025576Z&net__lte=2026-12-04T02%3A39%3A07.025576Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-19T14:54:38.550937Z",
-  "window_end": "2026-12-03T14:54:38.550937Z",
+  "window_start": "2026-11-20T02:39:07.025576Z",
+  "window_end": "2026-12-04T02:39:07.025576Z",
   "count": 15,
   "launches": [
     {
       "id": "76617033-4dc0-4448-b50c-e5b0d5a18539",
       "name": "Falcon 9 Block 5 | USSF-317",
-      "net": "2026-11-20T04:32:55Z",
+      "net": "2026-11-20T06:43:59Z",
       "status": "Go for Launch",
       "country_group": "US",
       "provider": "SpaceX",
@@ -98,21 +98,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/soyuz_2.1b_image_20230802085331.jpg"
     },
     {
-      "id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
-      "name": "Long March 12 | SatNet LEO Group TBD?",
-      "net": "2026-11-24T07:00:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "SatNet LEO Group TBD?",
-      "mission_type": "Communications",
-      "pad": "Commercial LC-2",
-      "location": "Wenchang Space Launch Site, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/5ce59e3a-c343-430f-ae4e-e608ba536754/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
-    },
-    {
       "id": "c9605b67-8a53-4239-a8ae-577fe3b79799",
       "name": "Long March 2F/G | Shenzhou 24",
       "net": "2026-11-25T00:00:00Z",
@@ -128,6 +113,21 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/shenzhou_22_lau_image_20251129175823.jpg"
     },
     {
+      "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
+      "name": "Electron | Night Owls Never Sleep (StriX Launch 14)",
+      "net": "2026-11-27T00:00:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "Rocket Lab",
+      "mission": "Night Owls Never Sleep (StriX Launch 14)",
+      "mission_type": "Earth Science",
+      "pad": "Unknown Pad",
+      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
+      "location_country_code": "NZL",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/2093e4fc-ac8c-4296-a1b5-deececee6a72/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
+    },
+    {
       "id": "b0d27def-0a88-44c3-a947-1fd5b8503e2c",
       "name": "Falcon 9 Block 5 | USSF-380",
       "net": "2026-11-28T04:53:00Z",
@@ -141,6 +141,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/b0d27def-0a88-44c3-a947-1fd5b8503e2c/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_liftof_image_20260816171423.jpg"
+    },
+    {
+      "id": "8b46d360-6b3b-423f-9036-d5568e485624",
+      "name": "Kinetica 1 | Unknown Payload",
+      "net": "2026-11-29T01:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "CAS Space",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "South China Sea (launch location 3)",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b46d360-6b3b-423f-9036-d5568e485624/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
     },
     {
       "id": "d74afbc7-0de5-491c-be05-4e9c31f736ac",
@@ -216,21 +231,6 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/3cdb9dee-b5cb-406c-bbd1-06a219930fb7/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon2520925_image_20221009234147.png"
-    },
-    {
-      "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
-      "name": "Electron | StriX Launch 14",
-      "net": "2026-11-30T00:00:00Z",
-      "status": "To Be Determined",
-      "country_group": "US",
-      "provider": "Rocket Lab",
-      "mission": "StriX Launch 14",
-      "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
-      "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
-      "location_country_code": "NZL",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/2093e4fc-ac8c-4296-a1b5-deececee6a72/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/electron_image_20190705175640.jpeg"
     }
   ]
 }
