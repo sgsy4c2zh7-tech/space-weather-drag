@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-23T02:10:39.667331Z",
+  "updated_at": "2026-11-23T16:30:25.530103Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-23T02%3A10%3A39.667331Z&net__lte=2026-12-07T02%3A10%3A39.667331Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-23T16%3A30%3A25.530103Z&net__lte=2026-12-07T16%3A30%3A25.530103Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-23T02:10:39.667331Z",
-  "window_end": "2026-12-07T02:10:39.667331Z",
-  "count": 11,
+  "window_start": "2026-11-23T16:30:25.530103Z",
+  "window_end": "2026-12-07T16:30:25.530103Z",
+  "count": 12,
   "launches": [
     {
       "id": "8dd5de11-831b-445f-86f0-bffefe0550d9",
@@ -98,21 +98,6 @@
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long_march_6a__image_20251209050223.jpeg"
     },
     {
-      "id": "8b46d360-6b3b-423f-9036-d5568e485624",
-      "name": "Kinetica 1 | Unknown Payload",
-      "net": "2026-11-29T01:00:00Z",
-      "status": "To Be Confirmed",
-      "country_group": "CHN",
-      "provider": "CAS Space",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "South China Sea (launch location 3)",
-      "location": "Haiyang Oriental Spaceport",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b46d360-6b3b-423f-9036-d5568e485624/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
-    },
-    {
       "id": "13270554-4bdb-42ae-916f-1bb54492204f",
       "name": "Long March 6C | Unknown Payload",
       "net": "2026-11-29T03:50:00Z",
@@ -171,6 +156,36 @@
       "location_country_code": "CHN",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/e2523821-9760-4cb4-ad1f-7ce2e30419bd/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/kuaizhou_11_lif_image_20240520155835.jpg"
+    },
+    {
+      "id": "8b46d360-6b3b-423f-9036-d5568e485624",
+      "name": "Kinetica 1 | Unknown Payload",
+      "net": "2026-12-01T01:45:00Z",
+      "status": "Go for Launch",
+      "country_group": "CHN",
+      "provider": "CAS Space",
+      "mission": "Unknown Payload",
+      "mission_type": "Unknown",
+      "pad": "South China Sea (launch location 4)",
+      "location": "Haiyang Oriental Spaceport",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8b46d360-6b3b-423f-9036-d5568e485624/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/zhongke-1a_image_20220912002218.png"
+    },
+    {
+      "id": "5591cfa3-6336-41ab-a37a-7c57aa28ab5f",
+      "name": "Falcon 9 Block 5 | NROL-132",
+      "net": "2026-12-02T20:30:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "NROL-132",
+      "mission_type": "Government/Top Secret",
+      "pad": "Space Launch Complex 4E",
+      "location": "Vandenberg SFB, CA, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5591cfa3-6336-41ab-a37a-7c57aa28ab5f/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
     }
   ]
 }
