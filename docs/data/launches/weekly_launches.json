@@ -1,11 +1,11 @@
 {
-  "updated_at": "2026-11-25T16:04:31.283466Z",
+  "updated_at": "2026-11-26T04:00:42.397841Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-25T16%3A04%3A31.283466Z&net__lte=2026-12-09T16%3A04%3A31.283466Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-26T04%3A00%3A42.397841Z&net__lte=2026-12-10T04%3A00%3A42.397841Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-25T16:04:31.283466Z",
-  "window_end": "2026-12-09T16:04:31.283466Z",
-  "count": 9,
+  "window_start": "2026-11-26T04:00:42.397841Z",
+  "window_end": "2026-12-10T04:00:42.397841Z",
+  "count": 10,
   "launches": [
     {
       "id": "b00f0e9a-48d6-4f26-9cb5-7d19169ff7c4",
@@ -31,7 +31,7 @@
       "provider": "Rocket Lab",
       "mission": "Night Owls Never Sleep (StriX Launch 14)",
       "mission_type": "Earth Science",
-      "pad": "Unknown Pad",
+      "pad": "Rocket Lab Launch Complex 1B",
       "location": "Rocket Lab Launch Complex 1, Mahia Peninsula, New Zealand",
       "location_country_code": "NZL",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/2093e4fc-ac8c-4296-a1b5-deececee6a72/",
@@ -141,6 +141,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/5591cfa3-6336-41ab-a37a-7c57aa28ab5f/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_on_slc_image_20241024165956.jpg"
+    },
+    {
+      "id": "8bf5f61e-a7e1-41e6-aede-7b87e4beebab",
+      "name": "Falcon 9 Block 5 | CHORUS",
+      "net": "2026-12-04T12:55:00Z",
+      "status": "Go for Launch",
+      "country_group": "US",
+      "provider": "SpaceX",
+      "mission": "CHORUS",
+      "mission_type": "Earth Science",
+      "pad": "Space Launch Complex 40",
+      "location": "Cape Canaveral SFS, FL, USA",
+      "location_country_code": "USA",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/8bf5f61e-a7e1-41e6-aede-7b87e4beebab/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
     }
   ]
 }
