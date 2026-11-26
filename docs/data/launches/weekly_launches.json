@@ -1,27 +1,12 @@
 {
-  "updated_at": "2026-11-26T04:00:42.397841Z",
+  "updated_at": "2026-11-26T15:50:33.839829Z",
   "source": "Launch Library 2 / The Space Devs",
-  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-26T04%3A00%3A42.397841Z&net__lte=2026-12-10T04%3A00%3A42.397841Z&ordering=net",
+  "source_url": "https://ll.thespacedevs.com/2.2.0/launch/upcoming/?limit=100&net__gte=2026-11-26T15%3A50%3A33.839829Z&net__lte=2026-12-10T15%3A50%3A33.839829Z&ordering=net",
   "window_days": 14,
-  "window_start": "2026-11-26T04:00:42.397841Z",
-  "window_end": "2026-12-10T04:00:42.397841Z",
+  "window_start": "2026-11-26T15:50:33.839829Z",
+  "window_end": "2026-12-10T15:50:33.839829Z",
   "count": 10,
   "launches": [
-    {
-      "id": "b00f0e9a-48d6-4f26-9cb5-7d19169ff7c4",
-      "name": "Long March 2D | Unknown Payload",
-      "net": "2026-11-26T09:35:00Z",
-      "status": "Go for Launch",
-      "country_group": "CHN",
-      "provider": "China Aerospace Science and Technology Corporation",
-      "mission": "Unknown Payload",
-      "mission_type": "Unknown",
-      "pad": "Launch Complex 3 (LC-3/LA-1)",
-      "location": "Xichang Satellite Launch Center, People's Republic of China",
-      "location_country_code": "CHN",
-      "url": "https://ll.thespacedevs.com/2.2.0/launch/b00f0e9a-48d6-4f26-9cb5-7d19169ff7c4/",
-      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/long2520march25202d_image_20190222031211.jpeg"
-    },
     {
       "id": "2093e4fc-ac8c-4296-a1b5-deececee6a72",
       "name": "Electron | Night Owls Never Sleep (StriX Launch 14)",
@@ -156,6 +141,21 @@
       "location_country_code": "USA",
       "url": "https://ll.thespacedevs.com/2.2.0/launch/8bf5f61e-a7e1-41e6-aede-7b87e4beebab/",
       "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/falcon_9_image_20230807133459.jpeg"
+    },
+    {
+      "id": "5ce59e3a-c343-430f-ae4e-e608ba536754",
+      "name": "Long March 12 | SatNet LEO Group TBD?",
+      "net": "2026-12-10T07:00:00Z",
+      "status": "To Be Confirmed",
+      "country_group": "CHN",
+      "provider": "China Aerospace Science and Technology Corporation",
+      "mission": "SatNet LEO Group TBD?",
+      "mission_type": "Communications",
+      "pad": "Commercial LC-2",
+      "location": "Wenchang Space Launch Site, People's Republic of China",
+      "location_country_code": "CHN",
+      "url": "https://ll.thespacedevs.com/2.2.0/launch/5ce59e3a-c343-430f-ae4e-e608ba536754/",
+      "image": "https://thespacedevs-prod.nyc3.digitaloceanspaces.com/media/images/cz-12_on_its_la_image_20241128132937.jpg"
     }
   ]
 }
